@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/agiliza.tech4bg.png">
+    <link rel="shortcut icon" href="images/agiliza.tech4bg.png" type="image/png">
+    <link rel="apple-touch-icon" href="images/agiliza.tech4bg.png">
+
+    <title>Painel de Administração | AGILIZA TECH</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo-slider">
+            <a href="index.html">
+                <img id="logo-slide" class="logo-img" src="images/agiliza.tech3bg.png" alt="Logo Agiliza Tech">
+            </a>
+        </div>
+        <nav class="main-nav">
+            <a href="index.html">Voltar ao Site</a>
+        </nav>
+    </header>
+    <div class="container">
+        <main id="admin-main-content" class="admin-container" style="display: none;">
+            <!-- Seção do Dashboard -->
+            <div class="dashboard-section">
+                <div class="dashboard-summary">
+                    <div class="summary-card">
+                        <h4>Receita Total</h4>
+                        <p id="total-revenue">R$ 0,00</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Total de Pedidos</h4>
+                        <p id="total-orders">0</p>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Ticket Médio</h4>
+                        <p id="average-ticket">R$ 0,00</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="salesChart"></canvas>
+                </div>
+            </div>
+            <!-- Filtros -->
+            <div class="admin-filters">
+                <input type="date" id="start-date-input" title="Data de início">
+                <input type="date" id="end-date-input" title="Data de fim">
+                <button id="filter-btn">Filtrar</button>
+                <button id="clear-filter-btn">Limpar Filtros</button>
+            </div>
+
+            <div class="admin-header">
+                <h2 class="section-title">Painel de Pedidos</h2>
+                <button id="refresh-btn">Atualizar Lista</button>
+            </div>
+            <p>Lista de todos os modelos digitais vendidos.</p>
+            <div class="table-wrapper">
+                <table id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Produto</th>
+                            <th>Email do Cliente</th>
+                            <th>Valor (R$)</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div id="pagination-controls" class="pagination-controls">
+                <!-- Botões de paginação serão inseridos aqui -->
+            </div>
+        </main>
+        <form id="login-form" class="login-form">
+            <h3>Acesso Restrito</h3>
+            <input type="password" id="admin-key-input" placeholder="Chave de Acesso" required>
+            <button type="submit">Entrar</button>
+            <p id="login-error" class="error-message" style="display: none;"></p>
+        </form>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>

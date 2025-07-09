@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/agiliza.tech4bg.png">
+  <link rel="shortcut icon" href="images/agiliza.tech4bg.png" type="image/png">
+  <link rel="apple-touch-icon" href="images/agiliza.tech4bg.png">
+
+  <title>Biblioteca de Modelos Digitais | AGILIZA TECH</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo-slider">
+      <a href="index.html">
+        <img id="logo-slide" class="logo-img" src="images/agiliza.tech3bg.png" alt="Logo Agiliza Tech">
+      </a>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html#sobre">Sobre</a>
+      <a href="catalagodeservicos.html">Serviços</a>
+      <a href="modelosdigitais.html" class="active">Modelos Digitais</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+    <button class="hamburger" id="hamburger-menu">
+        <i class="fas fa-bars"></i>
+    </button>
+  </header>
+  <div class="container">
+    <main>
+      <section class="modelos-digitais-container fade-in-section">
+        <h2 class="section-title">Sua Agilidade Começa Aqui: Biblioteca de Modelos Digitais Prontos para Download.</h2>
+        <p class="intro-text">Economize tempo e garanta profissionalismo com nossos modelos de planilhas e documentos. Desenvolvidos por especialistas, eles são a ferramenta perfeita para otimizar sua rotina pessoal e profissional. Baixe, edite e use imediatamente!</p>
+
+        <!-- Barra de Busca -->
+        <div class="search-container">
+          <input type="search" id="search-modelos-input" placeholder="Buscar por nome ou palavra-chave..." autocomplete="off">
+        </div>
+
+        <!-- O JavaScript irá preencher esta área dinamicamente -->
+        <div class="modelos-grid" id="modelos-grid-container"></div>
+      </section>
+    </main>
+  </div>
+  <footer>
+    &copy; <span id="current-year"></span> AGILIZA TECH. Todos os direitos reservados.
+  </footer>
+  <!-- Modal de Assistência -->
+  <div id="assistance-modal" class="modal-container">
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div class="modal-content">
+      <button id="close-modal-btn" class="modal-close-btn">&times;</button>
+      <h3>Como Funciona a Assistência Agiliza Tech?</h3>
+      <p>Ao escolher o combo com assistência, você garante tranquilidade e expertise no preenchimento do seu documento. O processo é simples:</p>
+      <ol class="modal-steps">
+        <li><strong>Pagamento:</strong> Após a confirmação do pagamento do combo, você receberá o link para download imediato do modelo.</li>
+        <li><strong>Agendamento:</strong> Junto com o download, você receberá um link para nosso WhatsApp para agendar sua sessão de assistência.</li>
+        <li><strong>Sessão Online:</strong> No horário marcado, um de nossos especialistas entrará em contato para ajudar a preencher, personalizar e tirar todas as suas dúvidas sobre o documento.</li>
+      </ol>
+      <p>É a forma mais segura e eficiente de garantir que seu documento esteja perfeito para a sua necessidade!</p>
+      <div class="botoes-compra">
+        <button id="modal-payment-btn" class="btn-comprar">Prosseguir para Pagamento</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão para abrir o Chat (FAB) -->
+  <button id="chat-open-btn" title="Abrir Chat" class="chat-fab">
+      <img src="images/agiliza.tech4bg.png" alt="Abrir Chat" class="chat-fab-logo">
+  </button>
+
+  <!-- Chatbot Moderno -->
+  <div id="chatbot-container" class="hidden">
+    <div id="chat-header">
+      <div class="chat-avatar">
+        <i class="fas fa-robot"></i>
+      </div>
+      <span class="chat-title">Agiliza Tech</span>
+      <div class="chat-header-actions">
+        <button id="chat-reset-btn" title="Reiniciar Chat"><i class="fas fa-rotate-right"></i></button>
+        <button id="chat-min-btn" title="Minimizar"><i class="fas fa-minus"></i></button>
+        <button id="chat-max-btn" title="Maximizar"><i class="fas fa-expand-alt"></i></button>
+        <button id="chat-close-btn" title="Fechar Chat"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div id="chat-body"></div>
+    <div id="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Digite sua mensagem..." autocomplete="off" />
+      <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <!-- Botão Voltar ao Topo -->
+  <button id="back-to-top-btn" title="Voltar ao Topo">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+  <script src="js/main.js"></script>
+  <script src="js/modelos.js"></script>
+</body>
+</html>

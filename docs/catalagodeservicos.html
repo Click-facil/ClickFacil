@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Serviços | AGILIZA TECH</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo-slider">
+      <a href="index.html">
+        <img id="logo-slide" class="logo-img" src="images/agiliza.tech3bg.png" alt="Logo Agiliza Tech">
+      </a>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html#sobre">Sobre</a>
+      <a href="catalagodeservicos.html" class="active">Serviços</a>
+      <a href="modelosdigitais.html">Modelos Digitais</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+    <button class="hamburger" id="hamburger-menu">
+        <i class="fas fa-bars"></i>
+    </button>
+  </header>
+  <div class="container">
+    <main>
+      <section class="catalogo-container">
+        <h2 class="section-title">Catálogo de Serviços</h2>
+        <div class="catalogo-grid"></div>
+        <div class="promo-modelos-digitais">
+          <p>Para soluções rápidas e profissionais, explore nossa <a href="modelosdigitais.html">Biblioteca de Modelos Digitais</a>!</p>
+          <a href="modelosdigitais.html" class="saiba-mais">Ver Modelos Digitais</a>
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer>
+    &copy; <span id="current-year"></span> AGILIZA TECH. Todos os direitos reservados.
+  </footer>
+  <!-- Botão para abrir o Chat (FAB) -->
+  <button id="chat-open-btn" title="Abrir Chat" class="chat-fab">
+      <img src="images/agiliza.tech4bg.png" alt="Abrir Chat" class="chat-fab-logo">
+  </button>
+
+  <!-- Chatbot Moderno -->
+  <div id="chatbot-container" class="hidden">
+    <div id="chat-header">
+      <div class="chat-avatar">
+        <i class="fas fa-robot"></i>
+      </div>
+      <span class="chat-title">Agiliza Tech</span>
+      <div class="chat-header-actions">
+        <button id="chat-reset-btn" title="Reiniciar Chat"><i class="fas fa-rotate-right"></i></button>
+        <button id="chat-min-btn" title="Minimizar"><i class="fas fa-minus"></i></button>
+        <button id="chat-max-btn" title="Maximizar"><i class="fas fa-expand-alt"></i></button>
+        <button id="chat-close-btn" title="Fechar Chat"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <div id="chat-body"></div>
+    <div id="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Digite sua mensagem..." autocomplete="off" />
+      <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <!-- Botão Voltar ao Topo -->
+  <button id="back-to-top-btn" title="Voltar ao Topo">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+  <script src="js/catalogo.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

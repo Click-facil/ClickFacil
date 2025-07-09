@@ -1,0 +1,1453 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    --bg-dark-navy: #f0f4f8;  /* Azul bem claro como base */
+    --bg-light-navy: #ffffff; /* Branco para cards e elementos */
+    --text-lightest: #333333; /* Cinza escuro para textos principais */
+    --text-light: #555555; /* Cinza para textos secundários */
+    --text-dark: #777777; /* Cinza mais escuro para detalhes */
+    --accent-cyan: #29abe2; /* Azul vibrante para acentos */
+    --accent-orange: #f58731; /* Laranja para acentos secundários */
+    --sombra-dark: 0 10px 30px -15px rgba(2,12,27,0.7);
+    --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark-navy);
+    font-family: var(--font-sans);
+    color: var(--text-light);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Classe para travar o scroll quando o menu mobile estiver aberto */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Animação de Fade-in para seções */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    height: 100px;
+    background-color: rgba(240, 244, 248, 0.85); /* Fundo quase branco com transparência */
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra mais leve */
+    transition: height 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.main-title {
+    display: none; /* O logo substitui o título principal */
+}
+
+.main-subtitle {
+    display: none; /* O subtítulo não é mais necessário no header */
+}
+
+.logo-img {
+    width: 150px; /* Tamanho ajustado para o novo header */
+    height: auto;
+    transition: width 0.3s;
+    /* Removendo o efeito neon para um visual mais clean */
+    /* filter: drop-shadow(0 0 10px var(--accent-cyan)); */
+}
+.main-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Reduzindo o espaçamento entre os links */
+    font-size: 0.9rem;
+}
+.main-nav a {
+    color: var(--text-light); /* Textos mais claros */
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    transition: color 0.2s, background-color 0.2s; /* Adicionando transição de background */
+}
+.main-nav a::before {
+    display: none; /* Removendo numeração dos links */
+}
+.main-nav a.active,
+.main-nav a:hover {
+    color: var(--accent-cyan);
+}
+.main-nav a:hover {
+    background-color: rgba(41, 171, 226, 0.1); /* Adicionando um leve hover */
+    border-radius: 4px;
+}
+.main-nav a.cta {
+    margin-left: 20px; /* Revertendo a margem para o estilo original do botão */
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    border: 1px solid var(--accent-cyan); /* Garantindo que a borda do botão esteja presente */
+    border-radius: 8px; /* Aumentando o border-radius para o botão */
+    font-weight: 500; /* Adicionando peso de fonte ao botão para consistência */
+    transition: background-color 0.2s, color 0.2s; /* Adicionando transição ao botão */
+}
+
+/* Estilo do header quando a página é rolada */
+.main-header.scrolled {
+    height: 70px;
+    background-color: rgba(240, 244, 248, 0.98); /* Fundo mais opaco */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.main-header.scrolled .logo-img {
+    width: 120px; /* Logo menor no header "encolhido" */
+}
+
+/* Hamburger button styles */
+.hamburger {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-lightest);
+    cursor: pointer;
+    transition: color 0.2s;
+    z-index: 101; /* Above the nav when it's open */
+}
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 20px; /* Padding top para compensar o header fixo */
+}
+
+section {
+    margin-bottom: 100px;
+    padding-top: 50px; /* Espaço para o ID da âncora não ficar sob o header */
+    margin-top: -50px;
+}
+
+.about-section {
+    margin-bottom: 80px;
+}
+.about {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.about-img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain; /* Ajustando para 'contain' para melhor visualização */
+    border-radius: 8px;
+    /* Removendo borda e sombra para um visual mais flat */
+    /* border: 2px solid var(--accent-cyan); */
+    /* box-shadow: 0 0 20px rgba(100, 255, 218, 0.3); */
+}
+.about-text h2 {
+    color: var(--text-lightest);
+    margin-bottom: 12px;
+    /* Usando clamp para uma tipografia mais fluida e responsiva */
+    font-size: clamp(1.6rem, 4vw, 1.8rem);
+    font-weight: 700;
+}
+.about-text p {
+    color: var(--text-light);
+    margin-bottom: 12px;
+}
+
+.section-title {
+    text-align: left; /* Alinhando títulos à esquerda */
+    color: var(--text-lightest);
+    /* Usando clamp para uma tipografia mais fluida e responsiva */
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    margin-bottom: 40px;
+    font-weight: 700;
+    position: relative;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+/* Removendo linha após o título */
+/* .section-title::after { */
+/*    content: ''; */
+/*    display: block; */
+/*    position: relative; */
+/*    top: 0; */
+/*    width: 300px; */
+/*    height: 1px; */
+/*    margin-left: 20px; */
+/*    background-color: var(--bg-light-navy); */
+/* } */
+
+.services-section {
+    margin-bottom: 80px;
+}
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.service-card {
+    background: #f9f9f9; /* Cor ligeiramente mais escura para os cards */
+    border-radius: 8px;
+    box-shadow: var(--sombra-dark);
+    padding: 2rem 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+.service-card:hover {
+    transform: translateY(-5px); /* Reduz o efeito "flutuar" */
+    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
+}
+.service-icon {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+    margin-bottom: 16px;
+    text-align: left;
+}
+.service-card h3 {
+    font-size: 1.25rem;
+    color: var(--text-lightest);
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-align: left;
+}
+.service-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.saiba-mais, .view-details {
+    display: block;
+    margin: 0 auto;
+    background: transparent;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: fit-content;
+}
+.saiba-mais, .view-details {
+    border: 1px solid var(--accent-cyan);
+}
+.saiba-mais:hover, .view-details:hover {
+    background-color: rgba(41, 171, 226, 0.1); /* Usando o accent-cyan com transparência */
+    box-shadow: 0 0 10px rgba(41, 171, 226, 0.3);
+}
+
+.contact-section {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 100px auto;
+}
+.contact-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.contact-info p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+.contact-info i {
+    color: var(--accent-cyan);
+    margin-right: 8px;
+}
+.contact-form {
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contact-form label {
+    display: none; /* Modern forms often use placeholders */
+}
+.contact-form input,
+.contact-form textarea {
+    border: 1px solid var(--text-dark);
+    border-radius: 8px; /* Bordas mais arredondadas */
+    padding: 14px;
+    font-size: 1rem;
+    background-color: var(--bg-light-navy);
+    color: var(--text-lightest);
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.1);
+}
+.contact-form button {
+    background: transparent;
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 8px; /* Bordas mais arredondadas */
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+.contact-form button:hover {
+    background-color: rgba(41, 171, 226, 0.1); /* CORRIGIDO: Usando a cor --accent-cyan */
+    box-shadow: 0 0 10px rgba(41, 171, 226, 0.3); /* CORRIGIDO: Usando a cor --accent-cyan */
+}
+
+footer {
+    color: var(--text-dark);
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8rem;
+}
+
+/* Catálogo */
+.catalogo-container {
+    background-color: transparent;
+    padding: 40px 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.catalogo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+}
+
+.catalogo-categoria {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.catalogo-categoria h3 {
+    font-size: 1.8rem;
+    color: var(--text-lightest); /* Mantendo a cor do título */
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.catalogo-slider {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding: 10px;
+    margin: 0 -10px; /* Ajustando margens */
+}
+/* Estiliza a barra de rolagem para ser mais discreta */
+.catalogo-slider::-webkit-scrollbar {
+    height: 8px;
+}
+.catalogo-slider::-webkit-scrollbar-thumb {
+    background-color: var(--accent-cyan); /* Barra de rolagem na cor de destaque */
+    border-radius: 10px; /* Bordas arredondadas na barra */
+}
+
+.catalogo-item {
+    display: flex;
+    flex-direction: column; /* Organiza conteúdo em coluna */
+    justify-content: space-between; /* Espaça o conteúdo internamente */
+    height: 350px; /* Altura fixa para os cards */
+    width: 300px;
+    flex-shrink: 0; /* Impede que os itens encolham */
+    scroll-snap-align: start;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background: var(--bg-light-navy);
+    border-radius: 8px;
+    box-shadow: var(--sombra-dark);
+    overflow: hidden;
+}
+
+.catalogo-item:hover {
+    transform: translateY(-5px); /* Efeito hover sutil */
+    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
+}
+
+.catalogo-imagem {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background-color: var(--bg-dark-navy);
+}
+
+.catalogo-item h3 {
+    font-size: 1.2rem;
+    color: var(--text-lightest);
+    margin: 1rem 1rem 0.5rem 1rem;
+    font-weight: 700;
+}
+
+.catalogo-item p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0 1rem 1rem 1rem;
+    flex-grow: 1; /* Permite que o parágrafo preencha o espaço */
+}
+.catalogo-item .view-details {
+    margin: 0 1rem 1rem auto; /* Alinha o botão à direita */
+}
+
+/* --- Seção de Garantias --- */
+.garantias-section {
+    margin-bottom: 80px;
+}
+.lista-garantias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.garantia-item {
+    background: var(--bg-light-navy);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--sombra-dark);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 2px solid var(--accent-orange);
+}
+.garantia-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
+}
+.garantia-item h3 {
+    color: var(--text-lightest);
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.garantia-item p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* --- Seção de Avaliações --- */
+.avaliacoes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 80px;
+}
+.comentario {
+    background: var(--bg-light-navy);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 2px solid var(--accent-cyan);
+    display: flex;
+    flex-direction: column;
+}
+.estrelas {
+    color: #ffc107;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+.comentario .texto {
+    font-style: italic;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+.comentario .autor {
+    font-weight: bold;
+    text-align: right;
+    color: var(--text-lightest);
+}
+
+/* --- Seção de FAQ --- */
+.faq-section {
+    max-width: 700px;
+    margin: 0 auto 100px auto;
+}
+.faq-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.faq-container details {
+    background: var(--bg-light-navy);
+    border-radius: 8px;
+    border-left: 2px solid var(--accent-cyan);
+    transition: background-color 0.3s;
+}
+.faq-container summary {
+    padding: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1.05rem;
+    color: var(--text-lightest);
+    list-style: none;
+    position: relative;
+    outline: none;
+    transition: color 0.3s;
+}
+.faq-container details[open] summary {
+    color: var(--accent-cyan);
+}
+.faq-container summary::-webkit-details-marker { display: none; }
+.faq-container summary::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    font-size: 1.8rem;
+    transition: transform 0.3s;
+    color: var(--accent-cyan);
+}
+.faq-container details[open] summary::after {
+    transform: rotate(45deg);
+}
+.faq-container details p {
+    padding: 0 16px 16px 16px;
+    color: var(--text-light);
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* CHATBOT STYLES - CORRIGIDOS */
+.hidden {
+    transform: scale(0.5);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+#chatbot-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 350px;
+    height: 550px;
+    max-height: 80vh;
+    max-width: 95vw;
+    background: var(--bg-light-navy);
+    border-radius: 18px 18px 12px 12px;
+    box-shadow: 0 8px 32px 0 rgba(0,87,184,0.13), 0 2px 8px 0 rgba(0,0,0,0.07);
+    z-index: 10000;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans);
+    border: 1.5px solid var(--accent-cyan);
+}
+
+#chatbot-container.hidden {
+    transform: translateY(100%) translateY(24px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#chat-header {
+    background: var(--bg-dark-navy);
+    color: var(--text-lightest);
+    padding: 10px 16px;
+    font-weight: bold;
+    border-radius: 18px 18px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 48px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10001;
+}
+
+.chat-avatar {
+    background: var(--accent-cyan);
+    color: var(--bg-dark-navy);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-right: 10px;
+    box-shadow: 0 2px 8px 0 rgba(0,87,184,0.08);
+    flex-shrink: 0;
+}
+
+.chat-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    flex: 1;
+}
+
+.chat-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.chat-header-actions button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    pointer-events: auto;
+}
+.chat-header-actions button:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-dark-navy);
+}
+
+#chat-body {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background: var(--bg-dark-navy);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    z-index: 10001;
+}
+
+.chat-message {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.chat-message.user {
+    justify-content: flex-end;
+}
+
+.chat-message.bot {
+    justify-content: flex-start;
+}
+
+.chat-bubble {
+    max-width: 75%;
+    padding: 10px 16px;
+    border-radius: 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+    box-shadow: 0 2px 8px 0 rgba(0,87,184,0.08);
+    word-break: break-word;
+}
+
+.chat-message.user .chat-bubble {
+    background: var(--accent-cyan); /* CORRIGIDO: Usando a variável de cor principal */
+    color: #fff;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 16px;
+}
+
+.chat-message.bot .chat-bubble {
+    background: var(--bg-light-navy);
+    color: var(--text-lightest);
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 16px;
+    border: 1px solid #e9eaf0;
+}
+
+/* Estilos para os botões de opção no chat */
+.chat-bubble p {
+    margin: 0 0 12px 0;
+}
+.chat-bubble p:last-child {
+    margin-bottom: 0;
+}
+
+.chat-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.chat-option-btn {
+    background-color: #fff;
+    color: var(--accent-cyan);
+    border: 1.5px solid var(--accent-cyan);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 4px rgba(0,87,184,0.05);
+}
+
+.chat-option-btn:hover:not(:disabled) {  /* Mantém o hover sutil */
+    background-color: rgba(41, 171, 226, 0.1); /* CORRIGIDO: Usando a cor --accent-cyan */
+    box-shadow: 0 2px 8px rgba(0,87,184,0.1);
+}
+
+.chat-option-btn:disabled {
+    background-color: var(--bg-light-navy);
+    color: var(--text-dark);
+    cursor: not-allowed;
+    opacity: 0.7;
+    border-color: var(--text-dark);
+}
+
+/* Indicador de "Digitando..." */
+.typing-indicator .chat-bubble {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 12px 16px;
+}
+
+.typing-indicator .dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-dark);
+    border-radius: 50%;
+    animation: typing-bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator .dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.typing-indicator .dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+@keyframes typing-bounce {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1.0);
+    }
+}
+
+#chat-input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    background: var(--bg-dark-navy);
+    border-top: 1px solid #e9eaf0;
+    gap: 8px;
+    position: relative;
+    z-index: 10001;
+}
+
+#chat-input {
+    flex: 1;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 1rem;
+    background: var(--bg-light-navy);
+    color: var(--text-lightest);
+    outline: none;
+    pointer-events: auto;
+}
+
+#send-btn {
+    background: var(--accent-cyan);
+    color: var(--bg-dark-navy);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 40px;
+    flex-shrink: 0;
+    pointer-events: auto;
+    position: relative;
+    z-index: 10002;
+}
+#send-btn:hover {
+    background: #1e86b5; /* Alterando a cor do hover */
+}
+#send-btn:active {
+    transform: scale(0.95);
+}
+
+/* Balão para abrir o chat (FAB) */
+#chat-open-btn.chat-fab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    width: 72px;
+    height: 72px;
+    background: var(--bg-light-navy);
+    border-radius: 50%;
+    box-shadow: 0 4px 24px rgba(100, 255, 218, 0.3);
+    border: 2.5px solid var(--accent-cyan);
+    z-index: 9999;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease-in-out;
+    pointer-events: auto;
+}
+#chat-open-btn.chat-fab:hover {
+    box-shadow: 0 8px 32px rgba(255, 140, 66, 0.4);
+    border-color: var(--accent-orange);
+}
+.chat-fab-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 50%;
+    display: block;
+    pointer-events: none;
+}
+
+/* Estados do chatbot */
+#chatbot-container.chatbot-max {
+    height: 550px;
+}
+
+#chatbot-container.chatbot-max #chat-max-btn {
+    display: none;
+}
+
+#chatbot-container.chatbot-min {
+    height: 58px;
+    min-height: 58px;
+}
+
+#chatbot-container.chatbot-min #chat-body,
+#chatbot-container.chatbot-min #chat-input-container {
+    display: none;
+}
+
+#chatbot-container.chatbot-min #chat-min-btn {
+    display: none;
+}
+
+#chatbot-container.chatbot-min #chat-max-btn {
+    display: flex;
+}
+/* Botão Voltar ao Topo */
+#back-to-top-btn {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    bottom: 90px; /* Acima do FAB do chatbot */
+    right: 32px;
+    z-index: 9998; /* Abaixo do FAB do chatbot */
+    background-color: var(--accent-cyan);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(41, 171, 226, 0.3);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+#back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top-btn:hover {
+    background-color: #1e86b5; /* Tom mais escuro no hover */
+    box-shadow: 0 6px 16px rgba(41, 171, 226, 0.4);
+}
+
+/* --- Nova Seção: Modelos Digitais --- */
+.modelos-digitais-container {
+    background-color: transparent;
+    padding: 40px 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modelos-digitais-container .section-title {
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.intro-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.modelos-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+}
+
+.modelo-categoria {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.modelo-categoria h3 {
+    font-size: 1.8rem;
+    color: var(--text-lightest);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.categoria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    /* Adicionado para impedir que os cards se estiquem para a mesma altura */
+    align-items: start;
+}
+
+.modelo-card {
+    background: var(--bg-light-navy);
+    border-radius: 8px;
+    box-shadow: var(--sombra-dark);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.modelo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
+}
+
+.modelo-imagem {
+    width: 100%;
+    height: 180px; /* Altura fixa para as imagens dos modelos */
+    object-fit: cover;
+    background-color: var(--bg-dark-navy);
+}
+
+.modelo-card-content {
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.modelo-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.5rem;
+}
+
+.modelo-card-header h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-lightest);
+    font-weight: 700;
+    flex-grow: 1;
+}
+
+.btn-info {
+    background: transparent;
+    border: 1px solid #ddd;
+    color: var(--text-dark);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-info:hover {
+    background-color: #eee;
+    border-color: #ccc;
+}
+
+.modelo-card-description {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-in-out, margin-top 0.4s ease-out;
+}
+
+.modelo-card-description > p {
+    overflow: hidden;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.modelo-card-description.show {
+    max-height: 200px; /* Valor seguro para a altura máxima da descrição */
+    opacity: 1;
+    margin-top: 0.5rem;
+}
+.precos {
+    margin: 0 1rem 1rem 1rem;
+}
+
+/* Estilos para a Barra de Busca de Modelos */
+.search-container {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    position: relative;
+}
+
+#search-modelos-input {
+    width: 100%;
+    padding: 14px 20px 14px 45px; /* Espaço para o ícone */
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#search-modelos-input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 10px rgba(41, 171, 226, 0.2);
+}
+
+.search-container::before {
+    content: '\f002'; /* Ícone de lupa do Font Awesome */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dark);
+}
+
+#no-results-message {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    padding: 40px 0;
+    display: none; /* Escondido por padrão */
+}
+
+.precos strong {
+    font-size: 1.2rem;
+    color: var(--accent-orange);
+}
+.combo-info {
+    font-size: 0.85rem;
+    color: var(--text-dark);
+}
+
+.botoes-compra {
+    display: flex;
+    flex-direction: row; /* Altera para linha para botões lado a lado */
+    gap: 10px;
+    padding: 0 1rem 1rem 1rem;
+}
+
+.btn-comprar, .btn-comprar-combo {
+    flex: 1; /* Faz com que os botões dividam o espaço igualmente */
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    text-align: center;
+    text-decoration: none; /* Para o caso de ser um <a> */
+}
+
+/* Estilos para o Spinner de Carregamento no Botão */
+.btn-loading {
+    position: relative;
+    color: transparent !important; /* Esconde o texto do botão */
+    pointer-events: none; /* Impede cliques múltiplos */
+}
+
+.btn-spinner {
+    display: none; /* Escondido por padrão */
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff; /* Cor do topo do spinner */
+    border-radius: 50%;
+    width: 1.5em; /* Tamanho relativo ao font-size do botão */
+    height: 1.5em;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.75em; /* Metade da altura */
+    margin-left: -0.75em; /* Metade da largura */
+}
+
+.btn-loading .btn-spinner {
+    display: block;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+.btn-comprar {
+    background-color: var(--accent-cyan);
+    color: white;
+    border: 1px solid var(--accent-cyan);
+}
+.btn-comprar:hover {
+    background-color: #1e86b5;
+    border-color: #1e86b5;
+}
+
+.btn-comprar-combo {
+    background-color: transparent;
+    color: var(--accent-cyan);
+    border: 1px solid var(--accent-cyan);
+}
+.btn-comprar-combo:hover {
+    background-color: rgba(41, 171, 226, 0.1);
+}
+
+/* Banner de Promoção de Modelos Digitais na Home */
+.promo-modelos-digitais-banner {
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-orange));
+    color: white;
+    padding: 50px 30px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+.promo-modelos-digitais-banner h2 {
+    color: white;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+.promo-modelos-digitais-banner p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+.promo-modelos-digitais-banner .saiba-mais {
+    background-color: white;
+    color: var(--accent-cyan);
+    border-color: white;
+}
+.promo-modelos-digitais-banner .saiba-mais:hover {
+    background-color: var(--bg-dark-navy);
+    color: var(--accent-cyan);
+    box-shadow: none;
+}
+
+/* Nota na página de Catálogo de Serviços */
+.promo-modelos-digitais {
+    background-color: var(--bg-light-navy);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.promo-modelos-digitais p {
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+    color: var(--text-light);
+}
+.promo-modelos-digitais a {
+    color: var(--accent-cyan);
+    font-weight: 600;
+    text-decoration: none;
+}
+.promo-modelos-digitais a:hover {
+    text-decoration: underline;
+}
+
+/* --- Estilos para Notificações Toast --- */
+.toast-notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%, 100px); /* Começa fora da tela */
+    padding: 15px 25px;
+    border-radius: 8px;
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 10002;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out, visibility 0.4s;
+}
+
+.toast-notification.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.toast-notification.success {
+    background-color: #28a745; /* Verde */
+}
+
+.toast-notification.error {
+    background-color: #dc3545; /* Vermelho */
+}
+
+.toast-notification.info {
+    background-color: #17a2b8; /* Azul info */
+}
+
+/* --- Estilos do Modal de Assistência --- */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+
+.modal-content {
+    background-color: var(--bg-light-navy);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    z-index: 1;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-container.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+.modal-steps {
+    padding-left: 20px;
+    margin: 20px 0;
+}
+
+/* --- Estilos para Páginas de Status de Pagamento --- */
+.payment-status-container {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: var(--bg-light-navy);
+    border-radius: 12px;
+    box-shadow: var(--sombra-dark);
+}
+
+.status-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+}
+
+.status-icon.success {
+    color: #28a745; /* Verde para sucesso */
+}
+
+.status-icon.failure {
+    color: #dc3545; /* Vermelho para falha */
+}
+
+
+/* --- Responsividade para Telas Menores (até 768px) --- */
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    .about-img {
+        width: 100%;
+        max-width: 250px;
+        height: 250px;
+    }
+
+    .main-header {
+        padding: 0 25px;
+    }
+    .main-nav {
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: -100%; /* Start off-screen */
+        width: 70%; /* Adjust as needed */
+        max-width: 300px;
+        height: 100%;
+        background-color: var(--bg-light-navy); /* Background for mobile menu */
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+        padding-top: 100px; /* Space for header */
+        transition: right 0.3s ease-in-out;
+        z-index: 99; /* Below hamburger, above content */
+        align-items: flex-start; /* Align links to the left */
+        gap: 20px;
+        padding-left: 20px;
+    }
+
+    .main-nav.open {
+        right: 0; /* Slide in */
+        display: flex; /* Make it visible */
+    }
+
+    .main-nav a {
+        font-size: 1.1rem;
+        padding: 15px 0;
+        width: 100%; /* Make links full width */
+    }
+
+    .container {
+        padding: 100px 15px;
+    }
+
+    .section-title {
+        /* O clamp() já torna o tamanho da fonte responsivo, então a troca manual não é mais necessária. */
+        justify-content: center;
+    }
+    .section-title::after {
+        display: none;
+    }
+    .modelos-digitais-container .section-title {
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .intro-text {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    .modelo-categoria h3 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+    }
+    .promo-modelos-digitais-banner {
+        padding: 40px 20px;
+    }
+    .promo-modelos-digitais-banner h2 {
+        font-size: 1.8rem;
+    }
+
+    #chatbot-container {
+        width: calc(100vw - 20px);
+        height: 70vh;
+        bottom: 10px;
+        right: 10px;
+        left: 10px;
+    }
+
+    /* Ajuste para chatbot em modo paisagem em celulares */
+    @media (orientation: landscape) {
+        #chatbot-container {
+            height: 85vh; /* Aumenta a altura em modo paisagem */
+        }
+    }
+
+    #chat-open-btn.chat-fab {
+        right: 20px;
+        bottom: 20px;
+        width: 60px;
+        height: 60px;
+    }
+    .chat-fab-logo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 80px 10px;
+    }
+    .about-img {
+        width: 200px;
+        height: 200px;
+    }
+    .contact-form {
+        gap: 15px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        padding: 12px; /* Reduz o padding em telas muito pequenas */
+        font-size: 0.95rem;
+    }
+}
