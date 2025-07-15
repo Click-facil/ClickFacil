@@ -1,0 +1,18 @@
+{
+  "categorias": {
+    "documentos_curriculos": "Documentos e Currículos",
+    "planilhas_controles": "Planilhas e Controles",
+    "servicos_avancados": "Serviços Avançados de TI"
+  },
+  "servicos": [
+    { "nome": "Currículos Personalizados", "preco": "A partir de R$ 45,00", "descricao": "Criação de currículos modernos e profissionais que destacam suas melhores qualificações para o mercado de trabalho.", "categoria": "documentos_curriculos", "imagem": "https://images.pexels.com/photos/5989925/pexels-photo-5989925.jpeg?auto=compress&w=400" },
+    { "nome": "Elaboração de Declarações", "preco": "A partir de R$ 25,00", "descricao": "Redação de declarações diversas (residência, etc.) com a formalidade e clareza necessárias.", "categoria": "documentos_curriculos", "imagem": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&w=400" },
+    { "nome": "Criação de Contratos", "preco": "A partir de R$ 50,00", "descricao": "Desenvolvimento de contratos básicos (prestação de serviço, aluguel) para garantir a segurança dos seus acordos.", "categoria": "documentos_curriculos", "imagem": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400" },
+    { "nome": "Controle Financeiro Pessoal", "preco": "A partir de R$ 90,00", "descricao": "Planilha customizada para você ter total controle sobre suas receitas e despesas, e tomar decisões financeiras melhores.", "categoria": "planilhas_controles", "imagem": "https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=400" },
+    { "nome": "Controle de Vendas e Estoques", "preco": "A partir de R$ 120,00", "descricao": "Solução ideal para pequenos negócios. Gerencie seu estoque, registre vendas e veja o desempenho de seus produtos.", "categoria": "planilhas_controles", "imagem": "https://images.pexels.com/photos/1797428/pexels-photo-1797428.jpeg?auto=compress&cs=tinysrgb&w=400" },
+    { "nome": "Ativação de Windows e Office", "preco": "R$ 70,00", "descricao": "Ativação das versões mais recentes do Windows e do Pacote Office. Serviço remoto rápido e seguro.", "categoria": "servicos_avancados", "imagem": "https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg?auto=compress&cs=tinysrgb&w=400" },
+    { "nome": "Instalação e Otimização de PC", "preco": "A partir de R$ 100,00", "descricao": "Instalação de softwares, drivers, navegadores, e otimização geral para deixar seu computador mais rápido e seguro.", "categoria": "servicos_avancados", "imagem": "https://images.pexels.com/photos/3803517/pexels-photo-3803517.jpeg?auto=compress&w=400" },
+    { "nome": "Backup e Sincronização em Nuvem", "preco": "R$ 90,00", "descricao": "Configuração de rotinas automáticas de backup (Google Drive, OneDrive) para garantir que você nunca perca seus arquivos.", "categoria": "servicos_avancados", "imagem": "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&w=400" },
+    { "nome": "Criação de Landing Pages", "preco": "A partir de R$ 450,00", "descricao": "Páginas de vendas de alta conversão, projetadas para divulgar seu produto, serviço ou evento de forma profissional.", "categoria": "servicos_avancados", "imagem": "https://images.pexels.com/photos/6214471/pexels-photo-6214471.jpeg?auto=compress&w=400" }
+  ]
+}

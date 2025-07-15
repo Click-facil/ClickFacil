@@ -48,6 +48,10 @@ body {
     z-index: 100;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra mais leve */
     transition: height 0.3s, background-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 32px;
+    overflow-x: visible;
 }
 
 .main-title {
@@ -67,17 +71,22 @@ body {
 }
 .main-nav {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: flex-end;
     align-items: center;
-    gap: 15px; /* Reduzindo o espaçamento entre os links */
-    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    padding-right: 16px;
 }
 .main-nav a {
-    color: var(--text-light); /* Textos mais claros */
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 1rem;
+    color: var(--text-lightest);
     text-decoration: none;
-    font-weight: 500;
-    padding: 10px;
-    transition: color 0.2s, background-color 0.2s; /* Adicionando transição de background */
+    transition: color 0.2s;
 }
 .main-nav a::before {
     display: none; /* Removendo numeração dos links */
@@ -192,11 +201,17 @@ section {
 }
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    justify-content: center;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 32px;
 }
+
+@media (max-width: 900px) {
+    .services {
+        grid-template-columns: 1fr;
+    }
+}
+
 .service-card {
     background: #f9f9f9; /* Cor ligeiramente mais escura para os cards */
     border-radius: 8px;
@@ -401,45 +416,50 @@ footer {
     font-size: 0.9rem;
     color: var(--text-light);
     margin: 0 1rem 1rem 1rem;
-    flex-grow: 1; /* Permite que o parágrafo preencha o espaço */
-}
-.catalogo-item .view-details {
-    margin: 0 1rem 1rem auto; /* Alinha o botão à direita */
-}
-
-/* --- Seção de Garantias --- */
-.garantias-section {
-    margin-bottom: 80px;
 }
 .lista-garantias {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 32px;
 }
-.garantia-item {
-    background: var(--bg-light-navy);
-    padding: 1.5rem;
+
+.garantia-item.card {
+    background: #f9f9f9;
     border-radius: 8px;
     box-shadow: var(--sombra-dark);
+    padding: 2rem 1.5rem;
     transition: transform 0.2s, box-shadow 0.2s;
-    border-left: 2px solid var(--accent-orange);
+    display: flex;
+    flex-direction: column;
+    border-left: none; /* Remove cor laranja */
 }
-.garantia-item:hover {
+
+.garantia-item.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
 }
-.garantia-item h3 {
+
+.garantia-item.card h3 {
+    font-size: 1.25rem;
     color: var(--text-lightest);
-    margin-bottom: 8px;
-    font-size: 1.1rem;
+    margin-bottom: 12px;
     font-weight: 700;
+    text-align: left;
 }
-.garantia-item p {
+
+.garantia-item.card p {
     color: var(--text-light);
     font-size: 0.95rem;
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* Responsivo para garantias */
+@media (max-width: 900px) {
+    .lista-garantias {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* --- Seção de Avaliações --- */
@@ -1148,57 +1168,56 @@ footer {
     background-color: rgba(41, 171, 226, 0.1);
 }
 
-/* Banner de Promoção de Modelos Digitais na Home */
-.promo-modelos-digitais-banner {
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-orange));
-    color: white;
-    padding: 50px 30px;
-    border-radius: 12px;
-    text-align: center;
-    margin-bottom: 80px;
-}
-.promo-modelos-digitais-banner h2 {
-    color: white;
-    font-size: 2.2rem;
-    margin-bottom: 15px;
-}
-.promo-modelos-digitais-banner p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-}
-.promo-modelos-digitais-banner .saiba-mais {
-    background-color: white;
-    color: var(--accent-cyan);
-    border-color: white;
-}
-.promo-modelos-digitais-banner .saiba-mais:hover {
-    background-color: var(--bg-dark-navy);
-    color: var(--accent-cyan);
-    box-shadow: none;
+/* Ajuste para a seção de Modelos Digitais Prontos */
+.promo-modelos-digitais-section {
+    margin-bottom: 48px;
 }
 
-/* Nota na página de Catálogo de Serviços */
-.promo-modelos-digitais {
-    background-color: var(--bg-light-navy);
-    border: 1px solid var(--accent-cyan);
+.promo-modelos-digitais-section .section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    text-align: left;
+}
+
+.promo-modelos-digitais-banner {
+    background: #f9f9f9;
     border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    margin-top: 40px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--sombra-dark);
+    padding: 2rem 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
 }
-.promo-modelos-digitais p {
-    margin-bottom: 15px;
-    font-size: 1.05rem;
+
+.promo-modelos-digitais-banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
+}
+
+.promo-modelos-digitais-banner p {
     color: var(--text-light);
+    font-size: 0.95rem;
+    text-align: left;
+    margin-bottom: 18px;
 }
-.promo-modelos-digitais a {
-    color: var(--accent-cyan);
+
+.promo-modelos-digitais-banner .saiba-mais {
+    background-color: var(--accent-cyan);
+    color: white;
+    border-color: var(--accent-cyan);
+    border-radius: 6px;
+    padding: 12px 28px;
     font-weight: 600;
+    font-size: 1rem;
     text-decoration: none;
+    transition: background 0.2s, color 0.2s;
 }
-.promo-modelos-digitais a:hover {
-    text-decoration: underline;
+
+.promo-modelos-digitais-banner .saiba-mais:hover {
+    background-color: #1e86b5;
+    color: white;
 }
 
 /* --- Estilos para Notificações Toast --- */
@@ -1326,6 +1345,86 @@ footer {
     color: #dc3545; /* Vermelho para falha */
 }
 
+/* --- Estilos para o Novo Catálogo de Serviços --- */
+.catalogo-grid .catalogo-categoria h3 {
+    font-size: 1.8rem;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    text-align: left;
+    border-bottom: 2px solid var(--cor-destaque-principal);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.categoria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.servico-card-item {
+    background: var(--cor-card);
+    border-radius: 8px;
+    box-shadow: var(--sombra-padrao);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servico-card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px -5px rgba(10, 25, 47, 0.4);
+}
+
+.servico-imagem {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.servico-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço disponível */
+}
+
+.servico-card-content h4 {
+    font-size: 1.3rem;
+    color: var(--cor-primaria-fundo);
+    margin: 0 0 10px 0;
+}
+
+.servico-card-content p {
+    color: var(--cor-texto-secundario);
+    flex-grow: 1; /* Empurra o preço e o botão para baixo */
+    margin-bottom: 20px;
+}
+
+.servico-preco {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cor-destaque-secundario);
+    margin-bottom: 20px;
+}
+
+.btn-solicitar {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: var(--cor-destaque-principal);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+.btn-solicitar:hover {
+    background-color: #0c8ec1; /* Tom de azul um pouco mais escuro */
+}
 
 /* --- Responsividade para Telas Menores (até 768px) --- */
 @media (max-width: 768px) {
@@ -1406,32 +1505,8 @@ footer {
     .promo-modelos-digitais-banner h2 {
         font-size: 1.8rem;
     }
+    
 
-    #chatbot-container {
-        width: calc(100vw - 20px);
-        height: 70vh;
-        bottom: 10px;
-        right: 10px;
-        left: 10px;
-    }
-
-    /* Ajuste para chatbot em modo paisagem em celulares */
-    @media (orientation: landscape) {
-        #chatbot-container {
-            height: 85vh; /* Aumenta a altura em modo paisagem */
-        }
-    }
-
-    #chat-open-btn.chat-fab {
-        right: 20px;
-        bottom: 20px;
-        width: 60px;
-        height: 60px;
-    }
-    .chat-fab-logo {
-        width: 50px;
-        height: 50px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -1449,5 +1524,90 @@ footer {
     .contact-form textarea {
         padding: 12px; /* Reduz o padding em telas muito pequenas */
         font-size: 0.95rem;
+    }
+}
+
+/* Remove borda azul dos cards */
+.card,
+.garantia-item.card,
+.service-card.card,
+.promo-modelos-digitais-banner {
+    border-left: none !important;
+    border-right: none !important;
+}
+
+/* Cards do catálogo de serviços igual aos da sessão principal do index */
+.servico-card-item.card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: var(--sombra-dark);
+    padding: 2rem 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    border-left: 5px solid var(--accent-cyan);
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.servico-card-item.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.15);
+}
+
+.servico-card-item .servico-imagem {
+    width: 100%;
+    max-width: 120px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.servico-card-content h4 {
+    font-size: 1.15rem;
+    color: var(--text-lightest);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.servico-card-content p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+.servico-preco {
+    font-weight: bold;
+    color: var(--accent-cyan);
+    margin-bottom: 10px;
+}
+
+.btn-solicitar {
+    background-color: var(--accent-cyan);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+}
+
+.btn-solicitar:hover {
+    background-color: #1e86b5;
+}
+
+/* Grid responsivo para os cards do catálogo */
+.categoria-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+@media (max-width: 900px) {
+    .categoria-grid {
+        grid-template-columns: 1fr;
     }
 }

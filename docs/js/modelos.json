@@ -1,7 +1,8 @@
 {
   "categorias": {
     "documentos": "Documentos Essenciais",
-    "contratos": "Contratos Básicos"
+    "contratos": "Contratos Jurídicos",
+    "planilhas": "Planilhas de Gestão"
   },
   "produtos": [
     {
@@ -9,11 +10,11 @@
       "categoria": "documentos",
       "imagem": "https://images.pexels.com/photos/4050315/pexels-photo-4050315.jpeg?auto=compress&cs=tinysrgb&w=400",
       "titulo": "Carta de Apresentação Profissional",
-      "descricao": "Crie uma carta de apresentação impactante e profissional. Este modelo em Word oferece uma estrutura comprovada com dicas para você destacar suas qualificações e motivar o recrutador.",
+      "descricao": "Crie uma carta de apresentação impactante e profissional. Modelo em Word com estrutura comprovada.",
       "preco_base": 24.90,
       "download_path": "modelosdigitais/Modelo - Carta de Apresentação Profissional (Editável).docx",
       "combo": {
-        "descricao": "Assistência na revisão e otimização do conteúdo para a vaga.",
+        "descricao": "Assistência e revisão",
         "preco_adicional": 35.00
       }
     },
@@ -21,26 +22,13 @@
       "id": "declaracao-simples",
       "categoria": "documentos",
       "imagem": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "titulo": "Declaração Simples",
-      "descricao": "Modelo de declaração em Word para diversas finalidades (residência, desemprego, etc.), com campo de texto livre, instruções e exemplos. Pronto para preencher, imprimir e assinar.",
+      "titulo": "Declaração Simples (Editável)",
+      "descricao": "Modelo de declaração para diversas finalidades (residência, desemprego, etc.), com instruções claras.",
       "preco_base": 9.90,
       "download_path": "modelosdigitais/Modelo - Declaração Simples (Editável).docx",
       "combo": {
-        "descricao": "Assistência no preenchimento e personalização da declaração.",
+        "descricao": "Preenchimento assistido",
         "preco_adicional": 20.00
-      }
-    },
-    {
-      "id": "termo-imagem",
-      "categoria": "documentos",
-      "imagem": "https://images.pexels.com/photos/7172832/pexels-photo-7172832.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "titulo": "Termo de Uso de Imagem",
-      "descricao": "Garanta a segurança jurídica na utilização de imagens e vídeos com este Termo completo. Ideal para produtores de conteúdo, empresas e eventos. Proteja-se com um documento claro.",
-      "preco_base": 39.90,
-      "download_path": "modelosdigitais/Modelo - Termo de Autorização de Uso de Imagem, Voz e Nome (Editável).docx",
-      "combo": {
-        "descricao": "Assistência na orientação para preenchimento e personalização.",
-        "preco_adicional": 40.00
       }
     },
     {
@@ -48,11 +36,11 @@
       "categoria": "contratos",
       "imagem": "https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=400",
       "titulo": "Contrato de Locação Residencial",
-      "descricao": "Modelo de contrato para aluguel de imóvel residencial, totalmente editável. Ideal para proprietários ou inquilinos que desejam formalizar a locação com clareza e segurança.",
+      "descricao": "Ideal para proprietários ou inquilinos que desejam formalizar a locação com clareza e segurança jurídica.",
       "preco_base": 19.90,
       "download_path": "modelosdigitais/Modelo - Contrato de Locação Residencial (Editável).docx",
       "combo": {
-        "descricao": "Assistência na adaptação do contrato para seu caso.",
+        "descricao": "Assistência na adaptação",
         "preco_adicional": 30.00
       }
     },
@@ -61,11 +49,11 @@
       "categoria": "contratos",
       "imagem": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400",
       "titulo": "Contrato de Prestação de Serviços",
-      "descricao": "Modelo personalizável para formalização de serviços entre pessoas físicas ou jurídicas. Ideal para acordos claros, seguros e bem definidos, com cláusulas objetivas.",
+      "descricao": "Personalizável para formalização de serviços entre pessoas físicas ou jurídicas, com cláusulas objetivas.",
       "preco_base": 24.90,
       "download_path": "modelosdigitais/Modelo - Contrato de Prestação de Serviços (Editável).docx",
       "combo": {
-        "descricao": "Assistência na personalização do contrato para seu caso.",
+        "descricao": "Assistência na personalização",
         "preco_adicional": 40.00
       }
     },
@@ -73,15 +61,40 @@
       "id": "contrato-kitnet",
       "categoria": "contratos",
       "imagem": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "titulo": "Contrato de Locação de Kitnet",
-      "descricao": "Contrato direto e fácil de preencher, ideal para aluguéis de kitnets com ou sem mobília. Editável, com cláusulas essenciais e pronto para uso com segurança e praticidade.",
+      "titulo": "Contrato Simplificado de Locação de Kitnet",
+      "descricao": "Contrato direto e fácil de preencher, ideal para aluguéis de kitnets com ou sem mobília. Pronto para uso.",
       "preco_base": 17.90,
       "download_path": "modelosdigitais/Modelo - Contrato Simplificado de Locação de Kitnet (Editável).docx",
       "combo": {
-        "descricao": "Assistência no preenchimento e ajuste do contrato.",
+        "descricao": "Assistência no preenchimento",
         "preco_adicional": 30.00
+      }
+    },
+    {
+      "id": "termo-imagem",
+      "categoria": "contratos",
+      "imagem": "https://images.pexels.com/photos/7172832/pexels-photo-7172832.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "titulo": "Termo de Uso de Imagem",
+      "descricao": "Garanta a segurança jurídica na utilização de imagens e vídeos com este Termo completo.",
+      "preco_base": 39.90,
+      "download_path": "modelosdigitais/Modelo - Termo de Autorização de Uso de Imagem, Voz e Nome (Editável).docx",
+      "combo": {
+        "descricao": "Orientação e personalização",
+        "preco_adicional": 40.00
+      }
+    },
+    {
+      "id": "planilha-fluxo-caixa",
+      "categoria": "planilhas",
+      "imagem": "https://images.pexels.com/photos/74512/pexels-photo-74512.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "titulo": "Planilha de Fluxo de Caixa",
+      "descricao": "Controle todas as entradas e saídas do seu negócio com dashboards visuais e fáceis de usar. Essencial para a saúde financeira.",
+      "preco_base": 34.90,
+      "download_path": "modelosdigitais/Fluxo_de_Caixa_Simples.xlsx",
+      "combo": {
+        "descricao": "1h de suporte para adaptação",
+        "preco_adicional": 45.00
       }
     }
   ]
 }
-
