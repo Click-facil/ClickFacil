@@ -1348,10 +1348,10 @@ footer {
 /* --- Estilos para o Novo Catálogo de Serviços --- */
 .catalogo-grid .catalogo-categoria h3 {
     font-size: 1.8rem;
-    color: #FFFFFF;
+    color: var(--text-lightest); /* Alterado de branco para a cor principal de texto */
     margin-bottom: 30px;
     text-align: left;
-    border-bottom: 2px solid var(--cor-destaque-principal);
+    border-bottom: 2px solid var(--accent-cyan); /* Corrigido para usar a variável de destaque correta */
     padding-bottom: 10px;
     display: inline-block;
 }
@@ -1605,6 +1605,57 @@ footer {
     gap: 32px;
     margin-bottom: 32px;
 }
+
+/* =============================================
+   Card de Suporte Personalizado
+   ============================================= */
+.suporte-promo-section {
+    text-align: center;
+    margin-top: 5rem;
+    padding: 3rem 1rem;
+    background-color: #f8f9fa; /* Um fundo suave para destacar a seção */
+    border-radius: 8px;
+    border-top: 2px solid #eee;
+}
+
+.suporte-card {
+    max-width: 650px;
+    margin: 0 auto;
+    /* A classe .card provavelmente já define padding, background e box-shadow.
+       Estes estilos garantem a aparência caso a classe .card não seja suficiente. */
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.suporte-card h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Reutilizando o estilo do ícone de serviço */
+.suporte-card .service-icon {
+    font-size: 3.5rem;
+    color: #007bff; /* Cor primária/destaque. Ajuste se o seu site usar outra. */
+    margin-bottom: 1rem;
+}
+
+.suporte-preco {
+    font-size: 1.4rem; /* Reduzido para alinhar com outros preços */
+    font-weight: 700;  /* Ajustado para consistência */
+    color: #28a745; /* Verde para destacar o preço e a ação */
+    margin: 1.5rem 0;
+}
+
+/* O botão .saiba-mais já deve estar estilizado, mas podemos dar um destaque extra */
+.suporte-card .saiba-mais {
+    font-size: 1.2rem;
+    padding: 14px 35px;
+    font-weight: 700;
+}
+
 
 @media (max-width: 900px) {
     .categoria-grid {
