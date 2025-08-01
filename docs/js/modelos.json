@@ -12,24 +12,16 @@
       "titulo": "Carta de Apresentação Profissional",
       "descricao": "Crie uma carta de apresentação impactante e profissional. Modelo em Word com estrutura comprovada.",
       "preco_base": 24.90,
-      "download_path": "modelosdigitais/Modelo - Carta de Apresentação Profissional (Editável).docx",
-      "combo": {
-        "descricao": "Assistência e revisão",
-        "preco_adicional": 35.00
-      }
+      "link_pagamento": "https://mpago.li/1KWRFFB"
     },
     {
       "id": "declaracao-simples",
       "categoria": "documentos",
-      "imagem": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=400",
-      "titulo": "Declaração Simples (Editável)",
+      "imagem": "https://images.pexels.com/photos/48195/document-agreement-documents-sign-48195.jpeg",
+      "titulo": "Declaração Simples",
       "descricao": "Modelo de declaração para diversas finalidades (residência, desemprego, etc.), com instruções claras.",
       "preco_base": 9.90,
-      "download_path": "modelosdigitais/Modelo - Declaração Simples (Editável).docx",
-      "combo": {
-        "descricao": "Preenchimento assistido",
-        "preco_adicional": 20.00
-      }
+      "link_pagamento": "https://mpago.li/1KWRFFB"
     },
     {
       "id": "contrato-locacao",
@@ -38,11 +30,7 @@
       "titulo": "Contrato de Locação Residencial",
       "descricao": "Ideal para proprietários ou inquilinos que desejam formalizar a locação com clareza e segurança jurídica.",
       "preco_base": 19.90,
-      "download_path": "modelosdigitais/Modelo - Contrato de Locação Residencial (Editável).docx",
-      "combo": {
-        "descricao": "Assistência na adaptação",
-        "preco_adicional": 30.00
-      }
+      "link_pagamento": "https://mpago.li/2RYq59j"
     },
     {
       "id": "contrato-servicos",
@@ -51,50 +39,52 @@
       "titulo": "Contrato de Prestação de Serviços",
       "descricao": "Personalizável para formalização de serviços entre pessoas físicas ou jurídicas, com cláusulas objetivas.",
       "preco_base": 24.90,
-      "download_path": "modelosdigitais/Modelo - Contrato de Prestação de Serviços (Editável).docx",
-      "combo": {
-        "descricao": "Assistência na personalização",
-        "preco_adicional": 40.00
-      }
+      "link_pagamento": "https://mpago.li/2ASVcgh"
     },
     {
       "id": "contrato-kitnet",
       "categoria": "contratos",
-      "imagem": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "imagem": "https://images.pexels.com/photos/10658143/pexels-photo-10658143.jpeg",
       "titulo": "Contrato Simplificado de Locação de Kitnet",
       "descricao": "Contrato direto e fácil de preencher, ideal para aluguéis de kitnets com ou sem mobília. Pronto para uso.",
       "preco_base": 17.90,
-      "download_path": "modelosdigitais/Modelo - Contrato Simplificado de Locação de Kitnet (Editável).docx",
-      "combo": {
-        "descricao": "Assistência no preenchimento",
-        "preco_adicional": 30.00
-      }
+      "link_pagamento": "https://mpago.li/1QTWZ3m"
     },
     {
       "id": "termo-imagem",
       "categoria": "contratos",
-      "imagem": "https://images.pexels.com/photos/7172832/pexels-photo-7172832.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "imagem": "https://images.pexels.com/photos/261679/pexels-photo-261679.jpeg",
       "titulo": "Termo de Uso de Imagem",
       "descricao": "Garanta a segurança jurídica na utilização de imagens e vídeos com este Termo completo.",
       "preco_base": 39.90,
-      "download_path": "modelosdigitais/Modelo - Termo de Autorização de Uso de Imagem, Voz e Nome (Editável).docx",
-      "combo": {
-        "descricao": "Orientação e personalização",
-        "preco_adicional": 40.00
-      }
+      "link_pagamento": "https://mpago.li/2XTkJa3"
     },
     {
       "id": "planilha-fluxo-caixa",
       "categoria": "planilhas",
-      "imagem": "https://images.pexels.com/photos/74512/pexels-photo-74512.jpeg?auto=compress&cs=tinysrgb&w=400",
+      "imagem": "https://images.pexels.com/photos/8970296/pexels-photo-8970296.jpeg",
       "titulo": "Planilha de Fluxo de Caixa",
-      "descricao": "Controle todas as entradas e saídas do seu negócio com dashboards visuais e fáceis de usar. Essencial para a saúde financeira.",
-      "preco_base": 34.90,
-      "download_path": "modelosdigitais/Fluxo_de_Caixa_Simples.xlsx",
-      "combo": {
-        "descricao": "1h de suporte para adaptação",
-        "preco_adicional": 45.00
-      }
+      "descricao": "Controle todas as entradas e saídas do seu negócio com dashboards visuais e fáceis de usar.",
+      "preco_base": 24.90,
+      "link_pagamento": "https://mpago.li/1YnAc7g"
+    },
+    {
+      "id": "planilha-controle-de-estoque",
+      "categoria": "planilhas",
+      "imagem": "https://images.pexels.com/photos/6928878/pexels-photo-6928878.jpeg",
+      "titulo": "Planilha de Controle de Estoque",
+      "descricao": "Organize entradas, saídas e saldo de produtos de forma simples e automatizada. Ideal para pequenos comércios.",
+      "preco_base": 24.90,
+      "link_pagamento": "https://mpago.li/1ueynUG"
+    },
+    {
+      "id": "planilha-controle-de-clientes-e-fornecedores",
+      "categoria": "planilhas",
+      "imagem": "https://images.pexels.com/photos/7821672/pexels-photo-7821672.jpeg",
+      "titulo": "Planilha de Controle de Clientes e Fornecedores",
+      "descricao": "Registre contatos, histórico e dados importantes em um só lugar. Prática, visual e pronta para facilitar sua gestão.",
+      "preco_base": 24.90,
+      "link_pagamento": "https://mpago.li/1ueynUG"
     }
   ]
 }
