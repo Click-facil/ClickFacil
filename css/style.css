@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-    --bg-dark-navy: #f0f4f8;  /* Azul bem claro como base */
+    --bg-dark-navy: #2376d0;  /* Azul bem claro como base */
     --bg-light-navy: #ffffff; /* Branco para cards e elementos */
-    --text-lightest: #333333; /* Cinza escuro para textos principais */
-    --text-light: #555555; /* Cinza para textos secundários */
+    --text-lightest: #000000;  /* Preto para textos principais */
+    --text-light: #000000; /* Cinza mais claro para textos secundários */
     --text-dark: #777777; /* Cinza mais escuro para detalhes */
     --accent-cyan: #29abe2; /* Azul vibrante para acentos */
     --accent-orange: #f58731; /* Laranja para acentos secundários */
@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: var(--bg-dark-navy);
+    background-color: var(--bg-dark-navy); 
     font-family: var(--font-sans);
     color: var(--text-light);
     min-height: 100vh;
@@ -213,10 +213,11 @@ section {
 }
 
 .service-card {
-    background: #f9f9f9; /* Cor ligeiramente mais escura para os cards */
+    background: #f9f9f9; 
     border-radius: 8px;
     box-shadow: var(--sombra-dark);
     padding: 2rem 1.5rem;
+    border: 1px solid #d9d9d9;
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
@@ -429,6 +430,7 @@ footer {
     border-radius: 8px;
     box-shadow: var(--sombra-dark);
     padding: 2rem 1.5rem;
+    border: 1px solid #d9d9d9;
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
@@ -1427,7 +1429,7 @@ footer {
 }
 
 /* --- Responsividade para Telas Menores (até 768px) --- */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .about {
         flex-direction: column;
         gap: 30px;
@@ -1508,7 +1510,13 @@ footer {
 
 
 }
+/*Para telas menores que 576px (sm)*/
+@media (max-width: 575px) {
 
+}
+
+
+/*Para telas menores que 480px (xs)*/
 @media (max-width: 480px) {
     .container {
         padding: 80px 10px;
@@ -1524,6 +1532,12 @@ footer {
     .contact-form textarea {
         padding: 12px; /* Reduz o padding em telas muito pequenas */
         font-size: 0.95rem;
+    }
+}
+/*Para telas menores que 360px (xxs)*/
+@media (max-width: 360px) {
+    .container {
+        padding: 80px 10px;
     }
 }
 
