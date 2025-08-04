@@ -1,18 +1,58 @@
 {
   "categorias": {
-    "documentos_curriculos": "Documentos e Currículos",
-    "planilhas_controles": "Planilhas e Controles",
-    "servicos_avancados": "Serviços Avançados de TI"
+    "suporte_ti": "Suporte e Performance de TI",
+    "presenca_digital": "Presença Digital e Vendas Online",
+    "automacao_ia": "Automação e Soluções Inteligentes"
   },
   "servicos": [
-    { "nome": "Currículos Personalizados", "preco": "R$ 24,90", "descricao": "Criação de currículos modernos e profissionais que destacam suas melhores qualificações para o mercado de trabalho.", "categoria": "documentos_curriculos", "imagem": "https://images.pexels.com/photos/5989925/pexels-photo-5989925.jpeg?auto=compress&w=400" },
-    { "nome": "Criação de Declarações", "preco": "A partir de R$ 29,90", "descricao": "Redação de declarações diversas (residência, etc.) com a formalidade e clareza necessárias.", "categoria": "documentos_curriculos", "imagem": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&w=400" },
-    { "nome": "Criação de Contratos", "preco": "A partir de R$ 29,90", "descricao": "Desenvolvimento de contratos básicos (prestação de serviço, aluguel) para garantir a segurança dos seus acordos.", "categoria": "documentos_curriculos", "imagem": "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { "nome": "Ativação do Windows - Versões 10 e 11", "preco": "R$ 49,90", "descricao": "Desbloqueie seu Windows. Removemos a mensagem de ativação e garantimos acesso a todos os recursos e personalizações.", "categoria": "servicos_avancados", "imagem": "https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { "nome": "Instalação e Ativação do Office - Versões 2013 ou superior", "preco": "R$ 49,90", "descricao": "Desbloqueie o seu Office. Ativamos sua licença para uso contínuo e com todas as funcionalidades.", "categoria": "servicos_avancados", "imagem": "https://images.pexels.com/photos/4050291/pexels-photo-4050291.jpeg?auto=compress&cs=tinysrgb&w=400" },
-    { "nome": "Instalação de Softwares Diversos", "preco": "A partir de R$ 49,90", "descricao": "Tenha os programas certos para seu uso. Realizamos a instalação limpa, deixando o software pronto para usar.", "categoria": "servicos_avancados", "imagem": "https://images.pexels.com/photos/3803517/pexels-photo-3803517.jpeg?auto=compress&w=400" },
-    { "nome": "Otimização do seu Computador ou Notebook", "preco": "A partir de R$ 69,90", "descricao": "Otimização geral para deixar seu computador mais rápido e seguro.", "categoria": "servicos_avancados", "imagem": "https://images.pexels.com/photos/3803517/pexels-photo-3803517.jpeg?auto=compress&w=400" },
-    { "nome": "Backup e Sincronização em Nuvem", "preco": "R$ 39,90", "descricao": "Configuração de rotinas automáticas de backup (Google Drive, OneDrive) para garantir que você nunca perca seus arquivos.", "categoria": "servicos_avancados", "imagem": "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&w=400" },
-    { "nome": "Criação de Sites / Landing Pages", "preco": "A partir de R$ 99,90", "descricao": "Páginas de vendas de alta conversão, projetadas para divulgar seu produto, serviço ou evento de forma profissional.", "categoria": "servicos_avancados", "imagem": "https://images.pexels.com/photos/6214471/pexels-photo-6214471.jpeg?auto=compress&w=400" }
+    {
+      "nome": "Check-up de Performance",
+      "preco": "A partir de R$ 79,90",
+      "descricao": "Seu computador está lento, travando ou demorando para ligar? Faço uma otimização completa, garantindo que ele volte a funcionar com agilidade para você trabalhar ou estudar sem estresse.",
+      "categoria": "suporte_ti",
+      "imagem": "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg"
+    },
+    {
+      "nome": "Instalação de Softwares",
+      "preco": "A partir de R$ 59,90",
+      "descricao": "Precisa do Pacote Office, Windows, antivírus ou outro programa? Cuido da instalação e ativação, deixando o software pronto para você usar, com segurança e sem complicações.",
+      "categoria": "suporte_ti",
+      "imagem": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg"
+    },
+    {
+      "nome": "Landing Page Essencial",
+      "preco": "R$ 300,00",
+      "descricao": "Transforme seus seguidores em clientes. Crio uma página de vendas única para seu produto ou serviço, com layout de template, 3 seções, formulário e integração com WhatsApp.",
+      "categoria": "presenca_digital",
+      "imagem": "https://images.pexels.com/photos/5077053/pexels-photo-5077053.jpeg"
+    },
+    {
+      "nome": "Site Institucional Starter",
+      "preco": "R$ 600,00",
+      "descricao": "Leve seu negócio para o próximo nível com um site profissional. Até 5 páginas, design com tema premium, SEO básico e 1h de treinamento para você gerenciar o conteúdo.",
+      "categoria": "presenca_digital",
+      "imagem": "https://images.pexels.com/photos/8284731/pexels-photo-8284731.jpeg"
+    },
+    {
+      "nome": "Loja Virtual Start",
+      "preco": "R$ 1.500,00",
+      "descricao": "Sonha em ter uma loja online? Cuido da configuração inicial da sua loja em plataformas como Nuvemshop ou Loja Integrada, personalizo o design e deixo tudo pronto para você vender.",
+      "categoria": "presenca_digital",
+      "imagem": "https://images.pexels.com/photos/8938662/pexels-photo-8938662.jpeg"
+    },
+    {
+      "nome": "Seu Primeiro Robô",
+      "preco": "A partir de R$ 180,00",
+      "descricao": "Cansado de tarefas repetitivas? Crio um 'robô' (script) que faz esse trabalho para você, de forma automática e sem erros. Libere seu tempo para focar no que realmente importa.",
+      "categoria": "automacao_ia",
+      "imagem": "https://images.pexels.com/photos/6153351/pexels-photo-6153351.jpeg"
+    },
+    {
+      "nome": "Consultoria em IA",
+      "preco": "R$ 120,00",
+      "descricao": "Aprenda a usar a Inteligência Artificial (como o ChatGPT) para acelerar seu negócio. Uma consultoria de 1h30 que vai transformar sua produtividade e marketing.",
+      "categoria": "automacao_ia",
+      "imagem": "https://images.pexels.com/photos/16094054/pexels-photo-16094054.jpeg"
+    }
   ]
 }

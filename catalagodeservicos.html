@@ -3,10 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo de Serviços | CLICK FÁCIL</title>
-  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <title>Catálogo de Serviços | Click Fácil</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="apple-touch-icon" href="images/logo.png">
+
+  <!-- Fonts and Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- CORREÇÃO DE ALINHAMENTO E TAMANHO PARA OS CARDS DE SERVIÇO -->
+  <style>
+    /* Ajusta o card principal para ter uma altura mínima e ser um container flex */
+    .servico-card-item.card {
+      display: flex;
+      flex-direction: column;
+      height: 100%; /* Faz o card ocupar todo o espaço do grid cell */
+      padding: 0; /* Remove padding do container principal */
+      border-left: none !important; /* Remove a borda para um visual mais limpo */
+      gap: 0;
+    }
+
+    /* Ajusta a imagem (placeholder) */
+    .servico-card-item .servico-imagem {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+        flex-shrink: 0; /* Impede que a imagem encolha */
+    }
+
+    /* Ajusta a área de conteúdo para ser flex e alinhar à esquerda */
+    .servico-card-item .servico-card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      flex-grow: 1; /* Faz esta área crescer e ocupar o espaço disponível */
+    }
+    
+    /* Faz o parágrafo crescer, empurrando o preço e o botão para o fundo do card */
+    .servico-card-item .servico-card-content p {
+        flex-grow: 1;
+        margin-bottom: 1rem;
+    }
+    
+    /* Deixa o botão com largura total e centralizado */
+    .btn-solicitar {
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      box-sizing: border-box; /* Garante que o padding não estoure a largura */
+    }
+  </style>
 </head>
 <body>
   <header class="main-header">
@@ -15,33 +68,36 @@
         <img id="logo-slide" class="logo-img" src="images/logo.png" alt="Logo Click Fácil">
       </a>
     </div>
-   <nav class="main-nav" id="main-nav">
-    <!-- O href aqui aponta para a ID #sobre DENTRO da própria index.html -->
-    <a href="#sobre">Sobre</a>
-    <!-- O href aqui aponta para o ARQUIVO da página de serviços -->
-    <a href="catalagodeservicos.html">Serviços</a>
-    <!-- O href aqui aponta para o ARQUIVO da página de modelos -->
-    <a href="modelosdigitais.html">Modelos Digitais</a>
-    <!-- Apontam para seções da index.html -->
-    <a href="#faq">FAQ</a>
-    <a href="#contato">Contato</a>
-</nav>
+    <nav class="main-nav" id="main-nav">
+      <a href="index.html#sobre">Sobre</a>
+      <a href="catalagodeservicos.html">Serviços</a>
+      <a href="modelosdigitais.html">Modelos Digitais</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
     <button class="hamburger" id="hamburger-menu">
         <i class="fas fa-bars"></i>
     </button>
   </header>
+
   <div class="container">
     <main>
       <section class="catalogo-container">
         <h2 class="section-title">Catálogo de Serviços</h2>
-        <div class="catalogo-grid"></div>
+        
+        <!-- O CONTEÚDO SERÁ INSERIDO AQUI PELO catalogo.js -->
+        <div class="catalogo-grid">
+            <!-- Mensagem de carregamento que será substituída pelo JS -->
+            <p class="loading-message">Carregando serviços...</p>
+        </div> 
+        
         <div class="promo-modelos-digitais">
-          <p>Para soluções rápidas e profissionais, explore nossa <a href="modelosdigitais.html">Biblioteca de Modelos Digitais</a>!</p>
-          <a href="modelosdigitais.html" class="saiba-mais">Ver Modelos Digitais</a>
+          <a href="modelosdigitais.html" class="saiba-mais">Explorar Biblioteca de Modelos Digitais</a>
         </div>
       </section>
     </main>
   </div>
+  
   <footer>
     &copy; <span id="current-year"></span> Click Fácil. Todos os direitos reservados.
   </footer>
@@ -50,7 +106,9 @@
   <button id="back-to-top-btn" title="Voltar ao Topo">
       <i class="fas fa-arrow-up"></i>
   </button>
-  <script src="js/catalogo.js"></script>
-  <script src="js/main.js"></script>
+  
+  <!-- Seus scripts JS -->
+  <script src="js/catalogo.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
