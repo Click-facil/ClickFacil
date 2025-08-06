@@ -19,6 +19,13 @@
       "categoria": "suporte_ti",
       "imagem": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg"
     },
+     {
+      "nome": "Destaque seu Negócio Localmente",
+      "preco": "R$ 197,00",
+      "descricao": "Garanta que seus clientes te encontrem no Google e no Google Maps! Um Perfil de Empresa bem configurado é a porta de entrada digital do seu negócio.",
+      "categoria": "presenca_digital",
+      "imagem": "https://images.pexels.com/photos/16368540/pexels-photo-16368540.jpeg"
+    },
     {
       "nome": "Landing Page Essencial",
       "preco": "R$ 300,00",

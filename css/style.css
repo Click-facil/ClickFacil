@@ -40,7 +40,7 @@ body {
     align-items: center;
     padding: 0 50px;
     height: 100px;
-    background-color: rgba(240, 244, 248, 0.85); /* Fundo quase branco com transparência */
+    background-color: var(--bg-dark-navy); /* <-- COR DO CABEÇALHO PADRÃO ALTERADA AQUI */
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
@@ -84,7 +84,7 @@ body {
     white-space: nowrap;
     padding: 8px 12px;
     font-size: 1rem;
-    color: var(--text-lightest);
+    color: #ffffff; /* Cor do texto do menu alterada para branco para contraste */
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -112,7 +112,7 @@ body {
 /* Estilo do header quando a página é rolada */
 .main-header.scrolled {
     height: 70px;
-    background-color: rgba(240, 244, 248, 0.98); /* Fundo mais opaco */
+    background-color: #1e64b5; /* <-- COR DO CABEÇALHO ROLADO ALTERADA AQUI (um tom de azul similar) */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -180,9 +180,7 @@ section {
     margin-bottom: 40px;
     font-weight: 700;
     position: relative;
-    display: flex;
-    align-items: center;
-    white-space: nowrap;
+    white-space: normal; /* Permite que os títulos quebrem a linha */
 }
 /* Removendo linha após o título */
 /* .section-title::after { */
@@ -921,9 +919,6 @@ footer {
 .modelos-digitais-container {
     background-color: transparent;
     padding: 40px 0;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .modelos-digitais-container .section-title {
