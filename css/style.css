@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-    --bg-dark-navy: #2376d0;  /* Azul bem claro como base */
+    --bg-dark-navy: #0A192F;  /* Azul bem claro como base */
     --bg-light-navy: #ffffff; /* Branco para cards e elementos */
-    --text-lightest: #000000;  /* Preto para textos principais */
-    --text-light: #000000; /* Cinza mais claro para textos secundários */
-    --text-dark: #777777; /* Cinza mais escuro para detalhes */
-    --accent-cyan: #29abe2; /* Azul vibrante para acentos */
-    --accent-orange: #f58731; /* Laranja para acentos secundários */
+    --text-lightest: #ffffff;  /* textos principais */
+    --text-light: #29abe2; /* textos secundários */
+    --text-dark: #777777; /* detalhes */
+    --accent-cyan: #29abe2; /* acentos */
+    --accent-orange: #29abe2; /*acentos secundários */
     --sombra-dark: 0 10px 30px -15px rgba(2,12,27,0.7);
     --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
 }
@@ -211,14 +211,12 @@ section {
 }
 
 .service-card {
-    background: #f9f9f9; 
-    border-radius: 8px;
-    box-shadow: var(--sombra-dark);
-    padding: 2rem 1.5rem;
-    border: 1px solid #d9d9d9;
-    transition: transform 0.2s, box-shadow 0.2s;
+    min-height: 370px;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
 }
 .service-card:hover {
     transform: translateY(-5px); /* Reduz o efeito "flutuar" */
@@ -432,9 +430,7 @@ footer {
     transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
-    border-left: none; /* Remove cor laranja */
 }
-
 .garantia-item.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
@@ -1005,7 +1001,6 @@ footer {
     font-size: 1.2rem;
     color: var(--text-lightest);
     font-weight: 700;
-    flex-grow: 1;
 }
 
 .btn-info {
@@ -1388,39 +1383,47 @@ footer {
 }
 
 .servico-card-content h4 {
-    font-size: 1.3rem;
-    color: var(--cor-primaria-fundo);
-    margin: 0 0 10px 0;
+    font-size: 1.25rem;
+    color: var(--text-lightest);
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-align: left;
 }
 
 .servico-card-content p {
-    color: var(--cor-texto-secundario);
-    flex-grow: 1; /* Empurra o preço e o botão para baixo */
-    margin-bottom: 20px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    text-align: left;
+    flex-grow: 1;
+    margin-bottom: 18px;
 }
 
 .servico-preco {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--cor-destaque-secundario);
-    margin-bottom: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-cyan);
+    margin-bottom: 18px;
+    text-align: left;
 }
 
-.btn-solicitar {
+.btn-solicitar.saiba-mais {
     display: block;
     width: 100%;
-    padding: 12px;
-    background-color: var(--cor-destaque-principal);
-    color: white;
     text-align: center;
-    text-decoration: none;
-    font-weight: 600;
+    margin-top: auto;
+    margin-bottom: 0;
+    padding: 12px 0;
     border-radius: 6px;
-    transition: background-color 0.2s;
+    font-weight: 600;
+    font-size: 1rem;
+    background-color: var(--accent-cyan);
+    color: #fff;
+    border: none;
+    transition: background 0.2s;
 }
 
-.btn-solicitar:hover {
-    background-color: #0c8ec1; /* Tom de azul um pouco mais escuro */
+.btn-solicitar.saiba-mais:hover {
+    background-color: #1e86b5;
 }
 
 /* --- Responsividade para Telas Menores (até 768px) --- */
@@ -1628,13 +1631,14 @@ footer {
 }
 
 .suporte-card {
-    max-width: 650px;
+    max-width: 540px;
+    min-height: 520px;
     margin: 0 auto;
-    /* A classe .card provavelmente já define padding, background e box-shadow.
-       Estes estilos garantem a aparência caso a classe .card não seja suficiente. */
-    padding: 2rem;
-    background-color: #fff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .suporte-card h3 {
@@ -1670,4 +1674,42 @@ footer {
     .categoria-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Cards transparentes com borda azul e sombra suave para TODOS os tipos de card */
+.service-card,
+.promo-modelos-digitais-banner,
+.garantia-item.card,
+.catalogo-item,
+.modelo-card,
+.suporte-card,
+.comentario,
+.faq-container details,
+.contact-form,
+.payment-status-container {
+    background: rgba(41, 171, 226, 0.08); /* Azul claro transparente */
+    border: 2px solid rgba(41, 171, 226, 0.18); /* Borda azul clara */
+    border-radius: 12px;
+    box-shadow: 0 0 24px 0 rgba(41, 171, 226, 0.18), 0 2px 8px 0 rgba(0,0,0,0.07);
+    transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Efeito ao passar o mouse */
+.service-card:hover,
+.promo-modelos-digitais-banner:hover,
+.garantia-item.card:hover,
+.catalogo-item:hover,
+.modelo-card:hover,
+.suporte-card:hover,
+.comentario:hover,
+.faq-container details:hover,
+.contact-form:hover,
+.payment-status-container:hover {
+    box-shadow: 0 0 32px 0 rgba(41, 171, 226, 0.28), 0 8px 32px 0 rgba(0,0,0,0.13);
+    border-color: #29abe2;
+    background: rgba(41, 171, 226, 0.16);
 }

@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
                 servicesByCategory[catKey].forEach(servico => {
                     const card = document.createElement('div');
-                    card.className = 'servico-card-item card'; // Adicionada classe .card
+                    card.className = 'service-card'; 
                     card.innerHTML = `
                         <img src="${servico.imagem}" alt="${servico.nome}" class="servico-imagem">
                         <div class="servico-card-content">
