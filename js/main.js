@@ -1,44 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
     try {
         
-        // --- Formulário de Contato com Feedback Aprimorado ---
+        // --- Formulário de Contato com Feedback Aprimorado (VERSÃO ATUALIZADA) ---
         const form = document.querySelector('.contact-form');
         if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                const button = form.querySelector('button');
-                const status = document.createElement('p');
-                status.className = 'form-status'; // Você pode estilizar esta classe se quiser
-                if (!form.querySelector('.form-status')) {
-                    form.appendChild(status);
-                }
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Impede o redirecionamento padrão do formulário
 
+                const button = form.querySelector('button[type="submit"]');
+                const originalButtonText = button.textContent;
+                
+                // Mostra um feedback de carregamento no botão
                 button.textContent = 'Enviando...';
                 button.disabled = true;
-                status.textContent = '';
 
                 const data = new FormData(form);
                 fetch(form.action, {
-                    method: form.method,
+                    method: 'POST',
                     body: data,
                     headers: {
                         'Accept': 'application/json'
                     }
                 }).then(response => {
                     if (response.ok) {
-                        status.textContent = "Obrigado pelo seu contato!";
-                        status.style.color = 'green';
-                        form.reset();
+                        // Se o envio foi bem-sucedido
+                        showToast('Mensagem enviada com sucesso!', 'success');
+                        form.reset(); // Limpa o formulário
                     } else {
-                        status.textContent = "Oops! Houve um problema ao enviar seu formulário.";
-                        status.style.color = 'red';
+                        // Se houve um erro na resposta do servidor
+                        showToast('Ocorreu um erro ao enviar a mensagem.', 'error');
                     }
-                    button.textContent = 'Enviar';
-                    button.disabled = false;
                 }).catch(error => {
-                    status.textContent = "Oops! Houve um problema ao enviar seu formulário.";
-                    status.style.color = 'red';
-                    button.textContent = 'Enviar';
+                    // Se houve um erro de rede (sem conexão, etc.)
+                    showToast('Erro de conexão. Tente novamente.', 'error');
+                }).finally(() => {
+                    // Restaura o botão ao estado original, independentemente do resultado
+                    button.textContent = originalButtonText;
                     button.disabled = false;
                 });
             });
