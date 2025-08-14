@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-    --bg-dark-navy: #0A192F;  /* Azul bem claro como base */
-    --bg-light-navy: #ffffff; /* Branco para cards e elementos */
+    --bg-dark-navy: #0A192F;  /* base */
+    --bg-light-navy: #ffffff; /* cards e elementos */
     --text-lightest: #ffffff;  /* textos principais */
-    --text-light: #29abe2; /* textos secundários */
+    --text-light: #ffffff; /* textos secundários */
     --text-dark: #777777; /* detalhes */
     --accent-cyan: #29abe2; /* acentos */
     --accent-orange: #29abe2; /*acentos secundários */
@@ -112,7 +112,7 @@ body {
 /* Estilo do header quando a página é rolada */
 .main-header.scrolled {
     height: 70px;
-    background-color: #1e64b5; /* <-- COR DO CABEÇALHO ROLADO ALTERADA AQUI (um tom de azul similar) */
+    background-color: var(--bg-dark-navy); /* <-- COR DO CABEÇALHO ROLADO ALTERADA AQUI (um tom de azul similar) */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -211,19 +211,25 @@ section {
 }
 
 .service-card {
-    min-height: 370px;
-    height: 100%;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: var(--sombra-dark);
+    padding: 1.2rem 1.5rem;
+    border: 1px solid #d9d9d9;
+    transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
+    min-height: 220px;
+    align-items: flex-start;
+    text-align: left;
     justify-content: flex-start;
-    box-sizing: border-box;
 }
 .service-card:hover {
-    transform: translateY(-5px); /* Reduz o efeito "flutuar" */
+    transform: translateY(-5px);
     box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
 }
 .service-icon {
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: var(--accent-cyan);
     margin-bottom: 16px;
     text-align: left;
@@ -240,6 +246,7 @@ section {
     font-size: 0.95rem;
     text-align: left;
     flex-grow: 1;
+    margin-bottom: 0;
 }
 
 .saiba-mais, .view-details {
@@ -1443,33 +1450,35 @@ footer {
         padding: 0 25px;
     }
     .main-nav {
-        display: none; /* Hidden by default */
+        display: flex;
         flex-direction: column;
-        position: absolute;
+        position: fixed;
         top: 0;
-        right: -100%; /* Start off-screen */
-        width: 70%; /* Adjust as needed */
-        max-width: 300px;
-        height: 100%;
-        background-color: var(--bg-light-navy); /* Background for mobile menu */
+        right: -100%;
+        width: 80vw;
+        max-width: 320px;
+        height: 100vh;
+        background-color: var(--bg-light-navy);
         box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-        padding-top: 100px; /* Space for header */
+        padding-top: 100px;
         transition: right 0.3s ease-in-out;
-        z-index: 99; /* Below hamburger, above content */
-        align-items: flex-start; /* Align links to the left */
+        z-index: 999; /* Bem acima do conteúdo */
+        align-items: flex-start;
         gap: 20px;
         padding-left: 20px;
+        overflow-y: auto;
     }
 
     .main-nav.open {
-        right: 0; /* Slide in */
-        display: flex; /* Make it visible */
+        right: 0;
+        display: flex;
     }
 
     .main-nav a {
         font-size: 1.1rem;
         padding: 15px 0;
-        width: 100%; /* Make links full width */
+        width: 100%;
+        border-bottom: 1px solid #eee;
     }
 
     .container {
@@ -1632,20 +1641,21 @@ footer {
 
 .suporte-card {
     max-width: 540px;
-    min-height: 520px;
+    min-height: 400px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 2rem 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.suporte-card h3 {
+.suporte-card h2 {
     font-size: 1.8rem;
-    color: #333;
+    color: var(--text-lightest);
     margin-top: 1rem;
     margin-bottom: 1rem;
+    text-align: center;
 }
 
 /* Reutilizando o estilo do ícone de serviço */
