@@ -288,6 +288,18 @@ section {
     color: var(--accent-cyan);
     margin-right: 8px;
 }
+/* Altera a cor dos links de contato para branco */
+.contact-info a {
+    color: var(--text-lightest); /* Usa a variável de cor branca do seu site */
+    text-decoration: none; /* Remove o sublinhado padrão */
+    transition: color 0.2s;
+}
+
+/* Adiciona um efeito ao passar o mouse, para o link ficar na cor de destaque */
+.contact-info a:hover {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+}
 .contact-form {
     max-width: 100%;
     margin: 0 auto;
@@ -1457,11 +1469,11 @@ footer {
         flex-direction: column;
         position: fixed;
         top: 0;
-        right: -100%;
+        left: -100%;
         width: 80vw;
         max-width: 320px;
         height: 100vh;
-        background-color: var(--bg-light-navy);
+        background-color: var(--bg-dark-nav);
         box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
         padding-top: 100px;
         transition: right 0.3s ease-in-out;
@@ -1473,16 +1485,27 @@ footer {
     }
 
     .main-nav.open {
-        right: 0;
+        left: 0;
         display: flex;
     }
 
     .main-nav a {
-        font-size: 1.1rem;
-        padding: 15px 0;
-        width: 100%;
-        border-bottom: 1px solid #eee;
-    }
+    color: var(--text-lightest);  /* Cor do texto: branco (da sua paleta) */
+    font-size: 1.5rem;           /* Tamanho da fonte maior, para facilitar o toque */
+    font-weight: 600;            /* Deixa o texto um pouco mais encorpado */
+    padding: 1rem;               /* Espaçamento interno para o link respirar */
+    width: 80%;                  /* Ocupa 80% da largura do menu */
+    text-align: center;          /* Centraliza o texto */
+    border-radius: 8px;          /* Bordas arredondadas */
+    border-bottom: none;         /* Remove a linha de baixo que você não queria */
+    transition: background-color 0.2s, color 0.2s; /* Animação suave */
+}
+
+/* Adicione também este trecho para o efeito ao passar o mouse ou tocar */
+.main-nav a:hover {
+    background-color: rgba(41, 171, 226, 0.2); /* Fundo azul ciano transparente */
+    color: var(--accent-cyan);                 /* Texto fica na cor de destaque */
+}
 
     .container {
         padding: 100px 15px;
