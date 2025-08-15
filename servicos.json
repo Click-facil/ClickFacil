@@ -10,56 +10,56 @@
       "preco": "A partir de R$ 79,90",
       "descricao": "Seu computador está lento, travando ou demorando para ligar? Faço uma otimização completa, garantindo que ele volte a funcionar com agilidade para você trabalhar ou estudar sem estresse.",
       "categoria": "suporte_ti",
-      "imagem": "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg"
+      "imagem": "images/img1.png"
     },
     {
       "nome": "Instalação de Softwares",
       "preco": "A partir de R$ 59,90",
       "descricao": "Precisa do Pacote Office, Windows, antivírus ou outro programa? Cuido da instalação e ativação, deixando o software pronto para você usar, com segurança e sem complicações.",
       "categoria": "suporte_ti",
-      "imagem": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg"
+      "imagem": "images/img2.png"
     },
      {
       "nome": "Destaque seu Negócio Localmente",
       "preco": "R$ 197,00",
       "descricao": "Garanta que seus clientes te encontrem no Google e no Google Maps! Um Perfil de Empresa bem configurado é a porta de entrada digital do seu negócio.",
       "categoria": "presenca_digital",
-      "imagem": "https://images.pexels.com/photos/16368540/pexels-photo-16368540.jpeg"
+      "imagem": "images/img3.png"
     },
     {
       "nome": "Landing Page Essencial",
       "preco": "R$ 300,00",
       "descricao": "Transforme seus seguidores em clientes. Crio uma página de vendas única para seu produto ou serviço, com layout de template, 3 seções, formulário e integração com WhatsApp.",
       "categoria": "presenca_digital",
-      "imagem": "https://images.pexels.com/photos/5077053/pexels-photo-5077053.jpeg"
+      "imagem": "images/img4.png"
     },
     {
       "nome": "Site Institucional Starter",
       "preco": "R$ 600,00",
       "descricao": "Leve seu negócio para o próximo nível com um site profissional. Até 5 páginas, design com tema premium, SEO básico e 1h de treinamento para você gerenciar o conteúdo.",
       "categoria": "presenca_digital",
-      "imagem": "https://images.pexels.com/photos/8284731/pexels-photo-8284731.jpeg"
+      "imagem": "images/img5.png"
     },
     {
       "nome": "Loja Virtual Start",
       "preco": "R$ 1.500,00",
       "descricao": "Sonha em ter uma loja online? Cuido da configuração inicial da sua loja em plataformas como Nuvemshop ou Loja Integrada, personalizo o design e deixo tudo pronto para você vender.",
       "categoria": "presenca_digital",
-      "imagem": "https://images.pexels.com/photos/8938662/pexels-photo-8938662.jpeg"
+      "imagem": "images/img6.png"
     },
     {
       "nome": "Seu Primeiro Robô",
       "preco": "A partir de R$ 180,00",
       "descricao": "Cansado de tarefas repetitivas? Crio um 'robô' (script) que faz esse trabalho para você, de forma automática e sem erros. Libere seu tempo para focar no que realmente importa.",
       "categoria": "automacao_ia",
-      "imagem": "https://images.pexels.com/photos/6153351/pexels-photo-6153351.jpeg"
+      "imagem": "images/img7.png"
     },
     {
       "nome": "Consultoria em IA",
       "preco": "R$ 120,00",
       "descricao": "Aprenda a usar a Inteligência Artificial (como o ChatGPT) para acelerar seu negócio. Uma consultoria de 1h30 que vai transformar sua produtividade e marketing.",
       "categoria": "automacao_ia",
-      "imagem": "https://images.pexels.com/photos/16094054/pexels-photo-16094054.jpeg"
+      "imagem": "images/img8.png"
     }
   ]
 }

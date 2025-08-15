@@ -1448,8 +1448,104 @@ footer {
     background-color: #1e86b5;
 }
 
-/* --- Responsividade para Telas Menores (até 768px) --- */
+/* --- Responsividade para Telas Menores (até 767px) --- */
 @media (max-width: 767px) {
+    .main-header {
+        padding: 0 25px;
+    }
+
+    /* --- ESTILOS DO MENU PARA DESKTOP (Telas Maiores) --- */
+
+.main-nav {
+    display: flex; /* Alinha os links lado a lado no desktop */
+    gap: 24px;
+}
+
+.main-nav a {
+    padding: 8px 12px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s, background-color 0.2s;
+    border-radius: 4px;
+}
+
+.main-nav a:hover {
+    color: var(--accent-cyan);
+    background-color: rgba(41, 171, 226, 0.1);
+}
+
+.hamburger {
+    display: none; /* ESCONDE o ícone do menu no desktop */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-lightest);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+
+/* --- RESPONSIVIDADE PARA TELAS MENORES (até 767px) --- */
+@media (max-width: 767px) {
+    .main-header {
+        padding: 0 25px;
+    }
+
+    /* Esconde os links do menu desktop no celular */
+    .main-nav {
+        display: none;
+    }
+
+    /* Transforma o menu em um painel lateral QUANDO A CLASSE .open É ADICIONADA */
+    .main-nav.open {
+        /* Estilo visual do painel */
+        display: flex; /* Torna o menu visível */
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        max-width: 80vw;
+        height: 100vh;
+        background-color: rgba(10, 25, 47, 0.9);
+        backdrop-filter: blur(10px);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+
+        /* Alinhamento dos links dentro do painel */
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 120px 30px;
+        gap: 15px;
+    }
+
+    /* Estilo dos links dentro do painel mobile */
+    .main-nav.open a {
+        color: var(--text-lightest);
+        font-size: 1.2rem;
+        font-weight: 600;
+        padding: 10px 15px;
+        width: 100%;
+        text-align: left;
+        border-radius: 6px;
+    }
+    
+    .main-nav.open a:hover {
+        background-color: rgba(41, 171, 226, 0.2);
+        color: var(--accent-cyan);
+    }
+    
+    /* MOSTRA o ícone do menu no celular */
+    .hamburger {
+        display: block;
+    }
+
+    /* --- Outros ajustes responsivos --- */
+    .container {
+        padding: 120px 15px 30px;
+    }
+
     .about {
         flex-direction: column;
         gap: 30px;
@@ -1458,63 +1554,18 @@ footer {
     .about-img {
         width: 100%;
         max-width: 250px;
-        height: 250px;
+        height: auto;
     }
 
-    .main-header {
-        padding: 0 25px;
-    }
-    .main-nav {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 80vw;
-        max-width: 320px;
-        height: 100vh;
-        background-color: var(--bg-dark-nav);
-        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-        padding-top: 100px;
-        transition: right 0.3s ease-in-out;
-        z-index: 999; /* Bem acima do conteúdo */
-        align-items: flex-start;
-        gap: 20px;
-        padding-left: 20px;
-        overflow-y: auto;
-    }
-
-    .main-nav.open {
-        left: 0;
-        display: flex;
-    }
-
-    .main-nav a {
-    color: var(--text-lightest);  /* Cor do texto: branco (da sua paleta) */
-    font-size: 1.5rem;           /* Tamanho da fonte maior, para facilitar o toque */
-    font-weight: 600;            /* Deixa o texto um pouco mais encorpado */
-    padding: 1rem;               /* Espaçamento interno para o link respirar */
-    width: 80%;                  /* Ocupa 80% da largura do menu */
-    text-align: center;          /* Centraliza o texto */
-    border-radius: 8px;          /* Bordas arredondadas */
-    border-bottom: none;         /* Remove a linha de baixo que você não queria */
-    transition: background-color 0.2s, color 0.2s; /* Animação suave */
-}
-
-/* Adicione também este trecho para o efeito ao passar o mouse ou tocar */
-.main-nav a:hover {
-    background-color: rgba(41, 171, 226, 0.2); /* Fundo azul ciano transparente */
-    color: var(--accent-cyan);                 /* Texto fica na cor de destaque */
-}
-
-    .container {
-        padding: 100px 15px;
+    .services, .lista-garantias {
+        grid-template-columns: 1fr;
     }
 
     .section-title {
-        /* O clamp() já torna o tamanho da fonte responsivo, então a troca manual não é mais necessária. */
-        justify-content: center;
+        text-align: center;
     }
+}
+
     .section-title::after {
         display: none;
     }
