@@ -1506,7 +1506,7 @@ footer {
 /* --- Estilos para a Nova Seção de Apresentação (Hero Section) --- */
 
 .hero-section {
-    min-height: calc(80vh - 150px); /* Ocupa a altura da tela, descontando o padding do container */
+    min-height: calc(80vh - 150px);
     display: flex;
     align-items: center;
     width: 100%;
@@ -1517,13 +1517,13 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 70px; /* Aumenta o espaço entre texto e imagem */
+    gap: 5%; /* Define um espaço flexível de 5% da largura entre os itens */
     width: 100%;
 }
 
 .hero-text {
-    flex: 1;
-    max-width: 20%; /* Reduz um pouco o espaço do texto para dar mais à imagem */
+    flex: 0 1 55%; /* O texto ocupa até 55% do espaço */
+    max-width: 45%;
 }
 
 .hero-text h1 {
@@ -1549,17 +1549,18 @@ footer {
 }
 
 .hero-image {
-    flex-basis: 100%; /* Aumenta a base de largura para a imagem */
+    flex: 0 1 100%; /* A imagem ocupa até 40% do espaço */
+    max-width: 55%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hero-image img {
-    width: 280%;
-    max-width: 1000px; /* Aumenta o tamanho máximo da imagem. Sinta-se à vontade para aumentar mais este valor. */
+    width: 100%; /* A imagem ocupa 100% do seu container (que tem 40%) */
+    max-width: 1000px; /* Limita o tamanho máximo da imagem para não ficar gigante */
     height: auto;
-    border-radius: 12px; /* Bordas levemente arredondadas */
+    border-radius: 12px;
     box-shadow: 0 10px 40px rgba(10, 25, 47, 0.5);
 }
 
@@ -1585,6 +1586,7 @@ footer {
         margin: 0 auto; /* Centraliza o botão */
     }
 }
+
 
 
 /* --- Responsividade para Telas Menores (até 767px) --- */
