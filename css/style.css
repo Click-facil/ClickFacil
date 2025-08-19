@@ -510,6 +510,61 @@ footer {
     text-align: right;
     color: var(--text-lightest);
 }
+/* --- Estilos para o Print Visível no Card de Avaliação --- */
+
+.testimonial-print {
+    width: 100%; /* Faz a imagem ocupar a largura total do card */
+    max-width: 400px; /* Limita a largura máxima para não ficar gigante */
+    border-radius: 8px; /* Bordas arredondadas */
+    margin-top: 15px; /* Espaço acima da imagem */
+    margin-bottom: 15px; /* Espaço abaixo da imagem */
+    border: 1px solid rgba(41, 171, 226, 0.3); /* Borda sutil na cor do site */
+    object-fit: contain; /* Garante que a imagem inteira apareça sem distorção */
+}
+
+/* Remove o link antigo, já que não é mais necessário */
+.ver-original-btn {
+    display: none;
+}
+
+/* Opcional: Se você tiver os estilos do lightbox no seu CSS, pode removê-los */
+.lightbox-overlay, .lightbox-image, .lightbox-close-btn {
+    display: none;
+}
+
+/* --- Correção de Layout para Imagem de Avaliação --- */
+
+/* Centraliza o conteúdo do card de avaliação */
+.comentario.card {
+    align-items: center; /* Centraliza todos os itens horizontalmente */
+    text-align: center;  /* Centraliza o texto */
+}
+
+/* Garante que o texto do serviço e da descrição fiquem alinhados à esquerda */
+.comentario .servico-avaliado,
+.comentario .texto,
+.comentario .autor {
+    text-align: left;
+    width: 100%; /* Ocupa a largura total para o alinhamento funcionar */
+}
+
+/* Remove a regra que empurrava o conteúdo para baixo, criando um espaçamento mais natural */
+.comentario .texto {
+    flex-grow: 0; /* Impede que este elemento se estique */
+}
+
+/* Estilo ajustado para a imagem do print */
+.testimonial-print {
+    max-width: 90%;      /* A imagem ocupará no máximo 90% da largura do card */
+    width: auto;         /* A largura se ajusta ao conteúdo, até o máximo */
+    height: auto;        /* A altura se ajusta para manter a proporção */
+    align-self: center;  /* Garante a centralização horizontal */
+    border-radius: 8px;
+    margin-top: 20px;    /* Aumenta o espaço acima da imagem */
+    margin-bottom: 20px; /* Aumenta o espaço abaixo da imagem */
+    border: 1px solid rgba(41, 171, 226, 0.3);
+    object-fit: contain;
+}
 
 /* --- Seção de FAQ --- */
 .faq-section {
@@ -1448,6 +1503,90 @@ footer {
     background-color: #1e86b5;
 }
 
+/* --- Estilos para a Nova Seção de Apresentação (Hero Section) --- */
+
+.hero-section {
+    min-height: calc(80vh - 150px); /* Ocupa a altura da tela, descontando o padding do container */
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 70px; /* Aumenta o espaço entre texto e imagem */
+    width: 100%;
+}
+
+.hero-text {
+    flex: 1;
+    max-width: 20%; /* Reduz um pouco o espaço do texto para dar mais à imagem */
+}
+
+.hero-text h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    color: var(--text-lightest);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.hero-text h2 {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    color: var(--accent-cyan);
+    font-weight: 600;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    flex-basis: 100%; /* Aumenta a base de largura para a imagem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 280%;
+    max-width: 1000px; /* Aumenta o tamanho máximo da imagem. Sinta-se à vontade para aumentar mais este valor. */
+    height: auto;
+    border-radius: 12px; /* Bordas levemente arredondadas */
+    box-shadow: 0 10px 40px rgba(10, 25, 47, 0.5);
+}
+
+/* --- Responsividade para a Nova Seção --- */
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column-reverse; /* Imagem fica em cima no celular */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-image {
+        flex-basis: auto;
+        width: 70%;
+        max-width: 300px; /* Imagem um pouco menor no mobile */
+    }
+    
+    .hero-text .saiba-mais {
+        margin: 0 auto; /* Centraliza o botão */
+    }
+}
+
+
 /* --- Responsividade para Telas Menores (até 767px) --- */
 @media (max-width: 767px) {
     .main-header {
@@ -1594,6 +1733,74 @@ footer {
 
 
 }
+
+/* --- Estilos para a Nova Seção de Contato --- */
+
+.contact-section .section-title {
+    text-align: center; /* Centraliza o título */
+}
+
+.contact-subtitle {
+    text-align: center;
+    max-width: 500px;
+    margin: -20px auto 40px auto; /* Ajusta espaçamentos */
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.contact-buttons-container {
+    display: flex;
+    flex-direction: column; /* Um botão embaixo do outro por padrão */
+    gap: 15px; /* Espaço entre os botões */
+    width: 100%;
+    max-width: 400px; /* Largura máxima para os botões */
+    margin: 0 auto;
+}
+
+.contact-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.contact-button i {
+    margin-right: 12px;
+    font-size: 1.3rem;
+}
+
+.contact-button:hover {
+    transform: translateY(-3px); /* Efeito de levantar ao passar o mouse */
+}
+
+/* Estilo unificado para TODOS os botões de contato */
+.contact-button.whatsapp,
+.contact-button.email,
+.contact-button.phone {
+    background-color: transparent;
+    color: var(--accent-cyan);
+    border: 2px solid var(--accent-cyan);
+}
+
+/* Efeito de hover unificado para TODOS os botões */
+.contact-button.whatsapp:hover,
+.contact-button.email:hover,
+.contact-button.phone:hover {
+    background-color: rgba(41, 171, 226, 0.1); /* Fundo transparente no hover */
+}
+
+/* Remove completamente o formulário antigo */
+.contact-form {
+    display: none;
+}
+
+
 /*Para telas menores que 576px (sm)*/
 @media (max-width: 575px) {
 
