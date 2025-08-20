@@ -2,8 +2,10 @@ document.addEventListener('DOMContentLoaded', async function() {
     console.log("🔄 Iniciando a loja de modelos digitais...");
 
     const gridContainer = document.getElementById('modelos-grid-container');
-    if (!gridContainer) {
-        console.error('❌ Elemento #modelos-grid-container não encontrado.');
+    const searchInput = document.getElementById('search-modelos-input'); // Pega a barra de pesquisa
+
+    if (!gridContainer || !searchInput) {
+        console.error('❌ Elementos essenciais (grid ou input de busca) não encontrados.');
         return;
     }
 
@@ -19,7 +21,26 @@ document.addEventListener('DOMContentLoaded', async function() {
         const allProducts = data.produtos;
         const allCategories = data.categorias;
 
+        // Renderiza todos os produtos na primeira vez que a página carrega
         renderProducts(allProducts, allCategories);
+
+        // --- INÍCIO DA NOVA LÓGICA DE PESQUISA ---
+        // Adiciona um "ouvinte" que reage a cada letra digitada na barra de pesquisa
+        searchInput.addEventListener('input', function(event) {
+            const searchTerm = event.target.value.toLowerCase();
+
+            // Filtra a lista COMPLETA de produtos
+            const filteredProducts = allProducts.filter(produto => {
+                const title = produto.titulo.toLowerCase();
+                const description = produto.descricao.toLowerCase();
+                // Retorna verdadeiro se o termo de busca estiver no título OU na descrição
+                return title.includes(searchTerm) || description.includes(searchTerm);
+            });
+
+            // Re-renderiza a lista na tela apenas com os produtos filtrados
+            renderProducts(filteredProducts, allCategories);
+        });
+        // --- FIM DA NOVA LÓGICA DE PESQUISA ---
 
     } catch (error) {
         console.error('❌ Falha ao carregar os modelos:', error);
@@ -33,13 +54,19 @@ function gerarDescricao(nome) {
     if (nome.toLowerCase().includes('agenda')) return 'Gerencie seus compromissos e tarefas de forma simples e visual.';
     if (nome.toLowerCase().includes('vendas')) return 'Acompanhe suas vendas e resultados com este modelo digital.';
     if (nome.toLowerCase().includes('projeto')) return 'Planeje e monitore seus projetos com eficiência.';
-    // Adicione mais regras conforme necessário
     return 'Modelo digital pronto para agilizar sua rotina.';
 }
 
 function renderProducts(produtos, categorias) {
     const gridContainer = document.getElementById('modelos-grid-container');
-    gridContainer.innerHTML = '';
+    gridContainer.innerHTML = ''; // Sempre limpa a tela antes de renderizar
+
+    // --- ADICIONADO: VERIFICAÇÃO DE RESULTADOS ---
+    // Se a lista de produtos (filtrada ou não) estiver vazia, mostra uma mensagem
+    if (produtos.length === 0) {
+        gridContainer.innerHTML = '<p id="no-results-message" style="text-align: center; color: var(--text-lightest); padding: 40px 0;">Nenhum modelo encontrado com esse termo.</p>';
+        return; // Para a execução da função aqui
+    }
 
     const productsByCategory = produtos.reduce((acc, produto) => {
         const cat = produto.categoria;
@@ -49,7 +76,8 @@ function renderProducts(produtos, categorias) {
     }, {});
 
     for (const catKey in categorias) {
-        if (productsByCategory[catKey]) {
+        // Apenas renderiza a categoria se houver produtos nela após o filtro
+        if (productsByCategory[catKey] && productsByCategory[catKey].length > 0) {
             const categoriaDiv = document.createElement('div');
             categoriaDiv.className = 'modelo-categoria';
 

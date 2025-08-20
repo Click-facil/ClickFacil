@@ -38,20 +38,23 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 50px;
     height: 100px;
-    background-color: var(--bg-dark-navy); /* <-- COR DO CABEÇALHO PADRÃO ALTERADA AQUI */
+    background-color: var(--bg-dark-navy);
     backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
+    left: 0; /* Garante que começa na borda esquerda */
+    right: 0; /* Garante que termina na borda direita */
     width: 100%;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra mais leve */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: height 0.3s, background-color 0.3s, box-shadow 0.3s;
-    width: 100%;
     box-sizing: border-box;
-    padding: 0 32px;
     overflow-x: visible;
+
+    /* 👇 CONTROLE O ESPAÇAMENTO SOMENTE AQUI 👇 */
+    padding-left: 5px;  /* Altere este valor para mover para esquerda/direita */
+    padding-right: 10px; /* Altere este valor se precisar */
 }
 
 .main-title {
@@ -206,6 +209,9 @@ section {
 
 @media (max-width: 900px) {
     .services {
+        grid-template-columns: 1fr;
+    }
+     .lista-garantias {
         grid-template-columns: 1fr;
     }
 }
@@ -470,12 +476,6 @@ footer {
     flex-grow: 1;
 }
 
-/* Responsivo para garantias */
-@media (max-width: 900px) {
-    .lista-garantias {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* --- Seção de Avaliações --- */
 .avaliacoes-container {
@@ -1033,7 +1033,7 @@ footer {
     gap: 25px;
     justify-content: center;
     /* Adicionado para impedir que os cards se estiquem para a mesma altura */
-    align-items: start;
+    align-items: stretch;
 }
 
 .modelo-card {
@@ -1505,64 +1505,117 @@ footer {
 
 /* --- Estilos para a Nova Seção de Apresentação (Hero Section) --- */
 
+/* 1. Faz a seção ocupar a largura total da tela, saindo dos limites do .container */
 .hero-section {
     min-height: calc(80vh - 150px);
     display: flex;
     align-items: center;
-    width: 100%;
     margin-bottom: 100px;
+    overflow: hidden;
+
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
+/* 2. O conteúdo interno se comporta como o container antigo */
 .hero-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 5%; /* Define um espaço flexível de 5% da largura entre os itens */
     width: 100%;
+    position: relative;
+    z-index: 2;
+
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
+/* 3. Texto à esquerda, afastado da imagem */
 .hero-text {
-    flex: 0 1 55%; /* O texto ocupa até 55% do espaço */
-    max-width: 45%;
+    width: 50%;
+    max-width: 500px;
+    position: relative;
+    z-index: 2;
+    padding-left: 40px; /* <<< afastamento extra para a esquerda */
 }
 
-.hero-text h1 {
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
+.hero-text h1, .hero-text h2, .hero-text p {
     color: var(--text-lightest);
-    font-weight: 800;
-    margin-bottom: 15px;
 }
+.hero-text h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; margin-bottom: 15px; }
+.hero-text h2 { font-size: clamp(1.1rem, 3vw, 1.3rem); color: var(--accent-cyan); font-weight: 600; margin-bottom: 25px; line-height: 1.5; }
+.hero-text p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px; }
 
-.hero-text h2 {
-    font-size: clamp(1.1rem, 3vw, 1.3rem);
-    color: var(--accent-cyan);
-    font-weight: 600;
-    margin-bottom: 25px;
-    line-height: 1.5;
-}
-
-.hero-text p {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    line-height: 1.7;
-    margin-bottom: 30px;
-}
-
+/* 4. Imagem posicionada absoluta (mantida igual) */
 .hero-image {
-    flex: 0 1 100%; /* A imagem ocupa até 40% do espaço */
-    max-width: 55%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    z-index: 0;
+    width: 650px;
+    bottom: -140px;
+    right: -100px;
 }
 
 .hero-image img {
-    width: 100%; /* A imagem ocupa 100% do seu container (que tem 40%) */
-    max-width: 1000px; /* Limita o tamanho máximo da imagem para não ficar gigante */
+    width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(10, 25, 47, 0.5);
 }
+
+/* Estrutura da seção "about" */
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-text {
+    width: 50%;
+    max-width: 500px;
+    z-index: 2;
+    padding-left: 100px; /* <<< mesmo afastamento aplicado aqui */
+}
+
+/* 5. Responsividade */
+@media (max-width: 900px) {
+    .hero-section {
+        width: 100%;
+        position: static;
+        left: auto;
+        transform: none;
+        min-height: auto;
+    }
+
+    .hero-content {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-text {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0; /* remove afastamento no mobile */
+    }
+
+    .hero-image {
+        position: static;
+        width: 70%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .hero-text .saiba-mais {
+        margin: 0 auto;
+    }
+}
+
+
 
 /* --- Responsividade para a Nova Seção --- */
 @media (max-width: 900px) {
@@ -1577,9 +1630,11 @@ footer {
     }
 
     .hero-image {
-        flex-basis: auto;
-        width: 70%;
+        position: static; /* Reseta o posicionamento para o fluxo normal */
+        transform: none;  /* Remove a transformação */
+        width: 100%;       /* Mantém o tamanho responsivo original */
         max-width: 300px; /* Imagem um pouco menor no mobile */
+        margin: 0 auto;   /* Centraliza a imagem que agora é um item de bloco */
     }
     
     .hero-text .saiba-mais {
@@ -1594,6 +1649,7 @@ footer {
     .main-header {
         padding: 0 25px;
     }
+    
 
     /* --- ESTILOS DO MENU PARA DESKTOP (Telas Maiores) --- */
 
@@ -1629,9 +1685,7 @@ footer {
 
 /* --- RESPONSIVIDADE PARA TELAS MENORES (até 767px) --- */
 @media (max-width: 767px) {
-    .main-header {
-        padding: 0 25px;
-    }
+    
 
     /* Esconde os links do menu desktop no celular */
     .main-nav {
