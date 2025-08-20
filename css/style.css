@@ -1580,6 +1580,20 @@ footer {
     z-index: 2;
     padding-left: 100px; /* <<< mesmo afastamento aplicado aqui */
 }
+/* Ajuste de afastamento do texto na seção "sobre" */
+.about-text,
+.hero-text {
+    padding-left: 40px; /* afasta o texto para a esquerda */
+}
+
+/* No mobile, remove o afastamento para centralizar */
+@media (max-width: 900px) {
+    .about-text,
+    .hero-text {
+        padding-left: 0;
+    }
+}
+
 
 /* 5. Responsividade */
 @media (max-width: 900px) {
