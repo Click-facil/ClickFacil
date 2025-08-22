@@ -6,7 +6,7 @@
   },
   "servicos": [
     {
-      "nome": "Check-up de Performance",
+      "nome": "Otimização Completa do seu Computador",
       "preco": "A partir de R$ 79,90",
       "descricao": "Seu computador está lento, travando ou demorando para ligar? Faço uma otimização completa, garantindo que ele volte a funcionar com agilidade para você trabalhar ou estudar sem estresse.",
       "categoria": "suporte_ti",
@@ -21,29 +21,29 @@
     },
      {
       "nome": "Destaque seu Negócio Localmente",
-      "preco": "R$ 197,00",
+      "preco": "A partir de R$ 89,90",
       "descricao": "Garanta que seus clientes te encontrem no Google e no Google Maps! Um Perfil de Empresa bem configurado é a porta de entrada digital do seu negócio.",
       "categoria": "presenca_digital",
       "imagem": "images/img3.png"
     },
     {
       "nome": "Landing Page Essencial",
-      "preco": "R$ 300,00",
+      "preco": "A partir de R$ 150,00",
       "descricao": "Transforme seus seguidores em clientes. Crio uma página de vendas única para seu produto ou serviço, com layout de template, 3 seções, formulário e integração com WhatsApp.",
       "categoria": "presenca_digital",
       "imagem": "images/img4.png"
     },
     {
       "nome": "Site Institucional Starter",
-      "preco": "R$ 600,00",
-      "descricao": "Leve seu negócio para o próximo nível com um site profissional. Até 5 páginas, design com tema premium, SEO básico e 1h de treinamento para você gerenciar o conteúdo.",
+      "preco": "A partir de R$ 300,00",
+      "descricao": "Garanta a presença online do seu negócio com um site de alta performance. Design com tema premium, e otimização para melhorar a visibilidade e o tráfego de buscas.",
       "categoria": "presenca_digital",
       "imagem": "images/img5.png"
     },
     {
-      "nome": "Loja Virtual Start",
-      "preco": "R$ 1.500,00",
-      "descricao": "Sonha em ter uma loja online? Cuido da configuração inicial da sua loja em plataformas como Nuvemshop ou Loja Integrada, personalizo o design e deixo tudo pronto para você vender.",
+      "nome": "Loja Virtual",
+      "preco": "A partir de R$ 650,00",
+      "descricao": "Transforme sua marca em um negócio online lucrativo. Criamos sua loja virtual completa, com design profissional, configuração de pagamentos e otimização para vendas. Inclui treinamento completo para você gerenciar seus produtos, pedidos e clientes com total autonomia.",
       "categoria": "presenca_digital",
       "imagem": "images/img6.png"
     },
