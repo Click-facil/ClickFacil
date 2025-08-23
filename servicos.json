@@ -56,8 +56,8 @@
     },
     {
       "nome": "Consultoria em IA",
-      "preco": "R$ 120,00",
-      "descricao": "Aprenda a usar a Inteligência Artificial (como o ChatGPT) para acelerar seu negócio. Uma consultoria de 1h30 que vai transformar sua produtividade e marketing.",
+      "preco": "A partir de R$ 120,00",
+      "descricao": "Aprenda a usar a Inteligência Artificial (como o ChatGPT, Gemini, Copilot, DeepSeek, etc) para acelerar seu negócio. Uma consultoria que vai transformar sua produtividade e marketing.",
       "categoria": "automacao_ia",
       "imagem": "images/img8.png"
     }
