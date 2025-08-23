@@ -129,10 +129,11 @@ body {
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: var(--text-lightest);
+    color: #ffffff; /* Garante que o ícone seja sempre branco e visível */
+    position: relative; /* Necessário para que o z-index funcione */
     cursor: pointer;
     transition: color 0.2s;
-    z-index: 101; /* Above the nav when it's open */
+    z-index: 1001; /* Z-index elevado para ficar ACIMA do painel do menu (que tem z-index 1000) */
 }
 .container {
     max-width: 1000px;
@@ -1731,7 +1732,7 @@ footer {
 
   /* Garante que o menu desktop não apareça no mobile */
   .main-nav {
-    display: none !important;
+    display: none;
     width: auto !important;
     padding-right: 0 !important;
   }
@@ -1740,7 +1741,6 @@ footer {
   .hamburger {
     display: block !important;
     margin-left: auto;                       /* Fica à direita do header */
-    z-index: 101;
   }
 }
 

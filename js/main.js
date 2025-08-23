@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (hamburgerBtn && mainNav) {
             hamburgerBtn.addEventListener('click', function() {
                 mainNav.classList.toggle('open');
-                document.body.classList.toggle('no-scroll'); // Trava/destrava o scroll do body
+                // document.body.classList.toggle('no-scroll'); // Trava de scroll removida a pedido.
                 // Toggle icon
                 const icon = hamburgerBtn.querySelector('i');
                 if (mainNav.classList.contains('open')) {
