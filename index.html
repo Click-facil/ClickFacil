@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://clickfacil.vercel.app/"> <!-- Trocar pela URL real do site -->
     <meta property="og:title" content="Click Fácil | Soluções Digitais, TI e Automação para Negócios">
     <meta property="og:description" content="Oferecemos suporte de TI, criação de sites, automação com IA e modelos digitais prontos.">
-    <meta property="og:image" content="https://clickfacil.vercel.app/images/cabecalho.png"> <!-- Trocar pela URL real da imagem -->
+    <meta property="og:image" content="https://clickfacil.vercel.app/images/logo.png"> <!-- Trocar pela URL real da imagem -->
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/logo.png">
@@ -39,20 +39,21 @@
             <a href="#faq">FAQ</a>
             <a href="#contato">Contato</a>
         </nav>
+        <!-- Botão de Busca -->
+        <button class="search-toggle-btn" id="search-toggle" aria-label="Abrir pesquisa">
+            <i class="fas fa-search"></i>
+        </button>
         <button class="hamburger" id="hamburger-menu">
             <i class="fas fa-bars"></i>
         </button>
     </header>
-
-
-
     <div class="container">
         <section id="sobre" class="about-section fade-in-section">
             <div class="about">
                 <img src="images/logo.png" alt="Logo da Click Fácil" class="about-img">
                 <div class="about-text">
                     <h2>Click Fácil</h2>
-                    <p>Soluções digitais inteligentes, tornando a tecnologia uma aliada poderosa para o crescimento do seu negócio. Estamos aqui para ser seu parceiro estratégico no mundo digital. Menos complicação, mais resultados.</p>
+                    <p>Transformamos seus objetivos de negócio em realidade com soluções digitais inteligentes e fáceis de usar. Seja para otimizar suas operações, criar uma presença online marcante ou automatizar tarefas, somos o parceiro estratégico que elimina a complicação para que você possa focar no que realmente importa: o crescimento.</p>
                 </div>
                 <div class="hero-image">
             <img src="images/cabecalho.png" alt="Atendimento humanizado da Click Fácil">
@@ -213,11 +214,28 @@
     <footer>
         &copy; <span id="current-year"></span> Click Fácil. Todos os direitos reservados.
     </footer>
+
+    <!-- Overlay de Busca -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-overlay-content">
+            <button class="search-close-btn" id="search-close" aria-label="Fechar pesquisa">&times;</button>
+            <div class="search-input-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="search" id="global-search-input" placeholder="O que você procura? (Ex: site, planilha, otimização...)" autocomplete="off">
+            </div>
+            <div class="search-results-container" id="search-results">
+                <!-- Os resultados da pesquisa aparecerão aqui -->
+            </div>
+        </div>
+    </div>
     
     <!-- Botão Voltar ao Topo -->
     <button id="back-to-top-btn" title="Voltar ao Topo">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <!-- Biblioteca para busca inteligente (fuzzy search) -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

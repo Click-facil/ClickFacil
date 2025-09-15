@@ -47,9 +47,13 @@
       <a href="index.html#faq">FAQ</a>
       <a href="#contato">Contato</a>
     </nav>
-    <button class="hamburger" id="hamburger-menu">
-        <i class="fas fa-bars"></i>
-    </button>
+      <!-- Botão de Busca -->
+        <button class="search-toggle-btn" id="search-toggle" aria-label="Abrir pesquisa">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="hamburger" id="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </button>
   </header>
 
   <div class="container">
@@ -84,6 +88,27 @@
     &copy; <span id="current-year"></span> Click Fácil. Todos os direitos reservados.
   </footer>
 
+  <!-- Overlay de Busca -->
+  <div class="search-overlay" id="search-overlay">
+      <div class="search-overlay-content">
+          <button class="search-close-btn" id="search-close" aria-label="Fechar pesquisa">&times;</button>
+          <div class="search-input-wrapper">
+              <i class="fas fa-search"></i>
+              <input type="search" id="global-search-input" placeholder="O que você procura? (Ex: site, planilha, otimização...)" autocomplete="off">
+          </div>
+          <div class="search-results-container" id="search-results">
+              <!-- Os resultados da pesquisa aparecerão aqui -->
+          </div>
+      </div>
+  </div>
+
+  <!-- Botão Voltar ao Topo -->
+  <button id="back-to-top-btn" title="Voltar ao Topo">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Biblioteca para busca inteligente (fuzzy search) -->
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
   <script src="js/modelos.js"></script>
   <script src="js/main.js"></script>
   

@@ -128,17 +128,112 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // --- Animação de Fade-in ao Rolar ---
-        const sections = document.querySelectorAll('.fade-in-section');
-        const observer = new IntersectionObserver((entries) => {
+        // Seleciona tanto as seções principais quanto os cards individuais para a animação.
+        const elementsToAnimate = document.querySelectorAll('.fade-in-section, .card, .faq-container > details');
+        
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
+                    // Opcional, mas recomendado: para de observar o elemento depois que ele já apareceu.
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
 
-        sections.forEach(section => observer.observe(section));
+        elementsToAnimate.forEach(element => observer.observe(element));
+
+        // --- LÓGICA DA BUSCA GLOBAL ---
+        const searchToggleBtn = document.getElementById('search-toggle');
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchCloseBtn = document.getElementById('search-close');
+        const searchInput = document.getElementById('global-search-input');
+        const searchResultsContainer = document.getElementById('search-results');
+
+        if (searchToggleBtn && searchOverlay && searchCloseBtn && searchInput) {
+            let fuse = null;
+            let allData = [];
+
+            // Função para carregar os dados de serviços e modelos
+            const loadSearchData = async () => {
+                try {
+                    // Detecta o caminho base correto
+                    const basePath = window.location.pathname.includes('pages') ? '../' : '';
+
+                    const [servicosRes, modelosRes] = await Promise.all([
+                        fetch(`${basePath}servicos.json`),
+                        fetch(`${basePath}js/modelos.json`)
+                    ]);
+
+                    const servicosData = await servicosRes.json();
+                    const modelosData = await modelosRes.json();
+
+                    // Formata e combina os dados
+                    const servicos = servicosData.servicos.map(item => ({
+                        title: item.nome,
+                        description: item.descricao,
+                        link: `${basePath}catalagodeservicos.html`,
+                        category: 'Serviço'
+                    }));
+
+                    const modelos = modelosData.produtos.map(item => ({
+                        title: item.titulo,
+                        description: item.descricao,
+                        link: `${basePath}modelosdigitais.html`,
+                        category: 'Modelo Digital'
+                    }));
+
+                    allData = [...servicos, ...modelos];
+
+                    // Configura o Fuse.js para a busca "inteligente"
+                    const options = {
+                        keys: ['title', 'description'],
+                        includeScore: true,
+                        threshold: 0.4, // Ajuste para mais ou menos tolerância a erros (0.0 = exato, 1.0 = qualquer coisa)
+                        minMatchCharLength: 2,
+                    };
+                    fuse = new Fuse(allData, options);
+
+                } catch (error) {
+                    console.error("Erro ao carregar dados para a busca:", error);
+                    searchResultsContainer.innerHTML = `<p style="color: var(--text-light);">Não foi possível carregar a busca.</p>`;
+                }
+            };
+
+            // Abre a busca
+            searchToggleBtn.addEventListener('click', () => {
+                searchOverlay.classList.add('open');
+                document.body.classList.add('no-scroll'); // Trava o scroll do fundo
+                searchInput.focus();
+                if (!fuse) { // Carrega os dados apenas na primeira vez que a busca é aberta
+                    loadSearchData();
+                }
+            });
+
+            // Fecha a busca
+            const closeSearch = () => {
+                searchOverlay.classList.remove('open');
+                document.body.classList.remove('no-scroll');
+                searchInput.value = '';
+                searchResultsContainer.innerHTML = '';
+            };
+            searchCloseBtn.addEventListener('click', closeSearch);
+            searchOverlay.addEventListener('click', (e) => {
+                if (e.target === searchOverlay) closeSearch(); // Fecha se clicar no fundo
+            });
+
+            // Executa a busca ao digitar
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value;
+                if (query.length < 2 || !fuse) {
+                    searchResultsContainer.innerHTML = '';
+                    return;
+                }
+                const results = fuse.search(query);
+                renderResults(results);
+            });
+        }
 
     } catch (error) {
         console.error("Ocorreu um erro em main.js, mas a execução continuará:", error);
@@ -168,4 +263,26 @@ function showToast(message, type = 'info', duration = 4000) {
         toast.classList.remove('show');
         toast.addEventListener('transitionend', () => toast.remove());
     }, duration);
+}
+
+/**
+ * Renderiza os resultados da busca na tela.
+ * @param {Array} results - O array de resultados do Fuse.js.
+ */
+function renderResults(results) {
+    const searchResultsContainer = document.getElementById('search-results');
+    if (results.length === 0) {
+        searchResultsContainer.innerHTML = `<p style="color: var(--text-light);">Nenhum resultado encontrado.</p>`;
+        return;
+    }
+
+    searchResultsContainer.innerHTML = results
+        .map(result => `
+            <a href="${result.item.link}" class="search-result-item">
+                <h4>${result.item.title}</h4>
+                <p>${result.item.description.substring(0, 120)}...</p>
+                <span class="category-tag">${result.item.category}</span>
+            </a>
+        `)
+        .join('');
 }

@@ -135,6 +135,21 @@ body {
     transition: color 0.2s;
     z-index: 1001; /* Z-index elevado para ficar ACIMA do painel do menu (que tem z-index 1000) */
 }
+
+/* Estilo para o novo botão de busca no header */
+.search-toggle-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.2rem; /* Tamanho do ícone */
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0 15px;
+    transition: color 0.2s;
+}
+.search-toggle-btn:hover {
+    color: var(--accent-cyan);
+}
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -1193,8 +1208,8 @@ footer {
     position: absolute;
     z-index: 0;
     width: 650px;
-    bottom: -155px;
-    right: -100px;
+    bottom: -175px; /* Ajustado para mover a imagem para baixo */
+    right: -94px;
 }
 
 .hero-image img {
@@ -1796,4 +1811,161 @@ footer {
     line-height: 1.4;
     margin-bottom: 12px;
   }
+}
+
+/* ===== Estilos para o Botão Voltar ao Topo ===== */
+#back-to-top-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-cyan);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top-btn:hover {
+    background-color: #1e86b5; /* Tom mais escuro do cyan para o hover */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* ===== Estilos para a Sobreposição de Busca (Search Overlay) ===== */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 25, 47, 0.95); /* Fundo escuro com transparência */
+    backdrop-filter: blur(10px);
+    z-index: 1002; /* Acima do header e do menu mobile */
+    display: flex;
+    justify-content: center;
+    padding-top: 10vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.search-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-overlay-content {
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+.search-close-btn {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.search-close-btn:hover {
+    color: var(--accent-cyan);
+}
+
+.search-input-wrapper {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.search-input-wrapper .fa-search {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dark);
+    font-size: 1.2rem;
+}
+
+#global-search-input {
+    width: 100%;
+    padding: 20px 20px 20px 60px;
+    font-size: 1.2rem;
+    background-color: var(--bg-dark-navy);
+    border: 2px solid rgba(41, 171, 226, 0.3);
+    border-radius: 8px;
+    color: var(--text-lightest);
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#global-search-input:focus {
+    border-color: var(--accent-cyan);
+}
+
+.search-results-container {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Estilo para cada item do resultado */
+.search-result-item {
+    display: block;
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background: rgba(41, 171, 226, 0.08);
+    border: 1px solid rgba(41, 171, 226, 0.18);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.search-result-item:hover {
+    background-color: rgba(41, 171, 226, 0.16);
+    border-color: var(--accent-cyan);
+}
+
+.search-result-item h4 {
+    color: var(--text-lightest);
+    font-size: 1.1rem;
+    margin: 0 0 5px 0;
+}
+
+.search-result-item p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.search-result-item .category-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    background-color: rgba(41, 171, 226, 0.1);
+    border-radius: 4px;
 }
