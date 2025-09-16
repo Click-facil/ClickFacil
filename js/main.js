@@ -83,8 +83,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // --- Botão Voltar ao Topo ---
         const backToTopBtn = document.getElementById('back-to-top-btn');
         if (backToTopBtn) {
+            const footer = document.querySelector('footer');
+            const showAtPercent = 0.75; // Mostra o botão após 75% da página ter sido rolada
+
             window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) { // Mostra o botão após rolar 300px
+                const totalHeight = document.body.scrollHeight - window.innerHeight;
+                const scrollProgress = window.scrollY / totalHeight;
+
+                if (scrollProgress >= showAtPercent) {
                     backToTopBtn.classList.add('show');
                 } else {
                     backToTopBtn.classList.remove('show');
