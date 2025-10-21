@@ -562,17 +562,61 @@ section {
     flex-grow: 0; /* Impede que este elemento se estique */
 }
 
+/* Estilo para o serviço avaliado */
+.comentario .servico-avaliado {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--accent-cyan);
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+/* --- Estilos para o Carrossel de Depoimentos (Swiper.js) --- */
+.testimonial-slider {
+    width: 100%;
+    max-width: 700px; /* Largura máxima para o carrossel */
+    margin: 0 auto;
+    padding: 10px 0 50px 0; /* Espaço extra abaixo para a paginação */
+    position: relative;
+    overflow: hidden; /* Garante que nada saia dos limites */
+}
+
+.testimonial-slider .swiper-slide {
+    background: transparent; /* O fundo já está no card interno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Personalização das setas de navegação */
+.testimonial-slider .swiper-button-next,
+.testimonial-slider .swiper-button-prev {
+    color: var(--accent-cyan); /* Usa a cor de destaque do site */
+    transition: transform 0.2s;
+}
+.testimonial-slider .swiper-button-next:hover,
+.testimonial-slider .swiper-button-prev:hover {
+    transform: scale(1.1);
+}
+
+/* Personalização da paginação (pontos) */
+.testimonial-slider .swiper-pagination-bullet {
+    background-color: var(--text-dark);
+    opacity: 0.7;
+}
+.testimonial-slider .swiper-pagination-bullet-active {
+    background-color: var(--accent-cyan);
+}
+
 /* Estilo ajustado para a imagem do print */
 .testimonial-print {
-    max-width: 90%;      /* A imagem ocupará no máximo 90% da largura do card */
-    width: auto;         /* A largura se ajusta ao conteúdo, até o máximo */
+    width: 100%;         /* Ocupa a largura total do card */
     height: auto;        /* A altura se ajusta para manter a proporção */
-    align-self: center;  /* Garante a centralização horizontal */
     border-radius: 8px;
     margin-top: 20px;    /* Aumenta o espaço acima da imagem */
-    margin-bottom: 20px; /* Aumenta o espaço abaixo da imagem */
-    border: 1px solid rgba(41, 171, 226, 0.3);
+    border: 1px solid rgba(41, 171, 226, 0.2);
     object-fit: contain;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar a imagem */
 }
 
 /* --- Seção de FAQ --- */

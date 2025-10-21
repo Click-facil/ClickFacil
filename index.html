@@ -25,6 +25,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- 1. Adicionado CSS do Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
     <header class="main-header">
@@ -135,33 +138,51 @@
 
         <section id="avaliacoes-clientes" class="fade-in-section">
             <h2 class="section-title">O que dizem nossos clientes</h2>
-            <div class="avaliacoes-container">
-
-    <!-- Card 1 -->
-    <div class="comentario card">
-        <p class="Cliente">— Pedro</p>
-        <p class="servico-avaliado">Serviço: Planilha de Controle</p>
-        <p class="texto">O cliente necessitava de uma ferramenta para identificar e gerenciar riscos de forma estratégica, permitindo a tomada de decisões mais seguras e informadas.</p>
-        <img src="images/feedback1.png" alt="Depoimento do cliente Pedro sobre a Planilha de Controle" class="testimonial-print">
-    </div>
-
-                <!--  Card 2  -->
-    <div class="comentario card">
-        <p class="Cliente">— Mariana</p>
-        <p class="servico-avaliado">Serviço: Suporte Remoto</p>
-        <p class="texto">A cliente precisava de mais agilidade para trabalhar. Realizamos uma otimização completa no seu computador de forma remota, restaurando a performance do sistema.</p>
-        <img src="images/feedback2.png" alt="Depoimento da cliente Mariana sobre o serviço de Suporte Remoto" class="testimonial-print">
-    </div>
-
-    
-
-     <!-- Card 3 -->
-    <div class="comentario card">
-        <p class="Cliente">— Régia</p>
-        <p class="servico-avaliado">Serviço: Landing Page</p>
-        <p class="texto">A cliente precisava de uma vitrine digital unificada. Desenvolvemos uma landing page de vendas que organiza seus catálogos e centraliza os pedidos.</p>
-        <img src="images/feedback3.png" alt="Depoimento da cliente Régia sobre a criação de Landing Page" class="testimonial-print">
-    </div>
+            <!-- 2. Estrutura do Swiper.js -->
+            <div class="swiper testimonial-slider">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="comentario card">
+                            <p class="Cliente">— Pedro</p>
+                            <p class="servico-avaliado">Serviço: Planilha de Controle</p>
+                            <p class="texto">O cliente necessitava de uma ferramenta para identificar e gerenciar riscos de forma estratégica, permitindo a tomada de decisões mais seguras e informadas.</p>
+                            <img src="images/feedback1.png" alt="Depoimento do cliente Pedro sobre a Planilha de Controle" class="testimonial-print">
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="comentario card">
+                            <p class="Cliente">— Mariana</p>
+                            <p class="servico-avaliado">Serviço: Suporte Remoto</p>
+                            <p class="texto">A cliente precisava de mais agilidade para trabalhar. Realizamos uma otimização completa no seu computador de forma remota, restaurando a performance do sistema.</p>
+                            <img src="images/feedback2.png" alt="Depoimento da cliente Mariana sobre o serviço de Suporte Remoto" class="testimonial-print">
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="comentario card">
+                            <p class="Cliente">— Régia</p>
+                            <p class="servico-avaliado">Serviço: Landing Page</p>
+                            <p class="texto">A cliente precisava de uma vitrine digital unificada. Desenvolvemos uma landing page de vendas que organiza seus catálogos e centraliza os pedidos.</p>
+                            <img src="images/feedback3.png" alt="Depoimento da cliente Régia sobre a criação de Landing Page" class="testimonial-print">
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="comentario card">
+                            <p class="Cliente">— Lucas</p>
+                            <p class="servico-avaliado">Serviço: Redesign de Loja Virtual</p>
+                            <p class="texto">O cliente buscava modernizar sua loja na Nuvemshop. Realizamos um redesign completo, ajustando layout, cores e CTAs para melhorar a experiência do usuário e impulsionar as vendas.</p>
+                            <img src="images/feedback4.png" alt="Depoimento do cliente Lucas sobre o redesign de sua loja virtual" class="testimonial-print">
+                        </div>
+                    </div>
+                </div>
+                <!-- Adiciona os botões de navegação (setas) -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Adiciona a paginação (pontos) -->
+                <div class="swiper-pagination"></div>
             </div>
         </section>
 
@@ -263,6 +284,9 @@
     </button>
 
     <!-- Biblioteca para busca inteligente (fuzzy search) -->
+    <!-- 3. Adicionado JS do Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
     <script src="js/main.js"></script>
 </body>

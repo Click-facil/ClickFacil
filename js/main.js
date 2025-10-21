@@ -150,6 +150,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
         elementsToAnimate.forEach(element => observer.observe(element));
 
+        // --- INICIALIZAÇÃO DO SWIPER.JS PARA DEPOIMENTOS ---
+        // Verifica se a classe Swiper está disponível (carregada via CDN)
+        if (typeof Swiper !== 'undefined') {
+            const swiper = new Swiper('.testimonial-slider', {
+                // Efeito de transição
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                // Loop infinito
+                loop: true,
+                // Autoplay (passa sozinho)
+                autoplay: {
+                    delay: 5000, // 5 segundos
+                    disableOnInteraction: false, // Não para ao interagir
+                },
+                // Botões de navegação (setas)
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                // Paginação (pontos)
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+            });
+        }
+
         // --- LÓGICA DA BUSCA GLOBAL ---
         const searchToggleBtn = document.getElementById('search-toggle');
         const searchOverlay = document.getElementById('search-overlay');
