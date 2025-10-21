@@ -154,28 +154,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Verifica se a classe Swiper está disponível (carregada via CDN)
         if (typeof Swiper !== 'undefined') {
             const swiper = new Swiper('.testimonial-slider', {
-                // Efeito de transição
-                effect: 'fade',
-                fadeEffect: {
-                    crossFade: true
-                },
+                // Quantidade de slides visíveis (auto ajusta com base no CSS)
+                slidesPerView: 'auto',
+                // Espaço entre os slides
+                spaceBetween: 30, // Aumentado para dar mais espaço
                 // Loop infinito
                 loop: true,
-                // Autoplay (passa sozinho)
+                // Autoplay contínuo
                 autoplay: {
-                    delay: 5000, // 5 segundos
-                    disableOnInteraction: false, // Não para ao interagir
+                    delay: 0, // Sem pausa entre as transições
+                    disableOnInteraction: false, // Continua mesmo após interação do usuário
                 },
-                // Botões de navegação (setas)
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                // Paginação (pontos)
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
+                // Velocidade da transição (controla a velocidade da "esteira")
+                speed: 6000,
+                // Permite que o usuário arraste
+                allowTouchMove: true,
+                // Desabilita quebra de loop no touch para manter a fluidez
+                pauseOnMouseEnter: true,
             });
         }
 

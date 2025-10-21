@@ -192,7 +192,7 @@ section {
 }
 
 .section-title {
-    text-align: left; /* Alinhando títulos à esquerda */
+    text-align: center; /* Alinhando títulos ao centro */
     color: var(--text-lightest);
     /* Usando clamp para uma tipografia mais fluida e responsiva */
     font-size: clamp(1.8rem, 5vw, 2.2rem);
@@ -573,39 +573,32 @@ section {
 
 /* --- Estilos para o Carrossel de Depoimentos (Swiper.js) --- */
 .testimonial-slider {
-    width: 100%;
-    max-width: 700px; /* Largura máxima para o carrossel */
+    width: 100%; /* Ocupa toda a largura da seção */
+    padding-top: 0;
+    padding-bottom: 0;
     margin: 0 auto;
-    padding: 10px 0 50px 0; /* Espaço extra abaixo para a paginação */
     position: relative;
-    overflow: hidden; /* Garante que nada saia dos limites */
+    overflow: hidden;
 }
 
 .testimonial-slider .swiper-slide {
-    background: transparent; /* O fundo já está no card interno */
+    background: transparent;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 400px; /* Aumentei um pouco a largura para dar mais destaque */
+    max-width: 90vw; /* Garante que não fique maior que a tela em mobile */
+    /* A opacidade não é mais controlada aqui */
+}
+/* Adiciona uma transição suave para a velocidade do carrossel */
+.testimonial-slider .swiper-wrapper {
+    transition-timing-function: linear;
 }
 
-/* Personalização das setas de navegação */
-.testimonial-slider .swiper-button-next,
-.testimonial-slider .swiper-button-prev {
-    color: var(--accent-cyan); /* Usa a cor de destaque do site */
-    transition: transform 0.2s;
-}
-.testimonial-slider .swiper-button-next:hover,
-.testimonial-slider .swiper-button-prev:hover {
-    transform: scale(1.1);
-}
-
-/* Personalização da paginação (pontos) */
-.testimonial-slider .swiper-pagination-bullet {
-    background-color: var(--text-dark);
-    opacity: 0.7;
-}
-.testimonial-slider .swiper-pagination-bullet-active {
-    background-color: var(--accent-cyan);
+/* Adiciona um gradiente nas laterais do carrossel para um efeito de fade-out suave */
+.testimonial-slider {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 /* Estilo ajustado para a imagem do print */
@@ -935,7 +928,7 @@ section {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 24px;
-    text-align: left;
+    text-align: center; /* Corrigido para centralizar o título */
 }
 
 .promo-modelos-digitais-banner {
