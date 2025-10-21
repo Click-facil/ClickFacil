@@ -150,18 +150,23 @@ body {
 .search-toggle-btn:hover {
     color: var(--accent-cyan);
 }
+
+main {
+    padding-top: 100px; /* Espaço para compensar o header fixo */
+}
+
 .container {
-    max-width: 1000px;
+    width: 100%;
+    max-width: 1100px; /* Aumentando a largura máxima do conteúdo */
     margin: 0 auto;
-    padding: 100px 20px; /* Padding top para compensar o header fixo */
+    padding: 0 20px; /* Padding lateral para segurança em telas menores */
 }
 
 section {
     margin-bottom: 100px;
-    padding-top: 50px; /* Espaço para o ID da âncora não ficar sob o header */
-    margin-top: -50px;
+    padding-top: 80px; /* Espaço para o ID da âncora não ficar sob o header */
+    margin-top: -80px; /* Compensa o padding-top para a rolagem suave */
 }
-
 .about-section {
     margin-bottom: 80px;
 }
@@ -189,6 +194,11 @@ section {
 .about-text p {
     color: var(--text-light);
     margin-bottom: 12px;
+}
+.hero-section {
+    padding-top: 100px;
+    margin-top: -100px;
+    margin-bottom: 120px;
 }
 
 .section-title {
@@ -597,8 +607,13 @@ section {
 
 /* Adiciona um gradiente nas laterais do carrossel para um efeito de fade-out suave */
 .testimonial-slider {
+    width: 100%; /* O carrossel ocupa a largura total */
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+#avaliacoes-clientes .container {
+    margin-bottom: 40px; /* Espaço entre o título e o carrossel */
 }
 
 /* Estilo ajustado para a imagem do print */
@@ -1187,51 +1202,41 @@ section {
 }
 
 /* --- Estilos para a Nova Seção de Apresentação (Hero Section) --- */
-
-/* 1. Faz a seção ocupar a largura total da tela, saindo dos limites do .container */
-.hero-section {
-    min-height: calc(80vh - 150px);
-    display: flex;
-    align-items: center;
-    margin-bottom: 100px;
-    overflow: hidden;
-
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* 2. O conteúdo interno se comporta como o container antigo */
 .hero-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     position: relative;
-    z-index: 2;
-
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
+    gap: 40px;
 }
 
-/* 3. Texto à esquerda, afastado da imagem */
 .hero-text {
-    width: 50%;
-    max-width: 500px;
-    position: relative;
-    z-index: 2;
-    padding-left: 40px; /* <<< afastamento extra para a esquerda */
-    transform: translateX(-32px);
+    flex: 1;
+    max-width: 550px; /* Limita a largura do texto */
+    text-align: left;
 }
 
 .hero-text h1, .hero-text h2, .hero-text p {
     color: var(--text-lightest);
+    text-align: left;
 }
-.hero-text h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); font-weight: 800; margin-bottom: 15px; }
-.hero-text h2 { font-size: clamp(1.1rem, 3vw, 1.3rem); color: var(--accent-cyan); font-weight: 600; margin-bottom: 25px; line-height: 1.5; }
-.hero-text p { font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px; }
+.hero-text h1 {
+    font-size: clamp(2.8rem, 5vw, 3.8rem);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+.hero-text h2 {
+    font-size: clamp(1.2rem, 3vw, 1.4rem);
+    color: var(--accent-cyan);
+    font-weight: 500;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+.hero-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 35px;
+}
 
 /* 4. Imagem posicionada absoluta (mantida igual) */
 .hero-image {
@@ -1245,6 +1250,10 @@ section {
 .hero-image img {
     width: 100%;
     height: auto;
+}
+
+.hero-text .saiba-mais {
+    margin: 0; /* Alinha o botão à esquerda */
 }
 
 /* Estrutura da seção "about" */
@@ -1281,30 +1290,23 @@ section {
 
 /* 5. Responsividade */
 @media (max-width: 900px) {
-    .hero-section {
-        width: 100%;
-        position: static;
-        left: auto;
-        transform: none;
-        min-height: auto;
-    }
-
     .hero-content {
         flex-direction: column-reverse;
         text-align: center;
         gap: 30px;
     }
 
-    .hero-text {
-        width: 100%;
-        max-width: 100%;
-        padding-left: 0; /* remove afastamento no mobile */
+    .hero-text,
+    .hero-text h1,
+    .hero-text h2,
+    .hero-text p {
+        text-align: center;
     }
 
     .hero-image {
         position: static;
-        width: 70%;
-        max-width: 300px;
+        width: 80%;
+        max-width: 350px;
         margin: 0 auto;
     }
 
@@ -1312,33 +1314,6 @@ section {
         margin: 0 auto;
     }
 }
-
-
-/* --- Responsividade para a Nova Seção --- */
-@media (max-width: 900px) {
-    .hero-content {
-        flex-direction: column-reverse; /* Imagem fica em cima no celular */
-        text-align: center;
-        gap: 30px;
-    }
-
-    .hero-text {
-        max-width: 100%;
-    }
-
-    .hero-image {
-        position: static; /* Reseta o posicionamento para o fluxo normal */
-        transform: none;  /* Remove a transformação */
-        width: 100%;       /* Mantém o tamanho responsivo original */
-        max-width: 300px; /* Imagem um pouco menor no mobile */
-        margin: 0 auto;   /* Centraliza a imagem que agora é um item de bloco */
-    }
-    
-    .hero-text .saiba-mais {
-        margin: 0 auto; /* Centraliza o botão */
-    }
-}
-
 /* ... existing code ... */
 
 /* --- Responsividade para Telas Menores (até 767px) --- */
@@ -1401,7 +1376,8 @@ section {
 
     /* --- Outros ajustes responsivos --- */
     .container {
-        padding: 120px 15px 30px;
+        /* O padding-top agora é controlado pelo <main> */
+        padding: 0 15px;
     }
 
     .about {
