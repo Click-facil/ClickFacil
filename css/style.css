@@ -1599,6 +1599,63 @@ section {
     background-color: #1e86b5;
 }
 
+/* ===== Card de Avaliações do Google ===== */
+.google-review-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    max-width: 500px;
+    margin: -10px auto 50px auto; /* Espaçamento para destacar */
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.google-review-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.google-logo {
+    width: 60px;
+    height: 60px;
+}
+
+.google-review-content {
+    text-align: left;
+}
+
+.google-review-content h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    color: var(--text-lightest);
+    font-weight: 700;
+}
+
+.google-stars {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+    color: #ffc107; /* Amarelo padrão para estrelas */
+}
+
+.google-stars span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-lightest);
+    margin-right: 5px;
+}
+
+.google-review-card .saiba-mais {
+    margin: 0;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
 /* Grid responsivo para os cards do catálogo */
 .categoria-grid {
     display: grid;
