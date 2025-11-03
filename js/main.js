@@ -151,25 +151,19 @@ document.addEventListener('DOMContentLoaded', function() {
         elementsToAnimate.forEach(element => observer.observe(element));
 
         // --- INICIALIZAÇÃO DO SWIPER.JS PARA DEPOIMENTOS ---
-        // Verifica se a classe Swiper está disponível (carregada via CDN)
-        if (typeof Swiper !== 'undefined') {
+        // Protege a inicialização: só roda se o container existir e a lib estiver carregada
+        const swiperEl = document.querySelector('.testimonial-slider');
+        if (swiperEl && typeof Swiper !== 'undefined') {
             const swiper = new Swiper('.testimonial-slider', {
-                // Quantidade de slides visíveis (auto ajusta com base no CSS)
                 slidesPerView: 'auto',
-                // Espaço entre os slides
-                spaceBetween: 30, // Aumentado para dar mais espaço
-                // Loop infinito
+                spaceBetween: 30,
                 loop: true,
-                // Autoplay contínuo
                 autoplay: {
-                    delay: 0, // Sem pausa entre as transições
-                    disableOnInteraction: false, // Continua mesmo após interação do usuário
+                    delay: 0,
+                    disableOnInteraction: false,
                 },
-                // Velocidade da transição (controla a velocidade da "esteira")
                 speed: 6000,
-                // Permite que o usuário arraste
                 allowTouchMove: true,
-                // Desabilita quebra de loop no touch para manter a fluidez
                 pauseOnMouseEnter: true,
             });
         }
