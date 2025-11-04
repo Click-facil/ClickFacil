@@ -1286,7 +1286,7 @@ section {
         padding-left: 0;
     }
 }
-
+ 
 
 /* 5. Responsividade */
 @media (max-width: 900px) {
@@ -1980,7 +1980,7 @@ section {
     font-size: 1.2rem;
 }
 
-#global-search-input {
+#global-search_input {
     width: 100%;
     padding: 20px 20px 20px 60px;
     font-size: 1.2rem;
@@ -2125,4 +2125,108 @@ section {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.85rem;
     color: var(--text-dark);
+}
+
+/* Agrupa a lupa e o hamburger no canto direito do header */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto; /* empurra para a direita */
+    z-index: 1300;     /* garante que fique acima do painel mobile */
+}
+
+/* Botões simples e alinhados */
+.search-toggle-btn,
+.hamburger {
+    background: transparent;
+    border: none;
+    color: var(--text-lightest);
+    font-size: 1.25rem;
+    padding: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ajuste fino no ícone (caso use fontawesome) */
+.search-toggle-btn i,
+.hamburger i {
+    pointer-events: none;
+}
+
+/* Mobile: mantém a ordem e evita sobreposição */
+@media (max-width: 767px) {
+    .header-actions { gap: 6px; padding-right: 10px; }
+    .search-toggle-btn { order: 1; }
+    .hamburger { order: 2; }
+}
+
+/* Mobile: bloquear rolagem horizontal e garantir encaixe dos elementos (NÃO altera estilos visuais) */
+@media (max-width: 1024px) {
+  html, body {
+    overflow-x: hidden !important;
+  }
+
+  /* Containers principais não podem exceder 100% da viewport */
+  .container,
+  main,
+  .site-wrapper,
+  .page-wrapper,
+  .page,
+  .modelo-categoria,
+  .categoria-grid,
+  .testimonials-gallery,
+  .testimonials-wrapper {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box;
+    padding-left: 16px;   /* ajustável sem mudar o design */
+    padding-right: 16px;  /* ajustável sem mudar o design */
+  }
+
+  /* Imagens e thumbnails responsivos (não alteram tamanho real, apenas evitam overflow) */
+  img,
+  .servico-imagem,
+  .modelo-imagem,
+  .testimonial-item img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Evita que itens flex/grade impõem largura que cause overflow */
+  .categoria-grid > *,
+  .service-card,
+  .modelo-card,
+  .testimonial-item,
+  .card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    word-break: break-word;
+  }
+
+  /* Neutraliza transforms/animations aplicadas no wrapper da "esteira" que prendem position:fixed */
+  .testimonial-esteira,
+  .testimonial-slider,
+  .testimonials-wrapper,
+  .testimonial-track {
+    transform: none !important;
+    -webkit-transform: none !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Garante menu mobile vertical e sem overflow horizontal */
+  .main-nav,
+  .main-nav.open {
+    width: 100vw !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    right: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
