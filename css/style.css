@@ -583,31 +583,14 @@ section {
 
 /* --- Estilos para o Carrossel de Depoimentos (Swiper.js) --- */
 .testimonial-slider {
-    width: 100%; /* Ocupa toda a largura da seção */
+    width: 100%;
     padding-top: 0;
     padding-bottom: 0;
     margin: 0 auto;
     position: relative;
-    overflow: hidden;
-}
-
-.testimonial-slider .swiper-slide {
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 400px; /* Aumentei um pouco a largura para dar mais destaque */
-    max-width: 90vw; /* Garante que não fique maior que a tela em mobile */
-    /* A opacidade não é mais controlada aqui */
-}
-/* Adiciona uma transição suave para a velocidade do carrossel */
-.testimonial-slider .swiper-wrapper {
-    transition-timing-function: linear;
-}
-
-/* Adiciona um gradiente nas laterais do carrossel para um efeito de fade-out suave */
-.testimonial-slider {
-    width: 100%; /* O carrossel ocupa a largura total */
+    overflow: hidden; /* <-- ESTA É A CORREÇÃO CRUCIAL */
+    
+    /* Gradiente para efeito de fade-out nas laterais */
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
