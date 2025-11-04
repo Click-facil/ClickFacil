@@ -20,7 +20,6 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* <-- ADICIONE ESTA LINHA */
 }
 
 /* Classe para travar o scroll quando o menu mobile estiver aberto */
@@ -51,6 +50,7 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: height 0.3s, background-color 0.3s, box-shadow 0.3s;
     box-sizing: border-box;
+    overflow-x: visible;
 
     /* 👇 CONTROLE O ESPAÇAMENTO SOMENTE AQUI 👇 */
     padding-left: 5px;  /* Altere este valor para mover para esquerda/direita */
@@ -583,14 +583,31 @@ section {
 
 /* --- Estilos para o Carrossel de Depoimentos (Swiper.js) --- */
 .testimonial-slider {
-    width: 100%;
+    width: 100%; /* Ocupa toda a largura da seção */
     padding-top: 0;
     padding-bottom: 0;
     margin: 0 auto;
     position: relative;
-    overflow: hidden; /* <-- ESTA É A CORREÇÃO CRUCIAL */
-    
-    /* Gradiente para efeito de fade-out nas laterais */
+    overflow: hidden;
+}
+
+.testimonial-slider .swiper-slide {
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px; /* Aumentei um pouco a largura para dar mais destaque */
+    max-width: 90vw; /* Garante que não fique maior que a tela em mobile */
+    /* A opacidade não é mais controlada aqui */
+}
+/* Adiciona uma transição suave para a velocidade do carrossel */
+.testimonial-slider .swiper-wrapper {
+    transition-timing-function: linear;
+}
+
+/* Adiciona um gradiente nas laterais do carrossel para um efeito de fade-out suave */
+.testimonial-slider {
+    width: 100%; /* O carrossel ocupa a largura total */
     -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
