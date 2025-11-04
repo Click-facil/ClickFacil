@@ -20,6 +20,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* <-- ADICIONE ESTA LINHA */
 }
 
 /* Classe para travar o scroll quando o menu mobile estiver aberto */
@@ -50,7 +51,6 @@ body {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: height 0.3s, background-color 0.3s, box-shadow 0.3s;
     box-sizing: border-box;
-    overflow-x: visible;
 
     /* 👇 CONTROLE O ESPAÇAMENTO SOMENTE AQUI 👇 */
     padding-left: 5px;  /* Altere este valor para mover para esquerda/direita */
