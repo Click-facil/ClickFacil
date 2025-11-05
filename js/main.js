@@ -155,16 +155,28 @@ document.addEventListener('DOMContentLoaded', function() {
         const swiperEl = document.querySelector('.testimonial-slider');
         if (swiperEl && typeof Swiper !== 'undefined') {
             const swiper = new Swiper('.testimonial-slider', {
-                slidesPerView: 'auto',
+                // Configurações para o estilo de galeria
+                slidesPerView: 1, // Exibe apenas um slide por vez
                 spaceBetween: 30,
                 loop: true,
-                autoplay: {
-                    delay: 0,
-                    disableOnInteraction: false,
+                centeredSlides: true, // Centraliza o slide ativo
+
+                // Navegação com botões laterais
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
                 },
-                speed: 6000,
-                allowTouchMove: true,
-                pauseOnMouseEnter: true,
+
+                // Paginação com bolinhas
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+
+                autoplay: {
+                    delay: 5000, // Troca a cada 5 segundos
+                    disableOnInteraction: true, // Para de trocar ao interagir se o usuário interagir
+                }
             });
         }
 

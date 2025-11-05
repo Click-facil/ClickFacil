@@ -596,21 +596,45 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 400px; /* Aumentei um pouco a largura para dar mais destaque */
-    max-width: 90vw; /* Garante que não fique maior que a tela em mobile */
-    /* A opacidade não é mais controlada aqui */
-}
-/* Adiciona uma transição suave para a velocidade do carrossel */
-.testimonial-slider .swiper-wrapper {
-    transition-timing-function: linear;
+    /* Removido width e max-width fixos para permitir que o card interno defina o tamanho */
+    width: auto;
 }
 
-/* Adiciona um gradiente nas laterais do carrossel para um efeito de fade-out suave */
-.testimonial-slider {
-    width: 100%; /* O carrossel ocupa a largura total */
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+/* A transição linear não é mais necessária para o estilo de galeria */
+.testimonial-slider .swiper-wrapper {
+    transition-timing-function: initial;
 }
+
+/* Remove o gradiente de máscara que criava o efeito de esteira */
+.testimonial-slider {
+    /* Removido -webkit-mask-image e mask-image */
+    -webkit-mask-image: none;
+    mask-image: none;
+    padding: 0 40px; /* Adiciona espaço para os botões de navegação */
+}
+
+/* Define a largura do card para um formato retangular vertical e o centraliza */
+.testimonial-slider .comentario.card {
+    max-width: 360px; /* Largura máxima para o card */
+    margin: 0 auto; /* Centraliza o card dentro do slide */
+}
+
+/* ===== Estilos para Navegação do Carrossel de Depoimentos (Swiper) ===== */
+.testimonial-slider .swiper-button-next,
+.testimonial-slider .swiper-button-prev {
+    color: var(--accent-cyan); /* Cor dos ícones de seta */
+    transition: color 0.2s;
+}
+
+.testimonial-slider .swiper-button-next:hover,
+.testimonial-slider .swiper-button-prev:hover {
+    color: #ffffff; /* Cor ao passar o mouse */
+}
+
+.testimonial-slider .swiper-pagination-bullet-active {
+    background-color: var(--accent-cyan); /* Cor da bolinha de paginação ativa */
+}
+
 
 #avaliacoes-clientes .container {
     margin-bottom: 40px; /* Espaço entre o título e o carrossel */
@@ -1286,7 +1310,7 @@ section {
         padding-left: 0;
     }
 }
- 
+
 
 /* 5. Responsividade */
 @media (max-width: 900px) {
@@ -1980,7 +2004,7 @@ section {
     font-size: 1.2rem;
 }
 
-#global-search_input {
+#global-search-input {
     width: 100%;
     padding: 20px 20px 20px 60px;
     font-size: 1.2rem;
@@ -2125,40 +2149,4 @@ section {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.85rem;
     color: var(--text-dark);
-}
-
-/* Agrupa a lupa e o hamburger no canto direito do header */
-.header-actions {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-left: auto; /* empurra para a direita */
-    z-index: 1300;     /* garante que fique acima do painel mobile */
-}
-
-/* Botões simples e alinhados */
-.search-toggle-btn,
-.hamburger {
-    background: transparent;
-    border: none;
-    color: var(--text-lightest);
-    font-size: 1.25rem;
-    padding: 8px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Ajuste fino no ícone (caso use fontawesome) */
-.search-toggle-btn i,
-.hamburger i {
-    pointer-events: none;
-}
-
-/* Mobile: mantém a ordem e evita sobreposição */
-@media (max-width: 767px) {
-    .header-actions { gap: 6px; padding-right: 10px; }
-    .search-toggle-btn { order: 1; }
-    .hamburger { order: 2; }
 }

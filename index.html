@@ -43,16 +43,12 @@
             <a href="#contato">Contato</a>
         </nav>
         
-        <!-- header-actions: agrupamento de lupa + hamburger (adicione/posicione exatamente onde está o seu header atual) -->
-        <div class="header-actions">
-            <button class="search-toggle-btn" aria-label="Abrir busca">
-                <i class="fas fa-search" aria-hidden="true"></i>
-            </button>
-
-            <button class="hamburger" aria-label="Abrir menu">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-        </div>
+        <button class="search-toggle-btn" id="search-toggle" aria-label="Abrir pesquisa">
+            <i class="fas fa-search"></i>
+        </button>
+        <button class="hamburger" id="hamburger-menu">
+            <i class="fas fa-bars"></i>
+        </button>
     </header>
     <main>
         <section id="sobre" class="hero-section fade-in-section">
@@ -164,7 +160,7 @@
                             <p class="Cliente">— Régia</p>
                             <p class="servico-avaliado">Serviço: Landing Page</p>
                             <p class="texto">A cliente precisava de uma vitrine digital unificada. Desenvolvemos uma landing page de vendas que organiza seus catálogos e centraliza os pedidos.</p>
-                            <img src="images/feedback3.png" alt="Depoimento do cliente Régia sobre a criação de Landing Page" class="testimonial-print">
+                            <img src="images/feedback3.png" alt="Depoimento da cliente Régia sobre a criação de Landing Page" class="testimonial-print">
                         </div>
                     </div>
                     <div class="swiper-slide">
@@ -176,6 +172,12 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- 1. Adicionados Botões de Navegação e Paginação -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+
             </div>
         </section>
 
