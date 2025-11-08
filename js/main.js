@@ -151,35 +151,28 @@ document.addEventListener('DOMContentLoaded', function() {
         elementsToAnimate.forEach(element => observer.observe(element));
 
         // --- INICIALIZAÇÃO DO SWIPER.JS PARA DEPOIMENTOS ---
-        // Protege a inicialização: só roda se o container existir e a lib estiver carregada
-        const swiperEl = document.querySelector('.testimonial-slider');
+        const swiperEl = document.querySelector('.testimonial-slider-interactive');
         if (swiperEl && typeof Swiper !== 'undefined') {
-            const swiper = new Swiper('.testimonial-slider', {
-                // Configurações para o estilo de galeria
-                slidesPerView: 1, // Exibe apenas um slide por vez
-                spaceBetween: 30,
+            const swiper = new Swiper('.testimonial-slider-interactive', {
+                // Opções para um carrossel interativo
                 loop: true,
-                centeredSlides: true, // Centraliza o slide ativo
-
-                // Navegação com botões laterais
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-
-                // Paginação com bolinhas
+                slidesPerView: 1, // Mostra 1 slide por vez
+                spaceBetween: 30,
+                // autoHeight: true, // REMOVIDA: Esta linha estava fazendo o card ficar "enorme"
+                
+                // Ativa a Paginação (bolinhas)
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
                 },
 
-                autoplay: {
-                    delay: 5000, // Troca a cada 5 segundos
-                    disableOnInteraction: true, // Para de trocar ao interagir se o usuário interagir
-                }
+                // Ativa a Navegação (setas)
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
             });
         }
-
         // --- LÓGICA DA BUSCA GLOBAL ---
         const searchToggleBtn = document.getElementById('search-toggle');
         const searchOverlay = document.getElementById('search-overlay');

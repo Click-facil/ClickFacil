@@ -66,33 +66,52 @@
         </section>
 
         <section id="servicos" class="services-section fade-in-section">
-            <div class="container">
-                <h2 class="section-title">Nossos Serviços</h2>
-                <div class="services">
-                    <div class="service-card card">
-                        <i class="fas fa-rocket service-icon"></i>
-                        <h3>Suporte e Performance</h3>
-                        <p>Deixamos seu computador mais rápido, instalamos os programas que você precisa e garantimos que tudo funcione perfeitamente. Soluções ágeis para sua tranquilidade e produtividade.</p>
-                    </div>
-                    <div class="service-card card">
-                        <i class="fas fa-globe service-icon"></i>
-                        <h3>Presença Digital e Vendas</h3>
-                        <p>Criamos sites, landing pages e lojas virtuais que impressionam seus clientes e transformam visitantes em vendas. Sua marca profissional e lucrativa na internet.</p>
-                    </div>
-                    <div class="service-card card">
-                        <i class="fas fa-robot service-icon"></i>
-                        <h3>Automação e IA</h3>
-                        <p>Automatizamos suas tarefas repetitivas com robôs inteligentes. Libere seu tempo para focar no que realmente importa.</p>
-                    </div>
-                    <div class="service-card card">
-                        <i class="fas fa-store service-icon"></i>
-                        <h3>Modelos Digitais Prontos</h3>
-                        <p>Economize tempo com nossas planilhas e documentos profissionais. Soluções prontas para download imediato, agilizando sua rotina e gestão de negócios.</p>
-                    </div>
-                </div>
-                <a href="catalagodeservicos.html" class="saiba-mais" style="margin-top: 30px;">Ver Catálogo Completo</a>
-            </div>
-        </section>
+    <div class="container">
+        <h2 class="section-title">Nossos Serviços</h2>
+        
+        <!-- NOVO BENTO GRID -->
+        <div class="bento-grid">
+            
+            <!-- Card Grande (Principal) -->
+            <a href="catalagodeservicos.html" class="bento-card large-v">
+                <i class="fas fa-laptop-code"></i>
+                <h4>Criação de Sites Profissionais</h4>
+                <p>O cartão de visita digital da sua empresa. Um site responsivo que gera credibilidade, atrai clientes e funciona 24h por dia.</p>
+            </a>
+
+            <!-- Card Pequeno 1 -->
+            <a href="catalagodeservicos.html" class="bento-card">
+                <i class="fas fa-bullseye"></i>
+                <h4>Landing Pages de Alta Conversão</h4>
+                <p>Transforme visitantes em clientes com páginas focadas em um único objetivo.</p>
+            </a>
+
+            <!-- Card Pequeno 2 -->
+            <a href="catalagodeservicos.html" class="bento-card">
+                <i class="fas fa-store"></i>
+                <h4>Configuração Nuvemshop ou Kiwify</h4>
+                <p>Deixamos sua loja virtual 100% pronta para vender, do design ao pagamento.</p>
+            </a>
+
+            <!-- Card Pequeno 3 -->
+            <a href="catalagodeservicos.html" class="bento-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Google Meu Negócio</h4>
+                <p>Colocamos seu negócio no mapa, na frente dos clientes da sua região.</p>
+            </a>
+
+            <!-- Card Pequeno 4 -->
+            <a href="catalagodeservicos.html" class="bento-card">
+                <i class="fas fa-chart-line"></i>
+                <h4>Estratégias de SEO</h4>
+                <p>Apareça na primeira página do Google e atraia clientes de forma orgânica.</p>
+            </a>
+            
+        </div>
+        
+        <a href="catalagodeservicos.html" class="saiba-mais" style="margin-top: 40px;">Ver Todos os Serviços</a>
+    </div>
+</section>
 
         <!-- Seção de Modelos Digitais temporariamente oculta -->
 
@@ -120,58 +139,82 @@
             </div>
         </section>
 
-        <section id="avaliacoes-clientes" class="fade-in-section">
-            <div class="container">
-                <h2 class="section-title">O que dizem nossos clientes</h2>
+       <section id="avaliacoes-clientes" class="fade-in-section">
+    <div class="container">
+        <h2 class="section-title">O que dizem nossos clientes</h2>
+        
+        <!-- O container do Swiper agora engloba TUDO -->
+        <div class="swiper testimonial-slider-interactive">
+            <div class="swiper-wrapper">
+                
+                <!-- SLIDE 1: O CARD DO GOOGLE -->
+                <div class="swiper-slide">
+                    <div class="google-review-card interactive-slide">
+                        <img src="images/logo.png" alt="Logo do Google" class="google-logo">
+                        <div class="google-review-content">
+                            <h4>Avaliações no Google</h4>
+                            <div class="google-stars">
+                                <span>5.0</span>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <a href="https://maps.app.goo.gl/ho2wKeScgw3HQmKDA" target="_blank" class="saiba-mais">Ver todos os comentários</a>
+                        </div>
+                        <p class="slide-prompt">Deslize para ver depoimentos reais <i class="fas fa-arrow-right"></i></p>
+                    </div>
+                </div>
 
-                <!-- Card de Avaliações do Google -->
-                <div class="google-review-card">
-                    <img src="images/logo.png" alt="Logo do Google" class="google-logo">
-                    <div class="google-review-content">
-                        <h4>Avaliações no Google</h4>
-                        <div class="google-stars">
-                            <span>5.0</span>
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <a href="https://maps.app.goo.gl/ho2wKeScgw3HQmKDA" target="_blank" class="saiba-mais">Ver comentários</a>
+                <!-- SLIDE 2: FEEDBACK 1 -->
+                <div class="swiper-slide">
+                    <div class="comentario card">
+                        <p class="Cliente">— Pedro</p>
+                        <p class="servico-avaliado">Serviço: Planilha de Controle</p>
+                        <p class="texto">O cliente necessitava de uma ferramenta para identificar e gerenciar riscos de forma estratégica, permitindo a tomada de decisões mais seguras e informadas.</p>
+                        <img src="images/feedback1.png" alt="Depoimento do cliente Pedro sobre a Planilha de Controle" class="testimonial-print">
                     </div>
                 </div>
+                
+                <!-- SLIDE 3: FEEDBACK 2 -->
+                <div class="swiper-slide">
+                    <div class="comentario card">
+                        <p class="Cliente">— Mariana</p>
+                        <p class="servico-avaliado">Serviço: Suporte Remoto</p>
+                        <p class="texto">A cliente precisava de mais agilidade para trabalhar. Realizamos uma otimização completa no seu computador de forma remota, restaurando a performance do sistema.</p>
+                        <img src="images/feedback2.png" alt="Depoimento da cliente Mariana sobre o serviço de Suporte Remoto" class="testimonial-print">
+                    </div>
+                </div>
+                
+                <!-- SLIDE 4: FEEDBACK 3 -->
+                <div class="swiper-slide">
+                    <div class="comentario card">
+                        <p class="Cliente">— Régia</p>
+                        <p class="servico-avaliado">Serviço: Landing Page</p>
+                        <p class="texto">A cliente precisava de uma vitrine digital unificada. Desenvolvemos uma landing page de vendas que organiza seus catálogos e centraliza os pedidos.</p>
+                        <img src="images/feedback3.png" alt="Depoimento da cliente Régia sobre a criação de Landing Page" class="testimonial-print">
+                    </div>
+                </div>
+                
+                <!-- SLIDE 5: FEEDBACK 4 -->
+                <div class="swiper-slide">
+                    <div class="comentario card">
+                        <p class="Cliente">— Lucas</p>
+                        <p class="servico-avaliado">Serviço: Redesign de Loja Virtual</p>
+                        <p class="texto">O cliente buscava modernizar sua loja na Nuvemshop. Realizamos um redesign completo, ajustando layout, cores e CTAs para melhorar a experiência do usuário e impulsionar as vendas.</p>
+                        <img src="images/feedback4.png" alt="Depoimento do cliente Lucas sobre o redesign de sua loja virtual" class="testimonial-print">
+                    </div>
+                </div>
+                
             </div>
-            <div class="swiper testimonial-slider">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="comentario card">
-                            <p class="Cliente">— Pedro</p>
-                            <p class="servico-avaliado">Serviço: Planilha de Controle</p>
-                            <p class="texto">O cliente necessitava de uma ferramenta para identificar e gerenciar riscos de forma estratégica, permitindo a tomada de decisões mais seguras e informadas.</p>
-                            <img src="images/feedback1.png" alt="Depoimento do cliente Pedro sobre a Planilha de Controle" class="testimonial-print">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="comentario card">
-                            <p class="Cliente">— Mariana</p>
-                            <p class="servico-avaliado">Serviço: Suporte Remoto</p>
-                            <p class="texto">A cliente precisava de mais agilidade para trabalhar. Realizamos uma otimização completa no seu computador de forma remota, restaurando a performance do sistema.</p>
-                            <img src="images/feedback2.png" alt="Depoimento da cliente Mariana sobre o serviço de Suporte Remoto" class="testimonial-print">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="comentario card">
-                            <p class="Cliente">— Régia</p>
-                            <p class="servico-avaliado">Serviço: Landing Page</p>
-                            <p class="texto">A cliente precisava de uma vitrine digital unificada. Desenvolvemos uma landing page de vendas que organiza seus catálogos e centraliza os pedidos.</p>
-                            <img src="images/feedback3.png" alt="Depoimento da cliente Régia sobre a criação de Landing Page" class="testimonial-print">
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="comentario card">
-                            <p class="Cliente">— Lucas</p>
-                            <p class="servico-avaliado">Serviço: Redesign de Loja Virtual</p>
-                            <p class="texto">O cliente buscava modernizar sua loja na Nuvemshop. Realizamos um redesign completo, ajustando layout, cores e CTAs para melhorar a experiência do usuário e impulsionar as vendas.</p>
-                            <img src="images/feedback4.png" alt="Depoimento do cliente Lucas sobre o redesign de sua loja virtual" class="testimonial-print">
-                        </div>
-                    </div>
-                </div>
+            
+            <!-- Botões de Navegação (Setas) -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            
+            <!-- Paginação (Bolinhas) -->
+            <div class="swiper-pagination"></div>
+        </div>
+        
+    </div>
+</section>
 
                 <!-- 1. Adicionados Botões de Navegação e Paginação -->
                 <div class="swiper-button-prev"></div>

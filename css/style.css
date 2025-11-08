@@ -1992,6 +1992,107 @@ section {
   box-shadow: 0 16px 40px rgba(2,12,27,0.7);
 }
 
+
+/* =============================================
+   NOVA SEÇÃO DE SERVIÇOS - BENTO GRID
+   ============================================= */
+
+/* Remove o estilo dos cards antigos da homepage */
+.services-section .service-card { 
+    display: none; 
+}
+.services-section .services {
+    display: block; /* Reseta o display:grid antigo */
+}
+
+.bento-grid {
+    display: grid;
+    /* Define 3 colunas no desktop */
+    grid-template-columns: repeat(3, 1fr); 
+    /* Define a altura mínima das linhas */
+    grid-auto-rows: minmax(190px, auto);
+    gap: 20px;
+}
+
+.bento-card {
+    /* Reutiliza seu estilo de card transparente */
+    background: rgba(41, 171, 226, 0.08); 
+    border: 2px solid rgba(41, 171, 226, 0.18); 
+    border-radius: 12px;
+    box-shadow: 0 0 24px 0 rgba(41, 171, 226, 0.18);
+    
+    padding: 25px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espaça o conteúdo */
+    
+    /* A ANIMAÇÃO */
+    transition: all 0.3s ease;
+}
+
+.bento-card:hover {
+    /* Efeito de hover "flutuante" */
+    transform: scale(1.03);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 8px 32px 0 rgba(41, 171, 226, 0.28);
+}
+
+/* Card Grande (Principal) - ocupa 2 linhas de altura */
+.bento-card.large-v {
+    grid-row: span 2;
+}
+
+.bento-card i {
+    font-size: 2.5rem;
+    color: var(--accent-cyan);
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.bento-card h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-lightest);
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.bento-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-align: left;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Responsividade do Bento Grid --- */
+
+/* Para Tablets */
+@media (max-width: 900px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* O card grande passa a ocupar a largura toda */
+    .bento-card.large-v {
+        grid-row: span 1; /* Reseta o span vertical */
+        grid-column: span 2; /* Faz o primeiro item ocupar a largura toda */
+    }
+}
+
+/* Para Celulares */
+@media (max-width: 767px) {
+    .bento-grid {
+        grid-template-columns: 1fr; /* Empilha tudo */
+    }
+    
+    /* Reseta o span do card grande */
+    .bento-card.large-v {
+        grid-column: span 1; 
+    }
+}
+
 /* Ajustes mobile: reduz border-left e padding para caber melhor */
 @media (max-width: 900px) {
   .servico-card-item.card {
@@ -2107,6 +2208,101 @@ section {
     line-height: 1.4;
     margin-bottom: 12px;
   }
+}
+
+/* =============================================
+   NOVO CARROSSEL DE DEPOIMENTOS (INTERATIVO)
+   ============================================= */
+
+.testimonial-slider-interactive {
+    width: 100%;
+    max-width: 400px; /* AJUSTE 1: Reduzido de 500px para 400px (tamanho anterior) */
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 50px; /* Espaço para a paginação */
+}
+
+/* Garante que todos os slides tenham a mesma altura */
+.testimonial-slider-interactive .swiper-wrapper {
+    align-items: stretch;
+}
+
+.testimonial-slider-interactive .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Faz os cards crescerem verticalmente */
+    height: auto; /* Permite que o card defina a altura */
+    background: transparent;
+}
+
+/* Faz os cards ocuparem 100% da altura do slide */
+.testimonial-slider-interactive .comentario.card,
+.testimonial-slider-interactive .google-review-card.interactive-slide {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* Estilo específico para o Card do Google como Slide */
+.google-review-card.interactive-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    gap: 15px;
+    height: 100%;
+    min-height: 450px; /* Altura mínima para ficar bom */
+}
+
+/* AJUSTE 2: Nova regra para limitar a altura da imagem do print */
+.testimonial-slider-interactive .testimonial-print {
+    width: 100%;
+    max-height: 350px; /* Limita a altura máxima da imagem */
+    object-fit: contain; /* Garante que a imagem caiba sem distorcer */
+    border: 1px solid rgba(41, 171, 226, 0.2);
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.google-review-card.interactive-slide .google-review-content {
+    text-align: center; /* Centraliza o conteúdo do card */
+}
+
+.google-review-card.interactive-slide .google-stars {
+    justify-content: center; /* Centraliza as estrelas */
+}
+
+.google-review-card.interactive-slide .saiba-mais {
+    margin: 0 auto; /* Centraliza o botão */
+}
+
+.slide-prompt {
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+/* Estilização das Setas e Paginação */
+.testimonial-slider-interactive .swiper-button-next,
+.testimonial-slider-interactive .swiper-button-prev {
+    color: var(--accent-cyan);
+    transition: color 0.2s;
+}
+.testimonial-slider-interactive .swiper-button-next:hover,
+.testimonial-slider-interactive .swiper-button-prev:hover {
+    color: var(--text-lightest);
+}
+
+.testimonial-slider-interactive .swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.testimonial-slider-interactive .swiper-pagination-bullet-active {
+    background: var(--accent-cyan);
 }
 
 /* ===== Estilos para o Botão Voltar ao Topo ===== */
