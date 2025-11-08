@@ -2150,3 +2150,32 @@ section {
     font-size: 0.85rem;
     color: var(--text-dark);
 }
+
+/* ...existing code... */
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+
+/* Evita imagens estourarem a largura do container */
+img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block;
+}
+
+/* Highlight visual temporário para detectar overflow */
+.debug-outline * {
+  outline: 1px dashed rgba(255,0,0,0.08);
+}
+
+/* Pequeno hotspot: corrige elementos posicionados com right negativo no mobile */
+@media (max-width: 900px) {
+  .hero-image {
+    position: static !important;
+    width: 100% !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+}
