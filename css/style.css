@@ -1266,8 +1266,8 @@ section {
 .hero-image {
     position: absolute;
     z-index: 0;
-    width: 650px;
-    bottom: -175px; /* Ajustado para mover a imagem para baixo */
+    width: 685px;
+    bottom: -20px; /* Ajustado para mover a imagem para baixo */
     right: -94px;
 }
 
@@ -1301,6 +1301,131 @@ section {
 .about-text,
 .hero-text {
     padding-left: 40px; /* afasta o texto para a esquerda */
+}
+
+/* =============================================
+   ESTILOS DOS NOVOS CARDS DE SERVIÇO (Pág. Catálogo)
+   ============================================= */
+
+/* Título da Categoria (Ex: "Presença Digital") */
+.categoria-titulo {
+    font-size: 1.8rem;
+    color: var(--text-lightest);
+    margin-bottom: 25px;
+    margin-top: 40px;
+    text-align: left;
+    border-bottom: 2px solid var(--accent-cyan);
+    padding-bottom: 10px;
+}
+
+/* Garante que o grid de cards funcione */
+.categoria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    align-items: stretch; /* Faz os cards terem a mesma altura */
+}
+
+/* Card de Serviço (Sobrescreve estilos antigos) */
+.servico-card-item.card {
+    height: 100%;
+    padding: 0;
+    gap: 0;
+    background: #ffffff; /* <<< GARANTE O FUNDO BRANCO */
+    border: 1px solid #ddd; /* <<< Borda sutil para o card branco */
+    align-items: stretch; /* Garante que os filhos ocupem 100% */
+}
+
+/* Remove o hover transparente que não funciona bem com card branco */
+.servico-card-item.card:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.13);
+    background: #ffffff;
+}
+
+.servico-imagem {
+    width: 100%;
+    height: 180px; /* Altura fixa para a imagem */
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.servico-card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    flex-grow: 1; /* Ocupa o espaço restante */
+}
+
+.servico-card-content h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--bg-dark-navy); /* <<< COR CORRIGIDA (Escuro) */
+    margin-bottom: 10px;
+}
+
+.servico-card-content h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    margin-top: 15px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.servico-card-content .servico-o-que-e {
+    font-size: 0.95rem;
+    color: var(--text-dark); /* <<< COR CORRIGIDA (Cinza Escuro) */
+    margin-bottom: 10px;
+}
+
+.servico-card-content .servico-detalhe {
+    font-size: 0.9rem;
+    color: var(--text-dark); /* <<< COR CORRIGIDA (Cinza Escuro) */
+    font-style: italic;
+    border-left: 3px solid var(--accent-cyan);
+    padding-left: 10px;
+    margin-bottom: 0;
+}
+
+.servico-lista {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 10px 0;
+    width: 100%;
+}
+
+.servico-lista li {
+    font-size: 0.9rem;
+    color: var(--bg-dark-navy); /* <<< COR CORRIGIDA (Escuro) */
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.servico-lista li .fa-check {
+    color: #28a745; /* Cor de sucesso (verde) */
+    font-size: 0.8rem;
+}
+
+/* Empurra Preço e Botão para o final do card */
+.servico-preco {
+    margin-top: auto; /* Esta é a mágica! */
+    padding-top: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent-cyan);
+    margin-bottom: 15px;
+}
+
+.btn-solicitar {
+    width: 100%;
+    text-align: center;
 }
 
 /* No mobile, remove o afastamento para centralizar */
@@ -1802,7 +1927,85 @@ section {
     background: rgba(41, 171, 226, 0.16);
 }
 
-/* ... existing code ... */
+/* ===== Override visual dos cards de serviço para identidade do site ===== */
+.servico-card-item.card {
+  /* fundo escuro com leve degradê para combinar com o resto do site */
+  background: linear-gradient(180deg, rgba(6,18,30,0.96), rgba(8,20,34,0.96));
+  border: 1px solid rgba(41,171,226,0.10);
+  border-left: 5px solid var(--accent-cyan);
+  box-shadow: 0 10px 30px rgba(2,12,27,0.6);
+  color: var(--text-lightest);
+  padding: 0; /* conteúdo interno já controla padding */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Mantém imagem visível sem fundo branco */
+.servico-card-item.card .servico-imagem {
+  background-color: transparent;
+  border-radius: 6px 6px 0 0;
+  object-fit: cover;
+}
+
+/* Texto e elementos internos */
+.servico-card-item.card .servico-card-content {
+  color: var(--text-lightest);
+  padding: 1.25rem;
+}
+.servico-card-item.card .servico-card-content h4 {
+  color: var(--text-lightest);
+}
+.servico-card-item.card .servico-card-content p,
+.servico-card-item.card .servico-lista li,
+.servico-card-item.card .servico-card-content .servico-o-que-e {
+  color: rgba(255,255,255,0.88);
+}
+
+/* Preço em tom de destaque */
+.servico-card-item.card .servico-preco {
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+/* Botão: mantém funcionalidade, visual integrado (fundo transparente, borda e hover) */
+.servico-card-item.card .btn-solicitar {
+  background: transparent;
+  color: var(--accent-cyan);
+  border: 1px solid rgba(41,171,226,0.18);
+  padding: 10px 14px;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: none;
+  font-weight: 600;
+  transition: background .15s, color .12s, transform .12s;
+}
+.servico-card-item.card .btn-solicitar:hover,
+.servico-card-item.card .btn-solicitar:focus {
+  background: rgba(41,171,226,0.12);
+  color: #fff;
+  border-color: var(--accent-cyan);
+}
+
+/* Hover do card (sutil) */
+.servico-card-item.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(2,12,27,0.7);
+}
+
+/* Ajustes mobile: reduz border-left e padding para caber melhor */
+@media (max-width: 900px) {
+  .servico-card-item.card {
+    border-left: 4px solid var(--accent-cyan);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(2,12,27,0.5);
+  }
+  .servico-card-item.card .servico-imagem {
+    height: 140px;
+  }
+  .servico-card-item.card .servico-card-content {
+    padding: 1rem;
+  }
+}
 
 /* FIX: deslocar o texto do "Sobre" levemente para a esquerda, sem mexer na modelo nem na logo */
 @media (min-width: 901px) {
@@ -1813,8 +2016,6 @@ section {
     will-change: left;
   }
 }
-
-/* ... existing code ... */
 
 /* ===== Header: ajustes de responsividade no mobile ===== */
 @media (max-width: 767px) {
@@ -1863,7 +2064,6 @@ section {
     height: 60px !important;
   }
 }
-/* ... existing code ... */
 
 /* ===== Ajuste largura e linhas do texto "Sobre" no mobile (versão empilhada) ===== */
 @media (max-width: 767px) {
@@ -2004,7 +2204,7 @@ section {
     font-size: 1.2rem;
 }
 
-#global-search-input {
+#global-search_input {
     width: 100%;
     padding: 20px 20px 20px 60px;
     font-size: 1.2rem;

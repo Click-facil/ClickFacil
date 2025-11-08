@@ -1,65 +1,110 @@
 {
-  "categorias": {
-    "suporte_ti": "Suporte e Performance de TI",
-    "presenca_digital": "Presença Digital e Vendas Online",
-    "automacao_ia": "Automação e Soluções Inteligentes"
-  },
-  "servicos": [
+  "categorias": [
     {
-      "nome": "Otimização Completa do seu Computador",
-      "preco": "A partir de R$ 79,90",
-      "descricao": "Seu computador está lento, travando ou demorando para ligar? Faço uma otimização completa, garantindo que ele volte a funcionar com agilidade para você trabalhar ou estudar sem estresse.",
-      "categoria": "suporte_ti",
-      "imagem": "images/img1.png"
+      "nome": "Presença Digital e Vendas Online",
+      "servicos": [
+        {
+          "id": "sites-profissionais",
+          "nome": "Site Institucional Starter",
+          "descricao_curta": "Garanta a presença online do seu negócio com um site de alta performance. Design com tema premium, e otimização para melhorar a visibilidade.",
+          "o_que_e": "É o desenvolvimento de um site completo (multi-páginas) que apresenta sua empresa, seus serviços e sua história, estabelecendo sua autoridade no mercado.",
+          "beneficios": [
+            "Gera credibilidade e confiança imediatas",
+            "Aparece nos resultados de busca do Google",
+            "Centraliza suas informações de contato"
+          ],
+          "o_que_inclui": [
+            "Design responsivo (perfeito no celular)",
+            "Páginas essenciais (Início, Sobre, Serviços, Contato)",
+            "Configuração de SEO básica",
+            "Formulário de contato integrado"
+          ],
+          "preco": "A partir de R$ 300,00",
+          "imagem": "images/img5.png"
+        },
+        {
+          "id": "landing-pages",
+          "nome": "Landing Page Essencial",
+          "descricao_curta": "Transforme seus seguidores em clientes. Crio uma página de vendas única para seu produto ou serviço, com layout de template e integração com WhatsApp.",
+          "o_que_e": "Uma página de aterrissagem (landing page) projetada com um único foco e uma única chamada para ação (CTA), otimizada para capturar o interesse do cliente.",
+          "beneficios": [
+            "Taxas de conversão muito superiores a um site comum",
+            "Perfeita para medir o resultado de anúncios (Google/Meta Ads)",
+            "Entrega rápida para campanhas urgentes"
+          ],
+          "o_que_inclui": [
+            "Layout de template com 3 seções",
+            "Design 100% focado no CTA",
+            "Integração com WhatsApp ou formulário",
+            "Otimização para carregamento rápido"
+          ],
+          "preco": "A partir de R$ 150,00",
+          "imagem": "images/img4.png"
+        },
+        {
+          "id": "nuvemshop",
+          "nome": "Configuração de Loja Virtual (Nuvemshop)",
+          "descricao_curta": "Transforme sua marca em um negócio online lucrativo. Criamos sua loja virtual completa, com design profissional, configuração de pagamentos e otimização para vendas.",
+          "o_que_e": "É o serviço de configuração completa da sua loja na plataforma Nuvemshop, desde o layout até a integração dos meios de pagamento e frete.",
+          "beneficios": [
+            "Comece a vender online em tempo recorde",
+            "Evite erros técnicos que custam vendas",
+            "Um design profissional que gera confiança no comprador"
+          ],
+          "o_que_inclui": [
+            "Personalização do layout (cores, logo)",
+            "Cadastro dos primeiros 10 produtos",
+            "Configuração de Pagamento (Nuvem Pago, etc)",
+            "Configuração de Frete (Melhor Envio, Correios)",
+            "Treinamento para você gerenciar seus pedidos"
+          ],
+          "preco": "A partir de R$ 650,00",
+          "imagem": "images/img6.png"
+        }
+      ]
     },
     {
-      "nome": "Instalação de Softwares",
-      "preco": "A partir de R$ 59,90",
-      "descricao": "Precisa do Pacote Office, Windows, antivírus ou outro programa? Cuido da instalação e ativação, deixando o software pronto para você usar, com segurança e sem complicações.",
-      "categoria": "suporte_ti",
-      "imagem": "images/img2.png"
-    },
-     {
-      "nome": "Destaque seu Negócio Localmente",
-      "preco": "A partir de R$ 89,90",
-      "descricao": "Garanta que seus clientes te encontrem no Google e no Google Maps! Um Perfil de Empresa bem configurado é a porta de entrada digital do seu negócio.",
-      "categoria": "presenca_digital",
-      "imagem": "images/img3.png"
-    },
-    {
-      "nome": "Landing Page Essencial",
-      "preco": "A partir de R$ 150,00",
-      "descricao": "Transforme seus seguidores em clientes. Crio uma página de vendas única para seu produto ou serviço, com layout de template, 3 seções, formulário e integração com WhatsApp.",
-      "categoria": "presenca_digital",
-      "imagem": "images/img4.png"
-    },
-    {
-      "nome": "Site Institucional Starter",
-      "preco": "A partir de R$ 300,00",
-      "descricao": "Garanta a presença online do seu negócio com um site de alta performance. Design com tema premium, e otimização para melhorar a visibilidade e o tráfego de buscas.",
-      "categoria": "presenca_digital",
-      "imagem": "images/img5.png"
-    },
-    {
-      "nome": "Loja Virtual",
-      "preco": "A partir de R$ 650,00",
-      "descricao": "Transforme sua marca em um negócio online lucrativo. Criamos sua loja virtual completa, com design profissional, configuração de pagamentos e otimização para vendas. Inclui treinamento completo para você gerenciar seus produtos, pedidos e clientes com total autonomia.",
-      "categoria": "presenca_digital",
-      "imagem": "images/img6.png"
-    },
-    {
-      "nome": "Seu Primeiro Robô",
-      "preco": "A partir de R$ 180,00",
-      "descricao": "Cansado de tarefas repetitivas? Crio um 'robô' (script) que faz esse trabalho para você, de forma automática e sem erros. Libere seu tempo para focar no que realmente importa.",
-      "categoria": "automacao_ia",
-      "imagem": "images/img7.png"
-    },
-    {
-      "nome": "Consultoria em IA",
-      "preco": "A partir de R$ 120,00",
-      "descricao": "Aprenda a usar a Inteligência Artificial (como o ChatGPT, Gemini, Copilot, DeepSeek, etc) para acelerar seu negócio. Uma consultoria que vai transformar sua produtividade e marketing.",
-      "categoria": "automacao_ia",
-      "imagem": "images/img8.png"
+      "nome": "Marketing e Otimização (SEO)",
+      "servicos": [
+        {
+          "id": "google-meu-negocio",
+          "nome": "Destaque seu Negócio Localmente (Google Meu Negócio)",
+          "descricao_curta": "Garanta que seus clientes te encontrem no Google e no Google Maps! Um Perfil de Empresa bem configurado é a porta de entrada digital do seu negócio.",
+          "o_que_e": "É a configuração e otimização completa do seu Perfil de Empresa no Google. É a sua 'fachada digital' no Google Maps e na busca local.",
+          "beneficios": [
+            "Apareça para clientes que buscam seu serviço 'perto de mim'",
+            "Receba avaliações e construa prova social",
+            "Permite que clientes liguem ou enviem mensagem com um clique"
+          ],
+          "o_que_inclui": [
+            "Configuração completa (fotos, horário, serviços)",
+            "Otimização de palavras-chave locais",
+            "Criação de um link direto para avaliações",
+            "Instruções para você mesmo gerenciar"
+          ],
+          "preco": "A partir de R$ 89,90",
+          "imagem": "images/img3.png"
+        },
+        {
+          "id": "consultoria-seo",
+          "nome": "Consultoria de SEO (Otimização para Google)",
+          "descricao_curta": "Seu site na primeira página do Google. Analisamos e otimizamos seu conteúdo para atrair tráfego orgânico (gratuito).",
+          "o_que_e": "Um diagnóstico completo (auditoria) do seu site para identificar por que ele não está bem posicionado no Google, seguido da aplicação das melhorias necessárias.",
+          "beneficios": [
+            "Atraia clientes sem depender de anúncios pagos",
+            "Construa autoridade a longo prazo no seu nicho",
+            "Entenda o que seus clientes estão buscando"
+          ],
+          "o_que_inclui": [
+            "Auditoria técnica (velocidade, sitemap)",
+            "Pesquisa de palavras-chave",
+            "Otimização de Títulos e Descrições (Meta Tags)",
+            "Configuração do Google Search Console"
+          ],
+          "preco": "A partir de R$ 300,00",
+          "imagem": "images/servico-seo.jpg" 
+        }
+      ]
     }
   ]
 }
