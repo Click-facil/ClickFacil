@@ -1266,9 +1266,9 @@ section {
 .hero-image {
     position: absolute;
     z-index: 0;
-    width: 685px;
+    width: 700px;
     bottom: -20px; /* Ajustado para mover a imagem para baixo */
-    right: -94px;
+    right: -150px;
 }
 
 .hero-image img {
@@ -2575,4 +2575,106 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     right: auto !important;
     bottom: auto !important;
   }
+}
+
+/* =============================================
+   NOVA SEÇÃO HERO - BOTÕES
+   ============================================= */
+.hero-buttons {
+    display: flex;
+    gap: 15px; /* Espaço entre os botões */
+    margin-top: 35px; /* Espaço do parágrafo */
+    flex-wrap: wrap; /* Permite que os botões quebrem a linha em telas menores */
+}
+
+.hero-buttons .saiba-mais {
+    margin: 0; /* Sobrescreve o margin: 0 auto; padrão do saiba-mais */
+    flex-shrink: 0; /* Impede que os botões encolham demais */
+}
+
+.whatsapp-button {
+    background-color: #25D366; /* Verde do WhatsApp */
+    color: white;
+    border-color: #25D366;
+}
+
+.whatsapp-button:hover {
+    background-color: #1DA851; /* Verde mais escuro no hover */
+    border-color: #1DA851;
+    box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+}
+
+@media (max-width: 767px) {
+    .hero-buttons {
+        flex-direction: column; /* Empilha os botões verticalmente no mobile */
+        align-items: center; /* Centraliza os botões */
+    }
+    .hero-buttons .saiba-mais {
+        width: 100%; /* Largura total para os botões no mobile */
+        max-width: 280px; /* Limita a largura para uma melhor aparência */
+    }
+}
+
+/* =============================================
+   NOVA SEÇÃO DE DIFERENCIAIS (FEATURES)
+   ============================================= */
+.features-section .section-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: -20px auto 50px auto;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    /* Reutiliza o estilo de card transparente */
+    background: rgba(41, 171, 226, 0.08); 
+    border: 2px solid rgba(41, 171, 226, 0.18); 
+    border-radius: 12px;
+    padding: 30px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-cyan);
+    background: rgba(41, 171, 226, 0.12);
+    box-shadow: 0 8px 32px 0 rgba(41, 171, 226, 0.2);
+}
+
+.feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background-color: rgba(41, 171, 226, 0.1);
+    border: 1px solid rgba(41, 171, 226, 0.2);
+}
+
+.feature-icon i {
+    font-size: 1.8rem;
+    color: var(--accent-cyan);
+}
+
+.feature-item h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-lightest);
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.6;
 }

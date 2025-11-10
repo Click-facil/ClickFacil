@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
-    <title>Click Fácil | Soluções Digitais, TI e Automação para Negócios</title>
-    <meta name="description" content="Transforme seu negócio com as soluções digitais da Click Fácil. Oferecemos suporte de TI, criação de sites, automação com IA e modelos digitais prontos. Menos complicação, mais resultados.">
-    <meta name="keywords" content="suporte de TI, criação de sites, landing pages, automação, inteligência artificial, planilhas prontas, soluções digitais, otimização de computador">
+    <title>Click Fácil | Criação de Sites, Lojas Virtuais e SEO para Negócios</title>
+    <meta name="description" content="Especialistas em desenvolvimento web. Criamos sites institucionais, landing pages de alta conversão, lojas virtuais (Nuvemshop) e otimizamos seu negócio para o Google com SEO.">
+    <meta name="keywords" content="criação de sites, desenvolvimento de sites, landing pages, loja virtual, nuvemshop, seo, consultoria de seo, google meu negócio, web design">
     <meta name="google-site-verification" content="8lFDF2oZAZm_Ak4-VqxmJfyP0Qzapi1mWPLeU7oT6Ow" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://clickfacil.vercel.app/"> <!-- Trocar pela URL real do site -->
-    <meta property="og:title" content="Click Fácil | Soluções Digitais, TI e Automação para Negócios">
-    <meta property="og:description" content="Oferecemos suporte de TI, criação de sites, automação com IA e modelos digitais prontos.">
+    <meta property="og:title" content="Click Fácil | Criação de Sites, Lojas Virtuais e SEO para Negócios">
+    <meta property="og:description" content="Especialistas em desenvolvimento web: sites, landing pages, lojas virtuais e otimização para o Google (SEO).">
     <meta property="og:image" content="images/logo.png"> <!-- Trocar pela URL real da imagem -->
 
     <!-- Favicon -->
@@ -42,24 +42,30 @@
             <a href="#faq">FAQ</a>
             <a href="#contato">Contato</a>
         </nav>
-        
-        <button class="search-toggle-btn" id="search-toggle" aria-label="Abrir pesquisa">
-            <i class="fas fa-search"></i>
-        </button>
-        <button class="hamburger" id="hamburger-menu">
-            <i class="fas fa-bars"></i>
-        </button>
+        <!-- Container para agrupar os botões de ação no cabeçalho (mobile) -->
+        <div class="header-actions">
+            <button class="search-toggle-btn" id="search-toggle" aria-label="Abrir pesquisa">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
     <main>
         <section id="sobre" class="hero-section fade-in-section">
-            <div class="hero-content container">
-                <div class="hero-text">
+            <div class="hero-content container"> <!-- Reutilizando o container existente -->
+                <div class="hero-text"> <!-- Reutilizando a área de texto existente -->
                     <h1>Click Fácil</h1>
                     <h2>Sites Profissionais e Landing Pages de Alta Conversão</h2>
                     <p>Criamos sites rápidos e profissionais, e landing pages focadas em converter visitantes em clientes. Tenha uma presença online que impressiona e gera resultados reais.</p>
-                    <a href="#servicos" class="saiba-mais">Receber uma Consultoria Gratuita</a>
+                    <div class="hero-buttons"> <!-- Novo container para os botões -->
+                        <a href="https://wa.me/5591984520696" target="_blank" class="saiba-mais whatsapp-button">
+                            <i class="fab fa-whatsapp" style="margin-right: 8px;"></i>Solicite uma Consultoria Gratuita
+                        </a>
+                    </div>
                 </div>
-                <div class="hero-image">
+                <div class="hero-image"> <!-- Reutilizando a área da imagem existente -->
                     <img src="images/cabecalho.png" alt="Atendimento humanizado da Click Fácil">
                 </div>
             </div>
@@ -115,25 +121,49 @@
 
         <!-- Seção de Modelos Digitais temporariamente oculta -->
 
-        <section id="garantias" class="garantias-section fade-in-section">
+        <!-- NOVA SEÇÃO DE DIFERENCIAIS (SUBSTITUI GARANTIAS) -->
+        <section id="diferenciais" class="features-section fade-in-section">
             <div class="container">
-                <h2 class="section-title">Nossas Garantias</h2>
-                <div class="lista-garantias">
-                    <div class="garantia-item card">
-                        <h3>✔️ Agilidade Total</h3>
-                        <p>Respostas e soluções rápidas para você ou sua empresa não perder tempo com problemas técnicos</p>
+                <div class="features-header">
+                    <h2 class="section-title">Diferenciais que Geram Resultados</h2>
+                    <p class="section-subtitle">Mais do que um site, uma ferramenta de crescimento. Veja como podemos impulsionar sua presença online e transformar visitantes em clientes.</p>
+                </div>
+                <div class="features-grid">
+                    <!-- Item 1: Design Profissional -->
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                        <h3>Design que Converte</h3>
+                        <p>Criamos layouts modernos e intuitivos que não apenas impressionam, mas guiam o usuário diretamente para a ação, seja comprar, contatar ou se inscrever.</p>
                     </div>
-                    <div class="garantia-item card">
-                        <h3>🔒 100% Online e Seguro</h3>
-                        <p>Resolvemos tudo remotamente, com total segurança e sigilo dos seus dados</p>
+                    <!-- Item 2: Otimizado para Google (SEO) -->
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Otimizado para o Google</h3>
+                        <p>Seu site já nasce preparado para ser encontrado. Aplicamos as melhores práticas de SEO desde o início para que você atraia clientes de forma orgânica.</p>
                     </div>
-                    <div class="garantia-item card">
-                        <h3>💬 Suporte Direto e Transparente</h3>
-                        <p>Fale diretamente com quem resolve. Sem intermediários, apenas soluções claras e eficientes</p>
+                    <!-- Item 3: Performance e Velocidade -->
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        <h3>Carregamento Rápido</h3>
+                        <p>Ninguém gosta de esperar. Entregamos sites velozes que melhoram a experiência do usuário e o ranking no Google, evitando que você perca clientes por lentidão.</p>
                     </div>
-                    <div class="garantia-item card">
-                        <h3>💰 Custo-Benefício Real</h3>
-                        <p>Qualidade e profissionalismo com preços que cabem no bolso</p>
+                    <!-- Item 4: 100% Responsivo -->
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Perfeito em Qualquer Tela</h3>
+                        <p>Seja no celular, tablet ou computador, seu site terá uma aparência impecável e será fácil de usar, garantindo uma experiência consistente para todos os visitantes.</p>
+                    </div>
+                    <!-- Item 5: Segurança Reforçada -->
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Segurança em Primeiro Lugar</h3>
+                        <p>Implementamos práticas de segurança robustas para proteger seu site e os dados dos seus clientes contra ameaças, construindo uma base de confiança.</p>
+                    </div>
+                    <!-- Item 6: Autonomia para Você -->
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-edit"></i></div>
+                        <h3>Fácil de Gerenciar</h3>
+                        <p>Entregamos seu projeto com um painel intuitivo (quando aplicável) e oferecemos o treinamento necessário para que você possa atualizar seu conteúdo sem depender de ninguém.</p>
                     </div>
                 </div>
             </div>
