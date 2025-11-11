@@ -33,7 +33,10 @@
     <header class="main-header">
         <div class="logo-slider">
             <a href="index.html">
-                <img id="logo-slide" class="logo-img" src="images/logo.png" alt="Logo Click Fácil">
+                <!-- A imagem foi substituída pelo vídeo -->
+                <video id="logo-video" class="logo-video" playsinline autoplay muted loop>
+                    <source src="images/animacao-logo.mp4" type="video/mp4">
+                </video>
             </a>
         </div>
         <nav class="main-nav" id="main-nav">
@@ -54,19 +57,18 @@
     </header>
     <main>
         <section id="sobre" class="hero-section fade-in-section">
-            <div class="hero-content container"> <!-- Reutilizando o container existente -->
+            <!-- Vídeo de fundo -->
+            <video playsinline autoplay muted loop class="hero-video-bg">
+                <source src="images/animacao-logo.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos em HTML5.
+            </video>
+            <div class="hero-overlay"></div> <!-- Sobreposição para legibilidade -->
+            <div class="hero-content container">
                 <div class="hero-text"> <!-- Reutilizando a área de texto existente -->
                     <h1>Click Fácil</h1>
                     <h2>Sites Profissionais e Landing Pages de Alta Conversão</h2>
                     <p>Criamos sites rápidos e profissionais, e landing pages focadas em converter visitantes em clientes. Tenha uma presença online que impressiona e gera resultados reais.</p>
-                    <div class="hero-buttons"> <!-- Novo container para os botões -->
-                        <a href="https://wa.me/5591984520696" target="_blank" class="saiba-mais whatsapp-button">
-                            <i class="fab fa-whatsapp" style="margin-right: 8px;"></i>Solicite uma Consultoria Gratuita
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image"> <!-- Reutilizando a área da imagem existente -->
-                    <img src="images/cabecalho.png" alt="Atendimento humanizado da Click Fácil">
+                    <a href="https://wa.me/5591984520696" target="_blank" class="saiba-mais whatsapp-button"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i>Receber uma Consultoria Gratuita</a>
                 </div>
             </div>
         </section>
@@ -226,7 +228,7 @@
                 <!-- SLIDE 5: FEEDBACK 4 -->
                 <div class="swiper-slide">
                     <div class="comentario card">
-                        <p class="Cliente">— Lucas</p>
+                        <p class="Cliente">— Eduardo</p>
                         <p class="servico-avaliado">Serviço: Redesign de Loja Virtual</p>
                         <p class="texto">O cliente buscava modernizar sua loja na Nuvemshop. Realizamos um redesign completo, ajustando layout, cores e CTAs para melhorar a experiência do usuário e impulsionar as vendas.</p>
                         <img src="images/feedback4.png" alt="Depoimento do cliente Lucas sobre o redesign de sua loja virtual" class="testimonial-print">
@@ -243,6 +245,61 @@
             <div class="swiper-pagination"></div>
         </div>
         
+    </div>
+</section>
+
+        <!-- =============================================
+     NOVA SEÇÃO DE PROVA SOCIAL (CLIENTES)
+     ============================================= -->
+<section id="client-logos" class="client-logo-section fade-in-section">
+    <!-- O container não é usado aqui para a esteira ir de ponta a ponta -->
+    <h2 class="section-title">Impulsionando Negócios Reais</h2>
+    
+    <div class="logo-marquee-container">
+        <div class="marquee-track">
+            <!-- 1ª Cópia dos Logos -->
+            <div class="logo-item">
+                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
+                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
+                    <img src="images/logosuportesmart.png" alt="Logo Suporte Smart Paragominas">
+                </a>
+            </div>
+            <!-- Adicionei placeholders para a esteira parecer mais cheia. Substitua quando tiver mais clientes -->
+            <div class="logo-item">
+                <img src="https://placehold.co/150x70/ffffff/cccccc?text=Cliente+3" alt="Logo Cliente 3">
+            </div>
+            <div class="logo-item">
+                <img src="https://placehold.co/150x70/ffffff/cccccc?text=Cliente+4" alt="Logo Cliente 4">
+            </div>
+            <div class="logo-item">
+                <img src="https://placehold.co/150x70/ffffff/cccccc?text=Cliente+5" alt="Logo Cliente 5">
+            </div>
+
+            <!-- 2ª Cópia (Duplicata para o efeito de loop infinito) -->
+            <div class="logo-item">
+                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
+                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
+                    <img src="images/logosuportesmart.png" alt="Logo Suporte Smart Paragominas">
+                </a>
+            </div>
+            <div class="logo-item">
+                <img src="https://placehold.co/150x70/ffffff/cccccc?text=Cliente+3" alt="Logo Cliente 3">
+            </div>
+            <div class="logo-item">
+                <img src="https://placehold.co/150x70/ffffff/cccccc?text=Cliente+4" alt="Logo Cliente 4">
+            </div>
+            <div class="logo-item">
+                <img src="https://placehold.co/150x70/ffffff/cccccc?text=Cliente+5" alt="Logo Cliente 5">
+            </div>
+        </div>
     </div>
 </section>
 

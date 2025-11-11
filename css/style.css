@@ -53,8 +53,8 @@ body {
     overflow-x: visible;
 
     /* 👇 CONTROLE O ESPAÇAMENTO SOMENTE AQUI 👇 */
-    padding-left: 5px;  /* Altere este valor para mover para esquerda/direita */
-    padding-right: 10px; /* Altere este valor se precisar */
+    padding-left: 2.5rem;  /* Aumenta o espaçamento esquerdo */
+    padding-right: 2.5rem; /* Aumenta o espaçamento direito */
 }
 
 .main-title {
@@ -71,6 +71,13 @@ body {
     transition: width 0.3s;
     /* Removendo o efeito neon para um visual mais clean */
     /* filter: drop-shadow(0 0 10px var(--accent-cyan)); */
+}
+
+/* Estilo para o novo vídeo no lugar do logo */
+.logo-video {
+    width: 150px; /* Mesmo tamanho inicial do logo */
+    height: auto;
+    transition: width 0.3s;
 }
 .main-nav {
     display: flex;
@@ -122,6 +129,11 @@ body {
 .main-header.scrolled .logo-img {
     width: 120px; /* Logo menor no header "encolhido" */
 }
+
+.main-header.scrolled .logo-video {
+    width: 120px; /* Vídeo menor no header "encolhido" */
+}
+
 
 /* Hamburger button styles */
 .hamburger {
@@ -196,9 +208,40 @@ section {
     margin-bottom: 12px;
 }
 .hero-section {
-    padding-top: 100px;
-    margin-top: -100px;
+    position: relative; /* Essencial para o posicionamento do vídeo */
+    height: 90vh; /* Altura da seção (90% da altura da tela) */
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0; /* Remove padding antigo */
+    margin-top: 0; /* Remove margem antiga */
     margin-bottom: 120px;
+    overflow: hidden; /* Garante que o vídeo não vaze */
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cobre toda a área sem distorcer */
+    transform: translate(-50%, -50%);
+    z-index: -2; /* Atrás de tudo */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(10, 25, 47, 0.75); /* Sobreposição escura para legibilidade */
+    z-index: -1; /* Fica entre o vídeo e o conteúdo */
+}
+
+/* Garante que o conteúdo fique na frente */
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .section-title {
@@ -1267,8 +1310,9 @@ section {
     position: absolute;
     z-index: 0;
     width: 700px;
-    bottom: -20px; /* Ajustado para mover a imagem para baixo */
+    bottom: -120px; /* Ajustado para mover a imagem para baixo */
     right: -150px;
+    display: none; /* Remove a imagem estática */
 }
 
 .hero-image img {
@@ -2065,6 +2109,79 @@ section {
     text-align: left;
     line-height: 1.5;
     margin: 0;
+}
+
+/* =============================================
+   SEÇÃO PROVA SOCIAL (LOGO MARQUEE)
+   ============================================= */
+
+.client-logo-section {
+    padding-top: 40px; /* Menos padding que o normal */
+    margin-bottom: 60px;
+    overflow: hidden; /* Essencial para a esteira funcionar */
+}
+
+.client-logo-section .section-title {
+    font-size: 1.5rem; /* Título um pouco menor e mais sutil */
+    color: var(--text-light);
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.logo-marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Efeito de fade nas laterais, como no exemplo do n8n */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    /* Largura = (Largura do item) * (Número TOTAL de itens) */
+    /* (200px) * (10 logos) = 2000px */
+    width: calc(200px * 10); 
+    animation: marquee-scroll 30s linear infinite;
+    will-change: transform;
+}
+
+/* Animação da esteira */
+@keyframes marquee-scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        /* Move 50% para a esquerda (o tamanho exato da primeira cópia) */
+        transform: translateX(-50%);
+    }
+}
+
+.logo-item {
+    flex-shrink: 0;
+    width: 200px; /* Largura fixa para cada logo */
+    padding: 0 25px;
+    box-sizing: border-box;
+}
+
+.logo-item img {
+    width: 100%;
+    height: 70px; /* Altura fixa para alinhar todas as logos */
+    object-fit: contain;
+    filter: grayscale(1) opacity(0.7); /* Efeito profissional: cinza e opaco */
+    transition: all 0.3s ease;
+}
+
+/* Efeito de hover */
+.logo-item a:hover img,
+.logo-marquee-container:hover .logo-item img {
+    filter: grayscale(0) opacity(1); /* Tira o filtro no hover */
+    transform: scale(1.1);
+}
+
+/* Pausa a animação no hover */
+.logo-marquee-container:hover .marquee-track {
+    animation-play-state: paused;
 }
 
 /* --- Responsividade do Bento Grid --- */
