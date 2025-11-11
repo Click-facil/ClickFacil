@@ -2184,6 +2184,57 @@ section {
     animation-play-state: paused;
 }
 
+
+/* =============================================
+   ESTILOS DA NOVA SEÇÃO DE SERVIÇOS (ANIMADA)
+   ============================================= */
+
+/* Remove a margem da seção antiga para colar no vídeo */
+.services-section-animated {
+    margin-top: -80px; /* Remove a margem de compensação */
+    padding-top: 100px; /* Aumenta o padding do topo */
+    padding-bottom: 100px;
+    text-align: center; /* Centraliza o botão 'saiba-mais' */
+}
+
+/* Container mais largo, como pedido */
+.bento-container-wide {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 25px; /* Padding lateral */
+}
+
+/* ---- A ANIMAÇÃO ---- */
+
+/* 1. Define o estado inicial (invisível) dos cards */
+.bento-card-animated {
+    opacity: 0;
+    transition: all 0.6s ease-out;
+}
+
+/* 2. Define de onde cada bloco virá */
+.bento-card-animated.large-v {
+    transform: scale(0.95); /* O card principal cresce do centro */
+    transition-delay: 0.1s;
+}
+.bento-card-animated:nth-child(2),
+.bento-card-animated:nth-child(4) {
+    transform: translateX(-40px); /* Cards da esquerda vêm da esquerda */
+    transition-delay: 0.2s;
+}
+.bento-card-animated:nth-child(3),
+.bento-card-animated:nth-child(5) {
+    transform: translateX(40px); /* Cards da direita vêm da direita */
+    transition-delay: 0.3s;
+}
+
+/* 3. Define o estado final (visível) - será ativado pelo JavaScript */
+.bento-card-animated.is-visible {
+    opacity: 1;
+    transform: none; /* Reseta todas as transformações (scale, translateX) */
+}
+
 /* --- Responsividade do Bento Grid --- */
 
 /* Para Tablets */

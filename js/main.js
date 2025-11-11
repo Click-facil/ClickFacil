@@ -135,18 +135,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // --- Animação de Fade-in ao Rolar ---
         // Seleciona tanto as seções principais quanto os cards individuais para a animação.
-        const elementsToAnimate = document.querySelectorAll('.fade-in-section, .card, .faq-container > details');
+        const elementsToAnimate = document.querySelectorAll('.fade-in-section, .card, .faq-container > details, .bento-card-animated');
         
         const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    // Opcional, mas recomendado: para de observar o elemento depois que ele já apareceu.
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            
+            // Lógica antiga (para .fade-in-section)
+            if (entry.target.classList.contains('fade-in-section')) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+
+            // LÓGICA NOVA: Adiciona a classe para animar os cards
+            if (entry.target.classList.contains('bento-card-animated')) {
+                entry.target.classList.add('is-visible');
+            }
+            
+            // Opcional, mas recomendado: para de observar o elemento depois que ele já apareceu.
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
 
         elementsToAnimate.forEach(element => observer.observe(element));
 
