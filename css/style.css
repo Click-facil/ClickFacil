@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 
 :root {
     --bg-dark-navy: #0A192F;  /* base */
@@ -10,6 +12,12 @@
     --accent-orange: #29abe2; /*acentos secundários */
     --sombra-dark: 0 10px 30px -15px rgba(2,12,27,0.7);
     --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+    --font-display: 'Poppins', var(--font-sans);
+}
+
+/* Aplica a nova fonte de display a todos os títulos */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
 }
 
 body {
@@ -1584,66 +1592,75 @@ section {
 
 /* --- Coluna da Direita (Conteúdo) --- */
 .features-content-scroll {
-    width: 70%; /* Ocupa 70% da largura */
+    width: 70%;
     flex: 1;
 }
 
 .feature-content-item {
-    /* Reutiliza o estilo de card transparente */
+    /* ESTILO DO CARD */
     background: rgba(41, 171, 226, 0.08); 
     border: 2px solid rgba(41, 171, 226, 0.18); 
     border-radius: 12px;
-    padding: 30px;
-    min-height: 400px; /* Altura mínima para criar espaço de scroll */
-    margin-bottom: 100px; /* Espaço entre os blocos de conteúdo */
+    padding: 40px; /* Mais padding interno */
+    min-height: 400px;
+    margin-bottom: 100px;
     
+    /* CENTRALIZAÇÃO */
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-/* Esconde o H3 duplicado (mantém para o JS) */
-.feature-content-item h3 {
-    display: none;
+    align-items: center; /* Centraliza horizontalmente */
+    text-align: center; /* Centraliza o texto */
 }
 
 .feature-content-item:last-child {
-    margin-bottom: 0; /* Remove a margem do último item */
+    margin-bottom: 0;
 }
 
+/* ÍCONE (Maior e com mais destaque) */
 .feature-content-item .feature-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
-    height: 60px;
-    margin-bottom: 20px;
+    width: 70px; /* Maior */
+    height: 70px; /* Maior */
+    margin-bottom: 25px;
     border-radius: 50%;
     background-color: rgba(41, 171, 226, 0.1);
     border: 1px solid rgba(41, 171, 226, 0.2);
 }
 
 .feature-content-item .feature-icon i {
-    font-size: 1.8rem;
+    font-size: 2.2rem; /* Ícone maior */
     color: var(--accent-cyan);
 }
 
+/* TÍTULO (Agora visível e com a nova fonte) */
+.feature-content-item h3 {
+    display: block; /* Garante que está visível */
+    font-size: 1.5rem; /* Fonte maior */
+    font-weight: 700;
+    color: var(--text-lightest);
+    margin-bottom: 15px;
+}
+        
+/* PARÁGRAFO */
 .feature-content-item p {
-    font-size: 1.1rem;
+    font-size: 1.05rem; /* Ligeiramente maior para legibilidade */
     color: var(--text-light);
     line-height: 1.7;
-    max-width: 500px; /* Limita a largura do texto */
+    max-width: 450px; /* Limita a largura do texto para não ficar muito largo */
 }
 
 /* --- Responsividade da Seção "Diferenciais" --- */
 @media (max-width: 900px) {
     .features-sticky-wrapper {
-        flex-direction: column; /* Empilha as colunas */
+        flex-direction: column;
         gap: 30px;
     }
 
     .features-nav-sticky {
-        position: relative; /* Remove o sticky no mobile */
+        position: relative;
         top: 0;
         width: 100%;
         height: auto;
@@ -1651,7 +1668,7 @@ section {
 
     .features-nav-sticky ul {
         display: flex;
-        flex-wrap: wrap; /* Permite que os botões quebrem a linha */
+        flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
     }
@@ -1662,7 +1679,6 @@ section {
         margin-bottom: 0;
     }
     
-    /* Remove o efeito de "empurrar" no mobile */
     .features-nav-sticky .feature-nav-link.is-active {
         transform: none;
     }
@@ -1672,9 +1688,17 @@ section {
     }
     
     .feature-content-item {
-        min-height: auto; /* Altura automática no mobile */
-        padding: 25px;
+        min-height: auto;
+        padding: 30px 25px;
         margin-bottom: 20px;
+    }
+
+    .feature-content-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .feature-content-item p {
+        font-size: 1rem;
     }
 }
 
