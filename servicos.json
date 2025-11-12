@@ -20,7 +20,7 @@
             "Formulário de contato integrado"
           ],
           "preco": "A partir de R$ 300,00",
-          "imagem": "images/img5.png"
+          "imagem": "images/img55.png"
         },
         {
           "id": "landing-pages",
@@ -39,12 +39,12 @@
             "Otimização para carregamento rápido"
           ],
           "preco": "A partir de R$ 150,00",
-          "imagem": "images/img4.png"
+          "imagem": "images/img44.png"
         },
         {
           "id": "nuvemshop",
-          "nome": "Configuração de Loja Virtual (Nuvemshop)",
-          "descricao_curta": "Transforme sua marca em um negócio online lucrativo. Criamos sua loja virtual completa, com design profissional, configuração de pagamentos e otimização para vendas.",
+          "nome": "Configuração de Loja Virtual",
+          "descricao_curta": "Transforme sua marca em um negócio online lucrativo. Criamos sua loja virtual completa na Nuvemshop ou Kiwify, com design profissional, configuração de pagamentos e otimização para vendas.",
           "o_que_e": "É o serviço de configuração completa da sua loja na plataforma Nuvemshop, desde o layout até a integração dos meios de pagamento e frete.",
           "beneficios": [
             "Comece a vender online em tempo recorde",
@@ -59,7 +59,7 @@
             "Treinamento para você gerenciar seus pedidos"
           ],
           "preco": "A partir de R$ 650,00",
-          "imagem": "images/img6.png"
+          "imagem": "images/img66.png"
         }
       ]
     },
@@ -83,7 +83,7 @@
             "Instruções para você mesmo gerenciar"
           ],
           "preco": "A partir de R$ 89,90",
-          "imagem": "images/img3.png"
+          "imagem": "images/img33.png"
         },
         {
           "id": "consultoria-seo",

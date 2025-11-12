@@ -2122,10 +2122,8 @@ section {
 }
 
 .client-logo-section .section-title {
-    font-size: 1.5rem; /* Título um pouco menor e mais sutil */
-    color: var(--text-light);
-    font-weight: 600;
-    margin-bottom: 40px;
+    /* A estilização padrão de .section-title já é aplicada,
+       removendo as regras específicas que o deixavam menor. */
 }
 
 .logo-marquee-container {
