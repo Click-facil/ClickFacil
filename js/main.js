@@ -133,30 +133,32 @@ document.addEventListener('DOMContentLoaded', function() {
             yearSpan.textContent = new Date().getFullYear();
         }
 
-        // --- Animação de Fade-in ao Rolar ---
-        // Seleciona tanto as seções principais quanto os cards individuais para a animação.
-        const elementsToAnimate = document.querySelectorAll('.fade-in-section, .card, .faq-container > details, .bento-card-animated');
-        
-        const observer = new IntersectionObserver((entries, observer) => {
+        // --- Animação de Fade-in ao Rolar (Versão Unificada) ---
+const elementsToAnimate = document.querySelectorAll(
+    '.fade-in-section, .bento-card-animated, .faq-item'
+);
+
+const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            
-            // Lógica antiga (para .fade-in-section)
+            // Verifica qual tipo de animação aplicar
             if (entry.target.classList.contains('fade-in-section')) {
+                // Animação de fade-in (antiga)
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-            }
-
-            // LÓGICA NOVA: Adiciona a classe para animar os cards
-            if (entry.target.classList.contains('bento-card-animated')) {
+            } else if (entry.target.classList.contains('bento-card-animated') || 
+                       entry.target.classList.contains('faq-item')) {
+                // Animação por classe (nova)
                 entry.target.classList.add('is-visible');
             }
             
-            // Opcional, mas recomendado: para de observar o elemento depois que ele já apareceu.
+            // Para de observar o elemento após animar
             observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.1 }); // Dispara quando 10% do elemento está visível
+
+elementsToAnimate.forEach(element => observer.observe(element));
 
         elementsToAnimate.forEach(element => observer.observe(element));
 
