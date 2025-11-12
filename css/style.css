@@ -1507,6 +1507,14 @@ section {
     .hero-text .saiba-mais {
         margin: 0 auto;
     }
+
+    /* Ajuste para o vídeo do cabeçalho não cortar no celular */
+    .hero-video-bg {
+        object-fit: contain; /* Garante que o vídeo inteiro seja visível */
+        /* Aumenta o tamanho do vídeo em 50% para preencher mais a tela */
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+
 }
 /* ... existing code ... */
 
