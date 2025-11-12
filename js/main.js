@@ -325,3 +325,48 @@ function renderResults(results) {
         `)
         .join('');
 }
+
+/* =============================================
+   LÓGICA DO STICKY SCROLL PARA "DIFERENCIAIS"
+   ============================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    // Só executa se estivermos na página correta
+    const featuresWrapper = document.querySelector('.features-sticky-wrapper');
+    if (!featuresWrapper) return;
+
+    const navLinks = document.querySelectorAll('.feature-nav-link');
+    const contentItems = document.querySelectorAll('.feature-content-item');
+
+    // Opções do Observer:
+    // rootMargin: "comprime" a "janela de visualização". -150px no topo (para o header) 
+    // e -40% na base (para trocar o ativo antes do próximo item chegar).
+    const observerOptions = {
+        rootMargin: '-150px 0px -40% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Pega o 'data-feature' do item que entrou na tela (ex: "seo")
+                const featureId = entry.target.getAttribute('data-feature');
+                
+                // Remove 'is-active' de todos os links
+                navLinks.forEach(link => {
+                    link.classList.remove('is-active');
+                });
+                
+                // Adiciona 'is-active' apenas no link correspondente
+                const activeLink = document.querySelector(`.feature-nav-link[data-feature="${featureId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('is-active');
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observa cada um dos 6 blocos de conteúdo da direita
+    contentItems.forEach(item => {
+        observer.observe(item);
+    });
+});

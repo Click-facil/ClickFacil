@@ -1518,6 +1518,166 @@ section {
 }
 /* ... existing code ... */
 
+/* =============================================
+   NOVA SEÇÃO DE DIFERENCIAIS (STICKY SCROLL)
+   ============================================= */
+
+.features-section-sticky {
+    padding-bottom: 100px;
+}
+
+.features-section-sticky .section-subtitle {
+    text-align: center;
+    max-width: 700px;
+    margin: -20px auto 50px auto;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+.features-sticky-wrapper {
+    display: flex;
+    gap: 60px; /* Espaço entre a nav e o conteúdo */
+    position: relative;
+}
+
+/* --- Coluna da Esquerda (Nav) --- */
+.features-nav-sticky {
+    width: 30%; /* Ocupa 30% da largura */
+    position: sticky; /* EFEITO "STICKY" */
+    top: 150px; /* Distância do topo (para o header) */
+    align-self: start; /* Importante para o sticky funcionar */
+    height: 400px; /* Altura fixa */
+}
+
+.features-nav-sticky ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-nav-sticky .feature-nav-link {
+    display: block;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark); /* Cor inativa (cinza) */
+    text-decoration: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.features-nav-sticky .feature-nav-link:hover {
+    color: var(--text-lightest);
+    background: rgba(41, 171, 226, 0.05);
+}
+
+/* ESTADO ATIVO: A mágica acontece aqui */
+.features-nav-sticky .feature-nav-link.is-active {
+    color: var(--accent-cyan);
+    background: rgba(41, 171, 226, 0.1);
+    border-left: 4px solid var(--accent-cyan);
+    transform: translateX(10px);
+}
+
+
+/* --- Coluna da Direita (Conteúdo) --- */
+.features-content-scroll {
+    width: 70%; /* Ocupa 70% da largura */
+    flex: 1;
+}
+
+.feature-content-item {
+    /* Reutiliza o estilo de card transparente */
+    background: rgba(41, 171, 226, 0.08); 
+    border: 2px solid rgba(41, 171, 226, 0.18); 
+    border-radius: 12px;
+    padding: 30px;
+    min-height: 400px; /* Altura mínima para criar espaço de scroll */
+    margin-bottom: 100px; /* Espaço entre os blocos de conteúdo */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Esconde o H3 duplicado (mantém para o JS) */
+.feature-content-item h3 {
+    display: none;
+}
+
+.feature-content-item:last-child {
+    margin-bottom: 0; /* Remove a margem do último item */
+}
+
+.feature-content-item .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background-color: rgba(41, 171, 226, 0.1);
+    border: 1px solid rgba(41, 171, 226, 0.2);
+}
+
+.feature-content-item .feature-icon i {
+    font-size: 1.8rem;
+    color: var(--accent-cyan);
+}
+
+.feature-content-item p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    max-width: 500px; /* Limita a largura do texto */
+}
+
+/* --- Responsividade da Seção "Diferenciais" --- */
+@media (max-width: 900px) {
+    .features-sticky-wrapper {
+        flex-direction: column; /* Empilha as colunas */
+        gap: 30px;
+    }
+
+    .features-nav-sticky {
+        position: relative; /* Remove o sticky no mobile */
+        top: 0;
+        width: 100%;
+        height: auto;
+    }
+
+    .features-nav-sticky ul {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os botões quebrem a linha */
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .features-nav-sticky .feature-nav-link {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+    
+    /* Remove o efeito de "empurrar" no mobile */
+    .features-nav-sticky .feature-nav-link.is-active {
+        transform: none;
+    }
+
+    .features-content-scroll {
+        width: 100%;
+    }
+    
+    .feature-content-item {
+        min-height: auto; /* Altura automática no mobile */
+        padding: 25px;
+        margin-bottom: 20px;
+    }
+}
+
 /* --- Responsividade para Telas Menores (até 767px) --- */
 @media (max-width: 767px) {
     .main-header {
