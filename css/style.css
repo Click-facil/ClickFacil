@@ -1597,6 +1597,16 @@ section {
     max-width: 450px; /* Limita a largura do texto para não ficar muito largo */
 }
 
+/* Título que só aparece no mobile */
+.feature-title-mobile {
+    display: none; /* Escondido por padrão (no desktop) */
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-lightest);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
 /* --- Responsividade da Seção "Diferenciais" --- */
 @media (max-width: 900px) {
     .features-sticky-wrapper {
@@ -1605,27 +1615,12 @@ section {
     }
 
     .features-nav-sticky {
-        position: relative;
-        top: 0;
-        width: 100%;
-        height: auto;
+        display: none; /* Esconde a navegação da esquerda no mobile */
     }
 
-    .features-nav-sticky ul {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-    
-    .features-nav-sticky .feature-nav-link {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-        margin-bottom: 0;
-    }
-    
-    .features-nav-sticky .feature-nav-link.is-active {
-        transform: none;
+    /* Mostra o título dentro do card no mobile */
+    .feature-title-mobile {
+        display: block;
     }
 
     .features-content-scroll {
@@ -3082,3 +3077,386 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
         margin-bottom: 40px;
     }
 }
+
+/* =============================================
+   NOVA SEÇÃO DE AVALIAÇÕES (ESTILO FLOWBITE)
+   ============================================= */
+
+.review-section-wrapper {
+    /* Fundo que preenche a tela, como pedido */
+    background-color: #08162a; /* Mesmo fundo do FAQ */
+    padding-top: 100px;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+.review-section-container {
+    max-width: 1100px; /* Container padrão do site */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Coluna da esquerda (1/3) e direita (2/3) */
+    gap: 60px;
+}
+
+/* --- Coluna Esquerda: Sumário --- */
+.review-summary .section-title {
+    text-align: left; /* Alinha o título à esquerda */
+    margin-bottom: 30px;
+}
+
+.rating-overall {
+    margin-bottom: 30px;
+}
+
+.rating-overall .rating-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--text-lightest);
+    margin-right: 15px;
+}
+
+.rating-overall .google-stars {
+    display: inline-flex;
+    font-size: 1.2rem;
+    color: #ffc107;
+    gap: 4px;
+}
+
+.rating-overall .review-count {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-top: 5px;
+}
+
+.review-summary-histogram {
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.rating-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+}
+
+.rating-bar-row span {
+    color: var(--text-light);
+    flex-basis: 40px;
+    text-align: left;
+}
+.rating-bar-row span i {
+    color: #ffc107;
+    font-size: 0.8rem;
+    margin-left: 2px;
+}
+
+.rating-bar {
+    flex: 1;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.rating-bar-filled {
+    height: 100%;
+    background-color: #ffc107;
+    border-radius: 4px;
+}
+
+.rating-bar-row .rating-count {
+    flex-basis: 20px;
+    text-align: right;
+    color: var(--text-dark);
+}
+
+.review-button {
+    margin: 0; /* Alinha o botão à esquerda */
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- Coluna Direita: Lista de Reviews --- */
+.review-list {
+    max-height: 500px; /* Cria o efeito de scroll */
+    overflow-y: auto;
+    padding-right: 20px; /* Espaço para a barra de scroll */
+}
+
+/* Esconde a barra de scroll padrão (Webkit) */
+.review-list::-webkit-scrollbar {
+    width: 8px;
+}
+.review-list::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+.review-list::-webkit-scrollbar-thumb {
+    background: var(--text-dark);
+    border-radius: 4px;
+}
+.review-list::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-cyan);
+}
+
+
+.review-item {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.review-item-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.review-author h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-lightest);
+    margin: 0;
+}
+.review-author .google-stars {
+    font-size: 0.9rem;
+    color: #ffc107;
+}
+
+.review-text {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+    padding-left: 65px; /* Alinha o texto com o nome do autor */
+}
+
+/* Responsividade da Seção de Reviews */
+@media (max-width: 900px) {
+    .review-grid {
+        grid-template-columns: 1fr; /* Empilha as colunas */
+        gap: 50px;
+    }
+    
+    .review-summary .section-title {
+        text-align: center; /* Centraliza o título no mobile */
+    }
+    
+    .review-summary, .rating-overall {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza tudo no mobile */
+        text-align: center;
+    }
+    
+    .review-button {
+        margin: 0 auto;
+    }
+    
+    .review-list {
+        max-height: none; /* Remove o scroll no mobile */
+        overflow-y: visible;
+        padding-right: 0;
+    }
+    
+    .review-text {
+        padding-left: 0; /* Remove o alinhamento do texto */
+    }
+}
+
+/* =============================================
+   SEÇÃO PROVA SOCIAL (WHATSAPP MARQUEE)
+   ============================================= */
+.print-marquee-section {
+    padding-top: 60px;
+    padding-bottom: 100px;
+    overflow: hidden;
+}
+
+.marquee-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.print-marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.print-marquee-track {
+    display: flex;
+    /* (Largura do card: 360px + 25px de gap) * (8 cards totais) */
+    width: calc(385px * 8); 
+    animation: marquee-scroll-prints 40s linear infinite;
+    will-change: transform;
+}
+
+@keyframes marquee-scroll-prints {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); /* Loop infinito */
+    }
+}
+
+/* Reutiliza o card .comentario, mas define sua largura */
+.print-marquee-track .comentario.card {
+    width: 360px;
+    flex-shrink: 0;
+    margin-right: 25px;
+    height: auto;
+}
+
+/* Pausa a animação no hover */
+.print-marquee-container:hover .print-marquee-track {
+    animation-play-state: paused;
+}
+
+/* =============================================
+   NOVA SEÇÃO DE CONTATO (FINAL CTA)
+   ============================================= */
+
+.contact-section-final {
+    /* SEM CONTAINER: Preenche a largura total */
+    width: 100%;
+    padding: 120px 25px; /* Espaçamento interno amplo */
+    background: linear-gradient(180deg, #08162a 0%, var(--bg-dark-navy) 100%); /* Gradiente para destacar */
+    text-align: center;
+    overflow: hidden; /* Para as animações */
+}
+
+.contact-final-content {
+    max-width: 700px; /* Limita a largura do texto para legibilidade */
+    margin: 0 auto;
+}
+
+.contact-final-content h2 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem); /* Tipografia grande e responsiva */
+    font-weight: 800;
+    color: var(--text-lightest);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.contact-final-content p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 500px;
+    margin: 0 auto 40px auto;
+    line-height: 1.7;
+}
+
+/* Container dos botões */
+.contact-buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Permite quebrar linha no mobile */
+}
+
+/* Estilo Base do Botão de Contato */
+.contact-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.contact-button i {
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* Botão Primário (WhatsApp) */
+.contact-button.primary {
+    background-color: var(--accent-cyan);
+    color: #ffffff;
+    border-color: var(--accent-cyan);
+}
+
+.contact-button.primary:hover {
+    background-color: #1e86b5; /* Tom mais escuro */
+    border-color: #1e86b5;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(41, 171, 226, 0.2);
+}
+
+/* Botões Secundários (Email e Ligar) */
+.contact-button.secondary {
+    background-color: rgba(41, 171, 226, 0.1);
+    color: var(--accent-cyan);
+    border-color: rgba(41, 171, 226, 0.2);
+}
+
+.contact-button.secondary:hover {
+    background-color: rgba(41, 171, 226, 0.2);
+    border-color: var(--accent-cyan);
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* --- Animações de Entrada do Contato --- */
+.contact-animate-title,
+.contact-animate-subtitle,
+.contact-animate-button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+}
+
+.contact-animate-title.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+.contact-animate-subtitle.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+/* Atraso escalonado para os botões */
+.contact-animate-button.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.contact-animate-button.is-visible:nth-of-type(1) { transition-delay: 0.3s; }
+.contact-animate-button.is-visible:nth-of-type(2) { transition-delay: 0.4s; }
+.contact-animate-button.is-visible:nth-of-type(3) { transition-delay: 0.5s; }

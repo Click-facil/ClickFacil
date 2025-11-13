@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // --- Animação de Fade-in ao Rolar (Versão Unificada) ---
 const elementsToAnimate = document.querySelectorAll(
-    '.fade-in-section, .bento-card-animated, .faq-item'
+    '.fade-in-section, .bento-card-animated, .faq-item, .contact-animate-title, .contact-animate-subtitle, .contact-animate-button'
 );
 
 const observer = new IntersectionObserver((entries, observer) => {
@@ -147,7 +147,10 @@ const observer = new IntersectionObserver((entries, observer) => {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
             } else if (entry.target.classList.contains('bento-card-animated') || 
-                       entry.target.classList.contains('faq-item')) {
+                       entry.target.classList.contains('faq-item') ||
+                       entry.target.classList.contains('contact-animate-title') ||
+                       entry.target.classList.contains('contact-animate-subtitle') ||
+                       entry.target.classList.contains('contact-animate-button')) {
                 // Animação por classe (nova)
                 entry.target.classList.add('is-visible');
             }
@@ -162,29 +165,6 @@ elementsToAnimate.forEach(element => observer.observe(element));
 
         elementsToAnimate.forEach(element => observer.observe(element));
 
-        // --- INICIALIZAÇÃO DO SWIPER.JS PARA DEPOIMENTOS ---
-        const swiperEl = document.querySelector('.testimonial-slider-interactive');
-        if (swiperEl && typeof Swiper !== 'undefined') {
-            const swiper = new Swiper('.testimonial-slider-interactive', {
-                // Opções para um carrossel interativo
-                loop: true,
-                slidesPerView: 1, // Mostra 1 slide por vez
-                spaceBetween: 30,
-                // autoHeight: true, // REMOVIDA: Esta linha estava fazendo o card ficar "enorme"
-                
-                // Ativa a Paginação (bolinhas)
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                },
-
-                // Ativa a Navegação (setas)
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-            });
-        }
         // --- LÓGICA DA BUSCA GLOBAL ---
         const searchToggleBtn = document.getElementById('search-toggle');
         const searchOverlay = document.getElementById('search-overlay');
