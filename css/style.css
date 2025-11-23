@@ -3218,3 +3218,32 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
         margin-top: 0; /* Remove a margem que só fazia sentido no layout de grid */
     }
 }
+
+/* =============================================
+   ESTILOS ADICIONAIS DO BLOG (Links e Referências)
+   ============================================= */
+
+/* Estilo para links dentro do conteúdo do blog */
+.blog-content a {
+    color: var(--accent-cyan);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.blog-content a:hover {
+    color: var(--text-lightest);
+}
+
+/* Estilo para a seção de referências */
+.references-section {
+    margin-top: 60px; 
+    padding-top: 20px; 
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.references-section h3 {
+    font-size: 1.2em; 
+    margin-bottom: 15px;
+    color: var(--text-lightest);
+}
