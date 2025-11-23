@@ -425,128 +425,6 @@ section {
     box-shadow: 0 0 10px rgba(41, 171, 226, 0.3); /* CORRIGIDO: Usando a cor --accent-cyan */
 }
 
-/* Catálogo */
-.catalogo-container {
-    background-color: transparent;
-    padding: 40px 0;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-.catalogo-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    width: 100%;
-}
-
-.catalogo-categoria {
-    width: 100%;
-    margin: 0 auto;
-}
-
-.catalogo-categoria h3 {
-    font-size: 1.8rem;
-    color: var(--text-lightest); /* Mantendo a cor do título */
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-.catalogo-slider {
-    display: flex;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    gap: 20px;
-    padding: 10px;
-    margin: 0 -10px; /* Ajustando margens */
-}
-/* Estiliza a barra de rolagem para ser mais discreta */
-.catalogo-slider::-webkit-scrollbar {
-    height: 8px;
-}
-.catalogo-slider::-webkit-scrollbar-thumb {
-    background-color: var(--accent-cyan); /* Barra de rolagem na cor de destaque */
-    border-radius: 10px; /* Bordas arredondadas na barra */
-}
-
-.catalogo-item {
-    display: flex;
-    flex-direction: column; /* Organiza conteúdo em coluna */
-    justify-content: space-between; /* Espaça o conteúdo internamente */
-    height: 350px; /* Altura fixa para os cards */
-    width: 300px;
-    flex-shrink: 0; /* Impede que os itens encolham */
-    scroll-snap-align: start;
-    transition: transform 0.3s, box-shadow 0.3s;
-    background: var(--bg-light-navy);
-    border-radius: 8px;
-    box-shadow: var(--sombra-dark);
-    overflow: hidden;
-}
-
-.catalogo-item:hover {
-    transform: translateY(-5px); /* Efeito hover sutil */
-    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
-}
-
-.catalogo-imagem {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    background-color: var(--bg-dark-navy);
-}
-
-.catalogo-item h3 {
-    font-size: 1.2rem;
-    color: var(--text-lightest);
-    margin: 1rem 1rem 0.5rem 1rem;
-    font-weight: 700;
-}
-
-.catalogo-item p {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin: 0 1rem 1rem 1rem;
-}
-.lista-garantias {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    margin-bottom: 32px;
-}
-
-.garantia-item.card {
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: var(--sombra-dark);
-    padding: 2rem 1.5rem;
-    border: 1px solid #d9d9d9;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-}
-.garantia-item.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
-}
-
-.garantia-item.card h3 {
-    font-size: 1.25rem;
-    color: var(--text-lightest);
-    margin-bottom: 12px;
-    font-weight: 700;
-    text-align: left;
-}
-
-.garantia-item.card p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    text-align: left;
-    flex-grow: 1;
-}
-
-
 /* --- Seção de Avaliações --- */
 .avaliacoes-container {
     display: grid;
@@ -702,139 +580,6 @@ section {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil para destacar a imagem */
 }
 
-/* --- Nova Seção: Modelos Digitais --- */
-.modelos-digitais-container {
-    background-color: transparent;
-    padding: 40px 0;
-}
-
-.modelos-digitais-container .section-title {
-    text-align: center;
-    justify-content: center;
-    margin-bottom: 30px;
-}
-
-.intro-text {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 50px auto;
-    font-size: 1.1rem;
-    color: var(--text-light);
-}
-
-.modelos-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 60px;
-    width: 100%;
-}
-
-.modelo-categoria {
-    width: 100%;
-    margin: 0 auto;
-}
-
-.modelo-categoria h3 {
-    font-size: 1.8rem;
-    color: var(--text-lightest);
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-.categoria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    justify-content: center;
-    /* Adicionado para impedir que os cards se estiquem para a mesma altura */
-    align-items: stretch;
-}
-
-.modelo-card {
-    background: var(--bg-light-navy);
-    border-radius: 8px;
-    box-shadow: var(--sombra-dark);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.modelo-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
-}
-
-.modelo-imagem {
-    width: 100%;
-    aspect-ratio: 16 / 9; /* Garante a proporção da imagem */
-    object-fit: cover;
-    object-position: left top; /* Alinha pelo canto superior esquerdo para não cortar a logo */
-    background-color: var(--bg-dark-navy);
-}
-
-.modelo-card-content {
-    padding: 1rem;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.modelo-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 0.5rem;
-}
-
-.modelo-card-header h4 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: var(--text-lightest);
-    font-weight: 700;
-}
-
-.btn-info {
-    background: transparent;
-    border: 1px solid #ddd;
-    color: var(--text-dark);
-    border-radius: 20px;
-    padding: 2px 10px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s;
-    flex-shrink: 0;
-}
-
-.btn-info:hover {
-    background-color: #eee;
-    border-color: #ccc;
-}
-
-.modelo-card-description {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, opacity 0.3s ease-in-out, margin-top 0.4s ease-out;
-}
-
-.modelo-card-description > p {
-    overflow: hidden;
-    font-size: 0.95rem;
-    color: var(--text-light);
-}
-
-.modelo-card-description.show {
-    max-height: 200px; /* Valor seguro para a altura máxima da descrição */
-    opacity: 1;
-    margin-top: 0.5rem;
-}
-.precos {
-    margin: 0 1rem 1rem 1rem;
-}
-
 /* Estilos para a Barra de Busca de Modelos */
 .search-container {
     max-width: 600px;
@@ -876,80 +621,12 @@ section {
     display: none; /* Escondido por padrão */
 }
 
-.precos strong {
-    font-size: 1.2rem;
-    color: var(--accent-orange);
-}
-.combo-info {
-    font-size: 0.85rem;
-    color: var(--text-dark);
-}
-
-.botoes-compra {
-    display: flex;
-    flex-direction: row; /* Altera para linha para botões lado a lado */
-    gap: 10px;
-    padding: 0 1rem 1rem 1rem;
-}
-
-.btn-comprar, .btn-comprar-combo {
-    flex: 1; /* Faz com que os botões dividam o espaço igualmente */
-    padding: 12px;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    text-align: center;
-    text-decoration: none; /* Para o caso de ser um <a> */
-}
-
-/* Estilos para o Spinner de Carregamento no Botão */
-.btn-loading {
-    position: relative;
-    color: transparent !important; /* Esconde o texto do botão */
-    pointer-events: none; /* Impede cliques múltiplos */
-}
-
-.btn-spinner {
-    display: none; /* Escondido por padrão */
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-top-color: #fff; /* Cor do topo do spinner */
-    border-radius: 50%;
-    width: 1.5em; /* Tamanho relativo ao font-size do botão */
-    height: 1.5em;
-    animation: spin 1s linear infinite;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -0.75em; /* Metade da altura */
-    margin-left: -0.75em; /* Metade da largura */
-}
-
 .btn-loading .btn-spinner {
     display: block;
 }
 
 @keyframes spin {
     to { transform: rotate(360deg); }
-}
-.btn-comprar {
-    background-color: var(--accent-cyan);
-    color: white;
-    border: 1px solid var(--accent-cyan);
-}
-.btn-comprar:hover {
-    background-color: #1e86b5;
-    border-color: #1e86b5;
-}
-
-.btn-comprar-combo {
-    background-color: transparent;
-    color: var(--accent-cyan);
-    border: 1px solid var(--accent-cyan);
-}
-.btn-comprar-combo:hover {
-    background-color: rgba(41, 171, 226, 0.1);
 }
 
 /* Ajuste para a seção de Modelos Digitais Prontos */
@@ -962,46 +639,6 @@ section {
     font-weight: 700;
     margin-bottom: 24px;
     text-align: center; /* Corrigido para centralizar o título */
-}
-
-.promo-modelos-digitais-banner {
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: var(--sombra-dark);
-    padding: 2rem 1.5rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.promo-modelos-digitais-banner:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
-}
-
-.promo-modelos-digitais-banner p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    text-align: left;
-    margin-bottom: 18px;
-}
-
-.promo-modelos-digitais-banner .saiba-mais {
-    background-color: var(--accent-cyan);
-    color: white;
-    border-color: var(--accent-cyan);
-    border-radius: 6px;
-    padding: 12px 28px;
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-}
-
-.promo-modelos-digitais-banner .saiba-mais:hover {
-    background-color: #1e86b5;
-    color: white;
 }
 
 /* --- Estilos para Notificações Toast --- */
@@ -1138,24 +775,6 @@ section {
     border-bottom: 2px solid var(--accent-cyan); /* Corrigido para usar a variável de destaque correta */
     padding-bottom: 10px;
     display: inline-block;
-}
-
-.categoria-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-
-.servico-card-item {
-    background: var(--cor-card);
-    background: var(--bg-light-navy); /* CORREÇÃO: Usando variável existente para o fundo */
-    border-radius: 8px;
-    box-shadow: var(--sombra-padrao);
-    box-shadow: var(--sombra-dark); /* CORREÇÃO: Usando variável existente para a sombra */
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .servico-card-item:hover {
@@ -1730,19 +1349,6 @@ section {
     .section-title::after {
         display: none;
     }
-    .modelos-digitais-container .section-title {
-        text-align: center;
-        justify-content: center;
-        margin-bottom: 30px;
-    }
-    .intro-text {
-        font-size: 1rem;
-        margin-bottom: 30px;
-    }
-    .modelo-categoria h3 {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
     .hamburger {
         display: block; /* Show hamburger on mobile */
     }
@@ -1861,125 +1467,6 @@ section {
     border-right: none !important;
 }
 
-/* Cards do catálogo de serviços igual aos da sessão principal do index */
-.servico-card-item.card {
-    background: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: var(--sombra-dark);
-    padding: 2rem 1.5rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-    display: flex;
-    flex-direction: column;
-    border-left: 5px solid var(--accent-cyan);
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.servico-card-item.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.15);
-}
-
-.servico-card-item .servico-imagem {
-    width: 100%;
-    /* A altura agora é controlada pela proporção (aspect-ratio) da regra .servico-imagem */
-    border-radius: 6px;
-    margin-bottom: 12px;
-}
-
-.servico-card-content h4 {
-    font-size: 1.15rem;
-    color: var(--text-lightest);
-    margin-bottom: 8px;
-    font-weight: 700;
-}
-
-.servico-card-content p {
-    color: var(--text-light);
-    font-size: 0.95rem;
-    margin-bottom: 8px;
-}
-
-.servico-preco {
-    font-weight: bold;
-    color: var(--accent-cyan);
-    margin-bottom: 10px;
-}
-
-.btn-solicitar {
-    background-color: var(--accent-cyan);
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    padding: 10px 22px;
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    transition: background 0.2s;
-    display: inline-block;
-}
-
-.btn-solicitar:hover {
-    background-color: #1e86b5;
-}
-
-/* ===== Card de Avaliações do Google ===== */
-.google-review-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-    max-width: 500px;
-    margin: -10px auto 50px auto; /* Espaçamento para destacar */
-    padding: 20px 30px;
-    background: rgba(255, 255, 255, 0.05); /* Fundo sutil */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.google-review-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.google-logo {
-    width: 60px;
-    height: 60px;
-}
-
-.google-review-content {
-    text-align: left;
-}
-
-.google-review-content h4 {
-    margin: 0 0 8px 0;
-    font-size: 1.25rem;
-    color: var(--text-lightest);
-    font-weight: 700;
-}
-
-.google-stars {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 15px;
-    color: #ffc107; /* Amarelo padrão para estrelas */
-}
-
-.google-stars span {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-lightest);
-    margin-right: 5px;
-}
-
-.google-review-card .saiba-mais {
-    margin: 0;
-    padding: 8px 20px;
-    font-size: 0.9rem;
-}
 /* Grid responsivo para os cards do catálogo */
 .categoria-grid {
     display: grid;
@@ -1988,57 +1475,6 @@ section {
     margin-bottom: 32px;
 }
 
-/* =============================================
-   Card de Suporte Personalizado
-   ============================================= */
-.suporte-promo-section {
-    text-align: center;
-    margin-top: 5rem;
-    padding: 3rem 1rem;
-    background-color: #f8f9fa; /* Um fundo suave para destacar a seção */
-    border-radius: 8px;
-    border-top: 2px solid #eee;
-}
-
-.suporte-card {
-    max-width: 540px;
-    min-height: 400px;
-    margin: 0 auto;
-    padding: 2rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.suporte-card h2 {
-    font-size: 1.8rem;
-    color: var(--text-lightest);
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-/* Reutilizando o estilo do ícone de serviço */
-.suporte-card .service-icon {
-    font-size: 3.5rem;
-    color: #007bff; /* Cor primária/destaque. Ajuste se o seu site usar outra. */
-    margin-bottom: 1rem;
-}
-
-.suporte-preco {
-    font-size: 1.4rem; /* Reduzido para alinhar com outros preços */
-    font-weight: 700;  /* Ajustado para consistência */
-    color: #28a745; /* Verde para destacar o preço e a ação */
-    margin: 1.5rem 0;
-}
-
-/* O botão .saiba-mais já deve estar estilizado, mas podemos dar um destaque extra */
-.suporte-card .saiba-mais {
-    font-size: 1.2rem;
-    padding: 14px 35px;
-    font-weight: 700;
-}
 /*Layout para o Formulário de Contato */
 
 /* Remove a centralização geral herdada dos outros cards */
@@ -2069,10 +1505,8 @@ section {
 /* Cards transparentes com borda azul e sombra suave para TODOS os tipos de card */
 .service-card,
 .promo-modelos-digitais-banner,
-.garantia-item.card,
 .catalogo-item,
 .modelo-card,
-.suporte-card,
 .comentario,
 .faq-container details,
 .contact-form,
@@ -2091,10 +1525,8 @@ section {
 /* Efeito ao passar o mouse */
 .service-card:hover,
 .promo-modelos-digitais-banner:hover,
-.garantia-item.card:hover,
 .catalogo-item:hover,
 .modelo-card:hover,
-.suporte-card:hover,
 .comentario:hover,
 .faq-container details:hover,
 .contact-form:hover,
@@ -2241,6 +1673,64 @@ section {
     text-align: left;
     line-height: 1.5;
     margin: 0;
+}
+
+/* ===== Card de Avaliações do Google ===== */
+.google-review-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    max-width: 500px;
+    margin: -10px auto 50px auto; /* Espaçamento para destacar */
+    padding: 20px 30px;
+    background: rgba(255, 255, 255, 0.05); /* Fundo sutil */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.google-review-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.google-logo {
+    width: 60px;
+    height: 60px;
+}
+
+.google-review-content {
+    text-align: left;
+}
+
+.google-review-content h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    color: var(--text-lightest);
+    font-weight: 700;
+}
+
+.google-stars {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+    color: #ffc107; /* Amarelo padrão para estrelas */
+}
+
+.google-stars span {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-lightest);
+    margin-right: 5px;
+}
+
+.google-review-card .saiba-mais {
+    margin: 0;
+    padding: 8px 20px;
+    font-size: 0.9rem;
 }
 
 /* =============================================
@@ -3460,3 +2950,271 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
 .contact-animate-button.is-visible:nth-of-type(1) { transition-delay: 0.3s; }
 .contact-animate-button.is-visible:nth-of-type(2) { transition-delay: 0.4s; }
 .contact-animate-button.is-visible:nth-of-type(3) { transition-delay: 0.5s; }
+
+
+/* =============================================
+   ESTILOS ESPECÍFICOS DO BLOG (Typography)
+   ============================================= */
+
+/* Container de Leitura (Herda o estilo dos seus cards) */
+.blog-post-container {
+    background: rgba(41, 171, 226, 0.05); /* Um pouco mais transparente que os cards */
+    border: 1px solid rgba(41, 171, 226, 0.15);
+    border-radius: 12px;
+    padding: 40px 50px;
+    max-width: 900px; /* Largura ideal para leitura */
+    margin: 0 auto;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 767px) {
+    .blog-post-container {
+        padding: 25px 20px;
+    }
+}
+
+/* Tipografia do Conteúdo do Artigo */
+.blog-content h2 {
+    font-size: 1.8rem;
+    color: var(--text-lightest);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent-cyan);
+    padding-left: 15px;
+}
+
+.blog-content h3 {
+    font-size: 1.4rem;
+    color: var(--accent-cyan);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.blog-content p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.8; /* Leitura mais fluida */
+    margin-bottom: 20px;
+    text-align: left; /* Garante alinhamento à esquerda para leitura */
+}
+
+.blog-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+
+.blog-content ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: var(--text-light);
+    line-height: 1.6;
+    text-align: left;
+}
+
+.blog-content ul li::before {
+    content: '•';
+    color: var(--accent-cyan);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+.blog-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 20px;
+}
+
+.blog-meta span i {
+    color: var(--accent-cyan);
+    margin-right: 5px;
+}
+
+/* =============================================
+   ESTILOS DO BLOG (HTML PURO)
+   ============================================= */
+
+/* Container de Leitura */
+.blog-post-container {
+    background: rgba(41, 171, 226, 0.05);
+    border: 1px solid rgba(41, 171, 226, 0.15);
+    border-radius: 12px;
+    padding: 40px 50px;
+    max-width: 900px;
+    margin: 120px auto 60px auto; /* Margin-top alto por causa do header fixo */
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+
+/* Títulos dentro do post */
+.blog-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--text-lightest);
+    margin-top: 40px;
+    margin-bottom: 20px;
+    border-left: 4px solid var(--accent-cyan);
+    padding-left: 15px;
+}
+
+.blog-content h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--accent-cyan);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+/* Listas */
+.blog-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 25px;
+}
+.blog-content ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: var(--text-light);
+}
+.blog-content ul li::before {
+    content: '•';
+    color: var(--accent-cyan);
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -5px;
+}
+
+/* Responsivo */
+@media (max-width: 767px) {
+    .blog-post-container { padding: 25px 20px; margin-top: 100px; }
+    .blog-content h2 { font-size: 1.5rem; }
+}
+
+/* =============================================
+   NOVA SEÇÃO DE PRÉVIA DO BLOG (Homepage)
+   ============================================= */
+
+#blog-preview {
+    text-align: center;
+}
+
+.blog-preview-card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.blog-preview-card {
+    display: grid;
+    grid-template-columns: 80px 1fr; /* Coluna para ícone, coluna para texto */
+    grid-template-rows: auto auto; /* Duas linhas: título/descrição e CTA */
+    gap: 0 25px; /* Espaço apenas entre colunas */
+    align-items: center;
+    max-width: 700px;
+    padding: 30px;
+    text-decoration: none;
+    
+    /* Reutiliza o estilo de card transparente */
+    background: rgba(41, 171, 226, 0.08); 
+    border: 2px solid rgba(41, 171, 226, 0.18); 
+    border-radius: 12px;
+    box-shadow: 0 0 24px 0 rgba(41, 171, 226, 0.18);
+    transition: all 0.3s ease;
+}
+
+.blog-preview-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-cyan);
+    background: rgba(41, 171, 226, 0.12);
+    box-shadow: 0 8px 32px 0 rgba(41, 171, 226, 0.2);
+}
+
+.blog-preview-icon {
+    grid-row: 1 / 3; /* O ícone ocupa as duas linhas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    color: var(--accent-cyan);
+}
+
+.blog-preview-content {
+    text-align: left;
+}
+
+.blog-preview-content h4 {
+    font-size: 1.4rem;
+    color: var(--text-lightest);
+    margin-bottom: 8px;
+}
+
+.blog-preview-content p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.blog-preview-cta {
+    grid-column: 2 / 3; /* Ocupa apenas a segunda coluna */
+    text-align: left;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+}
+
+/* =============================================
+   AJUSTES DE TÍTULO DA PÁGINA DO BLOG
+   ============================================= */
+.blog-header-container {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.blog-main-title {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    color: var(--text-lightest);
+    margin-bottom: 15px;
+}
+.blog-main-subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* --- Responsividade do Card de Prévia do Blog --- */
+@media (max-width: 767px) {
+    .blog-preview-card {
+        display: flex; /* Muda de grid para flex */
+        flex-direction: column; /* Empilha os itens verticalmente */
+        align-items: center; /* Centraliza tudo */
+        text-align: center;
+        gap: 20px; /* Adiciona um espaço vertical entre os itens */
+        padding: 25px;
+    }
+
+    .blog-preview-icon {
+        grid-row: auto; /* Reseta a propriedade do grid */
+        font-size: 2.5rem; /* Ícone um pouco menor */
+    }
+
+    .blog-preview-content,
+    .blog-preview-cta {
+        text-align: center; /* Garante que o texto interno também seja centralizado */
+        grid-column: auto; /* Reseta a propriedade do grid */
+    }
+
+    .blog-preview-cta {
+        margin-top: 0; /* Remove a margem que só fazia sentido no layout de grid */
+    }
+}
