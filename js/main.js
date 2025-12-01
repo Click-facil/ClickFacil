@@ -176,43 +176,172 @@ elementsToAnimate.forEach(element => observer.observe(element));
             let fuse = null;
             let allData = [];
 
-            // Função para carregar os dados de serviços e modelos
+            // Função para carregar os dados de serviços, modelos e blog
             const loadSearchData = async () => {
                 try {
                     // Detecta o caminho base correto
-                    const basePath = window.location.pathname.includes('pages') ? '../' : '';
+                    const basePath = window.location.pathname.includes('blog') ? '../' : '';
 
-                    const [servicosRes, modelosRes] = await Promise.all([
-                        fetch(`${basePath}servicos.json`),
-                        fetch(`${basePath}js/modelos.json`)
-                    ]);
+                    // Dados completos do site
+                    const siteData = [
+                        // Páginas principais
+                        {
+                            title: "Sobre Click Fácil",
+                            description: "Soluções digitais, suporte de TI e automação para pequenos e médios negócios.",
+                            link: `${basePath}index.html#sobre`,
+                            category: "Página"
+                        },
+                        {
+                            title: "Serviços",
+                            description: "Catálogo completo de serviços: sites, landing pages, lojas virtuais, SEO e Google Meu Negócio.",
+                            link: `${basePath}catalagodeservicos.html`,
+                            category: "Página"
+                        },
+                        {
+                            title: "Blog",
+                            description: "Artigos sobre desenvolvimento web, SEO, performance e vendas online.",
+                            link: `${basePath}blog/index.html`,
+                            category: "Página"
+                        },
+                        {
+                            title: "Contato",
+                            description: "Entre em contato conosco pelo WhatsApp, e-mail ou telefone.",
+                            link: `${basePath}index.html#contato`,
+                            category: "Página"
+                        },
+                        // Serviços principais
+                        {
+                            title: "Criação de Sites Profissionais",
+                            description: "Sites responsivos que geram credibilidade, atraem clientes e funcionam 24h por dia.",
+                            link: `${basePath}catalagodeservicos.html`,
+                            category: "Serviço"
+                        },
+                        {
+                            title: "Landing Pages de Alta Conversão",
+                            description: "Páginas focadas em transformar visitantes em clientes com um único objetivo.",
+                            link: `${basePath}catalagodeservicos.html`,
+                            category: "Serviço"
+                        },
+                        {
+                            title: "Loja Virtual Nuvemshop",
+                            description: "Configuração completa da sua loja virtual, do design ao pagamento.",
+                            link: `${basePath}catalagodeservicos.html`,
+                            category: "Serviço"
+                        },
+                        {
+                            title: "Google Meu Negócio",
+                            description: "Coloque seu negócio no mapa, na frente dos clientes da sua região.",
+                            link: `${basePath}catalagodeservicos.html`,
+                            category: "Serviço"
+                        },
+                        {
+                            title: "SEO - Otimização para Google",
+                            description: "Apareça na primeira página do Google e atraia clientes de forma orgânica.",
+                            link: `${basePath}catalagodeservicos.html`,
+                            category: "Serviço"
+                        },
+                        // Artigos do blog
+                        {
+                            title: "5 Motivos para ter um Site Profissional",
+                            description: "Descubra por que depender apenas de redes sociais é um risco e como um site profissional aumenta sua credibilidade.",
+                            link: `${basePath}blog/5-motivos-site-profissional.html`,
+                            category: "Blog"
+                        },
+                        {
+                            title: "Landing Page ou Site?",
+                            description: "Qual a diferença e qual vai colocar mais dinheiro no seu bolso agora.",
+                            link: `${basePath}blog/landing-page-vs-site.html`,
+                            category: "Blog"
+                        },
+                        {
+                            title: "Velocidade Vende",
+                            description: "Por que sites lentos perdem 53% dos clientes antes de carregar.",
+                            link: `${basePath}blog/performance-vendas.html`,
+                            category: "Blog"
+                        },
+                        {
+                            title: "Instagram Caiu, e Agora?",
+                            description: "Por que depender só das redes sociais é um risco para o seu faturamento.",
+                            link: `${basePath}blog/instagram-caiu-e-agora.html`,
+                            category: "Blog"
+                        },
+                        {
+                            title: "Quanto Custa um Site?",
+                            description: "Entenda a diferença entre preço e investimento e fuja de armadilhas baratas.",
+                            link: `${basePath}blog/quanto-custa-um-site.html`,
+                            category: "Blog"
+                        },
+                        {
+                            title: "Site Grátis vs Profissional",
+                            description: "Onde o barato sai caro e sua empresa perde credibilidade.",
+                            link: `${basePath}blog/site-gratis-vs-profissional.html`,
+                            category: "Blog"
+                        },
+                        {
+                            title: "Google Meu Negócio + Site",
+                            description: "A combinação perfeita para dominar as buscas locais na sua cidade.",
+                            link: `${basePath}blog/google-meu-negocio-site.html`,
+                            category: "Blog"
+                        },
+                        {
+                            title: "E-mail Profissional vs Gmail",
+                            description: "Por que ninguém fecha contratos grandes com quem usa @gmail.com.",
+                            link: `${basePath}blog/email-profissional-vs-gmail.html`,
+                            category: "Blog"
+                        },
+                        // Termos relacionados
+                        {
+                            title: "Desenvolvimento Web",
+                            description: "Criação de sites profissionais, landing pages e lojas virtuais.",
+                            link: `${basePath}catalagodeservicos.html`,
+                            category: "Serviço"
+                        },
+                        {
+                            title: "Marketing Digital",
+                            description: "SEO, Google Meu Negócio e estratégias para aumentar sua presença online.",
+                            link: `${basePath}catalagodeservicos.html`,
+                            category: "Serviço"
+                        }
+                    ];
 
-                    const servicosData = await servicosRes.json();
-                    const modelosData = await modelosRes.json();
+                    try {
+                        const [servicosRes, modelosRes] = await Promise.all([
+                            fetch(`${basePath}servicos.json`),
+                            fetch(`${basePath}js/modelos.json`)
+                        ]);
 
-                    // Formata e combina os dados
-                    const servicos = servicosData.servicos.map(item => ({
-                        title: item.nome,
-                        description: item.descricao,
-                        link: `${basePath}catalagodeservicos.html`,
-                        category: 'Serviço'
-                    }));
+                        const servicosData = await servicosRes.json();
+                        const modelosData = await modelosRes.json();
 
-                    const modelos = modelosData.produtos.map(item => ({
-                        title: item.titulo,
-                        description: item.descricao,
-                        link: `${basePath}modelosdigitais.html`,
-                        category: 'Modelo Digital'
-                    }));
+                        // Formata e combina os dados
+                        const servicos = servicosData.servicos.map(item => ({
+                            title: item.nome,
+                            description: item.descricao,
+                            link: `${basePath}catalagodeservicos.html`,
+                            category: 'Serviço'
+                        }));
 
-                    allData = [...servicos, ...modelos];
+                        const modelos = modelosData.produtos.map(item => ({
+                            title: item.titulo,
+                            description: item.descricao,
+                            link: `${basePath}modelosdigitais.html`,
+                            category: 'Modelo Digital'
+                        }));
+
+                        allData = [...servicos, ...modelos, ...siteData];
+                    } catch (jsonError) {
+                        // Se falhar ao carregar JSONs, usa apenas dados do blog
+                        console.warn("Não foi possível carregar todos os dados, usando apenas blog:", jsonError);
+                        allData = siteData;
+                    }
 
                     // Configura o Fuse.js para a busca "inteligente"
                     const options = {
                         keys: ['title', 'description'],
                         includeScore: true,
-                        threshold: 0.4, // Ajuste para mais ou menos tolerância a erros (0.0 = exato, 1.0 = qualquer coisa)
+                        threshold: 0.3, // Mais preciso que antes
                         minMatchCharLength: 2,
+                        ignoreLocation: true // Ignora posição da palavra na string
                     };
                     fuse = new Fuse(allData, options);
 
