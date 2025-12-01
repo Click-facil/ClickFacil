@@ -19,6 +19,7 @@
             </a>
         </div>
         <nav class="main-nav" id="main-nav">
+            <a href="index.html">Blog</a>
             <a href="sobre.html">Sobre o Blog</a>
             <a href="contato.html">Fale Conosco</a>
             <a href="politica-privacidade.html">Privacidade</a>
@@ -41,36 +42,60 @@
                     <header style="text-align: center; margin-bottom: 40px;">
                         <h1 class="section-title" style="margin-bottom: 10px; text-align: center;">Fale Conosco</h1>
                         <div class="blog-meta">
-                            <span><i class="fa-regular fa-envelope"></i> Contato</span>
                         </div>
                     </header>
 
                     <div class="blog-content">
-                        <p>Tem alguma dúvida sobre um artigo, uma sugestão de conteúdo ou interesse em parcerias comerciais? Adoraríamos ouvir você!</p>
-                        
-                        <p>No Click Fácil, valorizamos a troca de conhecimento e o networking. Entre em contato conosco através dos canais abaixo e responderemos o mais breve possível.</p>
+
 
                         <h2>Canais de Atendimento</h2>
                         
-                        <div style="display: flex; flex-direction: column; gap: 15px; margin: 20px 0;">
-                            <a href="mailto:solucoesdigitais.clickfacil@gmail.com?subject=Contato%20pelo%20Blog&body=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20serviços." class="saiba-mais" style="display: inline-flex; align-items: center; gap: 10px; width: auto; text-decoration: none;">
-                                <i class="fa-regular fa-envelope"></i>
-                                Enviar E-mail
-                            </a>
-                            
-                            <a href="https://wa.me/5591984520696?text=Olá,%20vim%20pelo%20blog%20e%20gostaria%20de%20mais%20informações" target="_blank" class="saiba-mais" style="display: inline-flex; align-items: center; gap: 10px; width: auto; text-decoration: none; background: #25D366;">
-                                <i class="fa-brands fa-whatsapp"></i>
-                                Conversar no WhatsApp
-                            </a>
+                        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 30px; margin: 20px 0;">
+                            <form action="mailto:solucoesdigitais.clickfacil@gmail.com" method="post" enctype="text/plain" style="display: flex; flex-direction: column; gap: 20px;">
+                                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <label for="nome" style="display: block; margin-bottom: 8px; color: #fff; font-weight: 500;">Nome:</label>
+                                        <input type="text" id="nome" name="nome" required style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.1); color: #fff; font-size: 16px;" placeholder="Seu nome">
+                                    </div>
+                                    <div style="flex: 1; min-width: 200px;">
+                                        <label for="email" style="display: block; margin-bottom: 8px; color: #fff; font-weight: 500;">E-mail:</label>
+                                        <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.1); color: #fff; font-size: 16px;" placeholder="seu@email.com">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="mensagem" style="display: block; margin-bottom: 8px; color: #fff; font-weight: 500;">Mensagem:</label>
+                                    <textarea id="mensagem" name="mensagem" rows="5" required style="width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; background: rgba(255,255,255,0.1); color: #fff; font-size: 16px; resize: vertical;" placeholder="Conte-nos como podemos ajudar..."></textarea>
+                                </div>
+                                <button type="submit" class="saiba-mais" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px;">
+                                    <i class="fa-regular fa-paper-plane"></i>
+                                    Enviar Mensagem
+                                </button>
+                            </form>
                         </div>
 
                         <h2>Redes Sociais</h2>
                         <p>Acompanhe também nossas novidades e conteúdos exclusivos em nossas redes:</p>
                         
-                        <div style="margin: 20px 0;">
-                            <p><i class="fa-brands fa-instagram"></i> <strong>Instagram:</strong> <a href="https://www.instagram.com/clickfacil.tech/" target="_blank">@clickfacil.tech</a></p>
-                            <p><i class="fa-brands fa-tiktok"></i> <strong>TikTok:</strong> <a href="https://vm.tiktok.com/ZMHcWPuXB8ofU-6ERe1/" target="_blank">@clickfacil</a></p>
-                            <p><i class="fa-brands fa-github"></i> <strong>GitHub:</strong> <a href="https://github.com/Click-facil" target="_blank">Click-facil</a></p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0;">
+                            <a href="https://www.instagram.com/clickfacil.tech/" target="_blank" style="display: flex; align-items: center; gap: 10px; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; text-decoration: none; color: #fff; transition: all 0.3s ease;">
+                                <i class="fa-brands fa-instagram" style="font-size: 20px; color: #E4405F;"></i>
+                                <span>Instagram</span>
+                            </a>
+                            
+                            <a href="https://vm.tiktok.com/ZMHcWPuXB8ofU-6ERe1/" target="_blank" style="display: flex; align-items: center; gap: 10px; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; text-decoration: none; color: #fff; transition: all 0.3s ease;">
+                                <i class="fa-brands fa-tiktok" style="font-size: 20px; color: #000;"></i>
+                                <span>TikTok</span>
+                            </a>
+                            
+                            <a href="https://www.facebook.com/profile.php?id=61569041737983" target="_blank" style="display: flex; align-items: center; gap: 10px; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; text-decoration: none; color: #fff; transition: all 0.3s ease;">
+                                <i class="fa-brands fa-facebook" style="font-size: 20px; color: #1877F2;"></i>
+                                <span>Facebook</span>
+                            </a>
+                            
+                            <a href="https://github.com/Click-facil" target="_blank" style="display: flex; align-items: center; gap: 10px; padding: 15px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; text-decoration: none; color: #fff; transition: all 0.3s ease;">
+                                <i class="fa-brands fa-github" style="font-size: 20px; color: #fff;"></i>
+                                <span>GitHub</span>
+                            </a>
                         </div>
 
                         <p><strong>Estamos prontos para ajudar você a dar o próximo clique na sua carreira!</strong></p>
