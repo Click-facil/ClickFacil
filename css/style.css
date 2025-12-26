@@ -3351,3 +3351,46 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     margin-bottom: 15px;
     color: var(--text-lightest);
 }
+
+/* =============================================
+   FAQ EXPANDIR/RECOLHER FUNCIONALIDADE
+   ============================================= */
+
+.faq-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-2px);
+}
+
+.faq-content h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.faq-arrow {
+    font-size: 0.9rem;
+    color: var(--accent-cyan);
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    margin-top: 10px;
+}
+
+.faq-item.expanded .faq-answer {
+    max-height: 200px; /* Ajuste conforme necessário */
+}
+
+.faq-item.expanded .faq-arrow {
+    transform: rotate(180deg);
+}

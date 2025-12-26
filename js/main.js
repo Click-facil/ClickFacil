@@ -481,3 +481,24 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(item);
     });
 });
+
+/* =============================================
+   LÓGICA DO FAQ EXPANDIR/RECOLHER
+   ============================================= */
+function toggleFaq(element) {
+    const answer = element.querySelector('.faq-answer');
+    const arrow = element.querySelector('.faq-arrow');
+    
+    // Toggle da classe 'expanded'
+    element.classList.toggle('expanded');
+    
+    if (element.classList.contains('expanded')) {
+        // Expande
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        arrow.style.transform = 'rotate(180deg)';
+    } else {
+        // Recolhe
+        answer.style.maxHeight = '0';
+        arrow.style.transform = 'rotate(0deg)';
+    }
+}
