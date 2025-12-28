@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                 ${servico.o_que_inclui.map(item => `<li><i class="fas fa-check"></i> ${item}</li>`).join('')}
                             </ul>
                             
-                            <div class="servico-preco">${servico.preco}</div>
                             <a href="index.html#contato" class="btn-solicitar saiba-mais">Solicitar Orçamento</a>
                         </div>
                     `;
