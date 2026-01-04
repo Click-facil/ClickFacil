@@ -3394,3 +3394,134 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
 .faq-item.expanded .faq-arrow {
     transform: rotate(180deg);
 }
+
+/* =============================================
+   SESSÃO PORTFÓLIO (MARQUEE VERTICAL)
+   ============================================= */
+
+.portfolio-section {
+    background: var(--bg-dark-navy);
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.blog-header-container {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.blog-main-title {
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    color: var(--text-lightest);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.blog-main-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Container da Animação */
+.marquee-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 600px;
+    overflow: hidden;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    /* Máscara para suavizar o topo e o fundo */
+    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+/* Colunas Individuais */
+.marquee-column {
+    flex: 1;
+    min-width: 250px;
+    position: relative;
+}
+
+/* O Conteúdo que se move */
+.marquee-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Animação para CIMA */
+.scroll-up .marquee-content {
+    animation: scrollUp 40s linear infinite;
+}
+
+/* Animação para BAIXO */
+.scroll-down .marquee-content {
+    animation: scrollDown 45s linear infinite;
+}
+
+/* Pausa a animação ao passar o mouse */
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}
+
+/* KEYFRAMES */
+@keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+    0% { transform: translateY(-50%); }
+    100% { transform: translateY(0); }
+}
+
+/* Estilo dos Cards */
+.portfolio-card {
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1a2c42;
+    border: 1px solid rgba(41, 171, 226, 0.1);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-card:hover img {
+    opacity: 1;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .marquee-container {
+        height: 450px;
+    }
+    
+    .mobile-hidden {
+        display: none;
+    }
+    
+    .marquee-column {
+        min-width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .marquee-column {
+        min-width: 100%;
+    }
+    .scroll-down {
+        display: none;
+    }
+}
