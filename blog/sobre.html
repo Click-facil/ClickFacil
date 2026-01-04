@@ -10,6 +10,38 @@
     <link rel="icon" type="image/png" href="../images/logo.png">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283447901735985"
      crossorigin="anonymous"></script>
+    <style>
+        /* Pequenas melhorias locais para o hero e layout da página */
+        .hero-article {
+            position: relative;
+            padding: 80px 0;
+            color: #fff;
+            overflow: hidden;
+        }
+        .hero-article .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 36px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.18));
+        }
+        .hero-article .hero-lead { font-size: 1.05rem; margin-top: 8px; color: #e9f0f7; }
+        .hero-article .hero-badge { margin-top: 12px; display:inline-block; color:#dfefff; font-weight:600; background:rgba(255,255,255,0.06); padding:8px 12px; border-radius:20px; font-size:0.9rem; }
+
+        .about-layout { display:flex; gap:32px; align-items:flex-start; margin-top:40px; }
+        .about-main { flex: 2; min-width:0; }
+        .about-aside { flex: 1; min-width: 240px; }
+        .about-card { background: rgba(255,255,255,0.03); padding:24px; border-radius:8px; }
+        .author-avatar { width:100%; border-radius:8px; display:block; margin-bottom:14px; }
+
+        @media (max-width: 900px) {
+            .about-layout { flex-direction: column; }
+            .hero-article { padding: 56px 0; }
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
@@ -35,48 +67,77 @@
     </header>
 
     <main>
-        <section class="section">
-            <div class="container">
-                <article class="blog-post-container fade-in-section">
-                    
-                    <header style="text-align: center; margin-bottom: 40px;">
-                        <h1 class="section-title" style="margin-bottom: 10px; text-align: center;">Sobre o Click Fácil – Descomplicando a Tecnologia</h1>
-                        <div class="blog-meta">
-                            <span><i class="fa-regular fa-folder"></i> Institucional</span>
+        <!-- Hero visual com imagem dinâmica -->
+        <section class="hero-article" aria-hidden="false" style="background-image: url('../images/sobreblog.png'); background-size: cover; background-position: center;">
+            <div style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(5,12,20,0.35), rgba(5,12,20,0.6)); z-index:1;"></div>
+            <div class="hero-inner" role="banner">
+                <h1 class="section-title" style="margin:0; font-size:2rem;">Sobre o Click Fácil – Descomplicando a Tecnologia</h1>
+                <p class="hero-lead">Conheça a missão do Click Fácil: tornar o desenvolvimento web, programação e tecnologia acessível para todos.</p>
+                <div class="hero-badge"><i class="fa-regular fa-folder"></i>&nbsp; Institucional</div>
+            </div>
+        </section>
+
+        <!-- Conteúdo principal com layout tipo blog profissional -->
+        <section class="section" style="padding-top:28px;">
+            <div class="container" style="max-width:1200px; margin:0 auto;">
+                <div class="about-layout">
+                    <main class="about-main">
+                        <div class="about-card">
+                            <div class="blog-content" style="color: var(--text); line-height:1.7;">
+                                <p><strong>Bem-vindo ao Blog do Click Fácil!</strong></p>
+                                
+                                <p>Nascemos com uma missão clara: tornar o universo do desenvolvimento web, da programação e da tecnologia acessível para todos. Seja você um iniciante curioso, um estudante em busca de aprofundamento ou um profissional procurando se manter atualizado, este é o seu espaço.</p>
+
+                                <h2>O Que Fazemos</h2>
+                                <p>No Click Fácil, exploramos as tendências que estão moldando o futuro digital. Nosso foco principal abrange:</p>
+
+                                <h3>Desenvolvimento Web</h3>
+                                <p>Tutoriais, dicas de boas práticas e ferramentas essenciais para construir a web moderna.</p>
+
+                                <h3>Inteligência Artificial</h3>
+                                <p>Como a IA está transformando a programação e como você pode usar isso a seu favor.</p>
+
+                                <h3>Inovação e Produtividade</h3>
+                                <p>Soluções inteligentes para otimizar seu fluxo de trabalho e estudos.</p>
+
+                                <p>Acreditamos que o conhecimento em tecnologia é a chave para a liberdade profissional. Por isso, nosso conteúdo é criado com cuidado, unindo técnica e clareza.</p>
+
+                                <p><strong>O Click Fácil é mais do que um site; é um hub de aprendizado contínuo. Junte-se a nós nessa jornada de codificação e descoberta.</strong></p>
+
+                                <div class="contact-section-final" style="background: transparent; padding: 24px 0 0; margin-top: 24px; border-top: 1px solid rgba(255,255,255,0.06);">
+                                    <h3>Vamos Crescer Juntos?</h3>
+                                    <p>Explore nossos artigos, compartilhe suas dúvidas e faça parte da nossa comunidade de aprendizado.</p>
+                                    <a href="index.html" class="saiba-mais" style="display: inline-block; width: auto; margin-top: 10px;">Voltar ao Blog</a>
+                                </div>
+                            </div>
                         </div>
-                    </header>
+                    </main>
 
-                    <div class="blog-content">
-                        <p><strong>Bem-vindo ao Blog do Click Fácil!</strong></p>
-                        
-                        <p>Nascemos com uma missão clara: tornar o universo do desenvolvimento web, da programação e da tecnologia acessível para todos. Seja você um iniciante curioso, um estudante em busca de aprofundamento ou um profissional procurando se manter atualizado, este é o seu espaço.</p>
-
-                        <h2>O Que Fazemos</h2>
-                        <p>No Click Fácil, exploramos as tendências que estão moldando o futuro digital. Nosso foco principal abrange:</p>
-
-                        <h3>Desenvolvimento Web</h3>
-                        <p>Tutoriais, dicas de boas práticas e ferramentas essenciais para construir a web moderna.</p>
-
-                        <h3>Inteligência Artificial</h3>
-                        <p>Como a IA está transformando a programação e como você pode usar isso a seu favor.</p>
-
-                        <h3>Inovação e Produtividade</h3>
-                        <p>Soluções inteligentes para otimizar seu fluxo de trabalho e estudos.</p>
-
-                        <p>Acreditamos que o conhecimento em tecnologia é a chave para a liberdade profissional. Por isso, nosso conteúdo é criado com cuidado, unindo técnica e clareza.</p>
-
-                        <p><strong>O Click Fácil é mais do que um site; é um hub de aprendizado contínuo. Junte-se a nós nessa jornada de codificação e descoberta.</strong></p>
-
-                        <div class="contact-section-final" style="background: transparent; padding: 40px 0; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
-                            <h3>Vamos Crescer Juntos?</h3>
-                            <p>Explore nossos artigos, compartilhe suas dúvidas e faça parte da nossa comunidade de aprendizado.</p>
-                            <a href="index.html" class="saiba-mais" style="display: inline-block; width: auto; margin-top: 10px;">Voltar ao Blog</a>
+                    <aside class="about-aside">
+                        <div class="about-card" style="text-align:center;">
+                            <img src="../images/sobreblog.png" alt="Sobre Click Fácil" class="author-avatar" />
+                            <h4 style="margin:6px 0;">Click Fácil</h4>
+                            <p style="font-size:0.95rem; color:var(--text-light); margin-bottom:12px;">Hub de aprendizado em desenvolvimento web, IA e produtividade.</p>
+                            <div style="display:flex; gap:8px; justify-content:center;">
+                                <a href="../index.html" class="btn" style="padding:8px 12px; border-radius:6px; background:var(--accent); color:#fff; text-decoration:none;">Visitar site</a>
+                                <a href="contato.html" class="btn" style="padding:8px 12px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); color:var(--text); text-decoration:none;">Fale conosco</a>
+                            </div>
                         </div>
-                    </div>
-                </article>
+
+                        <div class="about-card" style="margin-top:16px;">
+                            <h4 style="margin-top:0;">Últimos artigos</h4>
+                            <ul style="list-style:none; padding:0; margin:12px 0 0;">
+                                <li style="margin-bottom:8px;"><a href="../blog/5-motivos-site-profissional.html">5 Motivos para ter um Site Profissional</a></li>
+                                <li style="margin-bottom:8px;"><a href="../blog/landing-page-vs-site.html">Landing Page ou Site?</a></li>
+                                <li style="margin-bottom:8px;"><a href="../blog/performance-vendas.html">Velocidade Vende</a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
             </div>
         </section>
     </main>
+
     <script src="../js/main.js"></script>
 </body>
 </html>

@@ -141,29 +141,36 @@ const elementsToAnimate = document.querySelectorAll(
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Verifica qual tipo de animação aplicar
             if (entry.target.classList.contains('fade-in-section')) {
-                // Animação de fade-in (antiga)
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-            } else if (entry.target.classList.contains('bento-card-animated') || 
-                       entry.target.classList.contains('faq-item') ||
-                       entry.target.classList.contains('contact-animate-title') ||
-                       entry.target.classList.contains('contact-animate-subtitle') ||
-                       entry.target.classList.contains('contact-animate-button')) {
-                // Animação por classe (nova)
+                entry.target.style.visibility = 'visible';
+            } else {
                 entry.target.classList.add('is-visible');
             }
-            
-            // Para de observar o elemento após animar
             observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1 }); // Dispara quando 10% do elemento está visível
+}, { threshold: 0.1 });
 
 elementsToAnimate.forEach(element => observer.observe(element));
 
-        elementsToAnimate.forEach(element => observer.observe(element));
+// fallback: garante visibilidade caso IntersectionObserver não dispare (AdBlock, erro ou browser antigo)
+setTimeout(() => {
+    document.querySelectorAll('.fade-in-section').forEach(el => {
+        const cs = window.getComputedStyle(el);
+        if (cs.opacity === '0' || cs.visibility === 'hidden' || el.style.opacity === '0') {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+            el.style.visibility = 'visible';
+        }
+    });
+
+    document.querySelectorAll('.bento-card-animated, .faq-item, .contact-animate-title, .contact-animate-subtitle, .contact-animate-button')
+        .forEach(el => {
+            if (!el.classList.contains('is-visible')) el.classList.add('is-visible');
+        });
+}, 700);
 
         // --- LÓGICA DA BUSCA GLOBAL ---
         const searchToggleBtn = document.getElementById('search-toggle');
