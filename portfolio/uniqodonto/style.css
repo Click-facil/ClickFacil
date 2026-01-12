@@ -1,0 +1,326 @@
+/* --- Cores e Variáveis (Identidade Uniq) --- */
+:root {
+    --brand-blue-dark: #002B5B;  /* Azul Profundo */
+    --brand-blue: #004aad;       /* Azul Médio */
+    --brand-accent: #FB923C;     /* Laranja (Ação) */
+    --brand-accent-hover: #F97316;
+    
+    --text-white: #ffffff;
+    --text-gray: #e2e8f0;
+}
+
+/* --- Reset Básico --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+body { 
+    background-color: var(--brand-blue-dark); 
+    color: var(--text-white); 
+    overflow-x: hidden; /* Evita rolagem lateral indesejada */
+}
+
+.container { 
+    max-width: 1240px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+    width: 100%; 
+}
+
+a { text-decoration: none; }
+
+/* --- Navbar (Menu Superior) --- */
+.navbar {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    padding: 20px 0;
+    z-index: 100;
+    /* Gradiente suave para o menu não sumir no fundo */
+    background: linear-gradient(to bottom, rgba(0,43,91,0.95), transparent);
+    transition: background 0.3s;
+}
+
+.nav-container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.logo img { 
+    height: 45px; 
+    display: block; 
+}
+
+.nav-links { display: flex; gap: 40px; }
+.nav-links a {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--text-white); }
+
+/* Botão do WhatsApp no Menu */
+.btn-header {
+    padding: 10px 24px;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: var(--text-white);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.btn-header:hover {
+    background: var(--text-white);
+    color: var(--brand-blue-dark);
+}
+
+/* --- Hero Section (A Primeira Dobra) --- */
+.hero {
+    position: relative;
+    height: 100vh;      /* Altura total da tela */
+    min-height: 600px;  /* Altura mínima para não esmagar em telas pequenas */
+    display: flex;
+    align-items: center;
+    
+    background-image: url('images/header.png'); 
+    
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito Parallax (Fundo fixo) */
+}
+
+/* Overlay (Filtro Azul por cima da imagem) */
+.hero-overlay {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    /* Gradiente Azul Profundo para garantir leitura do texto */
+    background: linear-gradient(90deg, 
+        rgba(0, 43, 91, 0.95) 0%, 
+        rgba(0, 43, 91, 0.85) 50%, 
+        rgba(0, 43, 91, 0.3) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative; 
+    z-index: 2; /* Texto acima do filtro */
+    padding-top: 40px;
+}
+
+/* --- O "Molho": Estilos Premium --- */
+
+/* Badge com Efeito de Vidro (Glassmorphism) */
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    color: var(--brand-accent);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Título com Sombra e Destaque */
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Adapta o tamanho sozinho */
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    max-width: 750px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5); /* Sombra para leitura */
+}
+
+/* Destaque no Texto (Degradê Dourado/Branco) */
+.highlight {
+    background: linear-gradient(90deg, #FFD700, #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+p {
+    font-size: 1.15rem;
+    color: var(--text-gray);
+    max-width: 550px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Grupo de Botões */
+.cta-group { 
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+}
+
+/* Botão Principal com Brilho (Glow) */
+.btn-primary {
+    display: inline-block;
+    background: var(--brand-accent);
+    color: #fff;
+    padding: 18px 40px;
+    border-radius: 50px; /* Redondo (Pílula) */
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s;
+    box-shadow: 0 0 20px rgba(251, 146, 60, 0.4); /* Brilho Laranja */
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--brand-accent-hover);
+    transform: translateY(-3px); /* Sobe um pouco */
+    box-shadow: 0 0 30px rgba(251, 146, 60, 0.7); /* Brilha mais */
+}
+
+/* Link de Texto Secundário */
+.btn-text {
+    color: var(--text-white);
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border 0.3s;
+}
+.btn-text:hover { border-bottom: 1px solid var(--text-white); }
+
+
+/* --- RESPONSIVIDADE (Celular) --- */
+@media (max-width: 768px) {
+    
+    /* 👇 AQUI ESTÁ A CORREÇÃO QUE FALTAVA 👇 */
+    .hero-content {
+        padding-top: 150px; /* Desce o texto para fugir do topo */
+    }
+
+    /* Esconde menu de desktop */
+    .nav-links, .btn-header { display: none; }
+    
+    .navbar { padding: 15px 0; }
+    
+    /* Ajuste de espaçamento lateral para não colar na borda */
+    .container { padding: 0 25px; }
+
+    /* Fundo mais escuro no celular para garantir leitura */
+    .hero-overlay {
+        background: linear-gradient(to top, 
+            rgba(0, 43, 91, 1) 15%, 
+            rgba(0, 43, 91, 0.8) 60%, 
+            rgba(0, 43, 91, 0.4) 100%);
+    }
+
+    /* Centraliza a imagem de fundo */
+    .hero { background-position: 65% center; }
+    
+    /* Ajuste de texto */
+    h1 { font-size: 2.2rem; }
+    
+    .hero-badge {
+        font-size: 0.65rem;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    /* Botões empilhados */
+    .cta-group {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .btn-primary {
+        width: 100%;
+        text-align: center;
+        padding: 16px 20px;
+    }
+    
+    .btn-text { align-self: center; margin-top: 10px; }
+}
+
+/* --- ANIMAÇÕES DE ENTRADA (O Toque Premium) --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.hero-badge {
+    opacity: 0; 
+    animation: fadeInRight 0.8s ease-out forwards; 
+    animation-delay: 0.2s; 
+}
+
+h1 {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+p {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+.cta-group {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+.navbar {
+    animation: fadeInDown 1s ease-out;
+}
+@keyframes fadeInDown {
+    from { transform: translateY(-100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* --- DESKTOP: Layout Full Width (Sem travar no meio) --- */
+@media (min-width: 1024px) {
+    
+    /* 1. Tira do container: Ocupa a tela toda */
+    .container {
+        max-width: 100%; 
+        padding: 0 80px; 
+    }
+
+    /* 2. Estrutura do Título: Mais largo e fluído */
+    h1 {
+        font-size: 4rem;      
+        line-height: 1.1;     
+        max-width: 1000px;    
+        margin-bottom: 30px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        max-width: 650px;
+        line-height: 1.6;
+    }
+
+    .nav-links {
+        gap: 60px;
+    }
+    
+    .logo img {
+        height: 50px;
+    }
+}
