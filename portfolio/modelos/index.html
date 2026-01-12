@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        /* --- CSS EMBUTIDO (Para não dar erro de link) --- */
+        /* --- CSS EMBUTIDO --- */
         :root {
             --bg: #0f172a;
             --text: #f8fafc;
@@ -20,13 +20,13 @@
             background: var(--bg); 
             color: var(--text); 
             height: 100vh; /* Ocupa a altura total da tela */
-            overflow: hidden; /* Impede barras de rolagem indesejadas na página */
+            overflow: hidden; /* Impede barras de rolagem da janela principal */
         }
 
         .container {
             display: flex;
             flex-direction: column;
-            max-width: 600px; /* Limita largura para parecer mobile no PC */
+            max-width: 600px; /* Foco em mobile */
             margin: 0 auto;
             padding: 20px;
             height: 100%;
@@ -36,7 +36,7 @@
         .header-content {
             text-align: center;
             padding-bottom: 20px;
-            flex-shrink: 0; /* Garante que o cabeçalho não encolha */
+            flex-shrink: 0;
         }
 
         .badge {
@@ -63,47 +63,48 @@
             font-weight: 600;
             margin-bottom: 10px;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: transform 0.2s;
         }
+        .btn-cta:active { transform: scale(0.95); }
 
-        /* --- O Container do Carrossel --- */
+        /* --- O Container da Galeria --- */
         .marquee-container {
-            flex: 1; /* Ocupa todo o espaço restante */
+            flex: 1; /* Ocupa o resto da tela */
             position: relative;
-            overflow: hidden; /* O Segredo: esconde o que sai da caixa */
+            overflow: hidden; /* Corta o que passar */
             border-radius: 20px;
             background: #1e293b;
             border: 1px solid #334155;
-            display: flex; /* Garante alinhamento interno */
+            display: flex;
             flex-direction: column;
         }
 
-        /* Degradê no topo e base para suavizar */
+        /* Sombras para suavizar o corte */
         .marquee-overlay-top {
-            position: absolute; top: 0; left: 0; width: 100%; height: 80px;
+            position: absolute; top: 0; left: 0; width: 100%; height: 60px;
             background: linear-gradient(to bottom, #1e293b, transparent);
             z-index: 2; pointer-events: none;
         }
         .marquee-overlay-bottom {
-            position: absolute; bottom: 0; left: 0; width: 100%; height: 80px;
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 60px;
             background: linear-gradient(to top, #1e293b, transparent);
             z-index: 2; pointer-events: none;
         }
 
-        /* A Coluna que segura o conteúdo */
+        /* A Coluna Scrollavel */
         .marquee-column {
             width: 100%;
             height: 100%;
             padding: 20px;
         }
 
-        /* O Conteúdo que vai se mover */
         .marquee-content {
             display: flex;
             flex-direction: column;
             gap: 20px; /* Espaço entre imagens */
         }
 
-        /* Estilo dos Cards/Imagens */
+        /* Os Cards */
         .portfolio-card {
             border-radius: 12px;
             overflow: hidden;
@@ -120,11 +121,11 @@
 
         /* --- A Animação --- */
         .scroll-up .marquee-content {
-            /* 25 segundos para rodar o loop completo */
-            animation: scrollUp 45s linear infinite;
+            /* 55s para ficar bem lento e fácil de ver */
+            animation: scrollUp 55s linear infinite;
         }
 
-        /* Pausa ao passar o mouse */
+        /* Pausa se passar o mouse ou tocar na tela */
         .marquee-container:hover .marquee-content {
             animation-play-state: paused;
         }
@@ -132,7 +133,7 @@
         @keyframes scrollUp {
             0% { transform: translateY(0); }
             100% { transform: translateY(-50%); } 
-            /* Sobe 50% (exatamente a metade, onde começa a repetição) */
+            /* Sobe metade (porque duplicamos o conteúdo abaixo) */
         }
     </style>
 </head>
@@ -141,8 +142,7 @@
     <main class="container">
         <div class="header-content">
             <span class="badge">Nossos Projetos</span>
-            <h1>Veja o visual do seu <span class="highlight">próximo sucesso.</span></h1>
-            <p>Na prática a qualidade visual e a estrutura das Landing Pages e Sites que desenvolvemos.</p>
+            <h1>Veja o visual do seu <span class="highlight">próximo sucesso</span></h1>
             
             <a href="https://wa.me/5591984520696" class="btn-cta">QUERO UM DESSE</a>
         </div>
@@ -151,22 +151,54 @@
             <div class="marquee-overlay-top"></div>
 
             <div class="marquee-column scroll-up">
-                <div class="marquee-content">
-                    
-                    <div class="portfolio-card"><img src="../../images/template1.jpeg" alt="Modelo 1"></div>
-                    <div class="portfolio-card"><img src="../../images/template2.jpeg" alt="Modelo 2"></div>
-                    <div class="portfolio-card"><img src="../../images/template3.jpeg" alt="Modelo 3"></div>
-                    <div class="portfolio-card"><img src="../../images/template5.png" alt="Modelo 4"></div>
-                    <div class="portfolio-card"><img src="../../images/template4.png" alt="Modelo 5"></div>
+    <div class="marquee-content">
+        
+        <div class="portfolio-card">
+            <img src="../../images/template6.jpeg" alt="Beleza e Estética">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template7.png" alt="Tecnologia Dark">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template4.png" alt="Eventos e Shows">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template5.png" alt="Loja Eletrônicos">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template1.jpeg" alt="Construção Civil">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template2.jpeg" alt="Saúde e Bem-estar">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template3.jpeg" alt="Indústria">
+        </div>
 
-                    <div class="portfolio-card"><img src="../../images/template1.jpeg" alt="Modelo 1"></div>
-                    <div class="portfolio-card"><img src="../../images/template2.jpeg" alt="Modelo 2"></div>
-                    <div class="portfolio-card"><img src="../../images/template3.jpeg" alt="Modelo 3"></div>
-                    <div class="portfolio-card"><img src="../../images/template5.png" alt="Modelo 4"></div>
-                    <div class="portfolio-card"><img src="../../images/template4.png" alt="Modelo 5"></div>
+        <div class="portfolio-card">
+            <img src="../../images/template6.jpeg" alt="Beleza e Estética">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template7.png" alt="Tecnologia Dark">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template4.png" alt="Eventos e Shows">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template5.png" alt="Loja Eletrônicos">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template1.jpeg" alt="Construção Civil">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template2.jpeg" alt="Saúde e Bem-estar">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template3.jpeg" alt="Indústria">
+        </div>
 
-                </div>
-            </div>
+    </div>
+</div>
 
             <div class="marquee-overlay-bottom"></div>
         </div>

@@ -3456,12 +3456,12 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
 
 /* Animação para CIMA */
 .scroll-up .marquee-content {
-    animation: scrollUp 40s linear infinite;
+    animation: scrollUp 80s linear infinite;
 }
 
 /* Animação para BAIXO */
 .scroll-down .marquee-content {
-    animation: scrollDown 45s linear infinite;
+    animation: scrollDown 90s linear infinite;
 }
 
 /* Pausa a animação ao passar o mouse */
