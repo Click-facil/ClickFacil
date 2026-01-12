@@ -293,34 +293,35 @@ p {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* --- DESKTOP: Layout Full Width (Sem travar no meio) --- */
+/* --- AJUSTE ULTRA-WIDE (Desktop/PC) --- */
 @media (min-width: 1024px) {
     
-    /* 1. Tira do container: Ocupa a tela toda */
     .container {
-        max-width: 100%; 
-        padding: 0 80px; 
+        max-width: 90%; /* Um pouco mais de margem nas bordas (era 94%) */
+        padding: 0 60px; 
     }
 
-    /* 2. Estrutura do Título: Mais largo e fluído */
+    /* O Ajuste do Título: */
     h1 {
-        font-size: 4rem;      
-        line-height: 1.1;     
-        max-width: 1000px;    
+        font-size: 3.8rem; /* Reduzi de 5rem para 3.8rem (Fica grande, mas não gigante) */
+        line-height: 1.2;  /* Mais espaço entre as linhas para não encavalar */
+        max-width: 900px;  /* Largura ideal para quebrar a frase corretamente */
         margin-bottom: 30px;
     }
 
+    /* Aumenta o texto de apoio para acompanhar o título */
     p {
         font-size: 1.2rem;
-        max-width: 650px;
-        line-height: 1.6;
+        max-width: 600px;
+        line-height: 1.7;
     }
 
+    /* Menu mais espaçado e elegante */
     .nav-links {
-        gap: 60px;
+        gap: 50px;
     }
     
     .logo img {
-        height: 50px;
+        height: 50px; /* Tamanho controlado para não distorcer */
     }
 }
