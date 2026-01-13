@@ -87,7 +87,8 @@ a { text-decoration: none; }
     
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Efeito Parallax (Fundo fixo) */
+    background-attachment: scroll; /* Padrão scroll para mobile (mais leve) */
+    background-color: var(--brand-blue-dark); /* Cor de fundo imediata enquanto a imagem carrega */
 }
 
 /* Overlay (Filtro Azul por cima da imagem) */
@@ -296,6 +297,11 @@ p {
 /* --- AJUSTE ULTRA-WIDE (Desktop/PC) --- */
 @media (min-width: 1024px) {
     
+    /* Ativa o efeito Parallax apenas no Desktop onde há poder de processamento */
+    .hero {
+        background-attachment: fixed;
+    }
+
     .container {
         max-width: 90%; /* Um pouco mais de margem nas bordas (era 94%) */
         padding: 0 60px; 
