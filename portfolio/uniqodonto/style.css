@@ -83,7 +83,7 @@ a { text-decoration: none; }
     display: flex;
     align-items: center;
     
-    background-image: url('images/header.png'); 
+    background-image: url('images/header.webp'); 
     
     background-size: cover;
     background-position: center;
