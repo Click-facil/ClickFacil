@@ -6,18 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Energia Solar - Soluções Inteligentes</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Energia Solar - Soluções Estratégicas" />
-    <meta property="og:description" content="Conheça nossas soluções em energia solar. Acesse nosso site e veja como podemos ajudar você." />
-    <meta property="og:url" content="#" />
-
-    <meta property="og:image" content="https://clickfacil.vercel.app/images/logo.png" />
-    <meta property="og:image:type" content="image/png" />
-
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:title" content="Energia Solar Premium" />
     
     <script>
         tailwind.config = {
@@ -42,161 +35,319 @@
     </script>
 
     <style>
-        /* Estado inicial dos elementos animados (invisível e levemente abaixo) */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s ease-out;
         }
-
-        /* Estado final (visível e na posição original) */
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Atrasos para efeito cascata */
         .delay-100 { transition-delay: 0.1s; }
         .delay-200 { transition-delay: 0.2s; }
         .delay-300 { transition-delay: 0.3s; }
+        
+        /* Efeito vidro */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden font-sans">
 
     <nav class="w-full py-4 px-6 bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <img src="https://placehold.co/200x60/png?text=LOGO+SOLAR" alt="Logo Energia Solar" class="h-10 md:h-12 object-contain">
+                <div class="flex items-center gap-2 font-bold text-2xl text-brand-dark">
+                    <i class="fa-solid fa-solar-panel text-brand-orange"></i> SOL<span class="text-brand-orange">AR</span>
+                </div>
             </div>
             <a href="https://wa.me/5591986441322" class="hidden md:flex bg-green-500 text-white px-6 py-2 rounded-lg font-bold hover:bg-green-600 transition shadow-lg items-center gap-2 transform hover:scale-105">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                Faça seu Orçamento
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                Solicitar Orçamento
             </a>
         </div>
     </nav>
 
-    <header class="relative bg-brand-dark text-white overflow-hidden min-h-[90vh] flex items-center">
-        <!-- Imagem de Fundo -->
+    <header class="relative bg-brand-dark text-white overflow-hidden min-h-[85vh] flex items-center">
         <div class="absolute inset-0 z-0">
-            <img src="images/energiasolar.jpg" alt="Energia Solar" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black/60 md:bg-gradient-to-r md:from-black/80 md:via-black/50 md:to-transparent"></div>
+            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop" alt="Energia Solar Telhado" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-transparent"></div>
         </div>
         
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
         <div class="max-w-6xl mx-auto px-6 py-12 relative z-10 flex flex-col md:flex-row items-center gap-12">
-            
-            <div class="md:w-2/3 space-y-6 reveal active">
-                <span class="inline-block bg-brand-orange text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-2">
-                    Energia Solar Premium
+            <div class="md:w-2/3 space-y-8 reveal active">
+                <span class="inline-block bg-brand-orange/20 border border-brand-orange text-brand-orange text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest mb-2">
+                    Economia Garantida
                 </span>
                 
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-                    ☀️ A energia que move o futuro <span class="text-brand-orange">começa hoje.</span>
+                    Zere sua conta de luz com a força do <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-yellow-400">Sol.</span>
                 </h1>
                 
-                <div class="space-y-3 text-gray-300 text-lg md:text-xl">
-                    <p class="flex items-center gap-2">
-                        <span>⚡</span> +500 Clientes com liberdade energética
-                    </p>
-                    <p class="flex items-center gap-2">
-                        <span>🍃</span> Menos conta, mais valor e zero surpresa.
-                    </p>
+                <p class="text-gray-300 text-lg md:text-xl max-w-xl leading-relaxed">
+                    Instale energia solar em sua casa ou empresa e economize até 95% na conta de energia. Valorize seu imóvel e tenha retorno garantido.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#simulacao" class="text-center bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg shadow-brand-orange/30 transition transform hover:-translate-y-1">
+                        Quero Simular Economia
+                    </a>
+                    <a href="#como-funciona" class="text-center border border-white/30 hover:bg-white/10 text-white text-lg font-semibold py-4 px-8 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-circle-play"></i> Ver como funciona
+                    </a>
                 </div>
                 
-                <div class="pt-6">
-                    <a href="https://wa.me/5591986441322" class="animate-pulse-slow inline-block bg-brand-orange hover:bg-orange-600 text-white text-xl font-bold py-4 px-10 rounded-xl shadow-2xl transition transform hover:-translate-y-1 hover:shadow-orange-500/50 text-center w-full md:w-auto">
-                        Faça seu orçamento 👇
-                    </a>
-                    <p class="text-sm text-gray-400 mt-3 text-center md:text-left">
-                        Resposta rápida no WhatsApp
-                    </p>
+                <div class="pt-6 flex items-center gap-4 text-sm text-gray-400">
+                    <div class="flex -space-x-2">
+                        <img class="w-8 h-8 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=1" alt="">
+                        <img class="w-8 h-8 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=2" alt="">
+                        <img class="w-8 h-8 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=3" alt="">
+                    </div>
+                    <p>Mais de <strong class="text-white">500 projetos</strong> entregues.</p>
                 </div>
             </div>
-
         </div>
     </header>
 
     <section class="py-24 bg-white px-6">
         <div class="max-w-4xl mx-auto text-center mb-16 reveal">
-            <h2 class="text-3xl font-bold text-brand-dark mb-4">Por que escolher a Nossa Empresa?</h2>
-            <p class="text-gray-600">Tecnologia de ponta e instalação especializada na sua região.</p>
+            <h2 class="text-3xl font-bold text-brand-dark mb-4">Por que investir agora?</h2>
+            <div class="w-20 h-1 bg-brand-orange mx-auto rounded-full"></div>
         </div>
 
-        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            
-            <div class="order-2 md:order-1 reveal">
-                <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-100 group">
-                    <img src="images/energiasolar2.jpg" alt="Benefícios Energia Solar" class="w-full aspect-square object-cover transition duration-500 group-hover:scale-105">
-                    <div class="absolute top-4 right-4 bg-brand-orange text-white text-xs font-bold px-3 py-1 rounded shadow-lg">
-                        Qualidade Premium
-                    </div>
-                </img>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition duration-300 group reveal delay-100">
+                <div class="w-14 h-14 bg-brand-dark text-white rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-orange transition-colors">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <h3 class="font-bold text-xl text-brand-dark mb-3">Fim dos Aumentos</h3>
+                <p class="text-gray-600 leading-relaxed">Fique livre da inflação energética e das bandeiras tarifárias vermelhas. Produza sua própria energia.</p>
             </div>
 
-            <div class="space-y-8 order-1 md:order-2">
-                <div class="flex gap-5 reveal delay-100">
-                    <div class="w-14 h-14 bg-brand-dark text-white rounded-xl flex items-center justify-center font-bold text-2xl shadow-lg flex-shrink-0">
-                        1
+            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition duration-300 group reveal delay-200">
+                <div class="w-14 h-14 bg-brand-dark text-white rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-orange transition-colors">
+                    <i class="fa-solid fa-house-chimney"></i>
+                </div>
+                <h3 class="font-bold text-xl text-brand-dark mb-3">Valorização do Imóvel</h3>
+                <p class="text-gray-600 leading-relaxed">Estudos mostram que imóveis com sistema solar próprio valorizam entre 4% a 10% no mercado.</p>
+            </div>
+
+            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition duration-300 group reveal delay-300">
+                <div class="w-14 h-14 bg-brand-dark text-white rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-orange transition-colors">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+                <h3 class="font-bold text-xl text-brand-dark mb-3">Retorno Garantido</h3>
+                <p class="text-gray-600 leading-relaxed">Investimento com payback médio de 3 a 5 anos. Depois disso, é lucro puro por mais de 20 anos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="como-funciona" class="py-24 bg-brand-dark text-white px-6 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold mb-4">Como funciona o processo?</h2>
+                <p class="text-gray-400">Do orçamento à instalação, cuidamos de tudo para você.</p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-8 relative">
+                <div class="hidden md:block absolute top-12 left-0 w-full h-1 bg-gray-700 -z-10"></div>
+
+                <div class="text-center reveal delay-100">
+                    <div class="w-24 h-24 bg-brand-orange rounded-full flex items-center justify-center text-3xl mx-auto mb-6 border-8 border-brand-dark relative z-10">
+                        <i class="fa-solid fa-calculator"></i>
                     </div>
-                    <div>
-                        <h3 class="font-bold text-xl text-brand-dark">Fim dos Aumentos</h3>
-                        <p class="text-gray-600 mt-1 leading-relaxed">Proteja seu orçamento contra a inflação energética. Produza exatamente o que você consome.</p>
+                    <h3 class="text-xl font-bold mb-2">1. Simulação</h3>
+                    <p class="text-gray-400 text-sm">Analisamos sua conta de luz para dimensionar o sistema ideal.</p>
+                </div>
+
+                <div class="text-center reveal delay-200">
+                    <div class="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 border-8 border-brand-dark relative z-10">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">2. Projeto</h3>
+                    <p class="text-gray-400 text-sm">Engenharia e homologação junto à concessionária.</p>
+                </div>
+
+                <div class="text-center reveal delay-300">
+                    <div class="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 border-8 border-brand-dark relative z-10">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">3. Instalação</h3>
+                    <p class="text-gray-400 text-sm">Equipe técnica instala as placas no seu telhado.</p>
+                </div>
+
+                <div class="text-center reveal delay-300">
+                    <div class="w-24 h-24 bg-gray-800 rounded-full flex items-center justify-center text-3xl mx-auto mb-6 border-8 border-brand-dark relative z-10">
+                        <i class="fa-solid fa-plug-circle-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">4. Economia</h3>
+                    <p class="text-gray-400 text-sm">Pronto! Você começa a gerar sua própria energia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex justify-between items-end mb-12 reveal">
+                <div>
+                    <h2 class="text-3xl font-bold text-brand-dark mb-2">Nossas Instalações</h2>
+                    <p class="text-gray-600">Veja a qualidade do nosso acabamento.</p>
+                </div>
+                <a href="#" class="hidden md:inline-block text-brand-orange font-bold hover:underline">Ver todos os projetos -></a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer reveal delay-100 h-64">
+                    <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=2058&auto=format&fit=crop" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Projeto Residencial">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-orange text-xs font-bold uppercase">Residencial</span>
+                        <h3 class="text-white font-bold text-lg">Casa no Condomínio X</h3>
+                        <p class="text-gray-300 text-sm">12 Placas • Economia: R$ 800/mês</p>
                     </div>
                 </div>
-                
-                <div class="flex gap-5 reveal delay-200">
-                    <div class="w-14 h-14 bg-brand-orange text-white rounded-xl flex items-center justify-center font-bold text-2xl shadow-lg flex-shrink-0">
-                        2
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-xl text-brand-dark">Valorização do Imóvel</h3>
-                        <p class="text-gray-600 mt-1 leading-relaxed">Casas e empresas com sistema solar próprio valem até 10% mais no mercado.</p>
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer reveal delay-200 h-64">
+                    <img src="images/energiasolar.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Projeto Comercial">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-orange text-xs font-bold uppercase">Comercial</span>
+                        <h3 class="text-white font-bold text-lg">Supermercado Y</h3>
+                        <p class="text-gray-300 text-sm">80 Placas • Economia: R$ 5.000/mês</p>
                     </div>
                 </div>
-                
-                <div class="flex gap-5 reveal delay-300">
-                    <div class="w-14 h-14 bg-brand-light text-brand-dark border border-brand-dark rounded-xl flex items-center justify-center font-bold text-2xl shadow-lg flex-shrink-0">
-                        3
-                    </div>
-                    <div>
-                        <h3 class="font-bold text-xl text-brand-dark">Retorno Garantido</h3>
-                        <p class="text-gray-600 mt-1 leading-relaxed">O dinheiro investido volta para o seu bolso em forma de economia real todos os meses.</p>
+                <div class="group relative overflow-hidden rounded-2xl shadow-lg cursor-pointer reveal delay-300 h-64">
+                    <img src="images/energiasolar2.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" alt="Projeto Rural">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                        <span class="text-brand-orange text-xs font-bold uppercase">Rural</span>
+                        <h3 class="text-white font-bold text-lg">Fazenda Z</h3>
+                        <p class="text-gray-300 text-sm">Bomba Solar Off-grid</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-brand-dark py-20 px-6 text-center relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full bg-gradient-to-b from-transparent to-black/30 pointer-events-none"></div>
+    <section id="simulacao" class="py-24 px-6 relative">
+        <div class="absolute inset-0 bg-brand-dark"></div>
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1974&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
 
-        <div class="max-w-3xl mx-auto relative z-10 reveal">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6">
-                Sua liberdade energética <span class="text-brand-orange">começa aqui.</span>
-            </h2>
-            <p class="text-gray-300 text-lg mb-10">
-                Junte-se aos mais de 500 clientes satisfeitos em toda a região.
-            </p>
-            
-            <a href="https://wa.me/5591986441322" class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white text-xl font-bold px-12 py-5 rounded-xl transition shadow-xl hover:shadow-green-500/30 transform hover:scale-105 w-full md:w-auto justify-center">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                Solicitar Orçamento no WhatsApp
-            </a>
-            
-            <div class="mt-8 flex justify-center items-center gap-4 text-xs text-gray-500">
-                <span>Atendemos Sua Cidade</span>
-                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                <span>Região Metropolitana</span>
-                <span class="w-1 h-1 bg-gray-600 rounded-full"></span>
-                <span>Interior</span>
+        <div class="max-w-4xl mx-auto relative z-10 reveal">
+            <div class="glass-effect p-8 md:p-12 rounded-3xl shadow-2xl text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">
+                    Quanto você quer <span class="text-brand-orange">economizar?</span>
+                </h2>
+                <p class="text-gray-600 mb-8 text-lg">
+                    Faça uma simulação gratuita e descubra o potencial do seu telhado.
+                </p>
+
+                <form class="max-w-md mx-auto space-y-4 text-left">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Qual o valor médio da sua conta?</label>
+                        <select class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-orange bg-white text-gray-700">
+                            <option>R$ 300 - R$ 500</option>
+                            <option>R$ 500 - R$ 1.000</option>
+                            <option>R$ 1.000 - R$ 2.000</option>
+                            <option>Acima de R$ 2.000</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">Seu Nome</label>
+                        <input type="text" placeholder="Digite seu nome" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-orange">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">WhatsApp</label>
+                        <input type="tel" placeholder="(00) 00000-0000" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-orange">
+                    </div>
+                    
+                    <button type="button" onclick="window.location.href='https://wa.me/5591986441322?text=Olá, fiz uma simulação no site e gostaria de saber mais.'" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-lg text-lg shadow-lg hover:shadow-green-500/30 transition transform hover:scale-[1.02] flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp"></i> Receber Estudo Gratuito
+                    </button>
+                </form>
+                <p class="text-xs text-gray-400 mt-4"><i class="fa-solid fa-lock"></i> Seus dados estão seguros e não serão compartilhados.</p>
             </div>
         </div>
     </section>
 
-    <footer class="bg-gray-900 text-gray-500 py-8 text-center text-xs border-t border-gray-800">
-        <!--o comando <a href=""<a\> torna o link clicavel-->
-        <p>&copy; 2026 Energia Solar. Todos os direitos reservados. | Desenvolvido por <a href="https://clickfacil.vercel.app" class="text-white font-bold hover:underline">Click Fácil</a></p>
+    <section class="py-20 bg-white px-6">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold text-center text-brand-dark mb-10">Perguntas Frequentes</h2>
+            
+            <div class="space-y-4">
+                <details class="group bg-gray-50 p-6 rounded-xl cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-brand-dark list-none">
+                        Funciona em dias nublados?
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Sim! O sistema fotovoltaico funciona com a radiação solar, não apenas com a luz direta. Em dias nublados a produção é menor, mas continua gerando energia.
+                    </p>
+                </details>
+
+                <details class="group bg-gray-50 p-6 rounded-xl cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-brand-dark list-none">
+                        Quanto tempo dura o equipamento?
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Os painéis solares têm vida útil superior a 25 anos, com garantia de eficiência dos fabricantes. É um investimento de longo prazo.
+                    </p>
+                </details>
+
+                <details class="group bg-gray-50 p-6 rounded-xl cursor-pointer">
+                    <summary class="flex justify-between items-center font-bold text-brand-dark list-none">
+                        Como funciona o financiamento?
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down"></i></span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 text-sm leading-relaxed">
+                        Hoje existem diversas linhas de crédito bancário onde a parcela do financiamento fica muito próxima (ou até menor) que o valor que você já paga na conta de luz. Você troca o aluguel da energia pela parcela do seu sistema próprio.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-12 px-6 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-4 gap-8 mb-8 text-sm">
+            <div>
+                <div class="flex items-center gap-2 font-bold text-xl text-white mb-4">
+                    <i class="fa-solid fa-solar-panel text-brand-orange"></i> SOLAR
+                </div>
+                <p>Soluções completas em energia solar fotovoltaica para residências e empresas.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Links Rápidos</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-brand-orange">Início</a></li>
+                    <li><a href="#como-funciona" class="hover:text-brand-orange">Como Funciona</a></li>
+                    <li><a href="#simulacao" class="hover:text-brand-orange">Simular Economia</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Contato</h4>
+                <ul class="space-y-2">
+                    <li><i class="fa-brands fa-whatsapp mr-2"></i> (91) 98644-1322</li>
+                    <li><i class="fa-solid fa-envelope mr-2"></i> contato@energiasolar.com</li>
+                    <li><i class="fa-solid fa-location-dot mr-2"></i> Paragominas, PA</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4">Redes Sociais</h4>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-orange text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-brand-orange text-white transition"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center pt-8 border-t border-gray-800 text-xs">
+            <p>&copy; 2026 Energia Solar. Todos os direitos reservados. | Design Estratégico por <a href="https://clickfacil.vercel.app" target="_blank" class="text-white font-bold hover:text-brand-orange transition">Click Fácil</a></p>
+        </div>
     </footer>
 
     <script>
@@ -212,8 +363,7 @@
             }
         }
         window.addEventListener("scroll", reveal);
-        // Ativa no carregamento inicial para o topo
-        reveal();
+        reveal(); // Trigger on load
     </script>
 
 </body>
