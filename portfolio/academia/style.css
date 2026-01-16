@@ -24,6 +24,23 @@ body { background: var(--bg-dark); color: var(--text-white); overflow-x: hidden;
 .section-header p { color: var(--text-gray); font-size: 1.1rem; }
 .w-full { width: 100%; }
 
+/* --- EFEITO NEON DISCRETO --- */
+.text-neon {
+    /* Mantém a cor base */
+    color: var(--primary);
+    /*
+       Cria 3 camadas de brilho:
+       1. 0px 0px 8px: Um brilho 'apertado' perto da letra.
+       2. 0px 0px 20px: Um brilho médio para expandir a luz.
+       3. 0px 0px 40px: Um brilho distante e suave para criar a atmosfera.
+       Usamos a própria cor primária para o brilho.
+    */
+    text-shadow:
+        0 0 0px var(--primary),
+        0 0 5   px var(--primary),
+        0 0 0px var(--primary);
+}
+
 /* --- BOTÕES --- */
 .btn-primary, .btn-outline, .btn-nav, .btn-plan {
     display: inline-flex; align-items: center; justify-content: center; gap: 10px;
