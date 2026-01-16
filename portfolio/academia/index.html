@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanium Gym - Performance Center</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-text">TITANIUM<span class="text-primary">GYM</span></div>
+        <ul class="nav-links">
+            <li><a href="#diferenciais">O Studio</a></li>
+            <li><a href="#modalidades">Modalidades</a></li>
+            <li><a href="#planos">Planos</a></li>
+        </ul>
+        <a href="#" class="btn-nav" onclick="openModal(event)">Matricule-se</a>
+        <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop" alt="Gym Background">
+            <div class="overlay"></div>
+        </div>
+        
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span>MUSCULAÇÃO • CROSS TRAINING • FIT DANCE • SPINNING • BOXE • </span>
+                <span>MUSCULAÇÃO • CROSS TRAINING • FIT DANCE • SPINNING • BOXE • </span>
+                <span>MUSCULAÇÃO • CROSS TRAINING • FIT DANCE • SPINNING • BOXE • </span>
+            </div>
+        </div>
+        
+        <div class="container hero-content">
+            <div class="badge reveal">ESTRUTURA DE ELITE</div>
+            <h1 class="reveal">
+                SUPERE SEUS <br>
+                <span class="text-stroke">LIMITES</span> AGORA.
+            </h1>
+            <p class="reveal">Treine onde a tecnologia encontra a performance. Equipamentos importados, ambiente climatizado e o suporte que você precisa.</p>
+            <div class="hero-btns reveal">
+                <a href="#planos" class="btn-primary">COMEÇAR HOJE <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#modalidades" class="btn-outline">CONHECER ESPAÇO</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container grid-4">
+            <div class="stat-item">
+                <h2 class="counter" data-target="1200">200</h2>
+                <p>Alunos Ativos</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="45">150</h2>
+                <p>Equipamentos</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="15">10</h2>
+                <p>Personal Trainers</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="counter" data-target="100">2</h2>
+                <p>Unidades</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferenciais" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="split-text">Por que a Titanium?</h2>
+                <p>Não somos apenas uma academia. Somos o seu novo estilo de vida.</p>
+            </div>
+            
+            <div class="grid-3 features-grid">
+                <div class="feature-card gsap-fade-up">
+                    <i class="fa-solid fa-temperature-arrow-down icon"></i>
+                    <h3>100% Climatizada</h3>
+                    <p>Esqueça o calor. Treine no conforto máximo em qualquer época do ano.</p>
+                </div>
+                <div class="feature-card gsap-fade-up">
+                    <i class="fa-solid fa-dumbbell icon"></i>
+                    <h3>Maquinário Premium</h3>
+                    <p>Biomecânica perfeita para evitar lesões e maximizar seus resultados.</p>
+                </div>
+                <div class="feature-card gsap-fade-up">
+                    <i class="fa-solid fa-stopwatch icon"></i>
+                    <h3>Horário Estendido</h3>
+                    <p>Aberta das 05h às 23h. Sem desculpas para não treinar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="modalidades" class="section bg-darker">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="split-text">Nossas Modalidades</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item item-1 gsap-scale-up">
+                    <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=2070&auto=format&fit=crop" alt="Musculação">
+                    <div class="item-overlay"><h3>Musculação</h3></div>
+                </div>
+                <div class="gallery-item item-2 gsap-scale-up">
+                    <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=2069&auto=format&fit=crop" alt="Cardio">
+                    <div class="item-overlay"><h3>Cardio Zone</h3></div>
+                </div>
+                <div class="gallery-item item-3 gsap-scale-up">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=2075&auto=format&fit=crop" alt="Cross">
+                    <div class="item-overlay"><h3>Funcional</h3></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="planos" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="split-text">Invista em Você</h2>
+                <p>Planos flexíveis sem taxas escondidas.</p>
+            </div>
+
+            <div class="grid-3 pricing-wrapper">
+                <div class="price-card gsap-flip">
+                    <div class="card-header">
+                        <h3>Mensal</h3>
+                        <div class="price">R$ 119<span>/mês</span></div>
+                    </div>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Acesso total</li>
+                        <li><i class="fa-solid fa-check"></i> Sem fidelidade</li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> Avaliação inclusa</li>
+                    </ul>
+                    <a href="#" class="btn-plan" onclick="openModal(event)">ASSINAR</a>
+                </div>
+
+                <div class="price-card featured gsap-flip">
+                    <div class="popular-tag">MAIS ESCOLHIDO</div>
+                    <div class="card-header">
+                        <h3>Titanium VIP</h3>
+                        <div class="price text-primary">R$ 89<span>/mês</span></div>
+                        <p class="sub-price">No plano anual</p>
+                    </div>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Tudo do mensal</li>
+                        <li><i class="fa-solid fa-check"></i> Acesso a todas unidades</li>
+                        <li><i class="fa-solid fa-check"></i> Camiseta Exclusiva</li>
+                        <li><i class="fa-solid fa-check"></i> Avaliação Trimestral</li>
+                    </ul>
+                    <a href="#" class="btn-primary w-full" onclick="openModal(event)">QUERO SER VIP</a>
+                </div>
+
+                <div class="price-card gsap-flip">
+                    <div class="card-header">
+                        <h3>Recorrente</h3>
+                        <div class="price">R$ 99<span>/mês</span></div>
+                    </div>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Acesso total</li>
+                        <li><i class="fa-solid fa-check"></i> Debitado no cartão</li>
+                        <li><i class="fa-solid fa-check"></i> Não ocupa limite</li>
+                    </ul>
+                    <a href="#" class="btn-plan" onclick="openModal(event)">ASSINAR</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <div class="logo-text">TITANIUM<span class="text-primary">GYM</span></div>
+                <p>A maior e mais completa estrutura da região. Venha treinar com os melhores.</p>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Links</h4>
+                <a href="#diferenciais">Sobre</a>
+                <a href="#modalidades">Aulas</a>
+                <a href="#planos">Planos</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contato</h4>
+                <p><i class="fa-solid fa-location-dot text-primary"></i> Av. Central, 1000</p>
+                <p><i class="fa-brands fa-whatsapp text-primary"></i> (99) 99999-9999</p>
+            </div>
+        </div>
+        <div class="copy">
+            <p>&copy; 2026 Titanium Gym. Site desenvolvido por <strong>Click Fácil</strong>.</p>
+        </div>
+    </footer>
+
+    <div id="modalContato" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-box">
+            <span class="close-btn" onclick="closeModal(event)">&times;</span>
+            <h3>Comece sua Transformação</h3>
+            <p>Escolha como prefere falar conosco:</p>
+            <a href="#" class="whatsapp-link"><i class="fa-brands fa-whatsapp"></i> Falar com Consultor</a>
+        </div>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Navbar Sticky
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Hero Animations
+        const tl = gsap.timeline();
+        tl.from(".reveal", {
+            y: 100,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power4.out",
+            delay: 0.2
+        });
+
+        // NOTA: O script do Marquee foi removido daqui para ser controlado 100% pelo CSS
+        // Isso evita o conflito e o desaparecimento da faixa.
+
+        // Estatísticas
+        gsap.utils.toArray(".counter").forEach(counter => {
+            gsap.from(counter, {
+                scrollTrigger: {
+                    trigger: counter,
+                    start: "top 85%",
+                    toggleActions: "play none none none"
+                },
+                innerText: 0,
+                duration: 2,
+                snap: { innerText: 1 },
+                onUpdate: function() {
+                    this.targets()[0].innerHTML = Math.ceil(this.targets()[0].innerText);
+                }
+            });
+        });
+
+        // Cards Fade Up
+        gsap.utils.toArray(".gsap-fade-up").forEach((elem, i) => {
+            gsap.from(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%"
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.2
+            });
+        });
+
+        // Cards Flip
+        gsap.utils.toArray(".gsap-flip").forEach((elem, i) => {
+            gsap.from(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 80%"
+                },
+                rotationY: 15,
+                opacity: 0,
+                transformOrigin: "left center",
+                duration: 1,
+                delay: i * 0.2,
+                ease: "power2.out"
+            });
+        });
+
+        // Imagens Zoom
+        gsap.utils.toArray(".gsap-scale-up").forEach(elem => {
+            gsap.from(elem, {
+                scrollTrigger: {
+                    trigger: elem,
+                    start: "top 85%"
+                },
+                scale: 0.8,
+                opacity: 0,
+                duration: 0.8
+            });
+        });
+
+        // Modal
+        function openModal(e) {
+            e.preventDefault();
+            document.getElementById('modalContato').classList.add('active');
+        }
+        function closeModal(e) {
+            if (e.target === document.getElementById('modalContato') || e.target.classList.contains('close-btn')) {
+                document.getElementById('modalContato').classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>

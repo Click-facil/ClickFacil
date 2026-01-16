@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos Disponíveis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS EMBUTIDO --- */
+        :root {
+            --bg: #0f172a;
+            --text: #f8fafc;
+            --primary: #3b82f6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+        body { 
+            background: var(--bg); 
+            color: var(--text); 
+            height: 100vh; /* Ocupa a altura total da tela */
+            overflow: hidden; /* Impede barras de rolagem da janela principal */
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px; /* Foco em mobile */
+            margin: 0 auto;
+            padding: 20px;
+            height: 100%;
+        }
+
+        /* --- Cabeçalho --- */
+        .header-content {
+            text-align: center;
+            padding-bottom: 20px;
+            flex-shrink: 0;
+        }
+
+        .badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        h1 { font-size: 1.8rem; margin: 15px 0; line-height: 1.1; }
+        .highlight { color: var(--primary); }
+        p { color: #94a3b8; margin-bottom: 20px; font-size: 0.9rem; }
+
+        .btn-cta {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+            transition: transform 0.2s;
+        }
+        .btn-cta:active { transform: scale(0.95); }
+
+        /* --- O Container da Galeria --- */
+        .marquee-container {
+            flex: 1; /* Ocupa o resto da tela */
+            position: relative;
+            overflow: hidden; /* Corta o que passar */
+            border-radius: 20px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Sombras para suavizar o corte */
+        .marquee-overlay-top {
+            position: absolute; top: 0; left: 0; width: 100%; height: 60px;
+            background: linear-gradient(to bottom, #1e293b, transparent);
+            z-index: 2; pointer-events: none;
+        }
+        .marquee-overlay-bottom {
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 60px;
+            background: linear-gradient(to top, #1e293b, transparent);
+            z-index: 2; pointer-events: none;
+        }
+
+        /* A Coluna Scrollavel */
+        .marquee-column {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+        }
+
+        .marquee-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Espaço entre imagens */
+        }
+
+        /* Os Cards */
+        .portfolio-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            background: #000;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        /* --- A Animação --- */
+        .scroll-up .marquee-content {
+            /* 55s para ficar bem lento e fácil de ver */
+            animation: scrollUp 55s linear infinite;
+        }
+
+        /* Pausa se passar o mouse ou tocar na tela */
+        .marquee-container:hover .marquee-content {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollUp {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); } 
+            /* Sobe metade (porque duplicamos o conteúdo abaixo) */
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <div class="header-content">
+            <span class="badge">Nossos Projetos</span>
+            <h1>Veja o visual do seu <span class="highlight">próximo sucesso</span></h1>
+            
+            <a href="https://wa.me/5591984520696" class="btn-cta">QUERO UM DESSE</a>
+        </div>
+
+        <div class="marquee-container">
+            <div class="marquee-overlay-top"></div>
+
+            <div class="marquee-column scroll-up">
+    <div class="marquee-content">
+        
+        <div class="portfolio-card">
+            <img src="../../images/template6.jpeg" alt="Beleza e Estética">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template7.png" alt="Tecnologia Dark">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template4.png" alt="Eventos e Shows">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template5.png" alt="Loja Eletrônicos">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template1.jpeg" alt="Construção Civil">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template2.jpeg" alt="Saúde e Bem-estar">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template3.jpeg" alt="Indústria">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template8.png" alt="Novo Projeto">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template9.png" alt="Novo Projeto">
+        </div>
+
+        <div class="portfolio-card">
+            <img src="../../images/template6.jpeg" alt="Beleza e Estética">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template7.png" alt="Tecnologia Dark">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template4.png" alt="Eventos e Shows">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template5.png" alt="Loja Eletrônicos">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template1.jpeg" alt="Construção Civil">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template2.jpeg" alt="Saúde e Bem-estar">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template3.jpeg" alt="Indústria">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template8.png" alt="Novo Projeto">
+        </div>
+        <div class="portfolio-card">
+            <img src="../../images/template9.png" alt="Novo Projeto">
+        </div>
+
+    </div>
+</div>
+
+            <div class="marquee-overlay-bottom"></div>
+        </div>
+    </main>
+
+</body>
+</html>

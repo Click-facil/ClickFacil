@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magna Construções - Engenharia Avançada</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <div class="topbar">
+        <div class="container flex-between">
+            <div class="contact-info">
+                <span><i class="fa-solid fa-location-dot"></i> Av. Industrial, 1000 - SP</span>
+                <span><i class="fa-solid fa-envelope"></i> contato@magnaconst.com.br</span>
+            </div>
+            <div class="socials">
+                <span>Siga-nos:</span>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="container flex-between">
+            <div class="logo">
+                <i class="fa-solid fa-helmet-safety text-primary"></i> MAGNA<span>CONST.</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Início</a></li>
+                <li><a href="#about">Quem Somos</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#team">Equipe</a></li>
+            </ul>
+            <a href="#contact" class="btn-primary">SOLICITAR ORÇAMENTO <i class="fa-solid fa-arrow-right"></i></a>
+            <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" alt="Construção">
+            <div class="overlay"></div>
+        </div>
+        <div class="container hero-content">
+            <span class="subtitle reveal">DESDE 1994</span>
+            <h1 class="reveal">CONSTRUÇÃO <br> <span class="text-stroke">AVANÇADA</span></h1>
+            <p class="reveal">Líderes em engenharia industrial e infraestrutura complexa. Transformamos grandes projetos em realidade com precisão e segurança.</p>
+            <div class="hero-btns reveal">
+                <a href="#services" class="btn-primary">NOSSOS SERVIÇOS</a>
+                <a href="#projects" class="btn-outline">VER PORTFÓLIO</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">O QUE FAZEMOS</span>
+                <h2>NOSSOS SERVIÇOS</h2>
+            </div>
+            <div class="grid-3">
+                <div class="service-card gsap-fade-up">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2031&auto=format&fit=crop" alt="Arquitetura">
+                        <div class="icon-box"><i class="fa-solid fa-ruler-combined"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Arquitetura & Design</h3>
+                        <p>Planejamento detalhado e modelagem 3D para estruturas industriais de alta complexidade.</p>
+                        <a href="#" class="link-arrow">Ler Mais <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card gsap-fade-up">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1581094794329-cd1361ddee2d?q=80&w=2127&auto=format&fit=crop" alt="Engenharia">
+                        <div class="icon-box"><i class="fa-solid fa-gears"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Engenharia Mecânica</h3>
+                        <p>Instalação e manutenção de maquinário pesado e sistemas automatizados.</p>
+                        <a href="#" class="link-arrow">Ler Mais <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card gsap-fade-up">
+                    <div class="img-box">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop" alt="Construção">
+                        <div class="icon-box"><i class="fa-solid fa-trowel-bricks"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Construção Civil</h3>
+                        <p>Execução de obras comerciais, galpões logísticos e infraestrutura urbana.</p>
+                        <a href="#" class="link-arrow">Ler Mais <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section bg-light about-section">
+        <div class="container about-grid">
+            <div class="about-text gsap-slide-right">
+                <span class="tag">QUEM SOMOS</span>
+                <h2>LÍDERES EM INOVAÇÃO INDUSTRIAL</h2>
+                <p class="lead">Entregamos soluções de engenharia que moldam o futuro da indústria nacional.</p>
+                <p class="desc">Com mais de duas décadas de atuação, a Magna Construções se consolidou pela excelência técnica. Nossa abordagem integra tecnologia de ponta com métodos construtivos sustentáveis.</p>
+                
+                <ul class="check-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Certificação ISO 9001</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Equipe Multidisciplinar</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Entrega no Prazo</li>
+                </ul>
+                
+                <a href="#" class="btn-primary">SAIBA MAIS</a>
+            </div>
+            
+            <div class="about-image gsap-slide-left">
+                <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" alt="Engenheiro">
+                <div class="year-badge">
+                    <span class="year">1994</span>
+                    <span class="label">Fundada em</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">PORTFÓLIO</span>
+                <h2>NOSSOS PROJETOS</h2>
+            </div>
+            
+            <div class="project-filters">
+                <span class="active">Todos</span>
+                <span>Industrial</span>
+                <span>Energia</span>
+                <span>Química</span>
+            </div>
+
+            <div class="grid-3 projects-grid">
+                <div class="project-item gsap-zoom">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Projeto 1">
+                    <div class="project-overlay">
+                        <h4>Complexo Delta</h4>
+                        <span>Industrial</span>
+                        <a href="#"><i class="fa-solid fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="project-item gsap-zoom">
+                    <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?q=80&w=2070&auto=format&fit=crop" alt="Projeto 2">
+                    <div class="project-overlay">
+                        <h4>Torre Empresarial</h4>
+                        <span>Comercial</span>
+                        <a href="#"><i class="fa-solid fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="project-item gsap-zoom">
+                    <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=2070&auto=format&fit=crop" alt="Projeto 3">
+                    <div class="project-overlay">
+                        <h4>Refinaria Solar</h4>
+                        <span>Energia</span>
+                        <a href="#"><i class="fa-solid fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="project-item gsap-zoom">
+                    <img src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?q=80&w=2009&auto=format&fit=crop" alt="Projeto 4">
+                    <div class="project-overlay">
+                        <h4>Fábrica Química</h4>
+                        <span>Industrial</span>
+                        <a href="#"><i class="fa-solid fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="project-item gsap-zoom">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=2070&auto=format&fit=crop" alt="Projeto 5">
+                    <div class="project-overlay">
+                        <h4>Ponte Estaiada</h4>
+                        <span>Infraestrutura</span>
+                        <a href="#"><i class="fa-solid fa-plus"></i></a>
+                    </div>
+                </div>
+                <div class="project-item gsap-zoom">
+                    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2031&auto=format&fit=crop" alt="Projeto 6">
+                    <div class="project-overlay">
+                        <h4>Centro Logístico</h4>
+                        <span>Logística</span>
+                        <a href="#"><i class="fa-solid fa-plus"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-cta">
+        <div class="container stats-grid">
+            <div class="cta-text">
+                <h3>VAMOS CONVERSAR?</h3>
+                <p>Nossa equipe está pronta para iniciar seu próximo grande projeto.</p>
+                <a href="#" class="btn-white">FALE CONOSCO</a>
+            </div>
+            <div class="stats-numbers">
+                <div class="stat">
+                    <h2 class="counter" data-target="34">0</h2>
+                    <p>Anos de Exp.</p>
+                </div>
+                <div class="stat">
+                    <h2 class="counter" data-target="760">0</h2>
+                    <p>Obras Feitas</p>
+                </div>
+                <div class="stat">
+                    <h2 class="counter" data-target="150">0</h2>
+                    <p>Especialistas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">NOSSO TIME</span>
+                <h2>ESPECIALISTAS DEDICADOS</h2>
+            </div>
+            <div class="grid-3">
+                <div class="team-card gsap-fade-up">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" alt="Engenheiro">
+                        <div class="social-overlay">
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Roberto Silva</h4>
+                        <span>Engenheiro Chefe</span>
+                    </div>
+                </div>
+                <div class="team-card gsap-fade-up">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop" alt="Arquiteta">
+                        <div class="social-overlay">
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Ana Souza</h4>
+                        <span>Arquiteta Senior</span>
+                    </div>
+                </div>
+                <div class="team-card gsap-fade-up">
+                    <div class="team-img">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1974&auto=format&fit=crop" alt="Gestor">
+                        <div class="social-overlay">
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                    <div class="team-info">
+                        <h4>Carlos Mendes</h4>
+                        <span>Gestor de Obras</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="logo-footer">MAGNA<span>CONST.</span></div>
+                <p>Construindo estruturas sólidas e relacionamentos duradouros desde 1994. Referência em engenharia civil e industrial.</p>
+                <div class="socials-footer">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#">Nossos Serviços</a></li>
+                    <li><a href="#">Projetos Recentes</a></li>
+                    <li><a href="#">Carreiras</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Nossos Serviços</h4>
+                <ul>
+                    <li><a href="#">Construção Industrial</a></li>
+                    <li><a href="#">Engenharia Mecânica</a></li>
+                    <li><a href="#">Gerenciamento de Obras</a></li>
+                    <li><a href="#">Design Arquitetônico</a></li>
+                    <li><a href="#">Reforma e Restauro</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contato</h4>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-location-dot"></i> Av. das Indústrias, 500<br>São Paulo, SP</li>
+                    <li><i class="fa-solid fa-phone"></i> (11) 3344-5566</li>
+                    <li><i class="fa-solid fa-envelope"></i> contato@magnaconst.com.br</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Magna Construções. Todos os direitos reservados. | Desenvolvido por <strong>Click Fácil</strong></p>
+        </div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        const tl = gsap.timeline();
+        tl.from(".reveal", { y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: "power3.out" });
+
+        // Services Stagger
+        gsap.from(".service-card", {
+            scrollTrigger: { trigger: "#services", start: "top 80%" },
+            y: 50, opacity: 0, duration: 0.8, stagger: 0.2
+        });
+
+        // About Section (Slide In)
+        gsap.from(".about-text", {
+            scrollTrigger: { trigger: "#about", start: "top 75%" },
+            x: -50, opacity: 0, duration: 1
+        });
+        gsap.from(".about-image", {
+            scrollTrigger: { trigger: "#about", start: "top 75%" },
+            x: 50, opacity: 0, duration: 1
+        });
+
+        // Projects Zoom
+        gsap.utils.toArray(".project-item").forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: { trigger: item, start: "top 90%" },
+                scale: 0.9, opacity: 0, duration: 0.6, delay: i * 0.1
+            });
+        });
+
+        // Counters
+        gsap.utils.toArray(".counter").forEach(counter => {
+            gsap.from(counter, {
+                scrollTrigger: { trigger: counter, start: "top 85%" },
+                innerText: 0, duration: 2, snap: { innerText: 1 },
+                onUpdate: function() { this.targets()[0].innerHTML = Math.ceil(this.targets()[0].innerText); }
+            });
+        });
+
+        // Mobile Menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
