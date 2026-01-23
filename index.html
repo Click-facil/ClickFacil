@@ -58,62 +58,92 @@
         </div>
     </header>
     <main>
-        <section id="sobre" class="hero-section fade-in-section">
-            <!-- Vídeo de fundo -->
-            <video playsinline autoplay muted loop class="hero-video-bg" poster="images/frame-inicial.jpg">
-                <source src="images/animacao-logo.webm" type="video/webm">
-            </video>
-            <div class="hero-overlay"></div> <!-- Sobreposição para legibilidade -->
-            <div class="hero-content container">
-                <div class="hero-text"> <!-- Reutilizando a área de texto existente -->
-                    <h1>Click Fácil</h1>
-                    <h2>Sites Profissionais e Landing Pages de Alta Conversão</h2>
-                    <p>Criamos sites rápidos e profissionais, e landing pages focadas em converter visitantes em clientes. Tenha uma presença online que impressiona e gera resultados reais.</p>
-                    <a href="https://wa.me/5591984520696" target="_blank" class="saiba-mais whatsapp-button"><i class="fab fa-whatsapp" style="margin-right: 8px;"></i>Receber uma Consultoria Gratuita</a>
-                </div>
+        <!-- HERO SECTION ATUALIZADA -->
+<section id="sobre" class="hero-section fade-in-section">
+    <video playsinline autoplay muted loop class="hero-video-bg" poster="images/frame-inicial.jpg">
+        <source src="images/animacao-logo.webm" type="video/webm">
+    </video>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content container">
+        <div class="hero-text-centered"> <!-- Mudei a classe para centralizar e alargar -->
+            
+            <span class="hero-tag">Desenvolvimento Web de Alta Performance</span>
+            
+            <h1>Transforme Cliques em <br><span class="text-gradient">Clientes Reais</span></h1>
+            
+            <p class="hero-subtext">
+                Não basta ter um site. Você precisa de uma máquina de vendas. 
+                Criamos experiências digitais que posicionam sua marca como líder de mercado.
+            </p>
+            
+            <div class="hero-buttons-centered">
+                <a href="https://wa.me/5591984520696" target="_blank" class="saiba-mais whatsapp-button">
+                    <i class="fab fa-whatsapp"></i> Começar Projeto
+                </a>
+                <a href="#servicos" class="btn-outline">
+                    Ver Soluções
+                </a>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
-        <section id="servicos" class="services-section-animated">
+<!-- SESSÃO DE SERVIÇOS COM TÍTULO -->
+<section id="servicos" class="services-section-animated">
     <div class="bento-container-wide">
         
-        <div class="bento-grid">
-            
-            <a href="catalagodeservicos.html" class="bento-card large-v bento-card-animated">
-                <i class="fas fa-laptop-code"></i>
-                <h4>Criação de Sites Profissionais</h4>
-                <p>O cartão de visita digital da sua empresa. Um site responsivo que gera credibilidade, atrai clientes e funciona 24h por dia.</p>
-            </a>
-
-            <a href="catalagodeservicos.html" class="bento-card bento-card-animated">
-                <i class="fas fa-bullseye"></i>
-                <h4>Landing Pages de Alta Conversão</h4>
-                <p>Transforme visitantes em clientes com páginas focadas em um único objetivo.</p>
-            </a>
-
-            <a href="catalagodeservicos.html" class="bento-card bento-card-animated">
-                <i class="fas fa-store"></i>
-                <h4>Configuração Nuvemshop ou Kiwify</h4>
-                <p>Deixamos sua loja virtual 100% pronta para vender, do design ao pagamento.</p>
-            </a>
-
-            <a href="catalagodeservicos.html" class="bento-card bento-card-animated">
-                <i class="fas fa-map-marker-alt"></i>
-                <h4>Google Meu Negócio</h4>
-                <p>Colocamos seu negócio no mapa, na frente dos clientes da sua região.</p>
-            </a>
-
-            <a href="catalagodeservicos.html" class="bento-card bento-card-animated">
-                <i class="fas fa-chart-line"></i>
-                <h4>Estratégias de SEO</h4>
-                <p>Apareça na primeira página do Google e atraia clientes de forma orgânica.</p>
-            </a>
-            
+        <!-- NOVO TÍTULO DA SESSÃO -->
+        <div class="section-header-center">
+            <h2>Nossas Soluções</h2>
+            <p>Estratégias completas para digitalizar o seu negócio.</p>
         </div>
         
-        <a href="catalagodeservicos.html" class="saiba-mais" style="margin-top: 40px; display: inline-flex; align-items: center; gap: 8px;">
-            Ver Todos os Serviços 
-            <i class="fas fa-arrow-right"></i>
+        <div class="bento-grid">
+            <!-- SEUS CARDS MANTIDOS AQUI -->
+            <a href="catalagodeservicos.html" class="bento-card large-v bento-card-animated">
+                <div class="icon-glow"><i class="fas fa-laptop-code"></i></div>
+                <div>
+                    <h4>Criação de Sites Profissionais</h4>
+                    <p>O cartão de visita digital da sua empresa. Um site responsivo que gera credibilidade e funciona 24h por dia.</p>
+                </div>
+            </a>
+
+            <a href="catalagodeservicos.html" class="bento-card bento-card-animated">
+                <div class="icon-glow"><i class="fas fa-bullseye"></i></div>
+                <div>
+                    <h4>Landing Pages</h4>
+                    <p>Páginas de venda focadas em conversão máxima para seus anúncios.</p>
+                </div>
+            </a>
+
+            <a href="catalagodeservicos.html" class="bento-card bento-card-animated">
+                <div class="icon-glow"><i class="fas fa-store"></i></div>
+                <div>
+                    <h4>Lojas Virtuais</h4>
+                    <p>Configuração completa de Nuvemshop ou Kiwify para você vender online.</p>
+                </div>
+            </a>
+
+            <a href="catalagodeservicos.html" class="bento-card bento-card-animated">
+                <div class="icon-glow"><i class="fas fa-map-marker-alt"></i></div>
+                <div>
+                    <h4>Google Meu Negócio</h4>
+                    <p>Colocamos sua empresa no mapa para clientes da sua região.</p>
+                </div>
+            </a>
+
+            <a href="catalagodeservicos.html" class="bento-card bento-card-animated">
+                <div class="icon-glow"><i class="fas fa-chart-line"></i></div>
+                <div>
+                    <h4>Estratégias de SEO</h4>
+                    <p>Otimização para aparecer na primeira página do Google organicamente.</p>
+                </div>
+            </a>
+        </div>
+        
+        <a href="catalagodeservicos.html" class="link-arrow">
+            Ver catálogo completo <i class="fas fa-arrow-right"></i>
         </a>
     </div>
 </section>
@@ -278,6 +308,74 @@
                 <div class="portfolio-card">
                     <img src="images/template10.png" alt="Novo Projeto">
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+       <!-- ============================================= 
+               NOVA SEÇÃO DE PROVA SOCIAL (CLIENTES)
+           ============================================= -->
+           
+<section id="client-logos" class="client-logo-section fade-in-section">
+    <!-- O container não é usado aqui para a esteira ir de ponta a ponta -->
+    <h2 class="section-title">Impulsionando Negócios Reais</h2>
+
+<div class="logo-marquee-container">
+        <div class="marquee-track">
+            <!-- 1ª Cópia dos Logos -->
+            <div class="logo-item">
+                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
+                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
+                    <img src="images/logosuportesmart.png" alt="Logo Suporte Smart Paragominas">
+                </a>
+            </div>
+            <!-- Adicionei placeholders para a esteira parecer mais cheia. Substitua quando tiver mais clientes -->
+            <div class="logo-item">
+                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
+                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
+                    <img src="images/logosuportesmart.png" alt="Logo Suporte Smart Paragominas">
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
+                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
+                </a>
+            </div>
+
+            <!-- 2ª Cópia (Duplicata para o efeito de loop infinito) -->
+            <div class="logo-item">
+                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
+                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
+                    <img src="images/logosuportesmart.png" alt="Logo Suporte Smart Paragominas">
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
+                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
+                    <img src="images/logosuportesmart.png" alt="Logo Suporte Smart Paragominas">
+                </a>
+            </div>
+            <div class="logo-item">
+                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
+                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
+                </a>
             </div>
         </div>
     </div>
@@ -454,75 +552,6 @@
     </div>
 </section>
 
-
-       <!-- ============================================= 
-               NOVA SEÇÃO DE PROVA SOCIAL (CLIENTES)
-           ============================================= -->
-           
-<section id="client-logos" class="client-logo-section fade-in-section">
-    <!-- O container não é usado aqui para a esteira ir de ponta a ponta -->
-    <h2 class="section-title">Impulsionando Negócios Reais</h2>
-
-<div class="logo-marquee-container">
-        <div class="marquee-track">
-            <!-- 1ª Cópia dos Logos -->
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
-                    <img src="images/logosuportesmart.png" alt="Logo Suporte Smart Paragominas">
-                </a>
-            </div>
-            <!-- Adicionei placeholders para a esteira parecer mais cheia. Substitua quando tiver mais clientes -->
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
-                    <img src="images/logosuportesmart.png" alt="Logo Suporte Smart Paragominas">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
-                </a>
-            </div>
-
-            <!-- 2ª Cópia (Duplicata para o efeito de loop infinito) -->
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
-                    <img src="images/logosuportesmart.png" alt="Logo Suporte Smart Paragominas">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
-                    <img src="images/logosuportesmart.png" alt="Logo Suporte Smart Paragominas">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.png" alt="Logo Regia Beauty">
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
       <section id="faq" class="faq-section-blog">
     <div class="faq-blog-container">
         
@@ -533,52 +562,64 @@
 
         <div class="faq-grid">
             
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <i class="fas fa-clipboard-list"></i>
-                <div class="faq-content">
-                    <h4>Qual é o primeiro passo para começar? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+            <div class="faq-item">
+                <details>
+                    <summary onclick="event.preventDefault(); toggleFaq(this.parentElement)">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h4>Qual é o primeiro passo para começar? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+                    </summary>
                     <p class="faq-answer">Tudo começa com uma conversa! Você clica no botão de "Consultoria Gratuita", me conta sua ideia pelo WhatsApp e, a partir daí, eu entendo suas metas para definir o melhor plano de ação para o seu projeto.</p>
-                </div>
+                </details>
             </div>
 
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <i class="fas fa-palette"></i>
-                <div class="faq-content">
-                    <h4>E se eu não gostar do design? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+            <div class="faq-item">
+                <details>
+                    <summary onclick="event.preventDefault(); toggleFaq(this.parentElement)">
+                        <i class="fas fa-palette"></i>
+                        <h4>E se eu não gostar do design? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+                    </summary>
                     <p class="faq-answer">Nossa prioridade é sua satisfação. O processo de design é colaborativo. Faremos os ajustes necessários com base no seu feedback até que o resultado final esteja perfeito para você e alinhado com a identidade da sua marca.</p>
-                </div>
+                </details>
             </div>
 
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <i class="fas fa-clock"></i>
-                <div class="faq-content">
-                    <h4>Em quanto tempo meu site fica pronto? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+            <div class="faq-item">
+                <details>
+                    <summary onclick="event.preventDefault(); toggleFaq(this.parentElement)">
+                        <i class="fas fa-clock"></i>
+                        <h4>Em quanto tempo meu site fica pronto? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+                    </summary>
                     <p class="faq-answer">O tempo varia com a complexidade. Uma Landing Page simples pode levar de 3 a 5 dias. Um site institucional completo, cerca de 10 a 15 dias. O prazo exato é sempre combinado com você antes de iniciarmos.</p>
-                </div>
+                </details>
             </div>
 
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <i class="fas fa-credit-card"></i>
-                <div class="faq-content">
-                    <h4>Como funciona o pagamento? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+            <div class="faq-item">
+                <details>
+                    <summary onclick="event.preventDefault(); toggleFaq(this.parentElement)">
+                        <i class="fas fa-credit-card"></i>
+                        <h4>Como funciona o pagamento? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+                    </summary>
                     <p class="faq-answer">Para projetos de desenvolvimento (sites, landing pages), trabalhamos com um sinal de 50% para iniciar o projeto e os 50% restantes na entrega final, quando você aprovar tudo. O pagamento pode ser feito via PIX.</p>
-                </div>
+                </details>
             </div>
 
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <i class="fas fa-code"></i>
-                <div class="faq-content">
-                    <h4>Como vocês criam os sites? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+            <div class="faq-item">
+                <details>
+                    <summary onclick="event.preventDefault(); toggleFaq(this.parentElement)">
+                        <i class="fas fa-code"></i>
+                        <h4>Como vocês criam os sites? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+                    </summary>
                     <p class="faq-answer">Desenvolvemos com HTML5, CSS3 e JavaScript puro - tecnologias nativas da web que garantem sites rápidos, seguros e compatíveis com todos os navegadores. Não usamos WordPress ou construtores pesados. Cada linha de código é otimizada para performance máxima.</p>
-                </div>
+                </details>
             </div>
 
-            <div class="faq-item" onclick="toggleFaq(this)">
-                <i class="fas fa-search-dollar"></i>
-                <div class="faq-content">
-                    <h4>O que é SEO e por que eu preciso disso? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+            <div class="faq-item">
+                <details>
+                    <summary onclick="event.preventDefault(); toggleFaq(this.parentElement)">
+                        <i class="fas fa-search-dollar"></i>
+                        <h4>O que é SEO e por que eu preciso disso? <i class="fas fa-chevron-down faq-arrow"></i></h4>
+                    </summary>
                     <p class="faq-answer">SEO (Otimização para Mecanismos de Busca) é o conjunto de técnicas que faz seu site aparecer no Google "de graça". Nós já criamos seu site com o SEO básico para garantir que o Google consiga te encontrar e indexar.</p>
-                </div>
+                </details>
             </div>
 
         </div>
@@ -670,27 +711,12 @@
         <!-- 1. Título (O Gancho) -->
         <h2 class="contact-animate-title">Vamos tirar sua ideia do papel?</h2>
         
-        <!-- 2. Subtítulo (A Oferta) -->
-        <p class="contact-animate-subtitle">
-            Me conte o que você precisa. A consultoria inicial
-            para analisar seu projeto é por minha conta.
-        </p>
         
-        <!-- 3. Botões de Ação -->
+        <!-- 3. Botão de Ação Principal -->
         <div class="contact-buttons-container">
-            <!-- Botão Principal (WhatsApp) -->
-            <a href="https://wa.me/5591984520696" target="_blank" class="contact-button primary contact-animate-button">
+            <a href="https://wa.me/5591984520696" target="_blank" class="contact-button-big contact-animate-button">
                 <i class="fab fa-whatsapp"></i>
-                Conversar no WhatsApp
-            </a>
-            <!-- Botões Secundários -->
-            <a href="mailto:solucoesdigitais.clickfacil@gmail.com" class="contact-button secondary contact-animate-button">
-                <i class="fas fa-envelope"></i>
-                Enviar um E-mail
-            </a>
-            <a href="tel:91984520696" class="contact-button secondary contact-animate-button">
-                <i class="fas fa-phone-alt"></i>
-                Ligar Agora
+                Quero elevar o meu negócio na internet
             </a>
         </div>
         

@@ -3,21 +3,26 @@
 
 
 :root {
-    --bg-dark-navy: #0A192F;  /* base */
-    --bg-light-navy: #ffffff; /* cards e elementos */
-    --text-lightest: #ffffff;  /* textos principais */
-    --text-light: #ffffff; /* textos secundários */
-    --text-dark: #777777; /* detalhes */
-    --accent-cyan: #29abe2; /* acentos */
-    --accent-orange: #29abe2; /*acentos secundários */
-    --sombra-dark: 0 10px 30px -15px rgba(2,12,27,0.7);
+    /* Fundo muito mais profundo (Quase preto com tom azulado) */
+    --bg-dark-navy: #020617; 
+    
+    /* Fundo secundário para seções alternadas */
+    --bg-darker: #000000;
+    
+    /* Cor de Texto */
+    --text-lightest: #ffffff;
+    --text-light: #94a3b8; /* Cinza azulado para texto secundário (menos cansativo) */
+    
+    /* O "Neon" - Ciano Elétrico */
+    --accent-cyan: #00f0ff; 
+    
+    /* Gradientes e Vidros */
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glow-shadow: 0 0 40px rgba(0, 240, 255, 0.15);
+    
     --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
     --font-display: 'Poppins', var(--font-sans);
-}
-
-/* Aplica a nova fonte de display a todos os títulos */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
 }
 
 body {
@@ -47,8 +52,9 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 100px;
-    background-color: var(--bg-dark-navy);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8) 0%, transparent 100%);
+    background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8) 0%, transparent 100%) !important;
+    backdrop-filter: blur(8px);
     position: fixed;
     top: 0;
     left: 0; /* Garante que começa na borda esquerda */
@@ -59,6 +65,7 @@ body {
     transition: height 0.3s, background-color 0.3s, box-shadow 0.3s;
     box-sizing: border-box;
     overflow-x: visible;
+    border-bottom: none !important;
 
     /* 👇 CONTROLE O ESPAÇAMENTO SOMENTE AQUI 👇 */
     padding-left: 2.5rem;  /* Aumenta o espaçamento esquerdo */
@@ -90,10 +97,10 @@ body {
 .main-nav {
     display: flex;
     flex-wrap: nowrap;
-    gap: 24px;
+    gap: 15px;
     justify-content: flex-end;
     align-items: center;
-    width: 100%;
+    flex: 1;
     box-sizing: border-box;
     overflow-x: auto;
     padding-right: 16px;
@@ -117,14 +124,11 @@ body {
     background-color: rgba(41, 171, 226, 0.1); /* Adicionando um leve hover */
     border-radius: 4px;
 }
+/* Encontre .main-nav a.cta e REMOVA a margem esquerda */
 .main-nav a.cta {
-    margin-left: 20px; /* Revertendo a margem para o estilo original do botão */
-    padding: 10px 20px;
-    font-size: 0.9rem;
-    border: 1px solid var(--accent-cyan); /* Garantindo que a borda do botão esteja presente */
-    border-radius: 8px; /* Aumentando o border-radius para o botão */
-    font-weight: 500; /* Adicionando peso de fonte ao botão para consistência */
-    transition: background-color 0.2s, color 0.2s; /* Adicionando transição ao botão */
+    margin-left: 0 !important; /* Remove o afastamento forçado */
+    /* Pequeno ajuste de padding para o botão ficar mais harmônico */
+    padding: 8px 16px; 
 }
 
 /* Estilo do header quando a página é rolada */
@@ -223,9 +227,25 @@ section {
     align-items: center;
     justify-content: center;
     padding-top: 0; /* Remove padding antigo */
-    margin-top: 0; /* Remove margem antiga */
+    margin-top: -100px; /* Puxa o herosection para baixo do header */
     margin-bottom: 120px;
     overflow: hidden; /* Garante que o vídeo não vaze */
+    background: radial-gradient(circle at top center, rgba(41, 171, 226, 0.05) 0%, transparent 70%);
+    /* Efeito de luz que "vaza" por baixo do header */
+    background: radial-gradient(ellipse 80% 40% at top center, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(0, 240, 255, 0.2) 0%, transparent 80%);
+}
+
+/* Cria o efeito de 'esfumaçado' entre o Hero e os Serviços */
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Altura da transição */
+    background: linear-gradient(to bottom, transparent, var(--bg-dark-navy));
+    z-index: 5;
 }
 
 .hero-video-bg {
@@ -243,37 +263,41 @@ section {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(10, 25, 47, 0.75); /* Sobreposição escura para legibilidade */
+    background: radial-gradient(circle at center, transparent 0%, var(--bg-dark-navy) 100%) !important;
     z-index: -1; /* Fica entre o vídeo e o conteúdo */
 }
 
 /* Garante que o conteúdo fique na frente */
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 6; /* Aumentado para ficar acima do overlay ::after (que tem z-index: 5) */
 }
 
-.section-title {
-    text-align: center; /* Alinhando títulos ao centro */
-    color: var(--text-lightest);
-    /* Usando clamp para uma tipografia mais fluida e responsiva */
-    font-size: clamp(1.8rem, 5vw, 2.2rem);
-    margin-bottom: 40px;
-    font-weight: 700;
-    position: relative;
-    white-space: normal; /* Permite que os títulos quebrem a linha */
+/* Aplica o espaçamento do topo apenas em telas de desktop */
+@media (min-width: 768px) {
+    .hero-content {
+        padding-top: 80px;
+    }
 }
-/* Removendo linha após o título */
-/* .section-title::after { */
-/*    content: ''; */
-/*    display: block; */
-/*    position: relative; */
-/*    top: 0; */
-/*    width: 300px; */
-/*    height: 1px; */
-/*    margin-left: 20px; */
-/*    background-color: var(--bg-light-navy); */
-/* } */
+
+/* Títulos Gerais */
+.section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem); /* Muito maior */
+    font-weight: 800; /* Extra bold */
+    letter-spacing: -1px; /* Letras mais juntas (moderno) */
+    background: linear-gradient(to right, #fff, #94a3b8); /* Gradiente no texto */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 60px;
+}
+
+/* Padronização de Títulos */
+.marquee-title, .blog-main-title {
+    font-size: clamp(2rem, 5vw, 2.8rem) !important;
+    font-weight: 800;
+    text-align: center;
+    color: var(--text-lightest);
+}
 
 .services-section {
     margin-bottom: 80px;
@@ -307,10 +331,6 @@ section {
     align-items: flex-start;
     text-align: left;
     justify-content: flex-start;
-}
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 20px 30px -15px rgba(2,12,27,0.7);
 }
 .service-icon {
     font-size: 2.2rem;
@@ -860,17 +880,26 @@ section {
     color: var(--text-lightest);
     text-align: left;
 }
+/* Hero Texto Específico */
 .hero-text h1 {
-    font-size: clamp(2.8rem, 5vw, 3.8rem);
-    font-weight: 800;
-    margin-bottom: 10px;
+    font-size: clamp(3.5rem, 8vw, 5rem); /* GIGANTE */
+    line-height: 1.1;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 30px rgba(255,255,255,0.1);
 }
+
 .hero-text h2 {
-    font-size: clamp(1.2rem, 3vw, 1.4rem);
     color: var(--accent-cyan);
-    font-weight: 500;
-    margin-bottom: 25px;
-    line-height: 1.5;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px rgba(0, 240, 255, 0.4); /* Glow no subtítulo */
 }
 .hero-text p {
     font-size: 1.1rem;
@@ -1264,66 +1293,79 @@ section {
 
 /* --- Responsividade para Telas Menores (até 767px) --- */
 @media (max-width: 767px) {
+    /* Ajustes na seção Hero para mobile */
+    .hero-section {
+        align-items: flex-start; /* Alinha o conteúdo no topo */
+        padding-top: 90px;       /* Desce o conteúdo para baixo do header (70px) + 20px de margem */
+        height: auto;            /* Altura se ajusta ao conteúdo */
+        min-height: 80vh;        /* Garante uma altura mínima para o vídeo de fundo */
+    }
+    .hero-tag {
+        margin-top: 20px; /* Adiciona um espaço extra acima da tag, descendo-a */
+    }
     .main-header {
-        padding: 0 25px;
+        height: 70px;
+        padding: 0 20px;
+        justify-content: space-between;
     }
     
-
-    /* [REMOVIDO o wrapper aninhado @media — conteúdo abaixo foi mantido] */
+    .logo-img {
+        width: 120px;
+    }
 
     /* Esconde os links do menu desktop no celular */
     .main-nav {
         display: none;
     }
 
-    /* Transforma o menu em um painel lateral QUANDO A CLASSE .open É ADICIONADA */
+    /* MENU MOBILE CENTRALIZADO (Full Screen) */
     .main-nav.open {
-        /* Estilo visual do painel */
-        display: flex; /* Torna o menu visível */
+        display: flex;
         position: fixed;
         top: 0;
-        right: 0;
-        width: 300px;
-        max-width: 80vw;
+        left: 0;
+        width: 100%;
         height: 100vh;
-        background-color: rgba(10, 25, 47, 0.9);
+        background-color: rgba(2, 6, 23, 0.98);
         backdrop-filter: blur(10px);
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
         z-index: 1000;
-
-        /* Alinhamento dos links dentro do painel */
+        
+        /* Centralização total */
         flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        padding: 120px 30px;
-        gap: 15px;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+        overflow-y: auto; /* Permite rolagem se os itens do menu não couberem na tela */
     }
 
-    /* Estilo dos links dentro do painel mobile */
+    /* Links do menu mobile */
     .main-nav.open a {
         color: var(--text-lightest);
-        font-size: 1.2rem;
-        font-weight: 600;
-        padding: 10px 15px;
-        width: 100%;
-        text-align: left;
-        border-radius: 6px;
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-align: center;
+        width: auto;
+        padding: 10px;
     }
     
     .main-nav.open a:hover {
-        background-color: rgba(41, 171, 226, 0.2);
         color: var(--accent-cyan);
     }
     
-    /* MOSTRA o ícone do menu no celular */
     .hamburger {
         display: block;
+        z-index: 1001;
     }
 
-    /* --- Outros ajustes responsivos --- */
+    .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
     .container {
-        /* O padding-top agora é controlado pelo <main> */
-        padding: 0 15px;
+        padding: 0 20px;
     }
 
     .about {
@@ -1345,13 +1387,8 @@ section {
         text-align: center;
     }
 
-    /* [fim do conteúdo que estava dentro do @media aninhado] */
-
     .section-title::after {
         display: none;
-    }
-    .hamburger {
-        display: block; /* Show hamburger on mobile */
     }
     .promo-modelos-digitais-banner {
         padding: 40px 20px;
@@ -1641,23 +1678,40 @@ section {
     transition: all 0.3s ease;
 }
 
-.bento-card:hover {
-    /* Efeito de hover "flutuante" */
-    transform: scale(1.03);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 8px 32px 0 rgba(41, 171, 226, 0.28);
+.bento-card, 
+.service-card, 
+.comentario, 
+.google-review-card {
+    /* Efeito de Vidro Profundo */
+    background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+    backdrop-filter: blur(10px); /* O desfoque atrás */
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Borda sutil */
+    border: 1px solid var(--glass-border);
+    border-radius: 16px; /* Mais arredondado */
+    
+    /* Reset de sombras antigas */
+    box-shadow: none;
+    
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animação elástica */
 }
 
-/* Card Grande (Principal) - ocupa 2 linhas de altura */
-.bento-card.large-v {
-    grid-row: span 2;
+/* Hover "Acender" */
+.bento-card:hover,
+.service-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--accent-cyan);
+    background: linear-gradient(145deg, rgba(0, 240, 255, 0.05) 0%, rgba(0,0,0,0) 100%);
+    box-shadow: 0 20px 40px -10px rgba(0, 240, 255, 0.15); /* Sombra colorida (Glow) */
 }
 
 .bento-card i {
     font-size: 2.5rem;
     color: var(--accent-cyan);
-    margin-bottom: 15px;
-    text-align: left;
+    /* Sombra no ícone para parecer neon */
+    filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.5)); 
+    margin-bottom: 20px;
 }
 
 .bento-card h4 {
@@ -1811,6 +1865,7 @@ section {
     padding-top: 100px; /* Aumenta o padding do topo */
     padding-bottom: 100px;
     text-align: center; /* Centraliza o botão 'saiba-mais' */
+    background: radial-gradient(ellipse at top center, rgba(0, 240, 255, 0.15) 0%, transparent 70%), var(--bg-dark-navy) !important;
 }
 
 /* Container mais largo, como pedido */
@@ -1900,47 +1955,6 @@ section {
     left: -195px !important;            /* mova para a esquerda; ajuste p/ -60px, -100px conforme necessário */
     z-index: 2;                        /* mantém acima da imagem da modelo */
     will-change: left;
-  }
-}
-
-/* ===== Header: ajustes de responsividade no mobile ===== */
-@media (max-width: 767px) {
-  .main-header {
-    height: 70px !important;                 /* Header mais compacto no mobile */
-    padding: 0 15px !important;
-    justify-content: space-between !important; /* Garante espaço entre logo e botões */
-    align-items: center;
-  }
-
-  .logo-slider {
-    flex-shrink: 0; /* Impede que o logo encolha */
-  }
-
-  .logo-img {
-    display: block;
-    width: 120px !important;                 /* Logo menor para caber melhor */
-    height: auto;
-    margin: 0;                               /* Garante alinhamento à esquerda */
-  }
-
-  /* Garante que o menu desktop não apareça no mobile */
-  .main-nav {
-    display: none;
-    width: auto !important;
-    padding-right: 0 !important;
-  }
-
-  /* Agrupa os botões de busca e hambúrguer */
-  .search-toggle-btn,
-  .hamburger {
-    display: block !important;
-  }
-
-  /* Container para os botões da direita */
-  .header-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espaço entre busca e hambúrguer */
   }
 }
 
@@ -2249,10 +2263,10 @@ section {
 
 /* ===== Estilos para o Novo Rodapé ===== */
 .main-footer {
-    background-color: #08162a; /* Um tom ligeiramente mais claro que o fundo principal */
+    background: transparent;
     padding: 60px 0 0 0;
-    margin-top: 80px;
-    border-top: 1px solid rgba(41, 171, 226, 0.2);
+    margin-top: 0;
+    border-top: none;
     color: var(--text-light);
 }
 
@@ -2376,16 +2390,26 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     flex-shrink: 0; /* Impede que os botões encolham demais */
 }
 
+.saiba-mais, 
 .whatsapp-button {
-    background-color: #25D366; /* Verde do WhatsApp */
-    color: white;
-    border-color: #25D366;
+    background: var(--accent-cyan);
+    color: #020617; /* Texto escuro no botão claro para contraste máximo */
+    font-weight: 800;
+    border: none;
+    border-radius: 50px; /* Redondo estilo "pill" */
+    padding: 16px 32px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3); /* Glow constante */
+    transition: all 0.3s ease;
 }
 
+.saiba-mais:hover, 
 .whatsapp-button:hover {
-    background-color: #1DA851; /* Verde mais escuro no hover */
-    border-color: #1DA851;
-    box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
+    background: #fff;
+    color: var(--bg-dark-navy);
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.6);
+    transform: translateY(-3px);
 }
 
 @media (max-width: 767px) {
@@ -2472,7 +2496,7 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     padding-left: 0;
     padding-right: 0;
     /* Fundo ligeiramente diferente para criar divisão */
-    background: #08162a;
+    background: #08162a, radial-gradient(circle at center right, rgba(41, 171, 226, 0.05) 0%, transparent 70%);
     padding-top: 100px;
     padding-bottom: 100px;
     overflow: hidden; /* Garante que as animações não causem scroll */
@@ -2509,7 +2533,15 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
 }
 
 .faq-item {
+    /* Estilo de Card Adicionado */
+    background: transparent;
+    border: 2px solid rgba(41, 171, 226, 0.18);
+    border-radius: 12px;
+    padding: 25px;
+    cursor: pointer;
+
     display: flex;
+    flex-direction: row; /* Garante que fiquem lado a lado */
     gap: 20px; /* Espaço entre ícone e texto */
     text-align: left;
     align-items: flex-start; /* Alinha o ícone no topo */
@@ -2517,13 +2549,20 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     /* Animação de entrada (estado inicial) */
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.5s ease-out;
+    transition: all 0.3s ease;
 }
 
 /* Estado visível (ativado pelo JS) */
 .faq-item.is-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Hover no Card */
+.faq-item:hover {
+    background: transparent;
+    border-color: var(--accent-cyan);
+    transform: translateY(-5px);
 }
 
 /* Adiciona um atraso escalonado para cada item */
@@ -2535,26 +2574,43 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
 .faq-item:nth-child(6) { transition-delay: 0.6s; } /* Atraso para o item 6 */
 
 
+.faq-content {
+    flex: 1; /* Faz o texto ocupar todo o espaço restante */
+    width: 100%;
+}
+
+summary {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    cursor: pointer;
+    list-style: none;
+    padding: 0;
+}
+
 .faq-item i {
     font-size: 1.5rem;
     color: var(--accent-cyan);
-    margin-top: 5px; /* Alinha o ícone com a primeira linha do título */
+    margin-top: 2px; /* Ajuste fino para alinhar com o título */
     flex-shrink: 0; /* Impede que o ícone encolha */
 }
 
-.faq-content h4 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--text-lightest);
-    margin-bottom: 10px;
-    line-height: 1.3; /* Impede que o título fique muito alto */
-}
-
-.faq-content p {
+.faq-answer {
     font-size: 0.95rem;
     color: var(--text-light);
     line-height: 1.6;
+    margin-top: 15px;
+}
+
+summary h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-lightest);
     margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
 }
 
 /* Responsividade do FAQ */
@@ -2575,7 +2631,7 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
 
 .review-section-wrapper {
     /* Fundo que preenche a tela, como pedido */
-    background-color: #08162a; /* Mesmo fundo do FAQ */
+    background: #08162a, radial-gradient(circle at center left, rgba(41, 171, 226, 0.05) 0%, transparent 70%);
     padding-top: 100px;
     padding-bottom: 100px;
     overflow: hidden;
@@ -2591,16 +2647,21 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     display: grid;
     grid-template-columns: 1fr 2fr; /* Coluna da esquerda (1/3) e direita (2/3) */
     gap: 60px;
+    align-items: start; /* Alinha os itens no topo */
 }
 
 /* --- Coluna Esquerda: Sumário --- */
+.review-summary {
+    margin-top: -30px; /* Sobe a coluna inteira para alinhar com a direita */
+}
+
 .review-summary .section-title {
     text-align: left; /* Alinha o título à esquerda */
-    margin-bottom: 30px;
+    margin-bottom: 15px; /* Reduzido para subir */
 }
 
 .rating-overall {
-    margin-bottom: 30px;
+    margin-bottom: 15px; /* Reduzido para subir */
 }
 
 .rating-overall .rating-number {
@@ -2629,7 +2690,7 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-bottom: 30px;
+    margin-bottom: 15px; /* Reduzido para subir */
 }
 
 .rating-bar-row {
@@ -2682,6 +2743,8 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     max-height: 500px; /* Cria o efeito de scroll */
     overflow-y: auto;
     padding-right: 20px; /* Espaço para a barra de scroll */
+    padding-top: 0; /* Alinha no topo */
+    margin-top: 0; /* Garante alinhamento */
 }
 
 /* Esconde a barra de scroll padrão (Webkit) */
@@ -2842,7 +2905,7 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     /* SEM CONTAINER: Preenche a largura total */
     width: 100%;
     padding: 120px 25px; /* Espaçamento interno amplo */
-    background: linear-gradient(180deg, #08162a 0%, var(--bg-dark-navy) 100%); /* Gradiente para destacar */
+    background: #08162a;
     text-align: center;
     overflow: hidden; /* Para as animações */
 }
@@ -2873,8 +2936,40 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap; /* Permite quebrar linha no mobile */
+}
+
+.contact-button-big {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, #0080ff 100%);
+    color: #ffffff;
+    border: 2px solid var(--accent-cyan);
+    box-shadow: 0 8px 25px rgba(41, 171, 226, 0.4);
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.contact-button-big i {
+    margin-right: 15px;
+    font-size: 1.5rem;
+}
+
+.contact-button-big:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(41, 171, 226, 0.6);
+    background: linear-gradient(135deg, #00f0ff 0%, var(--accent-cyan) 100%);
 }
 
 /* Estilo Base do Botão de Contato */
@@ -2889,6 +2984,7 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     font-weight: 600;
     transition: all 0.3s ease;
     border: 2px solid transparent;
+    flex: 0 0 auto; /* Impede que os botões encolham */
 }
 
 .contact-button i {
@@ -3146,7 +3242,7 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
 
 .blog-section {
     padding: 80px 0;
-    background-color: #08162a; /* Fundo escuro para combinar com o site */
+    background: #08162a, radial-gradient(circle at bottom left, rgba(41, 171, 226, 0.05) 0%, transparent 70%);
 }
 
 .section-header {
@@ -3353,55 +3449,13 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     color: var(--text-lightest);
 }
 
-/* =============================================
-   FAQ EXPANDIR/RECOLHER FUNCIONALIDADE
-   ============================================= */
-
-.faq-item {
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-    transform: translateY(-2px);
-}
-
-.faq-content h4 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    user-select: none;
-}
-
-.faq-arrow {
-    font-size: 0.9rem;
-    color: var(--accent-cyan);
-    transition: transform 0.3s ease;
-    margin-left: 10px;
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    margin-top: 10px;
-}
-
-.faq-item.expanded .faq-answer {
-    max-height: 200px; /* Ajuste conforme necessário */
-}
-
-.faq-item.expanded .faq-arrow {
-    transform: rotate(180deg);
-}
 
 /* =============================================
    SESSÃO PORTFÓLIO (MARQUEE VERTICAL)
    ============================================= */
 
 .portfolio-section {
-    background: var(--bg-dark-navy);
+    background: var(--bg-dark-navy), radial-gradient(circle at bottom center, rgba(41, 171, 226, 0.05) 0%, transparent 70%);
     padding: 100px 0;
     overflow: hidden;
 }
@@ -3525,4 +3579,441 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     .scroll-down {
         display: none;
     }
+}
+
+
+/* --- 1. MELHORIA NO HERO TEXT (Mais largo e impactante) --- */
+.hero-text-centered {
+    text-align: center;
+    max-width: 900px; /* Aumentei de 600px para 900px para o texto respirar */
+    margin: 0 auto;
+}
+
+.hero-tag {
+    display: inline-block;
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--accent-cyan);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.hero-text-centered h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Fonte responsiva grande */
+    line-height: 1.1;
+    margin-bottom: 25px;
+    color: #fff;
+    font-weight: 800;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #00f0ff, #007cf0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text-centered p {
+    font-size: 1.2rem;
+    color: #cbd5e1; /* Cinza claro elegante */
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 700px; /* Parágrafo um pouco mais estreito que o título para leitura */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons-centered {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Aproxima os botões */
+    flex-wrap: wrap;
+    margin-top: 30px; /* Aproxima do texto */
+}
+
+/* Botão Transparente (Outline) */
+.btn-outline {
+    padding: 16px 32px;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.btn-outline:hover {
+    border-color: #fff;
+    background: rgba(255,255,255,0.1);
+}
+
+/* --- 2. TÍTULO DA SESSÃO DE SERVIÇOS --- */
+.section-header-center {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header-center h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.section-header-center p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+/* --- 3. MELHORIA NO BENTO GRID (Efeito Glass) --- */
+.bento-card {
+    /* Fundo Escuro Glass */
+    background: rgba(10, 25, 47, 0.7); 
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.bento-card:hover {
+    border-color: var(--accent-cyan);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px -10px rgba(0, 240, 255, 0.15);
+}
+
+.icon-glow {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 240, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.bento-card i {
+    font-size: 1.8rem;
+    color: var(--accent-cyan);
+    margin: 0; /* Remove margem antiga */
+}
+
+/* Link seta final */
+.link-arrow {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: gap 0.3s;
+}
+.link-arrow:hover {
+    text-decoration: underline;
+}
+
+/* === CORREÇÃO GERAL DE TÍTULOS === */
+
+/* 1. Título "Impulsionando Negócios Reais" (Centralizar) */
+#client-logos .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: clamp(2rem, 4vw, 2.5rem); /* Tamanho equilibrado */
+}
+
+/* 2. Aumentar "Nossos Projetos" e "Feedback Real" (Estavam pequenos) */
+.blog-main-title, 
+.marquee-title,
+.section-header-center h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem) !important; /* Força o tamanho grande */
+    font-weight: 800;
+    color: var(--text-lightest);
+    text-align: center;
+}
+
+/* 3. Diminuir "O que dizem nossos clientes" (Estava exagerado) */
+.review-summary .section-title {
+    font-size: 2rem; /* Reduzido de tamanhos maiores */
+    line-height: 1.2;
+}
+
+/* 4. Diminuir "Perguntas Frequentes" (Não é CTA) */
+.faq-header .section-title {
+    font-size: 2rem; /* Tamanho mais sóbrio */
+}
+
+
+/* Container dos botões final */
+.contact-buttons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Grid responsivo */
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    margin: 50px auto 0;
+}
+
+/* Estilo Card para os botões */
+.contact-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 25px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    
+    /* Estilo Unificado (Baseado no WhatsApp/Primary) */
+    background: var(--accent-cyan);
+    color: #020617;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
+    position: relative;
+    overflow: hidden;
+    
+    /* Tipografia */
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    min-width: auto;
+    height: 100%;
+}
+
+/* Ícone */
+.contact-button i {
+    font-size: 3rem;
+    margin-right: 0;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.contact-button:hover {
+    transform: translateY(-10px);
+    background: #ffffff;
+    color: var(--bg-dark-navy);
+    box-shadow: 0 20px 50px rgba(0, 240, 255, 0.4);
+}
+
+.contact-button:hover i {
+    transform: scale(1.2);
+    color: var(--bg-dark-navy);
+}
+
+
+/* --- MELHORIA DE IMERSÃO GERAL --- */
+:root {
+    --glow-cyan: 0 0 20px rgba(0, 240, 255, 0.3);
+    --glass-effect: saturate(180%) blur(12px);
+}
+
+/* Ajuste fino no Header para não "vazar" conteúdo */
+.main-header {
+    background: radial-gradient(ellipse at bottom center, rgba(0, 240, 255, 0.1) 0%, transparent 80%),
+                rgba(2, 6, 23, 0.8);
+    backdrop-filter: var(--glass-effect);
+    -webkit-backdrop-filter: var(--glass-effect);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Efeito de Vidro nos Cards Bento e de Review */
+.bento-card, .review-item, .faq-item {
+    background: rgba(255, 255, 255, 0.02) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.bento-card:hover {
+    background: rgba(0, 240, 255, 0.05) !important;
+    border-color: var(--accent-cyan) !important;
+    box-shadow: var(--glow-shadow) !important;
+    transform: translateY(-8px) scale(1.01);
+}
+
+/* Tipografia de Impacto no Hero */
+.hero-text-centered h1 {
+    font-family: var(--font-display);
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    letter-spacing: -3px !important;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #00f0ff 0%, #7000ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(0, 240, 255, 0.3));
+}
+
+/* Melhoria no Layout de Avaliações (Review Section) */
+.review-list {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-cyan) transparent;
+}
+
+.review-author h4 {
+    color: var(--text-lightest) !important;
+    font-family: var(--font-display);
+}
+
+/* Ajuste de Vídeo Hero para Imersão Total */
+.hero-video-bg {
+    filter: brightness(0.6) contrast(1.1); /* Deixa o vídeo mais dramático */
+}
+
+/* Estilo dos botões de contato estilo "Big Cards" */
+.contact-button {
+    border: 1px solid rgba(0, 240, 255, 0.2) !important;
+    background: rgba(2, 6, 23, 0.6) !important;
+    backdrop-filter: blur(10px);
+    color: var(--text-lightest) !important;
+}
+
+.contact-button:hover {
+    background: var(--accent-cyan) !important;
+    color: var(--bg-dark-navy) !important;
+}
+
+.contact-button:hover i {
+    color: var(--bg-dark-navy) !important;
+}
+
+/* =========================================
+   MELHORIA 1: BOTÕES HERO PREMIUM
+========================================= */
+
+/* Ajuste do container para garantir espaçamento correto no desktop */
+.hero-buttons-centered {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Mais espaço entre eles */
+    margin-top: 40px;
+}
+
+/* Remove margem automática que causa desalinhamento no flexbox */
+.hero-buttons-centered .saiba-mais {
+    margin: 0;
+}
+
+/* Botão Principal (WhatsApp) - O "Chamativo" */
+.whatsapp-button.saiba-mais {
+    /* Gradiente Ciano para Azul Elétrico */
+    background: linear-gradient(135deg, #00f0ff 0%, #0080ff 100%);
+    border: none;
+    font-weight: 900; /* Extra bold */
+    letter-spacing: 1.5px;
+    padding: 18px 38px; /* Um pouco maiores */
+    /* Glow inicial mais forte e colorido */
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Efeito de brilho passando ao fazer hover (Opcional, mas fica top) */
+.whatsapp-button.saiba-mais::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.whatsapp-button.saiba-mais:hover::before {
+    left: 100%;
+}
+
+.whatsapp-button.saiba-mais:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 50px rgba(0, 240, 255, 0.6);
+    /* Fundo branco no hover para contraste máximo */
+    background: #ffffff;
+    color: #020617;
+}
+
+/* Botão Secundário (Outline) - Mais visível */
+.btn-outline {
+    padding: 18px 38px;
+    border: 2px solid rgba(255, 255, 255, 0.6); /* Borda mais grossa e clara */
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Responsividade: Garante que empilhem no celular */
+@media (max-width: 767px) {
+    .hero-buttons-centered {
+        flex-direction: column; /* Empilha os botões verticalmente */
+        align-items: center; /* Centraliza os botões */
+        gap: 15px;
+        width: 100%;
+    }
+    .hero-buttons-centered .whatsapp-button.saiba-mais, 
+    .hero-buttons-centered .btn-outline {
+        width: 100%; /* Ocupam a largura do container */
+        max-width: 320px; /* Mas não ficam excessivamente largos */
+        padding: 16px 25px; /* Retorna ao padding mais confortável */
+        font-size: 1rem; /* Retorna ao tamanho de fonte padrão */
+    }
+    
+    .hero-buttons-centered i {
+        margin-right: 10px;
+    }
+}
+
+/* =========================================
+   MELHORIA 2: PADRONIZAÇÃO DE TÍTULOS
+========================================= */
+
+/* Força todos os títulos principais a terem o mesmo estilo visual */
+.section-title,
+.section-header-center h2,
+.marquee-title,
+.blog-main-title,
+.contact-final-content h2 {
+    /* Usando clamp para responsividade fluida, mas com um teto máximo menor que antes */
+    font-size: clamp(2.2rem, 4vw, 3rem) !important;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 20px;
+    /* Garante que a cor seja branca/clara */
+    color: var(--text-lightest);
+    /* Remove transformações de texto que possam estar diferentes */
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+/* Luz central na seção de Serviços */
+.services-section-animated {
+    background: radial-gradient(ellipse at top center, rgba(0, 240, 255, 0.12) 0%, transparent 60%),
+                var(--bg-dark-navy);
+}
+
+/* Luz lateral nas Avaliações e FAQ para guiar o scroll */
+.review-section-wrapper,
+.faq-section-blog {
+    background: radial-gradient(circle at 100% 50%, rgba(0, 128, 255, 0.08) 0%, transparent 50%),
+                #050d1f; /* Azul marinho levemente mais claro para contraste */
+}
+
+/* Glow superior na seção de Contato Final */
+.contact-section-final {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: linear-gradient(180deg, #050d1f 0%, #000 100%);
 }
