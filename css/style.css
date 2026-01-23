@@ -51,21 +51,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100px;
-    background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8) 0%, transparent 100%);
-    background: linear-gradient(to bottom, rgba(2, 6, 23, 0.8) 0%, transparent 100%) !important;
-    backdrop-filter: blur(8px);
-    position: fixed;
-    top: 0;
-    left: 0; /* Garante que começa na borda esquerda */
-    right: 0; /* Garante que termina na borda direita */
+    height: 80px; /* Altura reduzida */
+    background-color: var(--bg-dark-navy); /* Cor de fundo padrão do site */
+    position: relative; /* Garante que o header role com a página e não seja fixo */
     width: 100%;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: height 0.3s, background-color 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s;
     box-sizing: border-box;
-    overflow-x: visible;
-    border-bottom: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Borda sutil para separar */
 
     /* 👇 CONTROLE O ESPAÇAMENTO SOMENTE AQUI 👇 */
     padding-left: 2.5rem;  /* Aumenta o espaçamento esquerdo */
@@ -131,22 +124,6 @@ body {
     padding: 8px 16px; 
 }
 
-/* Estilo do header quando a página é rolada */
-.main-header.scrolled {
-    height: 70px;
-    background-color: var(--bg-dark-navy); /* <-- COR DO CABEÇALHO ROLADO ALTERADA AQUI (um tom de azul similar) */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.main-header.scrolled .logo-img {
-    width: 120px; /* Logo menor no header "encolhido" */
-}
-
-.main-header.scrolled .logo-video {
-    width: 120px; /* Vídeo menor no header "encolhido" */
-}
-
-
 /* Hamburger button styles */
 .hamburger {
     display: none; /* Hidden by default on desktop */
@@ -176,7 +153,7 @@ body {
 }
 
 main {
-    padding-top: 100px; /* Espaço para compensar o header fixo */
+    /* padding-top não é mais necessário pois o header não é fixo */
 }
 
 .container {
@@ -188,8 +165,6 @@ main {
 
 section {
     margin-bottom: 100px;
-    padding-top: 80px; /* Espaço para o ID da âncora não ficar sob o header */
-    margin-top: -80px; /* Compensa o padding-top para a rolagem suave */
 }
 .about-section {
     margin-bottom: 80px;
@@ -227,7 +202,7 @@ section {
     align-items: center;
     justify-content: center;
     padding-top: 0; /* Remove padding antigo */
-    margin-top: -100px; /* Puxa o herosection para baixo do header */
+    /* margin-top não é mais necessário */
     margin-bottom: 120px;
     overflow: hidden; /* Garante que o vídeo não vaze */
     background: radial-gradient(circle at top center, rgba(41, 171, 226, 0.05) 0%, transparent 70%);
@@ -1320,33 +1295,35 @@ section {
 
     /* MENU MOBILE CENTRALIZADO (Full Screen) */
     .main-nav.open {
+        /* Estilo de painel lateral */
         display: flex;
         position: fixed;
         top: 0;
-        left: 0;
-        width: 100%;
+        right: 0; /* Abre no canto direito */
+        width: min(80vw, 300px); /* Largura do painel */
         height: 100vh;
-        background-color: rgba(2, 6, 23, 0.98);
+        background-color: rgba(2, 6, 23, 0.9); /* Fundo escuro com transparência */
         backdrop-filter: blur(10px);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
         z-index: 1000;
         
-        /* Centralização total */
+        /* Alinhamento dos itens */
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 30px;
-        padding: 20px;
-        overflow-y: auto; /* Permite rolagem se os itens do menu não couberem na tela */
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 15px;
+        padding: 100px 30px; /* Espaço no topo e padding lateral */
     }
 
     /* Links do menu mobile */
     .main-nav.open a {
         color: var(--text-lightest);
-        font-size: 1.6rem;
+        font-size: 1.2rem; /* Fonte menor para o painel */
         font-weight: 700;
-        text-align: center;
-        width: auto;
-        padding: 10px;
+        text-align: left;
+        width: 100%; /* Ocupa toda a largura do painel */
+        padding: 10px 15px;
+        border-radius: 6px;
     }
     
     .main-nav.open a:hover {
@@ -3817,13 +3794,6 @@ summary h4 {
 }
 
 /* Ajuste fino no Header para não "vazar" conteúdo */
-.main-header {
-    background: radial-gradient(ellipse at bottom center, rgba(0, 240, 255, 0.1) 0%, transparent 80%),
-                rgba(2, 6, 23, 0.8);
-    backdrop-filter: var(--glass-effect);
-    -webkit-backdrop-filter: var(--glass-effect);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
 
 /* Efeito de Vidro nos Cards Bento e de Review */
 .bento-card, .review-item, .faq-item {

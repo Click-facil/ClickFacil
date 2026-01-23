@@ -67,18 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         }
-        // --- Sticky Header on Scroll ---
-        const header = document.querySelector('.main-header');
-        if (header) {
-            window.addEventListener('scroll', function() {
-                // Adiciona a classe 'scrolled' ao header se a rolagem for maior que 50px
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        }
 
         // --- Botão Voltar ao Topo ---
         const backToTopBtn = document.getElementById('back-to-top-btn');
@@ -109,19 +97,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const targetId = this.getAttribute('href');
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
-                    const headerOffset = 100; // Altura do header fixo
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
+                    // A forma correta de rolar para um elemento quando não há header fixo
+                    targetElement.scrollIntoView({
                         behavior: 'smooth'
                     });
+
                     // Close menu after clicking a link (for mobile)
                     if (mainNav && mainNav.classList.contains('open')) {
-                        mainNav.classList.remove('open');
-                        hamburgerBtn.querySelector('i').classList.remove('fa-times');
-                        hamburgerBtn.querySelector('i').classList.add('fa-bars');
+                        hamburgerBtn.click(); // Simula o clique para fechar e trocar o ícone
                     }
                 }
             });
