@@ -3428,133 +3428,173 @@ summary h4 {
 
 
 /* =============================================
-   SESSÃO PORTFÓLIO (MARQUEE VERTICAL)
+   SESSÃO PORTFÓLIO (GRID PREMIUM)
    ============================================= */
 
 .portfolio-section {
+    /* Mantive o fundo que você já tinha, adicionando um padding maior */
     background: var(--bg-dark-navy), radial-gradient(circle at bottom center, rgba(41, 171, 226, 0.05) 0%, transparent 70%);
-    padding: 100px 0;
-    overflow: hidden;
+    padding: 120px 0;
+    position: relative;
 }
 
-.blog-header-container {
+/* Ajuste dos Títulos para ficarem centralizados e bonitos */
+.section-header-center {
     text-align: center;
     margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
 }
 
-.blog-main-title {
-    font-size: clamp(1.8rem, 5vw, 2.2rem);
+.section-header-center .section-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
     color: var(--text-lightest);
     margin-bottom: 15px;
-    font-weight: 700;
 }
 
-.blog-main-subtitle {
+.section-header-center .section-subtitle {
     font-size: 1.1rem;
     color: var(--text-light);
-    max-width: 600px;
-    margin: 0 auto;
+    line-height: 1.6;
 }
 
-/* Container da Animação */
-.marquee-container {
+/* O GRID (A Mágica acontece aqui) */
+.portfolio-grid {
+    display: grid;
+    /* Desktop: 2 colunas | Mobile: 1 coluna */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+    gap: 40px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+/* O Card do Projeto */
+.project-card {
+    background: rgba(255, 255, 255, 0.02); /* Vidro bem sutil */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borda fina */
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: block;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.project-image-wrapper {
+    position: relative;
+    /* MUDANÇA AQUI: Um gradiente radial que simula uma luz de fundo */
+    background: radial-gradient(circle at center, rgba(41, 171, 226, 0.15) 0%, rgba(2, 6, 23, 0.8) 70%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Separa a imagem do texto */
+    overflow: hidden;
+    aspect-ratio: 16/10; 
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
-    height: 600px;
-    overflow: hidden;
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-    
-    /* Máscara para suavizar o topo e o fundo */
-    mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    padding: 30px; /* Um pouco mais de respiro */
 }
 
-/* Colunas Individuais */
-.marquee-column {
-    flex: 1;
-    min-width: 250px;
-    position: relative;
-}
-
-/* O Conteúdo que se move */
-.marquee-content {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* Animação para CIMA */
-.scroll-up .marquee-content {
-    animation: scrollUp 80s linear infinite;
-}
-
-/* Animação para BAIXO */
-.scroll-down .marquee-content {
-    animation: scrollDown 90s linear infinite;
-}
-
-/* Pausa a animação ao passar o mouse */
-.marquee-container:hover .marquee-content {
-    animation-play-state: paused;
-}
-
-/* KEYFRAMES */
-@keyframes scrollUp {
-    0% { transform: translateY(0); }
-    100% { transform: translateY(-50%); }
-}
-
-@keyframes scrollDown {
-    0% { transform: translateY(-50%); }
-    100% { transform: translateY(0); }
-}
-
-/* Estilo dos Cards */
-.portfolio-card {
-    border-radius: 12px;
-    overflow: hidden;
-    background: #1a2c42;
-    border: 1px solid rgba(41, 171, 226, 0.1);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-}
-
-.portfolio-card img {
+.project-image-wrapper img {
     width: 100%;
     height: auto;
-    display: block;
-    opacity: 0.85;
-    transition: opacity 0.3s ease;
+    object-fit: contain;
+    transition: transform 0.6s ease;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.4)); /* Sombra realista no aparelho */
 }
 
-.portfolio-card:hover img {
+/* Overlay (Vidro Escuro ao passar o mouse) */
+.project-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(2, 6, 23, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.view-btn {
+    padding: 12px 28px;
+    border: 1px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    border-radius: 50px;
+    font-weight: 600;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    background: rgba(0, 240, 255, 0.1);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* Efeitos de Hover no Card */
+.project-card:hover {
+    border-color: var(--accent-cyan);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(0, 240, 255, 0.15); /* Glow Azul */
+}
+
+.project-card:hover .project-image-wrapper img {
+    transform: scale(1.05); /* Zoom suave na imagem */
+}
+
+.project-card:hover .project-overlay {
     opacity: 1;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    .marquee-container {
-        height: 450px;
-    }
-    
-    .mobile-hidden {
-        display: none;
-    }
-    
-    .marquee-column {
-        min-width: 45%;
-    }
+.project-card:hover .view-btn {
+    transform: translateY(0);
+    background: var(--accent-cyan);
+    color: #020617;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
 }
 
-@media (max-width: 480px) {
-    .marquee-column {
-        min-width: 100%;
+/* Informações do Projeto (Abaixo da imagem) */
+.project-info {
+    padding: 25px 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(2, 6, 23, 0.4);
+}
+
+.project-info h3 {
+    color: var(--text-lightest);
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.project-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.project-tags span {
+    font-size: 0.75rem; /* Um pouco menor */
+    color: rgba(255, 255, 255, 0.8); /* Branco suave em vez de azul neon */
+    background: transparent;
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda branca sutil */
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr; /* 1 Coluna no celular */
+        gap: 30px;
     }
-    .scroll-down {
-        display: none;
+    
+    .section-header-center .section-title {
+        font-size: 2rem;
     }
 }
 
