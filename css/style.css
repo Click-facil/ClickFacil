@@ -824,7 +824,7 @@ section {
     margin-bottom: 0;
     padding: 12px 0;
     border-radius: 6px;
-    font-weight: 600;
+    font-weight: 600; /* Peso da fonte */
     font-size: 1rem;
     background-color: var(--accent-cyan);
     color: #fff;
@@ -838,10 +838,10 @@ section {
 
 /* --- Estilos para a Nova Seção de Apresentação (Hero Section) --- */
 .hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
+    display: flex; /* Ativa o flexbox para o layout lado a lado */
+    align-items: center; /* Alinha o texto verticalmente ao centro */
+    justify-content: flex-start; /* Alinha o conteúdo (texto) à esquerda */
+    position: relative; /* Necessário para o z-index */
     gap: 40px;
 }
 
@@ -864,6 +864,7 @@ section {
     background: linear-gradient(180deg, #FFFFFF 0%, #cbd5e1 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: left; /* Garante alinhamento à esquerda */
     text-shadow: 0 0 30px rgba(255,255,255,0.1);
 }
 
@@ -874,6 +875,7 @@ section {
     letter-spacing: 2px;
     font-weight: 600;
     margin-bottom: 30px;
+    text-align: left; /* Garante alinhamento à esquerda */
     text-shadow: 0 0 15px rgba(0, 240, 255, 0.4); /* Glow no subtítulo */
 }
 .hero-text p {
@@ -881,6 +883,7 @@ section {
     line-height: 1.7;
     margin-bottom: 35px;
 }
+
 
 /* 4. Imagem posicionada absoluta (mantida igual) */
 .hero-image {
@@ -892,7 +895,7 @@ section {
     display: none; /* Remove a imagem estática */
 }
 
-.hero-image img {
+.hero-image img { /* Este bloco não é mais usado para o vídeo de fundo */
     width: 100%;
     height: auto;
 }
@@ -953,6 +956,7 @@ section {
     padding: 0;
     gap: 0;
     background: #ffffff; /* <<< GARANTE O FUNDO BRANCO */
+    color: var(--bg-dark-navy); /* Cor do texto padrão para o card branco */
     border: 1px solid #ddd; /* <<< Borda sutil para o card branco */
     align-items: stretch; /* Garante que os filhos ocupem 100% */
 }
@@ -984,7 +988,7 @@ section {
 .servico-card-content h4 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--bg-dark-navy); /* <<< COR CORRIGIDA (Escuro) */
+    color: var(--bg-dark-navy);
     margin-bottom: 10px;
 }
 
@@ -993,7 +997,7 @@ section {
     font-weight: 600;
     color: var(--accent-cyan);
     margin-top: 15px;
-    margin-bottom: 8px;
+    margin-bottom: 8px; /* Ajuste para espaçamento */
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1001,7 +1005,7 @@ section {
 
 .servico-card-content .servico-o-que-e {
     font-size: 0.95rem;
-    color: var(--text-dark); /* <<< COR CORRIGIDA (Cinza Escuro) */
+    color: var(--text-dark);
     margin-bottom: 10px;
 }
 
@@ -1009,7 +1013,7 @@ section {
     font-size: 0.9rem;
     color: var(--text-dark); /* <<< COR CORRIGIDA (Cinza Escuro) */
     font-style: italic;
-    border-left: 3px solid var(--accent-cyan);
+    border-left: 3px solid var(--accent-cyan); /* Borda de destaque */
     padding-left: 10px;
     margin-bottom: 0;
 }
@@ -1023,7 +1027,7 @@ section {
 
 .servico-lista li {
     font-size: 0.9rem;
-    color: var(--bg-dark-navy); /* <<< COR CORRIGIDA (Escuro) */
+    color: var(--bg-dark-navy);
     margin-bottom: 5px;
     display: flex;
     align-items: center;
@@ -1064,6 +1068,7 @@ section {
     .hero-content {
         flex-direction: column-reverse;
         text-align: center;
+        justify-content: center; /* Centraliza o conteúdo verticalmente */
         gap: 30px;
     }
 
@@ -1082,10 +1087,15 @@ section {
     }
 
     .hero-text .saiba-mais {
-        margin: 0 auto;
+        margin: 0 auto; /* Centraliza o botão */
     }
 
     /* Ajuste para o vídeo do cabeçalho não cortar no celular */
+    .hero-video-bg {
+        position: relative; /* Torna o vídeo parte do fluxo do documento */
+        height: 300px; /* Altura menor para mobile */
+        transform: none; /* Remove a transformação de centralização absoluta */
+    }
     .hero-video-bg {
         object-fit: contain; /* Garante que o vídeo inteiro seja visível */
         /* Aumenta o tamanho do vídeo em 50% para preencher mais a tela */
@@ -1231,67 +1241,117 @@ section {
     text-align: center;
 }
 
-/* --- Responsividade da Seção "Diferenciais" --- */
-@media (max-width: 900px) {
-    .features-sticky-wrapper {
-        flex-direction: column;
-        gap: 30px;
+/* --- BLOCO DEFINITIVO PARA MOBILE (767px) --- */
+@media (max-width: 767px) {
+    /* 1. Cabeçalho Limpo e Flutuante */
+    .main-header {
+        position: absolute !important; /* Faz o vídeo subir ao topo real */
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        background: transparent !important;
+        z-index: 1000 !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 0 20px !important;
+        height: 70px !important;
+        border: none !important;
     }
 
-    .features-nav-sticky {
-        display: none; /* Esconde a navegação da esquerda no mobile */
+    /* Esconde botões que quebram o layout (Blog, Busca, Nav padrão) */
+    .main-nav:not(.open), 
+    .blog-link, 
+    .search-toggle-btn {
+        display: none !important;
     }
 
-    /* Mostra o título dentro do card no mobile */
-    .feature-title-mobile {
-        display: block;
+    /* Força o ícone Hambúrguer a aparecer e ser clicável */
+    .hamburger {
+        display: block !important;
+        cursor: pointer !important;
+        z-index: 2100 !important;
+        color: #ffffff !important;
     }
 
-    .features-content-scroll {
-        width: 100%;
-    }
-    
-    .feature-content-item {
-        min-height: auto;
-        padding: 30px 25px;
-        margin-bottom: 20px;
+    /* 2. Menu Lateral (Abre ao clicar no hambúrguer) */
+    .main-nav.open {
+        display: flex !important;
+        position: fixed !important;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100vh;
+        background: rgba(2, 6, 23, 0.98) !important;
+        backdrop-filter: blur(10px);
+        z-index: 2000 !important;
+        flex-direction: column !important;
+        padding: 100px 30px !important;
+        gap: 20px !important;
     }
 
-    .feature-content-item h3 {
-        font-size: 1.3rem;
+    .main-nav.open a {
+        display: block !important;
+        font-size: 1.2rem !important;
+        color: #ffffff !important;
+        text-align: left !important;
     }
 
-    .feature-content-item p {
-        font-size: 1rem;
+    /* 3. Hero Section: Vídeo no Topo e Luz Ascendente */
+    .hero-section {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 !important;
+        margin-top: 0 !important;
+        background: #020617 !important;
+        /* Luz debaixo para cima */
+        background: linear-gradient(0deg, rgba(0, 240, 255, 0.2) 0%, transparent 60%), #020617 !important;
+        height: auto !important;
+        overflow: hidden !important;
+    }
+
+    .hero-video-bg {
+        position: relative !important;
+        width: 100% !important;
+        height: 350px !important; /* Altura compacta no topo */
+        object-fit: cover !important;
+        object-position: center !important; /* Centraliza o conteúdo do vídeo */
+        transform: none !important;
+        left: 0 !important;
+        top: 0 !important;
+        z-index: 1 !important;
+        /* Suaviza a base do vídeo */
+        mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    }
+
+    /* 4. Conteúdo e Botões Simétricos */
+    .hero-content {
+        position: relative !important;
+        z-index: 10 !important;
+        margin-top: -30px !important; /* Integra o texto ao vídeo */
+        padding: 0 20px 40px 20px !important;
+        text-align: center !important;
+    }
+
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    /* Força botões do mesmo tamanho */
+    .hero-buttons .saiba-mais, 
+    .hero-buttons .btn-outline {
+        width: 100% !important;
+        max-width: 280px !important; /* Tamanho idêntico */
+        box-sizing: border-box !important;
+        padding: 16px 0 !important;
+        text-align: center !important;
     }
 }
-
-/* --- Responsividade para Telas Menores (até 767px) --- */
-@media (max-width: 767px) {
-    /* Ajustes na seção Hero para mobile */
-    .hero-section {
-        align-items: flex-start; /* Alinha o conteúdo no topo */
-        padding-top: 90px;       /* Desce o conteúdo para baixo do header (70px) + 20px de margem */
-        height: auto;            /* Altura se ajusta ao conteúdo */
-        min-height: 80vh;        /* Garante uma altura mínima para o vídeo de fundo */
-    }
-    .hero-tag {
-        margin-top: 20px; /* Adiciona um espaço extra acima da tag, descendo-a */
-    }
-    .main-header {
-        height: 70px;
-        padding: 0 20px;
-        justify-content: space-between;
-    }
-    
-    .logo-img {
-        width: 120px;
-    }
-
-    /* Esconde os links do menu desktop no celular */
-    .main-nav {
-        display: none;
-    }
 
     /* MENU MOBILE CENTRALIZADO (Full Screen) */
     .main-nav.open {
@@ -1330,11 +1390,16 @@ section {
         color: var(--accent-cyan);
     }
     
-    .hamburger {
-        display: block;
-        z-index: 1001;
-    }
-
+    /* Procure pela classe .hamburger existente e adicione o display: none */
+.hamburger {
+    display: none; /* Esconde no Desktop por padrão */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    z-index: 1001;
+}
     .header-actions {
         display: flex;
         align-items: center;
@@ -1373,7 +1438,6 @@ section {
     .promo-modelos-digitais-banner h2 {
         font-size: 1.8rem;
     }
-}
 /* ... existing code ... */
 
 
@@ -2590,6 +2654,15 @@ summary h4 {
     flex: 1;
 }
 
+/* Estilo para a seta do FAQ */
+.faq-item .faq-arrow {
+    transition: transform 0.3s ease;
+}
+
+.faq-item details[open] .faq-arrow {
+    transform: rotate(180deg);
+}
+
 /* Responsividade do FAQ */
 @media (max-width: 767px) {
     .faq-grid {
@@ -3602,7 +3675,7 @@ summary h4 {
 /* --- 1. MELHORIA NO HERO TEXT (Mais largo e impactante) --- */
 .hero-text-centered {
     text-align: center;
-    max-width: 900px; /* Aumentei de 600px para 900px para o texto respirar */
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -3621,7 +3694,7 @@ summary h4 {
 }
 
 .hero-text-centered h1 {
-    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Fonte responsiva grande */
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     line-height: 1.1;
     margin-bottom: 25px;
     color: #fff;
@@ -3635,7 +3708,7 @@ summary h4 {
 }
 
 .hero-text-centered p {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Tamanho da fonte */
     color: #cbd5e1; /* Cinza claro elegante */
     line-height: 1.6;
     margin-bottom: 40px;
@@ -3654,7 +3727,7 @@ summary h4 {
 
 /* Botão Transparente (Outline) */
 .btn-outline {
-    padding: 16px 32px;
+    padding: 16px 32px; /* Padding do botão */
     border: 1px solid rgba(255,255,255,0.3);
     color: #fff;
     border-radius: 50px;
@@ -3671,7 +3744,7 @@ summary h4 {
 .section-header-center {
     text-align: center;
     margin-bottom: 60px;
-}
+} /* Este bloco já existe e está correto */
 
 .section-header-center h2 {
     font-size: 2.5rem;
@@ -3684,7 +3757,7 @@ summary h4 {
     color: var(--text-dark);
 }
 
-/* --- 3. MELHORIA NO BENTO GRID (Efeito Glass) --- */
+/* --- MELHORIA NO BENTO GRID (Efeito Glass) --- */
 .bento-card {
     /* Fundo Escuro Glass */
     background: rgba(10, 25, 47, 0.7); 
@@ -3692,7 +3765,7 @@ summary h4 {
     border: 1px solid rgba(255, 255, 255, 0.05);
     padding: 35px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Organiza o conteúdo em coluna */
     justify-content: space-between;
     height: 100%;
 }
@@ -3710,7 +3783,7 @@ summary h4 {
     border-radius: 12px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Centraliza o ícone */
     margin-bottom: 20px;
 }
 
@@ -3729,7 +3802,7 @@ summary h4 {
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: gap 0.3s;
+    transition: gap 0.3s; /* Transição para o gap */
 }
 .link-arrow:hover {
     text-decoration: underline;
@@ -3876,7 +3949,7 @@ summary h4 {
 }
 
 /* Ajuste de Vídeo Hero para Imersão Total */
-.hero-video-bg {
+.hero-video-bg { /* Este bloco já existe e será modificado */
     filter: brightness(0.6) contrast(1.1); /* Deixa o vídeo mais dramático */
 }
 
@@ -3901,7 +3974,7 @@ summary h4 {
    MELHORIA 1: BOTÕES HERO PREMIUM
 ========================================= */
 
-/* Ajuste do container para garantir espaçamento correto no desktop */
+/* Ajuste do container para garantir espaçamento correto no desktop (já existe) */
 .hero-buttons-centered {
     display: flex;
     justify-content: center;
@@ -3910,7 +3983,7 @@ summary h4 {
 }
 
 /* Remove margem automática que causa desalinhamento no flexbox */
-.hero-buttons-centered .saiba-mais {
+.hero-buttons-centered .saiba-mais { /* Já existe */
     margin: 0;
 }
 
@@ -3923,7 +3996,7 @@ summary h4 {
     letter-spacing: 1.5px;
     padding: 18px 38px; /* Um pouco maiores */
     /* Glow inicial mais forte e colorido */
-    box-shadow: 0 0 35px rgba(0, 240, 255, 0.4);
+    box-shadow: 0 0 35px rgba(0, 240, 255, 0.4); /* Sombra para o botão */
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -3953,7 +4026,7 @@ summary h4 {
 }
 
 /* Botão Secundário (Outline) - Mais visível */
-.btn-outline {
+.btn-outline { /* Já existe */
     padding: 18px 38px;
     border: 2px solid rgba(255, 255, 255, 0.6); /* Borda mais grossa e clara */
     font-weight: 700;
@@ -3969,7 +4042,7 @@ summary h4 {
 /* Responsividade: Garante que empilhem no celular */
 @media (max-width: 767px) {
     .hero-buttons-centered {
-        flex-direction: column; /* Empilha os botões verticalmente */
+        flex-direction: column; /* Empilha os botões verticalmente no mobile */
         align-items: center; /* Centraliza os botões */
         gap: 15px;
         width: 100%;
@@ -3981,7 +4054,7 @@ summary h4 {
         padding: 16px 25px; /* Retorna ao padding mais confortável */
         font-size: 1rem; /* Retorna ao tamanho de fonte padrão */
     }
-    
+
     .hero-buttons-centered i {
         margin-right: 10px;
     }
@@ -4015,11 +4088,97 @@ summary h4 {
                 var(--bg-dark-navy);
 }
 
-/* Luz lateral nas Avaliações e FAQ para guiar o scroll */
-.review-section-wrapper,
-.faq-section-blog {
-    background: radial-gradient(circle at 100% 50%, rgba(0, 128, 255, 0.08) 0%, transparent 50%),
-                #050d1f; /* Azul marinho levemente mais claro para contraste */
+/* --- HERO SECTION: SPLIT LAYOUT COM BLEND MODE --- */
+/* Desktop: Texto na Esquerda, Vídeo na Direita */
+@media (min-width: 901px) {
+    .hero-content {
+        /* Ocupa a largura total do container e alinha o texto à esquerda */
+        justify-content: flex-start;
+        max-width: 1200px; /* Controla a largura máxima do conteúdo */
+        margin: 0 auto; /* Centraliza o bloco de conteúdo */
+        padding: 0 20px; /* Padding lateral para telas menores */
+    }
+
+    .hero-text {
+        flex: 0 0 50%; /* Ocupa 50% da largura do hero-content */
+        max-width: 550px; /* Limita a largura do texto para legibilidade */
+        text-align: left;
+        padding-left: 0; /* Remove qualquer padding-left indesejado */
+    }
+
+    .hero-text h1, .hero-text p {
+        text-align: left;
+    }
+
+    .hero-buttons {
+        justify-content: flex-start; /* Alinha os botões à esquerda */
+    }
+
+    .hero-video-bg {
+        /* Posiciona o vídeo de fundo para que ele pareça estar à direita */
+        position: absolute;
+        top: 50%;
+        left: 70%; /* Move o vídeo um pouco mais para a direita */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translate(-50%, -50%) scale(1.2); /* Aumenta o vídeo para preencher e permitir o mask */
+        z-index: -2;
+        will-change: transform;
+    
+        /* O Segredo: Fusão e Máscara */
+        mix-blend-mode: screen; /* Faz o preto do vídeo transparente, fundindo com o fundo */
+        /* Máscara radial que suaviza as bordas, mais forte à esquerda para dar a impressão de "direita" */
+        mask-image: radial-gradient(circle at 80% 50%, black 40%, transparent 100%); /* Ajusta a máscara para a nova posição */
+        -webkit-mask-image: radial-gradient(circle at 80% 50%, black 40%, transparent 100%);
+        opacity: 0.8; /* Ajusta a opacidade para um efeito mais sutil */
+        filter: brightness(1.2) contrast(1.1); /* Melhora a vivacidade do vídeo */
+    }
+}
+
+/* Mobile: Texto embaixo, Vídeo em cima (menor) */
+@media (max-width: 900px) {
+    .hero-content {
+        flex-direction: column-reverse; /* Vídeo em cima, texto embaixo */
+        text-align: center;
+        justify-content: center; /* Centraliza o conteúdo verticalmente */
+        gap: 30px;
+    }
+
+    .hero-text,
+    .hero-text h1,
+    .hero-text h2,
+    .hero-text p {
+        text-align: center;
+    }
+
+    .hero-buttons {
+        justify-content: center; /* Centraliza os botões dentro do container flex */
+        margin: 0 auto; /* Centraliza o container de botões se ele tiver uma largura definida */
+        max-width: 320px; /* Limita a largura para melhor aparência no mobile */
+        width: 100%; /* Garante que ocupe a largura disponível para centralizar */
+    }
+
+    .hero-text .saiba-mais {
+        margin: 0 auto; /* Centraliza o botão individualmente */
+    }
+
+    .hero-video-bg { /* Aplica o posicionamento absoluto para todas as telas mobile/tablet */
+        position: absolute;
+        top: 70px; /* Posiciona abaixo do cabeçalho fixo */
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza horizontalmente */
+        width: 100%;
+        height: 40vh; /* Altura consistente para o vídeo */
+        object-fit: cover;
+        mix-blend-mode: normal; /* Desativa o blend mode no mobile */
+        mask-image: none; /* Remove a máscara no mobile */
+        -webkit-mask-image: none;
+        opacity: 1;
+        filter: none;
+        z-index: -2; /* Garante que fique atrás do conteúdo */
+        max-width: 400px; /* Limita a largura máxima */
+    }
 }
 
 /* Glow superior na seção de Contato Final */
