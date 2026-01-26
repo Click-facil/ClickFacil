@@ -4137,81 +4137,42 @@ summary h4 {
 }
 
 @media (max-width: 900px) {
-    /* 1. Container da Seção */
-    #sobre {
+    /* 1. MUDAR A ORDEM: Texto em cima, Vídeo embaixo */
+    .hero-split-container {
         display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        /* Reduzi o padding do topo para o vídeo colar no menu */
-        padding-top: 80px; 
-        height: auto;
-        min-height: 100vh;
-        background: var(--bg-dark-navy);
+        flex-direction: column; /* Normal, texto primeiro */
+        gap: 30px;
     }
 
-    /* 2. VÍDEO: Fica no TOPO (Order 1) */
-    .hero-video-bg {
-        order: 1 !important; /* Manda ser o PRIMEIRO */
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        
-        width: 100%;
-        /* Altura equilibrada: Nem muito grande para não esconder o texto, nem muito pequeno */
-        height: 280px; 
-        margin-bottom: -30px; /* Truque: Puxa o texto pra cima para conectar visualmente */
-        
-        object-fit: cover;
-        opacity: 1;
-        z-index: 1;
-        
-        /* Máscara suave na base para fundir com o texto */
-        -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-        mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    /* Garante que o texto venha primeiro */
+    .hero-col-text {
+        order: 1;
+        padding-top: 20px; /* Um respiro do topo */
     }
 
-    /* 3. CONTEÚDO: Fica EMBAIXO (Order 2) */
-    .hero-content {
-        order: 2 !important; /* Manda ser o SEGUNDO */
-        position: relative;
-        z-index: 10;
-        padding: 0 20px 40px 20px; /* Padding lateral */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    /* O Vídeo vai para baixo */
+    .hero-col-visual {
+        order: 2;
+        margin-top: 0;
+        margin-bottom: 40px; /* Espaço antes da próxima seção */
     }
 
-    /* Ajuste do Badge (Pílula) */
-    .hero-text span:first-child {
-        margin-top: 20px; /* Afasta um pouco do vídeo */
-        margin-bottom: 15px;
-        font-size: 0.7rem;
-        display: inline-block;
+    /* 2. AJUSTE DO BADGE (Pílula) */
+    .hero-badge {
+        font-size: 0.75rem; /* Texto legível */
+        margin-bottom: 20px;
+        background: rgba(41, 171, 226, 0.15); /* Fundo um pouco mais forte */
+        position: static; /* Remove posições absolutas se houver */
+        transform: none;
     }
 
-    /* Título Grande */
-    .hero-text h1 {
-        font-size: 2.5rem !important; /* Tamanho bom para mobile */
-        line-height: 1.1;
-        text-align: center;
-        margin-bottom: 15px;
-    }
-
-    /* Botões */
-    .hero-buttons {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        margin-top: 20px;
-    }
-    
-    .saiba-mais, .whatsapp-button {
-        width: 100%;
-        max-width: 300px;
-        margin: 0;
+    /* 3. CORREÇÃO DO GRADIENTE (Para não sumir o texto) */
+    .text-gradient {
+        /* Gradiente mais claro e brilhante para fundo escuro */
+        background: linear-gradient(90deg, #00f0ff 0%, #ffffff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 900; /* Garante peso para leitura */
     }
 }
 
