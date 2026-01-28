@@ -248,13 +248,30 @@ section {
     z-index: 6; /* Aumentado para ficar acima do overlay ::after (que tem z-index: 5) */
 }
 
-/* Aplica o espaçamento do topo apenas em telas de desktop */
 @media (min-width: 768px) {
+    /* 1. O container (A caixa que segura tudo) */
     .hero-content {
-        padding-top: 80px;
+        padding-top: 60px !important;    /* Diminui o espaço lá no topo pro texto subir */
+        padding-bottom: 60px !important; /* Dá espaço pro "esfumaçado" não cobrir os botões */
+    }
+
+    /* 2. O Título (Onde a mágica acontece) */
+    .hero-text h1 {
+        /* PENSE ASSIM: Imagine que cada linha de texto é um degrau. 
+           O line-height é a altura desse degrau. 
+           1.0 deixa um degrau colado no outro. */
+        line-height: 1.0 !important; 
+        
+        /* O margin é um 'muro invisível'. 
+           Zerar ele tira o espaço vazio que o navegador coloca sozinho. */
+        margin-top: 0 !important;
+        margin-bottom: 15px !important; 
+        
+        /* Tamanho da letra: se ficar grande demais, ela corta. 
+           3.5rem é um tamanho seguro para desktop. */
+        font-size: 3.5rem !important; 
     }
 }
-
 /* Títulos Gerais */
 .section-title {
     font-size: clamp(2.5rem, 5vw, 3.5rem); /* Muito maior */
@@ -1096,7 +1113,7 @@ section {
         height: 300px; /* Altura menor para mobile */
         transform: none; /* Remove a transformação de centralização absoluta */
     }
-    .hero-video-bg {
+    .hero-video-bg { /* Este bloco já existe e será modificado */
         object-fit: contain; /* Garante que o vídeo inteiro seja visível */
         /* Aumenta o tamanho do vídeo em 50% para preencher mais a tela */
         transform: translate(-50%, -50%) scale(1.5);
@@ -1330,7 +1347,7 @@ section {
         position: relative !important;
         z-index: 10 !important;
         margin-top: -30px !important; /* Integra o texto ao vídeo */
-        padding: 0 20px 40px 20px !important;
+        padding: 100px 20px 40px 20px !important; /* Ajustado para garantir espaço superior */
         text-align: center !important;
     }
 
@@ -4122,7 +4139,7 @@ summary h4 {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transform: translate(-50%, -50%) scale(1.2); /* Aumenta o vídeo para preencher e permitir o mask */
+        transform: translate(-50%, -50%) scale(1.1); /* Diminuído de 1.2 para 1.1 */
         z-index: -2;
         will-change: transform;
     
@@ -4175,4 +4192,3 @@ summary h4 {
         font-weight: 900; /* Garante peso para leitura */
     }
 }
-
