@@ -3516,6 +3516,23 @@ summary h4 {
     color: var(--text-lightest);
 }
 
+/* --- CORREÇÃO: Estilo para o botão CTA no final dos posts do blog --- */
+.contact-section-final .saiba-mais {
+    background: var(--accent-cyan) !important;
+    color: var(--bg-dark-navy) !important; /* Força a cor escura do texto para contraste */
+    font-weight: 700 !important;
+    padding: 12px 28px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    border: none !important;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.contact-section-final .saiba-mais:hover {
+    background-color: #fff !important;
+    transform: translateY(-2px);
+}
+
 
 /* =============================================
    SESSÃO PORTFÓLIO (GRID PREMIUM)
