@@ -1,0 +1,10 @@
+# Arquivos e pastas do Node.js
+node_modules/
+npm-debug.log*
+
+# Pasta de imagens otimizadas (gerada pelo script)
+images_optimized/
+
+# Arquivos de sistema operacional
+.DS_Store
+Thumbs.db

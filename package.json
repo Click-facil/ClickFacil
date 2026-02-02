@@ -1,0 +1,26 @@
+{
+  "name": "siteclickfacil",
+  "version": "1.0.0",
+  "description": "![GitHub language count](https://img.shields.io/github/languages/count/Click-facil/ClickFacil?style=for-the-badge)\r ![GitHub top language](https://img.shields.io/github/languages/top/Click-facil/ClickFacil?style=for-the-badge)\r ![GitHub last commit](https://img.shields.io/github/last-commit/Click-facil/ClickFacil?style=for-the-badge)\r ![License](https://img.shields.io/github/license/Click-facil/ClickFacil?style=for-the-badge)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compress": "node compress-images.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Click-facil/ClickFacil.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Click-facil/ClickFacil/issues"
+  },
+  "homepage": "https://github.com/Click-facil/ClickFacil#readme",
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "glob": "^13.0.0",
+    "sharp": "^0.34.5"
+  }
+}

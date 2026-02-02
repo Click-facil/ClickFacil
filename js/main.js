@@ -116,6 +116,35 @@ document.addEventListener('DOMContentLoaded', function() {
             yearSpan.textContent = new Date().getFullYear();
         }
 
+        // --- Lógica para Cards Clicáveis (Melhora de Acessibilidade e SEO) ---
+        const clickableCards = document.querySelectorAll('.js-clickable-card');
+        if (clickableCards.length > 0) {
+            clickableCards.forEach(card => {
+                const link = card.dataset.href;
+                if (link) {
+                    // Adiciona atributos para acessibilidade
+                    card.setAttribute('role', 'link');
+                    card.setAttribute('tabindex', '0');
+
+                    // Evento de clique
+                    card.addEventListener('click', (e) => {
+                        // Evita que o clique em um link dentro do card navegue duas vezes
+                        if (e.target.tagName !== 'A') {
+                            window.location.href = link;
+                        }
+                    });
+
+                    // Evento de teclado (Enter/Espaço) para acessibilidade
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            window.location.href = link;
+                        }
+                    });
+                }
+            });
+        }
+
         // --- Animação de Fade-in ao Rolar (Versão Unificada) ---
 const elementsToAnimate = document.querySelectorAll(
     '.fade-in-section, .bento-card-animated, .faq-item, .contact-animate-title, .contact-animate-subtitle, .contact-animate-button'
