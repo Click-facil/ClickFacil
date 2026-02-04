@@ -103,12 +103,7 @@ body { background: var(--bg-dark); color: var(--text-white); overflow-x: hidden;
     object-fit: cover; /* Garante que preenche tudo */
     object-position: center; /* Centraliza a imagem */
 }
-.hero-bg .overlay {
-    position: absolute; inset: 0;
-    /* O SEGREDO: Usar RGBA (0.9) em vez de cor sólida. 
-       Assim a imagem aparece bem escura no fundo do texto, mas não fica um buraco preto. */
-    background: linear-gradient(90deg, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.3) 100%);
-}
+
 
 /* Conteúdo do Hero */
 .hero-content { position: relative; z-index: 2; width: 100%; }
@@ -190,17 +185,100 @@ body { background: var(--bg-dark); color: var(--text-white); overflow-x: hidden;
     100% { transform: translateX(-50%); } /* Ajuste se o texto for duplicado apenas uma vez */
 }
 
-/* Ajuste Mobile */
+/* --- MEDIA QUERY HERO MOBILE (COMPLETO) --- */
 @media (max-width: 768px) {
-    .hero { align-items: center; justify-content: center; text-align: center; }
-    .hero-content { padding-top: 40px; }
-    .hero h1 { font-size: 3rem; }
-    .hero-btns { justify-content: center; }
     
-    /* No mobile, o degradê precisa ser vertical para escurecer o fundo do texto */
-    .hero-bg .overlay {
-        background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.9) 60%);
+    /* 1. Ajuste do Container Principal */
+    .hero {
+        align-items: flex-start !important; /* Destrava o conteúdo do centro vertical */
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
     }
+
+    /* 2. Ocultação de Elementos (Badge e Parágrafo) */
+    .badge, 
+    .hero p {
+        display: none !important;
+    }
+
+    /* 3. Posicionamento do Conteúdo (Títulos e Botões) */
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 20px;
+        /* Empurra o texto para a altura do peito/tronco da modelo */
+        margin-top: 35vh !important; 
+        z-index: 5;
+    }
+
+    /* 4. Ajuste da Imagem (Moça para a Direita/Esquerda) */
+    .hero-bg img {
+        /* 73% horizontal mantém a posição que você definiu como ideal */
+        object-position: 73% center !important; 
+        object-fit: cover !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    /* 5. Estilização do Título */
+    .hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    /* 6. Botões (Layout e Efeito Imersivo) */
+    .hero-btns {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        align-items: center;
+    }
+
+    .btn-primary, .btn-outline {
+        width: 100%;
+        max-width: 280px;
+        padding: 16px;
+        font-size: 0.95rem;
+    }
+
+    /* O NOVO BOTÃO IMERSIVO */
+    .btn-primary {
+        position: relative;
+        overflow: hidden;
+        background: var(--primary);
+        border: none;
+        box-shadow: 0 4px 15px rgba(65, 71, 245, 0.4);
+        animation: pulse-blue 2s infinite; /* Efeito de atenção */
+        z-index: 1;
+    }
+
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: 0.6s;
+        z-index: -1;
+    }
+
+    .btn-primary:hover::before {
+        left: 100%;
+    }
+}
+
+/* --- ANIMAÇÃO DO BOTÃO (Pode ficar fora ou dentro do media) --- */
+@keyframes pulse-blue {
+    0% { box-shadow: 0 0 0 0px rgba(65, 71, 245, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(65, 71, 245, 0); }
+    100% { box-shadow: 0 0 0 0px rgba(65, 71, 245, 0); }
 }
 
 
