@@ -80,6 +80,8 @@ body { background: var(--bg-dark); color: var(--text-white); overflow-x: hidden;
 .nav-links a { text-decoration: none; color: var(--text-gray); font-weight: 600; text-transform: uppercase; font-size: 0.9rem; transition: 0.3s; }
 .nav-links a:hover { color: var(--primary); }
 .menu-toggle { display: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+/* Cor do botão "Matricule-se" na navbar */
+.btn-nav { color: var(--text-white); }
 
 /* --- HERO SECTION (Cabeçalho) --- */
 .hero { 
@@ -109,7 +111,7 @@ body { background: var(--bg-dark); color: var(--text-white); overflow-x: hidden;
 .hero-content { position: relative; z-index: 2; width: 100%; }
 
 .badge {
-    background: rgba(65, 71, 245, 0.15); color: var(--primary); 
+    background:rgba(65, 71, 245, 0.15); color: var(--text-white); 
     border: 1px solid var(--primary);
     padding: 6px 14px; border-radius: 4px; display: inline-block; font-weight: 700;
     font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 25px;
@@ -210,7 +212,7 @@ body { background: var(--bg-dark); color: var(--text-white); overflow-x: hidden;
         width: 100%;
         padding: 0 20px;
         /* Empurra o texto para a altura do peito/tronco da modelo */
-        margin-top: 35vh !important; 
+        margin-top: 40vh !important; 
         z-index: 5;
     }
 
