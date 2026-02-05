@@ -19,7 +19,7 @@
             "Configuração de SEO básica",
             "Formulário de contato integrado"
           ],
-          "imagem": "images/img55.png"
+          "imagem": "images/img55.webp"
         },
         {
           "id": "landing-pages",
@@ -37,7 +37,7 @@
             "Integração com WhatsApp ou formulário",
             "Otimização para carregamento rápido"
           ],
-          "imagem": "images/img44.png"
+          "imagem": "images/img44.webp"
         },
         {
           "id": "nuvemshop",
@@ -56,7 +56,7 @@
             "Configuração de Frete (Melhor Envio, Correios)",
             "Treinamento para você gerenciar seus pedidos"
           ],
-          "imagem": "images/img66.png"
+          "imagem": "images/img66.webp"
         }
       ]
     },
@@ -79,7 +79,7 @@
             "Criação de um link direto para avaliações",
             "Instruções para você mesmo gerenciar"
           ],
-          "imagem": "images/img33.png"
+          "imagem": "images/img33.webp"
         },
         {
           "id": "consultoria-seo",
@@ -97,7 +97,7 @@
             "Otimização de Títulos e Descrições (Meta Tags)",
             "Configuração do Google Search Console"
           ],
-          "imagem": "images/img18.png" 
+          "imagem": "images/img18.webp" 
         }
       ]
     }
