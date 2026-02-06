@@ -233,7 +233,7 @@ main.relative {
     }
 
     main h1 {
-        font-size: 13vw !important; /* Gigante responsivo */
+        font-size: 14vw !important; /* Gigante responsivo */
         line-height: 0.85 !important;
         margin-bottom: 15px !important;
     }
