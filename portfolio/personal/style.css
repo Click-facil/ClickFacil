@@ -31,6 +31,7 @@ html, body { width: 100%; position: relative; }
 .reveal { animation: revealUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards; }
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
 
 /* Sobrescreve a classe text-accent do Tailwind para usar nossa variável */
 .text-accent {
@@ -279,18 +280,14 @@ main.relative {
         mask-image: linear-gradient(to bottom, black 70%, transparent 100%) !important;
     }
 
-    /* 6. Área do Botão (CTA) - Flutuante no Rodapé com "Glass" Escuro */
-    /* Isso cria um fundo escuro embaixo para o botão destacar sobre as pernas da foto */
+    /* 6. Área do Botão (CTA) - Ancorado ao final da dobra (Absolute) para rolar com a página */
     main .container > div:first-child > div {
-        position: fixed !important; /* Fixa na tela */
+        position: absolute !important; /* MUDADO DE FIXED PARA ABSOLUTE */
         bottom: 0 !important;
         left: 0 !important;
         width: 100% !important;
-        
-        /* Design do Bloco flutuante */
         background: linear-gradient(to top, rgba(2,6,23, 1) 40%, rgba(2,6,23, 0) 100%) !important;
         padding: 40px 20px 30px 20px !important;
-        
         display: flex !important;
         flex-direction: column !important;
         gap: 15px !important;
@@ -298,20 +295,92 @@ main.relative {
         z-index: 50 !important;
     }
 
-    /* Botão Full Width */
-    .btn-elite { /* Ajustado para manter o estilo desktop, mas menor e em uma linha */
-        width: auto !important; /* Permite que o botão se ajuste ao conteúdo */
-        height: auto !important; /* Altura automática baseada no padding */
-        padding: 14px 30px !important; /* Padding menor para mobile */
-        font-size: 0.9rem !important; /* Fonte menor para mobile */
-        white-space: nowrap !important; /* Garante que o texto fique em uma única linha */
-        box-shadow: 0 0 25px rgba(0, 240, 255, 0.3) !important; /* Glow forte */
+    /* Botão Full Width MANTIDO */
+    .btn-elite { 
+        width: auto !important; 
+        height: auto !important; 
+        padding: 14px 30px !important; 
+        font-size: 0.9rem !important; 
+        white-space: nowrap !important; 
+        box-shadow: 0 0 25px rgba(0, 240, 255, 0.3) !important; 
     }
-    
 
-    /* Prova Social (+7k) ao lado ou embaixo do botão */
+    /* Prova Social (+7k) ao lado ou embaixo do botão MANTIDO */
     .flex.items-center.gap-3 {
         justify-content: center !important;
         margin-bottom: 5px !important;
     }
+}
+
+/* --- SEÇÃO METODOLOGIA --- */
+.step-card {
+    background: rgba(15, 23, 42, 0.5); /* slate-900 com 50% de opacidade */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: left;
+}
+
+.step-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--neon-blue-shadow-light);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.4);
+}
+
+.step-number {
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 7rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.03);
+    z-index: 0;
+    transition: color 0.3s;
+    user-select: none;
+}
+
+.step-card:hover .step-number {
+    color: rgba(0, 240, 255, 0.08);
+}
+
+.step-card h3, .step-card p {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- SEÇÃO RESULTADOS --- */
+.result-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--dark);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.result-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border-color: var(--neon-blue-shadow-light);
+}
+
+.result-image-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transition: transform 0.5s ease;
+}
+
+.result-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+.result-info {
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.5);
 }
