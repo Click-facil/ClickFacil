@@ -1,0 +1,325 @@
+/* --- Cores e Variáveis (Identidade Dente a Dente) --- */
+:root {
+    --brand-wine: #610713;       /* Vinho Profundo (CTA) */
+    --brand-tan: #916852;        /* Bronze/Tan (Detalhes) */
+    --brand-cream: #f5e1c9;      /* Creme (Fundo Editorial) */
+    
+    --text-dark: #1a1a1a;        /* Texto quase preto */
+    --text-muted: #615a55;       /* Texto de apoio */
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+/* --- Reset & Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+body { 
+    background-color: var(--brand-cream); 
+    color: var(--text-dark); 
+    overflow-x: hidden !important;
+    font-family: var(--font-sans);
+    width: 100%;
+}
+
+.container { 
+    max-width: 1240px; 
+    margin: 0 auto; 
+    padding: 0 25px; 
+    width: 100%; 
+}
+
+a { text-decoration: none; }
+
+/* --- Navbar (Menu Superior) --- */
+.navbar {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    padding: 25px 0;
+    z-index: 100;
+    background: rgba(245, 225, 201, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(145, 104, 82, 0.1);
+    transition: all 0.4s ease;
+}
+
+.nav-container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-box {
+    width: 40px;
+    height: 40px;
+    background: var(--brand-wine);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+.logo-text {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--brand-wine);
+    letter-spacing: -0.5px;
+}
+
+.nav-links { display: flex; gap: 40px; }
+
+.nav-links a {
+    color: var(--text-dark);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    opacity: 0.6;
+}
+
+.nav-links a:hover { 
+    color: var(--brand-wine); 
+    opacity: 1; 
+}
+
+.btn-header {
+    padding: 12px 28px;
+    border: 1px solid var(--brand-wine);
+    color: var(--brand-wine);
+    border-radius: 2px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.btn-header:hover {
+    background: var(--brand-wine);
+    color: #fff;
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    background-color: var(--brand-cream);
+    overflow: hidden;
+}
+
+/* Efeito de Iluminação Ambiental (Rim Light) */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10%;
+    transform: translateY(-50%);
+    width: 60vw;
+    height: 80vh;
+    background: radial-gradient(circle, #ffffff 0%, transparent 70%);
+    opacity: 0.7;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative; 
+    z-index: 10;
+    padding-top: 60px;
+}
+
+.hero-badge {
+    display: inline-block;
+    color: var(--brand-tan);
+    font-weight: 800;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 30px;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 400;
+    line-height: 0.82;
+    margin-bottom: 35px;
+    max-width: 850px;
+    letter-spacing: -0.05em; /* Negative Kerning Editorial */
+    color: var(--text-dark);
+}
+
+.highlight {
+    color: var(--brand-wine);
+    font-style: italic;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 50px;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* --- Botões com Efeito de Imersão --- */
+.cta-group { 
+    display: flex; 
+    align-items: center; 
+    gap: 35px; 
+}
+
+.btn-primary {
+    position: relative;
+    background: var(--brand-wine);
+    color: #fff;
+    padding: 22px 50px;
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: 0 15px 35px rgba(97, 7, 19, 0.2);
+    border: none;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Efeito líquido/brilho no hover */
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.6s ease;
+    z-index: -1;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(97, 7, 19, 0.4);
+    filter: brightness(1.15);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-text {
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--brand-tan);
+    padding-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.btn-text:hover { 
+    color: var(--brand-wine); 
+    border-color: var(--brand-wine); 
+}
+
+/* --- Imagem Hero --- */
+.hero-image-container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 95vh;
+    z-index: 5;
+    display: flex;
+    align-items: flex-end;
+}
+
+.hero-image-container img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: contrast(1.05) saturate(1.05);
+    /* Máscara de fusão lateral (Rogelin Touch) */
+    mask-image: linear-gradient(to left, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to left, black 80%, transparent 100%);
+}
+
+/* --- RESPONSIVIDADE CELULAR --- */
+@media (max-width: 1024px) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 130px;
+        padding-bottom: 60px;
+        display: block;
+    }
+
+    .navbar { padding: 15px 0; }
+    .nav-links, .btn-header { display: none; }
+
+    .hero-content {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .hero-title { font-size: 3.2rem; margin: 0 auto 25px; }
+    .hero-description { margin: 0 auto 40px; font-size: 1.1rem; }
+
+    .cta-group {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .btn-primary { width: 100%; text-align: center; }
+
+    .hero-image-container {
+        position: relative;
+        width: 100%;
+        height: 55vh;
+        margin-top: 50px;
+    }
+
+    .hero-image-container img {
+        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    }
+}
+
+/* --- ANIMAÇÕES DE ENTRADA --- */
+@keyframes revealUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge { opacity: 0; animation: revealUp 1s ease-out forwards 0.2s; }
+.hero-title { opacity: 0; animation: revealUp 1s ease-out forwards 0.4s; }
+.hero-description { opacity: 0; animation: revealUp 1s ease-out forwards 0.6s; }
+.cta-group { opacity: 0; animation: revealUp 1s ease-out forwards 0.8s; }

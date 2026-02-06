@@ -4,20 +4,17 @@ const fs = require('fs-extra');
 const path = require('path');
 
 // --- Configurações ---
-const INPUT_DIR = 'images'; // Pasta onde estão suas imagens originais
-const OUTPUT_DIR = 'images_optimized'; // Pasta para salvar as imagens otimizadas
+const INPUT_DIR = 'images_optimized'; // Pasta onde você colocará as imagens originais para otimizar
+const OUTPUT_DIR = 'images'; // Pasta de destino para as imagens otimizadas (onde suas imagens finais já estão)
 const MAX_WIDTH = 1920; // Largura máxima para as imagens (em pixels)
 const QUALITY = 80; // Qualidade da compressão (0 a 100)
 
 async function compressImages() {
     console.log('🚀 Iniciando a otimização de imagens...');
 
-    // Garante que o diretório de saída exista e esteja limpo
-    if (fs.existsSync(OUTPUT_DIR)) {
-        await fs.emptyDir(OUTPUT_DIR);
-    } else {
-        await fs.mkdirp(OUTPUT_DIR);
-    }
+    // Garante que o diretório de saída exista, mas NÃO o limpa.
+    // Os arquivos otimizados serão salvos ao lado dos arquivos existentes.
+    await fs.mkdirp(OUTPUT_DIR);
 
     // Encontra todas as imagens (jpg, jpeg, png, webp) na pasta de entrada
     const files = glob.sync(`${INPUT_DIR}/**/*.{jpg,jpeg,png,webp}`);
@@ -60,9 +57,10 @@ async function compressImages() {
         })
     );
 
-    console.log('\n🎉 Otimização concluída!');
-    console.log(`👉 Suas imagens otimizadas estão em: /${OUTPUT_DIR}`);
-    console.log('👉 Agora, substitua as imagens antigas pelas novas e atualize as extensões para .webp nos seus arquivos HTML, CSS e JS.');
+    console.log('\n🎉 Otimização concluída! As imagens foram processadas e salvas.');
+    console.log(`👉 Imagens originais lidas de: /${INPUT_DIR}`);
+    console.log(`👉 Imagens otimizadas salvas em: /${OUTPUT_DIR}`);
+    console.log('👉 Lembre-se de que as imagens otimizadas (em .webp) foram adicionadas ou sobrescritas na pasta de destino. Verifique se os nomes de arquivo e extensões estão corretos em seus arquivos HTML, CSS e JS.');
 }
 
 compressImages();
