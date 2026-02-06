@@ -299,12 +299,15 @@ main.relative {
     }
 
     /* Botão Full Width */
-    .btn-elite {
-        width: 100% !important;
-        height: 55px !important; /* Botão mais alto para dedo */
-        font-size: 1rem !important;
+    .btn-elite { /* Ajustado para manter o estilo desktop, mas menor e em uma linha */
+        width: auto !important; /* Permite que o botão se ajuste ao conteúdo */
+        height: auto !important; /* Altura automática baseada no padding */
+        padding: 14px 30px !important; /* Padding menor para mobile */
+        font-size: 0.9rem !important; /* Fonte menor para mobile */
+        white-space: nowrap !important; /* Garante que o texto fique em uma única linha */
         box-shadow: 0 0 25px rgba(0, 240, 255, 0.3) !important; /* Glow forte */
     }
+    
 
     /* Prova Social (+7k) ao lado ou embaixo do botão */
     .flex.items-center.gap-3 {
@@ -312,4 +315,3 @@ main.relative {
         margin-bottom: 5px !important;
     }
 }
-
