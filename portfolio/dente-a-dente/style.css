@@ -35,18 +35,17 @@ body {
 
 a { text-decoration: none; }
 
-/* --- Navbar (Menu Superior) --- */
 .navbar {
     position: fixed; 
     top: 0; 
     left: 0; 
     width: 100%;
-    padding: 25px 0;
-    z-index: 100;
-    background: rgba(245, 225, 201, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(145, 104, 82, 0.1);
+    padding: 25px 0; /* Revert to original padding */
+    z-index: 1000; /* Aumentado para garantir que fique sobre tudo */
+    background: transparent; /* Torna o fundo transparente */
+    backdrop-filter: none; /* Remove qualquer blur */
+    -webkit-backdrop-filter: none; /* Remove qualquer blur para navegadores Webkit */
+    border-bottom: none; /* Remove a borda inferior */
     transition: all 0.4s ease;
 }
 
@@ -87,35 +86,38 @@ a { text-decoration: none; }
 .nav-links { display: flex; gap: 40px; }
 
 .nav-links a {
-    color: var(--text-dark);
+    color: var(--brand-wine); /* Cor sólida para destaque */
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: 0.3s;
-    opacity: 0.6;
+    opacity: 0.8; /* Um pouco de transparência para sofisticação, mas legível */
 }
 
 .nav-links a:hover { 
-    color: var(--brand-wine); 
     opacity: 1; 
+    /* Opcional: adicionar um underline fino no hover */
+    border-bottom: 1px solid var(--brand-wine);
 }
 
 .btn-header {
     padding: 12px 28px;
+    background-color: var(--brand-wine); /* Botão preenchido */
+    color: #ffffff; /* Texto branco para contraste máximo */
     border: 1px solid var(--brand-wine);
-    color: var(--brand-wine);
     border-radius: 2px;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn-header:hover {
-    background: var(--brand-wine);
-    color: #fff;
+    background-color: transparent;
+    color: var(--brand-wine);
+    transform: translateY(-2px);
 }
 
 /* --- Hero Section --- */
@@ -129,25 +131,13 @@ a { text-decoration: none; }
     overflow: hidden;
 }
 
-/* Efeito de Iluminação Ambiental (Rim Light) */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -10%;
-    transform: translateY(-50%);
-    width: 60vw;
-    height: 80vh;
-    background: radial-gradient(circle, #ffffff 0%, transparent 70%);
-    opacity: 0.7;
-    z-index: 1;
-    pointer-events: none;
-}
-
 .hero-content {
     position: relative; 
     z-index: 10;
-    padding-top: 60px;
+    padding-top: 60px; /* Keep existing padding */
+    margin-left: auto; /* Push content to the right */
+    max-width: 90%; /* Limit content width to the right half */
+    text-align: right; /* Align text within the content to the right */
 }
 
 .hero-badge {
@@ -157,6 +147,7 @@ a { text-decoration: none; }
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 5px;
+    margin-left: auto; /* Align badge to the right within its container */
     margin-bottom: 30px;
 }
 
@@ -167,6 +158,7 @@ a { text-decoration: none; }
     line-height: 0.82;
     margin-bottom: 35px;
     max-width: 850px;
+    margin-left: auto; /* Align title to the right within its container */
     letter-spacing: -0.05em; /* Negative Kerning Editorial */
     color: var(--text-dark);
 }
@@ -179,7 +171,8 @@ a { text-decoration: none; }
 .hero-description {
     font-size: 1.25rem;
     color: var(--text-muted);
-    max-width: 520px;
+    max-width: 520px; /* Keep original max-width */
+    margin-left: auto; /* Align description to the right within its container */
     margin-bottom: 50px;
     line-height: 1.7;
     font-weight: 400;
@@ -187,8 +180,10 @@ a { text-decoration: none; }
 
 /* --- Botões com Efeito de Imersão --- */
 .cta-group { 
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Push the entire flex container to the right */
+    justify-content: flex-end; /* Align items within the flex container to the right */
     gap: 35px; 
 }
 
@@ -252,10 +247,10 @@ a { text-decoration: none; }
 /* --- Imagem Hero --- */
 .hero-image-container {
     position: absolute;
-    right: 0;
+    left: 0; /* Move image to the left */
     bottom: 0;
-    width: 50%;
-    height: 95vh;
+    width: 100%;
+    height: 95vh; /* Keep original height */
     z-index: 5;
     display: flex;
     align-items: flex-end;
@@ -267,49 +262,74 @@ a { text-decoration: none; }
     object-fit: cover;
     object-position: center;
     filter: contrast(1.05) saturate(1.05);
-    /* Máscara de fusão lateral (Rogelin Touch) */
+    /* Inverti para "to left" para que o lado direito (texto) fique nítido */
     mask-image: linear-gradient(to left, black 80%, transparent 100%);
     -webkit-mask-image: linear-gradient(to left, black 80%, transparent 100%);
 }
 
+
+
 /* --- RESPONSIVIDADE CELULAR --- */
 @media (max-width: 1024px) {
+    .navbar { 
+        padding: 15px 0; 
+        background: transparent !important;
+        position: absolute; /* Garante que o menu flutue sem empurrar o hero */
+    }
+    
+    .nav-links, .btn-header { display: none; }
+
     .hero {
         height: auto;
         min-height: 100vh;
-        padding-top: 130px;
-        padding-bottom: 60px;
         display: block;
+        padding-top: 100px; /* Espaço para o menu não cobrir o texto */
+        background-color: var(--brand-cream);
+        overflow: hidden; /* Importante para conter os 180% da imagem */
     }
-
-    .navbar { padding: 15px 0; }
-    .nav-links, .btn-header { display: none; }
 
     .hero-content {
         text-align: center;
-        padding-top: 20px;
+        padding: 0 20px;
+        position: relative;
+        z-index: 10;
     }
 
-    .hero-title { font-size: 3.2rem; margin: 0 auto 25px; }
-    .hero-description { margin: 0 auto 40px; font-size: 1.1rem; }
+    .hero-title { 
+        font-size: 2.8rem; 
+        line-height: 1.1; 
+        margin-bottom: 20px; 
+    }
+
+    .hero-description { 
+        margin: 0 auto 30px; 
+        font-size: 1.1rem; 
+    }
 
     .cta-group {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
+        align-items: center;
     }
 
-    .btn-primary { width: 100%; text-align: center; }
+    .btn-primary { width: 100%; max-width: 280px; }
 
+    /* MANTENDO SUA IMAGEM EM 180% SEM SOBRAR FAIXA */
     .hero-image-container {
         position: relative;
-        width: 100%;
-        height: 55vh;
-        margin-top: 50px;
+        width: 255%; 
+        left: -40%; /* Mantém o centro da sua imagem */
+        height: 50vh;
+        margin-top: 40px;
+        margin-bottom: -2px; /* Garante que não sobre fresta embaixo */
     }
 
     .hero-image-container img {
-        mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* Ou cover, dependendo de como você quer o corte */
+        mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
     }
 }
 
