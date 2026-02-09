@@ -317,7 +317,7 @@ a { text-decoration: none; }
     /* MANTENDO SUA IMAGEM EM 180% SEM SOBRAR FAIXA */
     .hero-image-container {
         position: relative;
-        width: 255%; 
+        width: 260%; 
         left: -40%; /* Mantém o centro da sua imagem */
         height: 50vh;
         margin-top: 40px;
