@@ -1,0 +1,253 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-main: #ffffff;
+    --text-muted: #a0a0a0;
+    --accent: #c5a47e; /* Um tom bronze/ouro para sofisticação */
+    --font: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+    padding: 2rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(10, 10, 10, 0.95); /* Fundo semi-transparente */
+    backdrop-filter: blur(5px); /* Efeito de desfoque */
+    transition: background-color 0.3s ease, padding 0.3s ease; /* Adicionado transição para o padding */
+}
+
+
+.logo { font-weight: 700; font-size: 1.5rem; letter-spacing: -1px; z-index: 11; } /* Adicionado z-index para garantir que o logo fique acima do blur */
+.logo span { color: var(--accent); }
+
+nav a { color: var(--text-main); text-decoration: none; margin-left: 2rem; font-size: 0.9rem; transition: 0.3s; }
+.btn-outline { border: 1px solid var(--accent); padding: 0.6rem 1.2rem; border-radius: 4px; }
+.btn-outline:hover { background: var(--accent); color: #000; }
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none; /* Escondido por padrão no desktop */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001; /* Acima de tudo */
+}
+
+.hamburger-menu .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-main);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Estilo para o menu mobile (inicialmente escondido) */
+.nav-links-mobile {
+    display: flex; /* Para desktop, mantém como flex */
+    gap: 2rem; /* Espaçamento entre os links no desktop */
+}
+
+/* Esconde o botão outline no desktop para não duplicar */
+.nav-links-mobile .mobile-btn {
+    display: none;
+}
+
+/* Estilo para o menu de navegação padrão no desktop */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Ajuste para o botão outline no desktop */
+nav .btn-outline {
+    margin-left: 2rem;
+}
+
+/* HERO SECTION */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    gap: 4rem;
+}
+
+.hero-content { flex: 1; max-width: 600px; }
+.hero-content h1 { font-size: clamp(3rem, 8vw, 5rem); line-height: 1; margin-bottom: 1.5rem; }
+.hero-content h1 span { font-weight: 300; color: var(--accent); }
+.hero-content p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; max-width: 500px; } /* Adicionado max-width para melhor leitura */
+
+.badge {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    display: inline-block; /* Alterado de block para inline-block */
+    margin-bottom: 1rem;
+    padding: 0.4rem 0.8rem; /* Adicionado padding */
+    border: 1px solid var(--accent); /* Adicionado borda */
+    border-radius: 4px; /* Adicionado border-radius */
+    background-color: rgba(197, 164, 126, 0.1); /* Fundo sutil */
+}
+
+.btn-main {
+    position: relative; /* Necessário para o efeito de brilho */
+    overflow: hidden; /* Esconde o brilho inicialmente */
+    background: linear-gradient(135deg, var(--accent) 0%, #d9b38c 100%); /* Gradiente com a cor de destaque */
+    color: #000; /* Texto escuro para alto contraste */
+    text-decoration: none;
+    padding: 1.2rem 2.8rem; /* Aumenta um pouco o padding horizontal */
+    font-weight: 800; /* Torna o texto mais forte */
+    display: inline-block;
+    border-radius: 50px; /* Formato de pílula para um visual moderno */
+    transition: all 0.4s ease-in-out; /* Transição mais suave para todos os efeitos */
+    box-shadow: 0 8px 20px rgba(197, 164, 126, 0.4); /* Sombra inicial para um leve brilho */
+    letter-spacing: 0.5px; /* Espaçamento sutil entre as letras */
+    border: none; /* Remove qualquer borda padrão */
+}
+
+.btn-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Inicia fora da tela à esquerda */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent); /* Efeito de brilho branco */
+    transition: all 0.6s ease-in-out; /* Animação do brilho */
+    z-index: 0; /* Garante que o brilho fique por baixo do texto */
+}
+
+.btn-main:hover {
+    transform: translateY(-8px); /* Levanta mais o botão no hover */
+    box-shadow: 0 15px 30px rgba(197, 164, 126, 0.6); /* Aumenta o brilho no hover */
+    background: linear-gradient(135deg, #d9b38c 0%, var(--accent) 100%); /* Inverte o gradiente sutilmente */
+}
+
+.btn-main:hover::before {
+    left: 100%; /* Move o brilho para o outro lado do botão */
+}
+
+.hero-image { flex: 1; height: 80vh; overflow: hidden; position: relative; border-radius: 10px; }
+.hero-image img { width: 100%; height:187%; object-fit: cover; object-position: center center; filter: grayscale(50%); transition: 0.5s; } /* Alterado height e object-position */
+.hero-image:hover img { filter: grayscale(0%); }
+
+/* MANIFESTO */
+.manifesto { padding: 10rem 5%; background: #111; }
+.manifesto-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 4rem; }
+.manifesto-text h2 { font-size: 2.2rem; font-weight: 300; line-height: 1.4; }
+.manifesto-text h2 { font-size: 2.2rem; font-weight: 700; line-height: 1.4; } /* Alterado de 300 para 700 */
+.manifesto-text strong { color: var(--accent); }
+.manifesto-side { display: flex; flex-direction: column; justify-content: flex-end; }
+.manifesto-side p { color: var(--text-muted); margin-bottom: 1.5rem; }
+.link-arrow {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 0.3s ease, color 0.3s ease; /* Adicionado transição */
+    display: inline-flex; /* Para permitir transform na seta */
+    align-items: center;
+    gap: 5px; /* Espaço entre texto e seta */
+}
+.link-arrow:hover { color: var(--text-main); transform: translateX(5px); } /* Efeito de hover */
+
+/* SERVICES (PANELS) */
+.services { padding: 10rem 5%; }
+.section-header { margin-bottom: 4rem; }
+.section-header h2 { font-size: 3rem; }
+.section-header span { color: var(--accent); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 2px; display: block; margin-bottom: 0.5rem; } /* Adicionado estilo para o span de expertise */
+
+.services-wrapper { display: flex; gap: 1rem; height: 500px; }
+.service-panel { 
+    flex: 1; background: #1a1a1a; padding: 3rem; 
+    display: flex; flex-direction: column; justify-content: flex-end;
+    transition: transform 0.3s ease, background 0.3s, box-shadow 0.3s; /* Alterado transição */
+    cursor: pointer; position: relative;
+    border-left: 1px solid #333;
+}
+
+.service-panel h3 { font-size: 4rem; opacity: 0.2; position: absolute; top: 2rem; right: 2rem; transition: opacity 0.3s; } /* Opacidade padrão e transição */
+.service-panel h4 { font-size: 1.5rem; margin-bottom: 1rem; }
+.service-panel p { color: var(--text-muted); opacity: 1; transition: 0.3s; max-width: 300px; } /* Opacidade padrão para visibilidade */
+
+.service-panel:hover { transform: translateY(-10px); background: var(--accent); color: #000; box-shadow: 0 15px 30px rgba(0,0,0,0.3); } /* Efeito de levantar e sombra */
+.service-panel:hover p { opacity: 1; color: #000; } /* Garante cor do texto no hover */
+.service-panel:hover h3 { opacity: 0.4; } /* Aumenta opacidade do número no hover */
+
+/* RESPONSIVO */
+@media (max-width: 968px) {
+    .hero { flex-direction: column; height: auto; padding-top: 8rem; }
+    .hero-image { width: 100%; height: 400px; order: -1; }
+    .manifesto-grid { grid-template-columns: 1fr; }
+    .services-wrapper { flex-direction: column; height: auto; }
+    .service-panel { height: 250px; }
+    .service-panel:hover { flex: 1; }
+    .service-panel p { opacity: 1; }
+}
+
+/* Ajustes de Responsividade para o Header (Mobile) */
+@media (max-width: 768px) {
+    /* Navbar no mobile: logo à esquerda, hambúrguer à direita */
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem 5%; /* Padding mais compacto */
+    }
+
+    /* Mostra o ícone do hambúrguer */o bot
+    .hamburger-menu {
+        display: block;
+    }
+
+    /* Esconde os links de navegação padrão do desktop */
+    nav {
+        display: none;
+    }
+
+    /* Estilo do menu mobile quando ativo (aberto) */
+    .nav-links-mobile {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido fora da tela */
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(10, 10, 10, 0.98); /* Fundo escuro para o menu */
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column; /* Empilha os links verticalmente */
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transition: right 0.3s ease-in-out;
+        z-index: 1000; /* Garante que o menu fique acima do hambúrguer */
+    }
+
+    /* Quando o menu mobile está ativo */
+    .nav-links-mobile.active {
+        right: 0; /* Desliza para dentro da tela */
+    }
+
+    .nav-links-mobile a {
+        font-size: 1.5rem; /* Links maiores para facilitar o toque */
+        margin: 0; /* Remove margens extras */
+    }
+    .nav-links-mobile .mobile-btn {
+        display: block; /* Mostra o botão "Fale Conosco" no menu mobile */
+    }
+}

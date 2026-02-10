@@ -429,8 +429,8 @@ main {
     left: 0;
     right: 0;
     background: linear-gradient(to top, 
-        rgba(88, 68, 104, 0.95) 0%, 
-        rgba(88, 68, 104, 0.8) 50%,
+        var(--brand-blue-dark) 0%, 
+        rgba(0, 43, 91, 0.7) 50%,
         transparent 100%);
     padding: 30px 20px 20px 20px;
     transition: all 0.3s ease;
