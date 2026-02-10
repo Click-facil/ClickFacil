@@ -76,14 +76,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
+                entry.target.classList.add('is-animated'); // Adiciona uma classe para marcar que foi animado
                 observer.unobserve(entry.target); // Opcional: para a animação acontecer só uma vez
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }); // A animação começa quando 10% do elemento está visível
+    }, { threshold: 0.1, rootMargin: '0px' }); // A animação começa quando 10% do elemento está visível, com rootMargin 0px
 
     animatedElements.forEach(el => {
         observer.observe(el);
     });
+
+    // Fallback para garantir visibilidade caso IntersectionObserver não dispare
+    setTimeout(() => {
+        animatedElements.forEach(el => {
+            // Se o elemento ainda está invisível e não foi marcado como animado pelo observer
+            if (window.getComputedStyle(el).opacity === '0' && !el.classList.contains('is-animated')) {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }
+        });
+    }, 1500); // Dá 1.5 segundos para o observer agir antes de forçar a visibilidade
 
     // ========================================
     // SWIPER - Carrossel de Depoimentos

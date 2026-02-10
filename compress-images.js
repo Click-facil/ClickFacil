@@ -5,7 +5,7 @@ const path = require('path');
 
 // --- Configurações ---
 const INPUT_DIR = 'images_optimized'; // Pasta onde você colocará as imagens originais para otimizar
-const OUTPUT_DIR = 'portfolio/dente-a-dente'; // Pasta de destino para as imagens otimizadas (onde suas imagens finais já estão)
+const OUTPUT_DIR = 'portfolio/odontologia/images'; // Pasta de destino para as imagens otimizadas (onde suas imagens finais já estão)
 const MAX_WIDTH = 1920; // Largura máxima para as imagens (em pixels)
 const QUALITY = 80; // Qualidade da compressão (0 a 100)
 

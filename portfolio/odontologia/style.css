@@ -418,6 +418,14 @@ main {
     object-fit: cover;
     transition: transform 0.5s ease;
 }
+/* Correção de segurança para imagens */
+.card-image-wrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--brand-blue-dark); /* Cor de fundo caso a imagem falhe */
+}
 
 .especialidade-card:hover .card-image-wrapper img {
     transform: scale(1.08);
@@ -797,16 +805,11 @@ main {
 }
 
 /* Animação de Scroll */
-.animate-on-scroll {
+/* Apenas aplica o estado inicial de opacidade 0 se o JS estiver carregado */
+html.js-loaded .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-/* Fallback: Se o JS não carregar, os elementos ficam visíveis para não quebrar o site */
-html:not(.js-loaded) .animate-on-scroll {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* Ajuste para o botão de voltar ao topo */
