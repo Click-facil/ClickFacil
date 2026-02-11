@@ -2,37 +2,57 @@
 /* Configurações de Fonte e Base */
 
 body {
-    background-color: #050b18;
+    /* Tailwind classes in index.html will handle background-color, font-family, etc. */
     letter-spacing: -0.02em;
 }
 
 /* Glassmorphism Efeito Click Fácil */
 .glass-card {
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(255, 215, 0, 0.03);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 215, 0, 0.1);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 16px;
 }
 
-.glass-nav {
-    background: rgba(5, 11, 24, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+/* Estilos da Navegação */
+nav {
+    background: none !important;
 }
 
-/* Efeitos Neon */
-.neon-border {
-    border: 1px solid rgba(0, 242, 255, 0.5);
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+/* Estilos para esconder a navegação ao rolar */
+.nav-hidden {
+    transform: translateY(-100%);
 }
 
-.neon-border:hover {
-    box-shadow: 0 0 30px rgba(0, 242, 255, 0.6);
-    border-color: rgba(0, 242, 255, 1);
+/* Animações de Revelação (Scroll) */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
 }
 
-.glow-text {
-    text-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+
+/* Efeito de transição suave para a próxima seção (Hero Fade Out) */
+.hero-fade-out {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 160px; /* Corresponde ao h-40 do Tailwind */
+    z-index: 5;
+    pointer-events: none;
+    background: 
+        linear-gradient(to top, #ffffff 30%, transparent 45%),
+        radial-gradient(ellipse at 50% 120%, rgba(245, 130, 32, 0.2) 0%, transparent 20%);
 }
 
 /* Overlays de Vídeo */
@@ -43,18 +63,6 @@ body {
         rgba(5, 11, 24, 0.7) 50%, 
         transparent 100%
     );
-}
-
-/* Animações de Revelação (Scroll) */
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 1s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* =============================================
@@ -143,13 +151,68 @@ body {
     animation: pulse-solar 4s infinite ease-in-out;
     
     transition: all 0.3s ease;
+    position: relative; /* Necessário para posicionar pseudo-elementos */
+    overflow: hidden; /* Garante que os efeitos fiquem dentro da borda do botão */
+    z-index: 1; /* Garante que o botão e seu conteúdo fiquem acima dos pseudo-elementos de fundo */
+}
+
+/* Efeito: Brilho que passeia pela borda (::before) */
+.btn-glass-solar::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.5), rgba(245, 130, 32, 0.5), rgba(255, 215, 0, 0.5));
+    background-size: 200% 200%;
+    animation: gradient-shift 3s linear infinite;
+    z-index: -1; /* Fica atrás do conteúdo do botão */
+    border-radius: inherit; /* Herda o border-radius do botão */
+    filter: blur(5px); /* Suaviza o gradiente para parecer um brilho */
+}
+
+/* Efeito: Brilho que passa pelo botão (::after) */
+.btn-glass-solar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Começa fora do botão à esquerda */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3) 50%, transparent);
+    animation: shine 2s infinite 1s; /* Animação de brilho, com delay para não ser constante */
+    transform: skewX(-20deg); /* Inclina o brilho para um efeito mais dinâmico */
+    z-index: 1; /* Fica acima do background do botão, mas abaixo do texto */
+}
+
+/* Keyframes para as novas animações */
+@keyframes gradient-shift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Ajustes para telas menores (celular) */
+@media (max-width: 639px) { /* Tailwind 'sm' breakpoint é 640px, então max-width: 639px atinge celulares */
+    .btn-glass-solar {
+        padding: 12px 24px; /* Reduz o padding */
+        font-size: 0.94rem;
+        width: 100%;    /* Reduz ainda mais o tamanho da fonte para caber em uma linha */
+    }
 }
 
 .btn-glass-solar:hover {
-    background: rgba(255, 215, 0, 0.15);
+    background: rgba(0, 242, 255, 0.15); /* Fundo com leve tom ciano no hover */
     color: #fff;
-    /* Brilho mais forte */
-    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 165, 0, 0.4);
+    border-color: rgba(0, 242, 255, 0.8); /* Borda ciano mais forte no hover */
+    /* Brilho ciano mais forte */
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.6), 0 0 50px rgba(0, 242, 255, 0.4);
     transform: translateY(-3px);
     animation-play-state: paused;
 }
@@ -170,6 +233,8 @@ body {
 
 .investment-section {
     padding: 100px 5%;
+    background: #fff;
+    color: #0B1E3B;
 }
 
 .investment-grid {
@@ -201,7 +266,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+    filter: drop-shadow(0 0 15px rgba(245, 130, 32, 0.4));
 }
 
 .investment-card h3 {
@@ -432,4 +497,125 @@ body {
 
 .footer-logo-glow:hover {
     filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.8));
+}
+
+/* Container de Perspectiva para o efeito 3D */
+#investir {
+    perspective: 1200px;
+}
+
+/* O Card de Profundidade */
+.depth-card {
+    position: relative;
+    padding: 40px 20px;
+    transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Modificando sua classe reveal para efeito de Profundidade */
+.reveal {
+    opacity: 0;
+    transform: translateZ(-100px) scale(0.8); /* Começa "longe" e pequeno */
+    filter: blur(10px);
+    transition: opacity 1s ease-out, transform 1s cubic-bezier(0.17, 0.55, 0.55, 1), filter 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateZ(0) scale(1); /* "Voa" para frente da tela */
+    filter: blur(0);
+}
+
+/* Ícones 3D Flutuantes */
+.floating-3d-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1));
+    animation: float-3d 5s ease-in-out infinite;
+}
+
+@keyframes float-3d {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+/* Efeito de Vidro nos ícones (Glassmorphism) */
+.floating-3d-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Efeito de Profundidade ajustado para elementos grandes */
+.reveal {
+    opacity: 0;
+    transform: scale(0.9) translateZ(-50px);
+    filter: blur(15px);
+    transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), 
+                transform 1.2s cubic-bezier(0.22, 1, 0.36, 1), 
+                filter 1s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+    filter: blur(0);
+}
+
+/* Glassmorphism Refinado */
+.glass-3d {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+/* Glassmorphism com mais contraste para não ficar "apagado" */
+.glass-3d-premium {
+    background: rgba(255, 255, 255, 0.85); /* Mais opaco para leitura */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+}
+
+/* Ícones maiores e com mais presença */
+.floating-3d-icon-large {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 25px;
+    filter: drop-shadow(0 20px 30px rgba(245, 130, 32, 0.2));
+    animation: float-soft 5s ease-in-out infinite;
+}
+
+@keyframes float-soft {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+/* Ajuste nos textos para remover o efeito "faded" */
+.text-brand-dark {
+    color: #0B1E3B; /* Garante o azul marinho bem escuro */
+}
+
+/* Animação de entrada mais suave e nítida */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(5px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
 }

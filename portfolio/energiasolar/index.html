@@ -33,43 +33,9 @@
             }
         }
     </script>
-
-    <style>
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .delay-100 { transition-delay: 0.1s; }
-        .delay-200 { transition-delay: 0.2s; }
-        .delay-300 { transition-delay: 0.3s; }
-        
-        /* Efeito vidro */
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-        
-        .nav-hidden {
-            transform: translateY(-100%);
-        }
-        
-        nav {
-            background: none !important;
-        }
-        .hero-fade-out {
-            background: 
-                linear-gradient(to top, #ffffff 30%, transparent 100%),
-                radial-gradient(ellipse at 50% 120%, rgba(245, 130, 32, 0.2) 0%, transparent 20%);
-            pointer-events: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-50 text-gray-800 overflow-x-hidden font-sans">
+<body class="bg-brand-dark text-white overflow-x-hidden font-sans">
 
     <nav class="w-full py-4 px-6 fixed top-0 z-50 transition-transform duration-300" style="background: transparent;">
         <div class="max-w-6xl mx-auto flex justify-between items-center">
@@ -92,13 +58,14 @@
             </video>
         </div>
         
+        <!-- Nova Transição de Divisor de Seção Curvo com Brilho Gradiente (SVG) -->
         <!-- Efeito de transição suave para a próxima seção -->
         <div class="absolute bottom-0 left-0 w-full h-40 hero-fade-out z-[5]"></div>
 
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
         <div class="max-w-6xl mx-auto px-6 py-12 relative z-10 flex flex-col md:flex-row items-center gap-12">
-            <div class="md:w-2/3 space-y-6 md:space-y-8 pt-12 md:pt-0 reveal active">
+            <div class="md:w-2/3 space-y-6 md:space-y-8 md:pt-0 reveal active">
                 <span class="inline-block bg-brand-orange/20 border border-brand-orange text-brand-orange text-xs font-bold px-4 py-1 rounded-full uppercase tracking-widest mb-2">
                     Economia Garantida
                 </span>
@@ -112,7 +79,7 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 pt-2">
-                    <a href="#simulacao" class="text-center bg-brand-orange hover:bg-orange-600 text-white text-lg font-bold py-4 px-8 rounded-xl shadow-lg shadow-brand-orange/30 transition transform hover:-translate-y-1">
+                    <a href="#simulacao" class="btn-glass-solar">
                         Quero Simular Economia
                     </a>
                     <a href="#como-funciona" class="text-center border border-white/30 hover:bg-white/10 text-white text-lg font-semibold py-4 px-8 rounded-xl transition flex items-center justify-center gap-2">
@@ -120,7 +87,7 @@
                     </a>
                 </div>
                 
-                <div class="pt-6 flex items-center gap-4 text-sm text-gray-400">
+                <div class="hidden md:flex mt-4 items-center gap-4 text-sm text-gray-400">
                     <div class="flex -space-x-2">
                         <img class="w-8 h-8 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=1" alt="">
                         <img class="w-8 h-8 rounded-full border-2 border-brand-dark" src="https://i.pravatar.cc/100?img=2" alt="">
@@ -132,38 +99,84 @@
         </div>
     </header>
 
-    <section class="py-24 bg-white px-6">
-        <div class="max-w-4xl mx-auto text-center mb-16 reveal">
-            <h2 class="text-3xl font-bold text-brand-dark mb-4">Por que investir agora?</h2>
-            <div class="w-20 h-1 bg-brand-orange mx-auto rounded-full"></div>
+   <section class="relative bg-white min-h-screen flex flex-col justify-center overflow-hidden py-24" id="investir">
+    <div class="container mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row items-stretch gap-12 lg:gap-20 mb-20">
+            
+            <div class="w-full md:w-5/12 relative reveal">
+                <div class="relative h-[500px] md:h-[700px] rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
+                    <img src="images/sessao-2.webp" 
+                         alt="Arquitetura Solar" 
+                         class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                </div>
+
+                <div class="absolute -bottom-6 -right-6 md:bottom-10 md:-right-10 glass-3d p-8 max-w-[280px] hidden md:block animate-float z-10">
+                    <div class="text-brand-orange text-2xl mb-2 font-black">25 ANOS</div>
+                    <p class="text-gray-600 text-xs font-medium leading-relaxed">
+                        Garantia de performance linear. Tecnologia que valoriza seu patrimônio por décadas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-full md:w-7/12 flex flex-col justify-center reveal delay-200">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="h-[2px] w-10 bg-brand-orange"></span>
+                    <span class="text-gray-500 font-bold text-xs tracking-[0.3em] uppercase">Investimento Estratégico</span>
+                </div>
+                
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8 text-brand-dark">
+                    O Sol agora é seu <br>
+                    <span class="text-brand-orange">Patrimônio Líquido.</span>
+                </h2>
+                
+                <p class="text-lg text-gray-500 leading-relaxed max-w-xl mb-12">
+                    Mais do que economia mensal, a energia solar representa a valorização imediata do seu imóvel e um retorno superior a qualquer aplicação convencional.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#simulacao" class="bg-brand-orange text-white text-center px-10 py-4 font-bold rounded-sm hover:brightness-110 transition-all shadow-lg shadow-brand-orange/20">
+                        RECEBER ESTUDO GRATUITO
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition duration-300 group reveal delay-100">
-                <div class="w-14 h-14 bg-brand-dark text-white rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-orange transition-colors">
-                    <i class="fa-solid fa-chart-line"></i>
+        <div class="grid md:grid-cols-3 gap-8 pt-16 border-t border-gray-100">
+            <div class="depth-card reveal delay-100 group">
+                <div class="floating-3d-icon">
+                    <img src="images/icone-seguranca.webp" alt="Escudo de Vidro">
                 </div>
-                <h3 class="font-bold text-xl text-brand-dark mb-3">Fim dos Aumentos</h3>
-                <p class="text-gray-600 leading-relaxed">Fique livre da inflação energética e das bandeiras tarifárias vermelhas. Produza sua própria energia.</p>
+                <div class="text-center">
+                    <h3 class="text-3xl font-bold text-brand-dark mb-1">Proteção</h3>
+                    <p class="text-gray-400 text-sm">Blindagem contra inflação energética.</p>
+                </div>
             </div>
 
-            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition duration-300 group reveal delay-200">
-                <div class="w-14 h-14 bg-brand-dark text-white rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-orange transition-colors">
-                    <i class="fa-solid fa-house-chimney"></i>
+            <div class="depth-card reveal delay-200 group">
+                <div class="floating-3d-icon">
+                    <img src="images/icone-casa.webp" alt="Casa de Vidro">
                 </div>
-                <h3 class="font-bold text-xl text-brand-dark mb-3">Valorização do Imóvel</h3>
-                <p class="text-gray-600 leading-relaxed">Estudos mostram que imóveis com sistema solar próprio valorizam entre 4% a 10% no mercado.</p>
+                <div class="text-center">
+                    <h3 class="text-3xl font-bold text-brand-dark mb-1">Valorização</h3>
+                    <p class="text-gray-400 text-sm">Aumento real no valor de revenda.</p>
+                </div>
             </div>
 
-            <div class="bg-gray-50 p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition duration-300 group reveal delay-300">
-                <div class="w-14 h-14 bg-brand-dark text-white rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-orange transition-colors">
-                    <i class="fa-solid fa-wallet"></i>
+            <div class="depth-card reveal delay-300 group">
+                <div class="floating-3d-icon">
+                    <img src="images/icone-cifrao.webp" alt="Moeda de Vidro">
                 </div>
-                <h3 class="font-bold text-xl text-brand-dark mb-3">Retorno Garantido</h3>
-                <p class="text-gray-600 leading-relaxed">Investimento com payback médio de 3 a 5 anos. Depois disso, é lucro puro por mais de 20 anos.</p>
+                <div class="text-center">
+                    <h3 class="text-3xl font-bold text-brand-dark mb-1">Retorno</h3>
+                    <p class="text-gray-400 text-sm">Payback médio entre 4 a 5 anos.</p>
+                </div>
             </div>
         </div>
-    </section>
+
+    </div>
+</section>
 
     <section id="como-funciona" class="py-24 bg-brand-dark text-white px-6 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-full opacity-10" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
@@ -256,7 +269,7 @@
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1974&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
 
         <div class="max-w-4xl mx-auto relative z-10 reveal">
-            <div class="glass-effect p-8 md:p-12 rounded-3xl shadow-2xl text-center">
+            <div class="glass-card p-8 md:p-12 text-center">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">
                     Quanto você quer <span class="text-brand-orange">economizar?</span>
                 </h2>
