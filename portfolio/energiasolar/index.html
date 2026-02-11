@@ -51,7 +51,7 @@
         </div>
     </nav>
 
-    <header class="relative bg-brand-dark text-white overflow-hidden min-h-screen flex items-center">
+    <header class="relative bg-brand-dark text-white overflow-hidden h-screen flex items-center hero-full-height">
         <div class="absolute inset-0 z-0">
             <video autoplay loop muted class="w-full h-full object-cover opacity-60">
                 <source src="images/hero-energiasolar.webm" type="video/webm">
@@ -99,82 +99,77 @@
         </div>
     </header>
 
-   <section class="relative bg-white min-h-screen flex flex-col justify-center overflow-hidden py-24" id="investir">
-    <div class="container mx-auto px-6">
+  <section class="relative bg-white min-h-screen flex flex-col justify-center overflow-hidden py-24" id="investir">
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none dotted-bg"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
         
-        <div class="flex flex-col md:flex-row items-stretch gap-12 lg:gap-20 mb-20">
+        <div class="flex flex-col md:flex-row items-center gap-12 lg:gap-20 mb-24">
             
             <div class="w-full md:w-5/12 relative reveal">
-                <div class="relative h-[500px] md:h-[700px] rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
+                <div class="relative h-[500px] md:h-[700px] rounded-3xl overflow-hidden shadow-2xl border border-gray-100 z-10">
                     <img src="images/sessao-2.webp" 
                          alt="Arquitetura Solar" 
                          class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-1000">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
 
-                <div class="absolute -bottom-6 -right-6 md:bottom-10 md:-right-10 glass-3d p-8 max-w-[280px] hidden md:block animate-float z-10">
-                    <div class="text-brand-orange text-2xl mb-2 font-black">25 ANOS</div>
-                    <p class="text-gray-600 text-xs font-medium leading-relaxed">
+                <div class="absolute bottom-10 -right-4 md:bottom-20 md:-right-12 bg-[#0B1E3B] p-7 md:p-9 max-w-[280px] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/10 animate-float z-20">
+                    <div class="text-brand-orange text-3xl mb-2 font-black">25 ANOS</div>
+                    <p class="text-white text-xs font-bold leading-relaxed opacity-90">
                         Garantia de performance linear. Tecnologia que valoriza seu patrimônio por décadas.
                     </p>
                 </div>
             </div>
 
             <div class="w-full md:w-7/12 flex flex-col justify-center reveal delay-200">
-                <div class="flex items-center gap-4 mb-8">
+                <div class="flex items-center gap-4 mb-6">
                     <span class="h-[2px] w-10 bg-brand-orange"></span>
                     <span class="text-gray-500 font-bold text-xs tracking-[0.3em] uppercase">Investimento Estratégico</span>
                 </div>
                 
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8 text-brand-dark">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.15] mb-8 text-brand-dark">
                     O Sol agora é seu <br>
                     <span class="text-brand-orange">Patrimônio Líquido.</span>
                 </h2>
                 
-                <p class="text-lg text-gray-500 leading-relaxed max-w-xl mb-12">
+                <p class="text-lg md:text-xl text-gray-700 font-medium leading-relaxed max-w-xl mb-10">
                     Mais do que economia mensal, a energia solar representa a valorização imediata do seu imóvel e um retorno superior a qualquer aplicação convencional.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-6">
-                    <a href="#simulacao" class="bg-brand-orange text-white text-center px-10 py-4 font-bold rounded-sm hover:brightness-110 transition-all shadow-lg shadow-brand-orange/20">
-                        RECEBER ESTUDO GRATUITO
+                    <a href="#simulacao" class="btn-glass-solar">
+                        Receber Estudo Gratuito
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8 pt-16 border-t border-gray-100">
-            <div class="depth-card reveal delay-100 group">
-                <div class="floating-3d-icon">
-                    <img src="images/icone-seguranca.webp" alt="Escudo de Vidro">
+        <div class="grid md:grid-cols-3 gap-10 pt-16 border-t-2 border-gray-200">
+            <div class="reveal delay-100 text-center">
+                <div class="mb-6 flex justify-center investment-stats-icon">
+                    <img src="images/icone-seguranca.webp" alt="Proteção" class="w-20 h-20 object-contain filter drop-shadow-xl">
                 </div>
-                <div class="text-center">
-                    <h3 class="text-3xl font-bold text-brand-dark mb-1">Proteção</h3>
-                    <p class="text-gray-400 text-sm">Blindagem contra inflação energética.</p>
-                </div>
+                <h3 class="text-5xl font-black text-gradient-number mb-2">70%</h3>
+                <p class="text-brand-orange font-bold text-xs uppercase tracking-widest">Economia nas Contas</p>
             </div>
 
-            <div class="depth-card reveal delay-200 group">
-                <div class="floating-3d-icon">
-                    <img src="images/icone-casa.webp" alt="Casa de Vidro">
+            <div class="reveal delay-200 text-center">
+                <div class="mb-6 flex justify-center investment-stats-icon">
+                    <img src="images/icone-casa.webp" alt="Valorização" class="w-20 h-20 object-contain filter drop-shadow-xl">
                 </div>
-                <div class="text-center">
-                    <h3 class="text-3xl font-bold text-brand-dark mb-1">Valorização</h3>
-                    <p class="text-gray-400 text-sm">Aumento real no valor de revenda.</p>
-                </div>
+                <h3 class="text-5xl font-black text-gradient-number mb-2">30%</h3>
+                <p class="text-brand-orange font-bold text-xs uppercase tracking-widest">Aumento de Valor</p>
             </div>
 
-            <div class="depth-card reveal delay-300 group">
-                <div class="floating-3d-icon">
-                    <img src="images/icone-cifrao.webp" alt="Moeda de Vidro">
+            <div class="reveal delay-300 text-center">
+                <div class="mb-6 flex justify-center investment-stats-icon">
+                    <img src="images/icone-cifrao.webp" alt="Retorno" class="w-20 h-20 object-contain filter drop-shadow-xl">
                 </div>
-                <div class="text-center">
-                    <h3 class="text-3xl font-bold text-brand-dark mb-1">Retorno</h3>
-                    <p class="text-gray-400 text-sm">Payback médio entre 4 a 5 anos.</p>
-                </div>
+                <h3 class="text-5xl font-black text-gradient-number mb-2">$31M</h3>
+                <p class="text-brand-orange font-bold text-xs uppercase tracking-widest">Economia Valiosa</p>
             </div>
         </div>
-
     </div>
 </section>
 
@@ -270,8 +265,8 @@
 
         <div class="max-w-4xl mx-auto relative z-10 reveal">
             <div class="glass-card p-8 md:p-12 text-center">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-brand-dark mb-4">
-                    Quanto você quer <span class="text-brand-orange">economizar?</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
+                    <span class="text-white">Quanto você quer</span> <span class="text-brand-orange">economizar?</span>
                 </h2>
                 <p class="text-gray-600 mb-8 text-lg">
                     Faça uma simulação gratuita e descubra o potencial do seu telhado.
