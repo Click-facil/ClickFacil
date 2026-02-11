@@ -1,0 +1,435 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+/* Configurações de Fonte e Base */
+
+body {
+    background-color: #050b18;
+    letter-spacing: -0.02em;
+}
+
+/* Glassmorphism Efeito Click Fácil */
+.glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-nav {
+    background: rgba(5, 11, 24, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+}
+
+/* Efeitos Neon */
+.neon-border {
+    border: 1px solid rgba(0, 242, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+}
+
+.neon-border:hover {
+    box-shadow: 0 0 30px rgba(0, 242, 255, 0.6);
+    border-color: rgba(0, 242, 255, 1);
+}
+
+.glow-text {
+    text-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+}
+
+/* Overlays de Vídeo */
+.video-overlay {
+    background: linear-gradient(
+        90deg, 
+        #050b18 0%, 
+        rgba(5, 11, 24, 0.7) 50%, 
+        transparent 100%
+    );
+}
+
+/* Animações de Revelação (Scroll) */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =============================================
+   1. HERO SECTION (TEMA SOLAR)
+   ============================================= */
+@keyframes pulse-solar {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.2), 0 0 10px rgba(255, 215, 0, 0.2), inset 0 0 5px rgba(255, 215, 0, 0.2);
+        border-color: rgba(255, 215, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.5), 0 0 30px rgba(255, 165, 0, 0.5), inset 0 0 10px rgba(255, 215, 0, 0.4);
+        border-color: rgba(255, 215, 0, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.2), 0 0 10px rgba(255, 215, 0, 0.2), inset 0 0 5px rgba(255, 215, 0, 0.2);
+        border-color: rgba(255, 215, 0, 0.4);
+    }
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    filter: brightness(0.7);
+}
+
+.hero-circuits-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/circuits-gold.webp'); /* Sugestão: usar uma versão dourada dos circuitos */
+    background-size: cover;
+    opacity: 0.15;
+    mix-blend-mode: screen;
+    z-index: -1;
+    animation: float-circuits 20s linear infinite;
+}
+
+@keyframes float-circuits {
+    from { transform: translateY(0); }
+    to { transform: translateY(-200px); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 5%;
+    max-width: 650px;
+}
+
+/* Botão de Alto Ticket com Brilho Solar */
+.btn-glass-solar {
+    display: inline-block;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Efeito Glass */
+    background: rgba(255, 215, 0, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    /* Borda com brilho solar pulsante */
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 12px;
+    animation: pulse-solar 4s infinite ease-in-out;
+    
+    transition: all 0.3s ease;
+}
+
+.btn-glass-solar:hover {
+    background: rgba(255, 215, 0, 0.15);
+    color: #fff;
+    /* Brilho mais forte */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 165, 0, 0.4);
+    transform: translateY(-3px);
+    animation-play-state: paused;
+}
+
+/* =============================================
+   2. SESSÃO "POR QUE INVESTIR"
+   ============================================= */
+@keyframes zoom-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.investment-section {
+    padding: 100px 5%;
+}
+
+.investment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.investment-card {
+    /* Reutiliza o glass-card */
+    padding: 30px;
+    text-align: center;
+    opacity: 0; /* Estado inicial para o observer */
+}
+
+.investment-card.is-visible {
+    animation: zoom-fade-in 0.8s ease-out forwards;
+}
+
+.investment-icon-3d {
+    height: 120px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.investment-icon-3d img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.4));
+}
+
+.investment-card h3 {
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.investment-card p {
+    color: #a8b2d1;
+    font-size: 0.95rem;
+}
+
+/* =============================================
+   3. SESSÃO DE PROCESSO (DIFERENCIAL)
+   ============================================= */
+.process-section {
+    padding: 100px 5%;
+    position: relative;
+}
+
+.process-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 0;
+}
+
+.process-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: rgba(255, 215, 0, 0.1);
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+.process-line-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background: #FFD700;
+    box-shadow: 0 0 15px #FFD700;
+    border-radius: 4px;
+    transition: width 0.5s ease-out;
+}
+
+.process-step {
+    position: relative;
+    z-index: 1;
+    width: 22%;
+    padding: 20px;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.process-step .micro-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.process-step.active {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+    transform: translateY(-10px);
+}
+
+.process-step.active .micro-video {
+    opacity: 0.3;
+}
+
+.step-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+.process-step h4 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.process-step p {
+    font-size: 0.9rem;
+    color: #a8b2d1;
+}
+
+/* =============================================
+   4. SESSÃO "NOSSAS INSTALAÇÕES"
+   ============================================= */
+.gallery-section {
+    padding: 100px 5%;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.gallery-item {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    border-radius: 12px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.1s linear;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.holographic-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 80px;
+    height: 80px;
+    background-image: url('../images/selo-garantia.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.holographic-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        110deg,
+        transparent 20%,
+        rgba(255, 215, 0, 0.5) 48%,
+        rgba(255, 165, 0, 0.5) 52%,
+        transparent 80%
+    );
+    mix-blend-mode: screen;
+    opacity: 0.7;
+}
+
+/* =============================================
+   5. FORMULÁRIO E RODAPÉ
+   ============================================= */
+.form-section {
+    padding: 100px 5%;
+    background: #0a192f;
+}
+
+.control-panel-form {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.control-panel-form h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-input-solar {
+    width: 100%;
+    padding: 15px 20px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.1rem;
+    color: #fff;
+    background: rgba(255, 215, 0, 0.05);
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-input-solar::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-input-solar:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.form-submit-btn {
+    width: 100%;
+    cursor: pointer;
+}
+
+.main-footer {
+    background: #0a192f;
+    padding: 40px 5%;
+    text-align: center;
+    border-top: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.footer-logo-glow {
+    width: 120px;
+    height: auto;
+    margin: 0 auto;
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.5));
+    transition: filter 0.3s ease;
+}
+
+.footer-logo-glow:hover {
+    filter: drop-shadow(0 0 25px rgba(255, 215, 0, 0.8));
+}

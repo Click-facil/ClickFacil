@@ -61,6 +61,12 @@
         nav {
             background: none !important;
         }
+        .hero-fade-out {
+            background: 
+                linear-gradient(to top, #ffffff 30%, transparent 100%),
+                radial-gradient(ellipse at 50% 120%, rgba(245, 130, 32, 0.2) 0%, transparent 20%);
+            pointer-events: none;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 overflow-x-hidden font-sans">
@@ -81,10 +87,14 @@
 
     <header class="relative bg-brand-dark text-white overflow-hidden min-h-screen flex items-center">
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop" alt="Energia Solar Telhado" class="w-full h-full object-cover opacity-60">
-            <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-transparent"></div>
+            <video autoplay loop muted class="w-full h-full object-cover opacity-60">
+                <source src="images/hero-energiasolar.webm" type="video/webm">
+            </video>
         </div>
         
+        <!-- Efeito de transição suave para a próxima seção -->
+        <div class="absolute bottom-0 left-0 w-full h-40 hero-fade-out z-[5]"></div>
+
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
 
         <div class="max-w-6xl mx-auto px-6 py-12 relative z-10 flex flex-col md:flex-row items-center gap-12">
