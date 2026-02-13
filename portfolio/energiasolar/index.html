@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link rel="icon" href="images/favicon-solar.ico" type="image/x-icon">
-    <!-- Ou, se você gerar um SVG: <link rel="icon" href="images/favicon-solar.svg" type="image/svg+xml"> -->
+    <link rel="icon" href="images/favicon-solar.ico" sizes="any">
     <title>Energia Solar - Soluções Inteligentes</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -245,7 +244,7 @@
             </h2>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 items-center gap-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 items-center gap-8 lg:gap-12">
             
             <div class="space-y-8 order-2 lg:order-1">
                 <div class="group p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-brand-orange/40 transition-all reveal delay-100">
@@ -298,21 +297,21 @@
             </h2>
         </div>
 
-        <div class="command-console p-8 md:p-12 rounded-3xl reveal delay-200">
+        <div class="command-console p-6 md:p-12 rounded-3xl reveal delay-200">
             <form class="space-y-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="relative group">
-                        <label class="block text-brand-orange text-[10px] font-bold mb-2 tracking-[0.2em] uppercase">Módulo de Identificação</label>
+                        <label class="block text-brand-orange text-[10px] font-bold mb-2 tracking-[0.2em] uppercase">Qual é o Seu Nome?</label>
                         <input type="text" placeholder="INSIRA SEU NOME" class="command-input w-full">
                     </div>
                     <div class="relative group">
-                        <label class="block text-brand-orange text-[10px] font-bold mb-2 tracking-[0.2em] uppercase">Link de Comunicação</label>
+                        <label class="block text-brand-orange text-[10px] font-bold mb-2 tracking-[0.2em] uppercase">Digite o seu Contato</label>
                         <input type="tel" placeholder="(00) 00000-0000" class="command-input w-full">
                     </div>
                 </div>
 
                 <div class="py-8 border-y border-white/5">
-                    <div class="flex flex-col md:flex-row justify-between items-end gap-6">
+                    <div class="flex flex-col md:flex-row justify-between items-center md:items-end gap-6">
                         <div class="w-full md:w-2/3">
                             <label class="block text-brand-orange text-[10px] font-bold mb-4 tracking-[0.2em] uppercase">Gasto Energético Mensal</label>
                             <input type="range" min="300" max="5000" step="50" class="command-slider w-full" id="rangeConta">
@@ -324,12 +323,12 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row items-center justify-between gap-8 bg-brand-orange/5 p-8 rounded-2xl border border-brand-orange/20">
-                    <div>
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8 bg-brand-orange/5 p-6 md:p-8 rounded-2xl border border-brand-orange/20">
+                    <div class="text-center md:text-left">
                         <span class="text-gray-400 text-xs uppercase tracking-widest block mb-2">Previsão de Economia Anual</span>
                         <div class="text-4xl md:text-6xl font-bold text-white font-mono tracking-tighter" id="valEconomia">R$ 3.600</div>
                     </div>
-                    <button type="button" onclick="window.location.href='https://wa.me/5591986441322'" class="btn-glass-solar px-12 py-5 text-lg group">
+                    <button type="button" onclick="window.location.href='https://wa.me/5591986441322'" class="btn-glass-solar group">
                         Quero Simular Economia<i class="fa-solid fa-bolt ml-2 group-hover:animate-pulse"></i>
                     </button>
                 </div>
