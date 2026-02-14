@@ -1078,3 +1078,12 @@ overflow: hidden;
 #rangeConta::-webkit-slider-thumb:hover {
     transform: scale(1.2);
 }
+
+
+
+/* Ajuste para posicionar o vídeo da etapa 4 mais à esquerda no desktop */
+@media (min-width: 768px) {
+    .process-step[data-step="4"] .step-video {
+        object-position: 90% 20%; /* Move o vídeo para a esquerda (padrão é 50% 50%) */
+    }
+}
