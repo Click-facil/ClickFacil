@@ -837,7 +837,7 @@ overflow: hidden;
     background-color: rgba(11, 30, 59, 0.9); /* Fundo mais opaco */
     border-color: #F58220; /* Borda laranja brilhante */
     box-shadow: 0 0 50px rgba(245, 130, 32, 0.6); /* Brilho mais forte */
-    transform: translateY(-15px) scale(1.03); /* Levanta e aumenta ligeiramente */
+    /* transform: translateY(-15px) scale(1.03); */ /* Desativado para performance */
 }
 
 /* Vídeo no estado "aceso" */
