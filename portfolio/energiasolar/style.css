@@ -342,9 +342,12 @@ overflow: hidden;
     position: relative;
     z-index: 1;
     width: 22%;
-    padding: 20px;
-    border-radius: 12px;
-    transition: all 0.4s ease;
+    padding: 20px;    border-radius: 12px;
+    /* Otimização: Transicionar apenas as propriedades que mudam, em vez de 'all' */
+    transition: background-color 0.4s ease, 
+                border-color 0.4s ease, 
+                box-shadow 0.4s ease, 
+                transform 0.4s ease;
     overflow: hidden;
 }
 
@@ -837,7 +840,7 @@ overflow: hidden;
     background-color: rgba(11, 30, 59, 0.9); /* Fundo mais opaco */
     border-color: #F58220; /* Borda laranja brilhante */
     box-shadow: 0 0 50px rgba(245, 130, 32, 0.6); /* Brilho mais forte */
-    /* transform: translateY(-15px) scale(1.03); */ /* Desativado para performance */
+    transform: translateY(-15px) scale(1.03); /* Levanta e aumenta ligeiramente */
 }
 
 /* Vídeo no estado "aceso" */
@@ -960,10 +963,13 @@ overflow: hidden;
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);    padding: 2.5rem;
     border-radius: 24px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Otimização: Transicionar apenas as propriedades que mudam */
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
 }
 
