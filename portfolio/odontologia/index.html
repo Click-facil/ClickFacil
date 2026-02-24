@@ -4,167 +4,604 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uniq Odontologia Especializada</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- Ícones -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Carrossel -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="style.css">
-    <!-- Preload da imagem Hero para melhorar a performance -->
     <link rel="preload" as="image" href="images/header.webp">
-    <meta property="og:title" content="Uniq Odontologia Especializada">
-    <meta property="og:description" content="Transforme seu sorriso com conforto e segurança. Agende sua avaliação.">
-    <meta property="og:image" content="https://clickfacil.vercel.app/images/imgoguniq.jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* =====================================================
+           TOKENS & RESET
+        ===================================================== */
+        :root {
+            --ink:        #050d1a;
+            --deep:       #071628;
+            --navy:       #0a1f3d;
+            --mid:        #0f2a52;
+            --steel:      #1a3a68;
+            --gold:       #c9a96e;
+            --gold-light: #e2c898;
+            --gold-dim:   rgba(201,169,110,0.15);
+            --white:      #ffffff;
+            --off-white:  #f0ece4;
+            --mist:       rgba(240,236,228,0.65);
+            --border:     rgba(201,169,110,0.2);
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans:  'DM Sans', system-ui, sans-serif;
+            --ease-out:   cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--deep);
+            color: var(--off-white);
+            font-family: var(--font-sans);
+            font-weight: 300;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { text-decoration: none; color: inherit; }
+        img { display:block; max-width:100%; }
+        ul { list-style:none; }
+
+        .container { width:100%; max-width:1200px; margin:0 auto; padding:0 40px; }
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+        .navbar {
+            position: fixed; top:0; left:0; width:100%;
+            z-index: 900; padding: 28px 0;
+            transition: padding 0.4s var(--ease-out), background 0.4s var(--ease-out);
+        }
+        .navbar.scrolled {
+            padding: 16px 0;
+            background: rgba(5,13,26,0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-container { display:flex; align-items:center; justify-content:space-between; }
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.6rem; font-weight: 600;
+            letter-spacing: 0.05em; color: var(--white);
+        }
+        .logo span { color: var(--gold); }
+        .nav-links { display:flex; gap:44px; align-items:center; }
+        .nav-links a {
+            font-size: 0.82rem; font-weight: 400;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            color: rgba(240,236,228,0.7); transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom:-4px; left:0;
+            width:0; height:1px; background: var(--gold);
+            transition: width 0.3s var(--ease-out);
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a:hover::after { width: 100%; }
+        .btn-nav {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 24px; border: 1px solid var(--gold); border-radius: 2px;
+            font-family: var(--font-sans); font-size: 0.78rem; font-weight: 500;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold);
+            transition: all 0.3s var(--ease-out);
+        }
+        .btn-nav:hover { background: var(--gold); color: var(--ink); }
+        .hamburger {
+            display: none; background: none; border: none;
+            color: var(--off-white); font-size: 1.4rem; cursor: pointer; z-index:1001;
+        }
+        .nav-wrapper { display:flex; align-items:center; gap:40px; }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-wrapper {
+                position: fixed; top:0; left:-100%;
+                width:100%; height:100vh; background: var(--ink);
+                flex-direction: column; justify-content: center; align-items: center;
+                gap:0; transition: left 0.45s var(--ease-out); z-index:999;
+            }
+            .nav-wrapper.active { left:0; }
+            .nav-links { flex-direction:column; gap:36px; text-align:center; }
+            .nav-links a { font-size:1.1rem; letter-spacing:0.15em; }
+            .btn-nav { margin-top:36px; }
+        }
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+        .hero {
+            position: relative;
+            height: 100dvh; min-height: 600px;
+            display: grid; grid-template-columns: 1fr 1fr;
+            align-items: center; overflow: hidden;
+        }
+        .hero-photo {
+            position: absolute; top:0; right:0;
+            width: 58%; height: 100%; z-index:0;
+        }
+        .hero-photo img { width:100%; height:100%; object-fit:cover; object-position: 65% center; }
+        .hero-photo::after {
+            content: ''; position: absolute; inset:0;
+            background: linear-gradient(100deg,
+                var(--deep) 0%, var(--deep) 10%,
+                rgba(7,22,40,0.85) 40%,
+                rgba(7,22,40,0.3) 70%,
+                rgba(7,22,40,0.1) 100%
+            );
+        }
+        .hero::before {
+            content: ''; position: absolute; inset:0; z-index:1;
+            background:
+                linear-gradient(to bottom, rgba(10, 15, 30, 0.3) 0%, transparent 18%),
+                linear-gradient(to top, rgba(10, 15, 30, 0.3) 0%, transparent 20%);
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative; z-index:2;
+            padding-top: 80px; padding-left: 40px; max-width: 620px;
+        }
+        .hero-eyebrow { display:flex; align-items:center; gap:12px; margin-bottom:28px; }
+        .eyebrow-line { width:32px; height:1px; background: var(--gold); }
+        .eyebrow-text {
+            font-size: 0.72rem; font-weight: 500;
+            letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
+        }
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 5.5vw, 5.5rem);
+            font-weight: 300; line-height: 1.08;
+            color: var(--white); margin-bottom: 28px;
+        }
+        .hero h1 em { font-style:italic; color: var(--gold-light); font-weight:300; }
+        .hero-desc {
+            font-size: 1rem; font-weight:300; line-height:1.75;
+            color: var(--mist); max-width: 440px; margin-bottom: 48px;
+        }
+        .hero-cta { display:flex; align-items:center; gap:28px; }
+        .btn-primary {
+            display: inline-flex; align-items:center; gap:10px;
+            padding: 16px 36px; background: var(--gold); color: var(--ink);
+            font-family: var(--font-sans); font-size: 0.8rem; font-weight:500;
+            letter-spacing: 0.12em; text-transform: uppercase;
+            border-radius: 2px; border: 1px solid var(--gold);
+            transition: all 0.35s var(--ease-out);
+            position: relative; overflow: hidden;
+        }
+        .btn-primary::before {
+            content: ''; position: absolute; inset:0;
+            background: var(--ink); transform: translateX(-101%);
+            transition: transform 0.4s var(--ease-out);
+        }
+        .btn-primary:hover { color: var(--gold); }
+        .btn-primary:hover::before { transform: translateX(0); }
+        .btn-primary span, .btn-primary i { position:relative; z-index:1; }
+        .btn-ghost {
+            font-size: 0.82rem; font-weight:400; letter-spacing:0.05em;
+            color: rgba(240,236,228,0.7); display:flex; align-items:center; gap:8px;
+            transition: color 0.3s;
+        }
+        .btn-ghost:hover { color: var(--white); }
+        .stat-item { display:flex; flex-direction:column; }
+        .stat-num {
+            font-family: var(--font-serif); font-size:2.2rem;
+            font-weight:300; color: var(--white); line-height:1;
+        }
+        .stat-label {
+            font-size:0.72rem; font-weight:400; letter-spacing:0.1em;
+            text-transform:uppercase; color: var(--gold); margin-top:4px;
+        }
+        .scroll-hint {
+            position:absolute; bottom:48px; right:48px; z-index:2;
+            display:flex; flex-direction:column; align-items:center; gap:8px;
+            color: rgba(240,236,228,0.4); font-size:0.68rem;
+            letter-spacing:0.15em; text-transform:uppercase;
+        }
+        .scroll-hint-line {
+            width:1px; height:48px;
+            background: linear-gradient(to bottom, rgba(201,169,110,0.6), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+        @keyframes scrollPulse {
+            0%,100% { opacity:1; transform:scaleY(1); }
+            50% { opacity:0.3; transform:scaleY(0.5); }
+        }
+
+        @media (max-width: 768px) {
+            .hero { grid-template-columns:1fr; min-height:100dvh; }
+            .hero-photo { width:100%; height:100%; }
+            .hero-photo::after {
+                background: linear-gradient(to top,
+                    var(--deep) 0%, var(--deep) 30%,
+                    rgba(7,22,40,0.88) 55%,
+                    rgba(7,22,40,0.5) 80%,
+                    rgba(7,22,40,0.25) 100%
+                );
+            }
+            .hero-content { padding:0 24px; padding-top:120px; max-width:100%; text-align:center; }
+            .hero-eyebrow { justify-content:center; }
+            .hero h1 { font-size: clamp(2.6rem, 10vw, 3.8rem); }
+            .hero-desc { margin: 0 auto 40px; font-size:0.95rem; }
+            .hero-cta { flex-direction:column; align-items:center; gap:20px; }
+            .btn-primary { width:100%; justify-content:center; }
+            .scroll-hint { display:none; }
+        }
+
+        /* =====================================================
+           SECTIONS COMMON
+        ===================================================== */
+        .section { padding:120px 0; }
+        .section-sm { padding:80px 0; }
+        .section-eyebrow { display:flex; align-items:center; gap:12px; margin-bottom:20px; }
+        .section-eyebrow .eyebrow-line { width:24px; }
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            font-weight:300; line-height:1.1; color: var(--white); margin-bottom:20px;
+        }
+        .section-title em { font-style:italic; color: var(--gold-light); }
+        .section-lead {
+            font-size:1rem; font-weight:300; line-height:1.75;
+            color: var(--mist); max-width:500px;
+        }
+
+        /* =====================================================
+           DIFERENCIAIS
+        ===================================================== */
+        .diferenciais {
+            background: var(--navy); position:relative;
+        }
+        .diferenciais::before {
+            content:''; position:absolute; top:0; left:0; right:0; height:1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+        }
+        .diferenciais-grid { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+        .diferenciais-img { position:relative; height:560px; }
+        .diferenciais-img img { width:100%; height:100%; object-fit:cover; border-radius:4px; }
+        .diferenciais-img::before {
+            content:''; position:absolute; top:-16px; left:-16px; right:16px; bottom:16px;
+            border:1px solid var(--border); border-radius:4px; pointer-events:none; z-index:1;
+        }
+        .diferenciais-img::after {
+            content:''; position:absolute; top:-21px; left:-21px;
+            width:10px; height:10px; background:var(--gold); border-radius:50%; z-index:2;
+        }
+        .diferenciais-content .section-lead { margin-bottom:52px; }
+        .diferencial-item {
+            display:flex; gap:20px; align-items:flex-start;
+            padding:24px 0; border-bottom:1px solid rgba(201,169,110,0.1);
+        }
+        .diferencial-item:last-child { border-bottom:none; }
+        .diferencial-num {
+            font-family: var(--font-serif); font-size:0.9rem;
+            color: var(--gold); opacity:0.6; letter-spacing:0.05em;
+            flex-shrink:0; padding-top:2px;
+        }
+        .diferencial-body h4 {
+            font-family: var(--font-sans); font-size:1rem; font-weight:500;
+            color: var(--white); margin-bottom:6px; letter-spacing:0.02em;
+        }
+        .diferencial-body p { font-size:0.9rem; line-height:1.7; color: var(--mist); }
+
+        @media (max-width: 768px) {
+            .diferenciais-grid { grid-template-columns:1fr; gap:48px; }
+            .diferenciais-img { height:340px; }
+        }
+
+        /* =====================================================
+           ESPECIALIDADES
+        ===================================================== */
+        .especialidades { background: var(--deep); }
+        .especialidades-header {
+            display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:60px;
+        }
+        .especialidades-grid {
+            display:grid; grid-template-columns:repeat(3,1fr);
+            grid-template-rows:auto auto; gap:20px;
+        }
+        .esp-card { position:relative; overflow:hidden; border-radius:4px; cursor:pointer; aspect-ratio:1/1; }
+        .esp-card:nth-child(1) { aspect-ratio:1/1; }
+        .esp-card:nth-child(2) { aspect-ratio:1/1; }
+        .esp-card:nth-child(3) { aspect-ratio:1/1; }
+        .esp-card:nth-child(4) { aspect-ratio:1/1; }
+        .esp-card:nth-child(5) { aspect-ratio:1/1; }
+        .esp-card:nth-child(6) { aspect-ratio:1/1; }
+        .esp-card img {
+            width:100%; height:100%; object-fit:cover;
+            transition: transform 0.7s var(--ease-out);
+            filter: brightness(0.75) saturate(0.8);
+        }
+        .esp-card:hover img { transform:scale(1.06); filter:brightness(0.6) saturate(0.9); }
+        .esp-overlay {
+            position:absolute; inset:0;
+            background: linear-gradient(to top, rgba(5,13,26,0.9) 0%, transparent 60%);
+            display:flex; flex-direction:column; justify-content:flex-end; padding:24px;
+            transition: background 0.4s;
+        }
+        .esp-card:hover .esp-overlay {
+            background: linear-gradient(to top, rgba(5,13,26,0.95) 0%, rgba(5,13,26,0.2) 100%);
+        }
+        .esp-num { font-family:var(--font-serif); font-size:0.75rem; color:var(--gold); letter-spacing:0.1em; margin-bottom:6px; }
+        .esp-name { font-family:var(--font-serif); font-size:1.3rem; font-weight:400; color:var(--white); }
+        .esp-arrow {
+            position:absolute; top:20px; right:20px;
+            width:36px; height:36px; border:1px solid var(--border); border-radius:50%;
+            display:flex; align-items:center; justify-content:center;
+            color:var(--gold); font-size:0.7rem;
+            opacity:0; transform:scale(0.8); transition: all 0.3s var(--ease-out);
+        }
+        .esp-card:hover .esp-arrow { opacity:1; transform:scale(1); }
+
+        @media (max-width: 768px) {
+            .especialidades-header { flex-direction:column; align-items:flex-start; gap:20px; }
+            .especialidades-grid { grid-template-columns:1fr 1fr; gap:12px; }
+            .esp-card:nth-child(1) { grid-column:span 2; aspect-ratio:4/3; }
+            .esp-card:nth-child(2),
+            .esp-card:nth-child(3),
+            .esp-card:nth-child(5) { aspect-ratio:1/1; }
+            .esp-card:nth-child(4) { grid-column:span 2; aspect-ratio:4/3; }
+            .esp-card:nth-child(6) { grid-column:span 1; aspect-ratio:1/1; }
+            .esp-name { font-size:1rem; }
+        }
+
+        /* =====================================================
+           EQUIPE
+        ===================================================== */
+        .equipe { background: var(--navy); }
+        .equipe .equipe-header { display:flex; justify-content:space-between; align-items:flex-end; }
+        .equipe-grid {
+            display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:60px;
+        }
+        .medico-card {
+            position:relative; overflow:hidden; border-radius:4px;
+            border:1px solid var(--border); transition: border-color 0.3s, transform 0.4s var(--ease-out);
+        }
+        .medico-card:hover { border-color:var(--gold); transform:translateY(-6px); }
+        .medico-photo { aspect-ratio:3/4; overflow:hidden; }
+        .medico-photo img {
+            width:100%; height:100%; object-fit:cover; object-position:top center;
+            filter:saturate(0.7); transition: transform 0.6s var(--ease-out), filter 0.4s;
+        }
+        .medico-card:hover .medico-photo img { transform:scale(1.04); filter:saturate(0.9); }
+        .medico-info { padding:20px; background: var(--mid); }
+        .medico-info h4 { font-family:var(--font-serif); font-size:1.15rem; font-weight:400; color:var(--white); margin-bottom:4px; }
+        .medico-info .cro { font-size:0.72rem; letter-spacing:0.08em; color:rgba(240,236,228,0.4); text-transform:uppercase; margin-bottom:8px; }
+        .medico-info .esp { font-size:0.82rem; color:var(--gold); font-weight:400; }
+
+        @media (max-width: 900px) { .equipe-grid { grid-template-columns:repeat(2,1fr); } }
+        @media (max-width: 480px) { .equipe-grid { grid-template-columns:1fr 1fr; gap:12px; } .medico-info { padding:14px; } }
+
+        /* =====================================================
+           DEPOIMENTOS
+        ===================================================== */
+        .depoimentos { background: var(--deep); }
+        .depoimentos-inner { display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start; }
+        .depoimentos-left { position:sticky; top:100px; }
+        .depoimentos-left .section-lead { margin-top:20px; }
+        .testimonial-slider { width:100%; padding-bottom:48px; }
+        .depoimento-card {
+            background: var(--navy); border:1px solid var(--border); border-radius:4px; padding:36px;
+        }
+        .quote-mark {
+            font-family:var(--font-serif); font-size:5rem; line-height:0.5;
+            color:var(--gold); opacity:0.25; margin-bottom:16px;
+        }
+        .depoimento-card p {
+            font-size:1rem; line-height:1.8; color:var(--mist);
+            font-style:italic; font-family:var(--font-serif); font-weight:300; margin-bottom:28px;
+        }
+        .depoimento-author { display:flex; align-items:center; gap:12px; }
+        .author-dot { width:32px; height:1px; background:var(--gold); }
+        .depoimento-author span { font-size:0.8rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-light); }
+        .swiper-pagination-bullet { background:rgba(201,169,110,0.4); opacity:1; }
+        .swiper-pagination-bullet-active { background:var(--gold); }
+
+        @media (max-width: 768px) {
+            .depoimentos-inner { grid-template-columns:1fr; gap:48px; }
+            .depoimentos-left { position:static; }
+        }
+
+        /* =====================================================
+           CTA FINAL
+        ===================================================== */
+        .cta-section { background: var(--mid); position:relative; overflow:hidden; }
+        .cta-section::before {
+            content:''; position:absolute; top:-200px; right:-200px;
+            width:600px; height:600px;
+            background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
+            pointer-events:none;
+        }
+        .cta-inner { display:grid; grid-template-columns:1fr auto; align-items:center; gap:60px; }
+        .cta-inner h2 {
+            font-family:var(--font-serif); font-size: clamp(2rem, 3.5vw, 3.2rem);
+            font-weight:300; color:var(--white); line-height:1.15;
+        }
+        .cta-inner h2 em { font-style:italic; color:var(--gold-light); }
+        .cta-inner p { font-size:0.95rem; color:var(--mist); line-height:1.7; max-width:520px; margin-top:16px; }
+        .cta-actions { display:flex; flex-direction:column; gap:16px; align-items:flex-end; flex-shrink:0; }
+        .cta-phone {
+            font-family:var(--font-serif); font-size:1.4rem; font-weight:300;
+            color:var(--white); display:flex; align-items:center; gap:10px;
+        }
+        .cta-phone i { font-size:1rem; color:var(--gold); }
+
+        @media (max-width: 768px) {
+            .cta-inner { grid-template-columns:1fr; gap:40px; }
+            .cta-actions { align-items:flex-start; }
+            .btn-primary.full { width:100%; justify-content:center; }
+        }
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+        .footer { background: var(--ink); padding: 72px 0 32px; border-top:1px solid var(--border); }
+        .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr; gap:60px; margin-bottom:60px; }
+        .footer-logo-text { font-family:var(--font-serif); font-size:1.8rem; font-weight:600; color:var(--white); margin-bottom:16px; }
+        .footer-logo-text span { color:var(--gold); }
+        .footer-tagline { font-size:0.9rem; line-height:1.7; color:rgba(240,236,228,0.5); max-width:300px; }
+        .footer-col h5 { font-size:0.72rem; font-weight:500; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
+        .footer-col ul li { margin-bottom:12px; }
+        .footer-col ul li a { font-size:0.9rem; color:rgba(240,236,228,0.6); transition:color 0.3s; }
+        .footer-col ul li a:hover { color:var(--white); }
+        .footer-contact-item { display:flex; align-items:flex-start; gap:12px; margin-bottom:14px; font-size:0.9rem; color:rgba(240,236,228,0.6); }
+        .footer-contact-item i { color:var(--gold); margin-top:2px; flex-shrink:0; }
+        .footer-social { display:flex; gap:16px; margin-top:24px; }
+        .footer-social a {
+            width:36px; height:36px; border:1px solid var(--border); border-radius:2px;
+            display:flex; align-items:center; justify-content:center;
+            font-size:0.85rem; color:rgba(240,236,228,0.5); transition:all 0.3s;
+        }
+        .footer-social a:hover { border-color:var(--gold); color:var(--gold); }
+        .footer-bottom { padding-top:32px; border-top:1px solid rgba(201,169,110,0.1); display:flex; justify-content:space-between; align-items:center; }
+        .footer-bottom p { font-size:0.8rem; color:rgba(240,236,228,0.3); }
+
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns:1fr; gap:40px; }
+            .footer-bottom { flex-direction:column; gap:12px; text-align:center; }
+        }
+
+        /* =====================================================
+           REVEAL ANIMATIONS
+        ===================================================== */
+        html.js-loaded [data-reveal] {
+            opacity:0; transform:translateY(24px);
+            transition: opacity 0.75s var(--ease-out), transform 0.75s var(--ease-out);
+        }
+        html.js-loaded [data-reveal].revealed { opacity:1; transform:translateY(0); }
+        [data-reveal-delay="1"] { transition-delay:0.1s !important; }
+        [data-reveal-delay="2"] { transition-delay:0.2s !important; }
+        [data-reveal-delay="3"] { transition-delay:0.3s !important; }
+        [data-reveal-delay="4"] { transition-delay:0.4s !important; }
+
+        @keyframes heroIn {
+            from { opacity:0; transform:translateY(20px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+        .hero-eyebrow { animation: heroIn 0.8s var(--ease-out) 0.3s both; }
+        .hero h1      { animation: heroIn 0.9s var(--ease-out) 0.5s both; }
+        .hero-desc    { animation: heroIn 0.9s var(--ease-out) 0.7s both; }
+        .hero-cta     { animation: heroIn 0.9s var(--ease-out) 0.9s both; }
+        .hero-stats   { animation: heroIn 0.9s var(--ease-out) 1.1s both; }
+        .scroll-hint  { animation: heroIn 1s var(--ease-out) 1.4s both; }
+        @keyframes navIn {
+            from { transform:translateY(-100%); opacity:0; }
+            to   { transform:translateY(0); opacity:1; }
+        }
+        .navbar { animation: navIn 0.8s var(--ease-out) 0.1s both; }
+    </style>
 </head>
 <body>
 
-    <header class="navbar">
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
         <div class="container nav-container">
-            <div class="logo">
-                <img src="images/logo-white.png" alt="Logo Odontologia">
-            </div>
-            
+            <div class="logo">UNIQ <span>·</span> Odonto</div>
             <div class="nav-wrapper" id="nav-wrapper">
                 <nav class="nav-links">
                     <a href="#hero" class="nav-link">Home</a>
                     <a href="#especialidades" class="nav-link">Especialidades</a>
-                    <a href="#corpo-clinico" class="nav-link">Corpo Clínico</a>
+                    <a href="#equipe" class="nav-link">Equipe</a>
                     <a href="#contato" class="nav-link">Contato</a>
                 </nav>
+                <a href="https://wa.me/5591993477969?text=Ol%C3%A1%2C+vim+pelo+site." target="_blank" class="btn-nav">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
             </div>
-
-            <a href="https://wa.me/5591993477969?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+falar+no+WhatsApp." target="_blank" class="btn-header">
-                Falar no WhatsApp
-            </a>
-
-            <button class="hamburger" id="hamburger-menu" aria-label="Abrir menu">
+            <button class="hamburger" id="hamburger-menu" aria-label="Menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
 
+    <!-- HERO -->
     <section class="hero" id="hero">
-        <div class="hero-overlay"></div>
-        
-        <div class="container hero-content">
-            <span class="hero-badge">ODONTOLOGIA ESPECIALIZADA EM PARAGOMINAS</span>
-            
+        <div class="hero-photo">
+            <img src="images/header.webp" alt="Odontologia especializada">
+        </div>
+        <div class="hero-content container">
+            <div class="hero-eyebrow">
+                <div class="eyebrow-line"></div>
+                <span class="eyebrow-text">Odontologia Especializada · Paragominas</span>
+            </div>
             <h1>
-                Transforme seu sorriso com 
-                <span class="highlight">conforto e segurança.</span>
+                Transforme<br>seu sorriso com<br>
+                <em>conforto e precisão.</em>
             </h1>
-            
-            <p>
-                Tecnologia de ponta e especialistas dedicados para cuidar da sua saúde bucal. 
-                A referência em odontologia que você e sua família merecem.
+            <p class="hero-desc">
+                Tecnologia de ponta e especialistas dedicados para cuidar da sua saúde bucal com excelência. A referência que você e sua família merecem.
             </p>
-            
-            <div class="cta-group">
+            <div class="hero-cta">
                 <a href="https://wa.me/5591993477969?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o." target="_blank" class="btn-primary">
-                    AGENDAR MINHA AVALIAÇÃO
+                    <span>Agendar Avaliação</span>
+                    <i class="fas fa-arrow-right"></i>
                 </a>
-                
-                <a href="#especialidades" class="btn-text">Conhecer tratamentos &rarr;</a>
+                <a href="#especialidades" class="btn-ghost">
+                    Conhecer tratamentos <i class="fas fa-chevron-right" style="font-size:0.65rem;"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <span class="stat-num">12+</span>
+                <span class="stat-label">Anos de experiência</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">6</span>
+                <span class="stat-label">Especialidades</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-num">98%</span>
+                <span class="stat-label">Satisfação</span>
             </div>
         </div>
     </section>
 
     <main>
-        <!-- SEÇÃO DE DIFERENCIAIS -->
-        <section class="section-padding bg-blue-light" id="diferenciais">
-            <div class="container diferenciais-container">
-                <div class="diferenciais-col-left animate-on-scroll">
-                    <img src="images/pexels-cedric-fauntleroy-4269944.webp" alt="Dentista atendendo paciente com um sorriso">
-                    <div class="floating-shape shape-1"></div>
-                    <div class="floating-shape shape-2"></div>
-                    <div class="floating-shape shape-3"></div>
-                </div>
-                <div class="diferenciais-col-right animate-on-scroll" style="animation-delay: 0.2s;">
-                    <h2 class="section-title-left">Uma experiência odontológica pensada para você.</h2>
-                    <p class="section-subtitle-left">Deixamos o "clima de consultório" para trás. Aqui, seu conforto e bem-estar são a nossa prioridade em cada detalhe.</p>
-                    <ul class="diferenciais-list">
-                        <li>
-                            <div class="diferencial-icon"><i class="fas fa-microscope"></i></div>
-                            <div class="diferencial-text">
-                                <h4>Tecnologia que cuida</h4>
-                                <p>Usamos equipamentos de ponta para tratamentos mais rápidos, precisos e indolores.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="diferencial-icon"><i class="fas fa-user-doctor"></i></div>
-                            <div class="diferencial-text">
-                                <h4>Especialistas que acolhem</h4>
-                                <p>Nossa equipe vai além do técnico, oferecendo um atendimento humano, atencioso e empático.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="diferencial-icon"><i class="fas fa-couch"></i></div>
-                            <div class="diferencial-text">
-                                <h4>Ambiente que relaxa</h4>
-                                <p>Cada detalhe foi criado para transformar sua visita em um momento de tranquilidade e confiança.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEÇÃO DE ESPECIALIDADES -->
-        <section class="section-padding" id="especialidades">
+        <!-- DIFERENCIAIS -->
+        <section class="section diferenciais" id="diferenciais">
             <div class="container">
-                <h2 class="section-title animate-on-scroll">Nossas Especialidades</h2>
-                <p class="section-subtitle animate-on-scroll">Soluções completas para a saúde e estética do seu sorriso.</p>
-                <div class="especialidades-grid">
-                    <div class="especialidade-card animate-on-scroll">
-                        <div class="card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95" alt="Exame Dentário">
-                            <div class="card-overlay">
-                                <h3>Exame Dentário</h3>
-                            </div>
-                        </div>
+                <div class="diferenciais-grid">
+                    <div class="diferenciais-img" data-reveal>
+                        <img src="images/pexels-cedric-fauntleroy-4269944.webp" alt="Especialista atendendo paciente">
                     </div>
-                    <div class="especialidade-card animate-on-scroll">
-                        <div class="card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5" alt="Clareamento Dentário">
-                            <div class="card-overlay">
-                                <h3>Clareamento Dentário</h3>
-                            </div>
+                    <div class="diferenciais-content">
+                        <div class="section-eyebrow" data-reveal>
+                            <div class="eyebrow-line"></div>
+                            <span class="eyebrow-text">Por que nos escolher</span>
                         </div>
-                    </div>
-                    <div class="especialidade-card animate-on-scroll">
-                        <div class="card-image-wrapper">
-                            <img src="images/pexels-cottonbro-6529108.webp" alt="Aparelho dentário">
-                            <div class="card-overlay">
-                                <h3>Aparelho dentário</h3>
+                        <h2 class="section-title" data-reveal data-reveal-delay="1">
+                            Uma experiência <em>pensada</em><br>para você.
+                        </h2>
+                        <p class="section-lead" data-reveal data-reveal-delay="2">
+                            Deixamos o clima frio de consultório para trás. Cada detalhe foi criado para que sua visita seja confortável, segura e transformadora.
+                        </p>
+                        <div data-reveal data-reveal-delay="3">
+                            <div class="diferencial-item">
+                                <span class="diferencial-num">01</span>
+                                <div class="diferencial-body">
+                                    <h4>Tecnologia que cuida</h4>
+                                    <p>Equipamentos de última geração para diagnósticos precisos e tratamentos menos invasivos.</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="especialidade-card animate-on-scroll">
-                        <div class="card-image-wrapper">
-                            <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787" alt="Implantes Dentários">
-                            <div class="card-overlay">
-                                <h3>Implantes Dentários</h3>
+                            <div class="diferencial-item">
+                                <span class="diferencial-num">02</span>
+                                <div class="diferencial-body">
+                                    <h4>Especialistas que acolhem</h4>
+                                    <p>Nossa equipe alia domínio técnico a um atendimento humano, atencioso e empático.</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="especialidade-card animate-on-scroll">
-                        <div class="card-image-wrapper">
-                            <img src="images/pexels-cedric-fauntleroy-4269684.webp" alt="Obturação dentária">
-                            <div class="card-overlay">
-                                <h3>Obturação dentária</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="especialidade-card animate-on-scroll">
-                        <div class="card-image-wrapper">
-                            <img src="images/pexels-gustavo-fring-4971503.webp" alt="Estética Dental">
-                            <div class="card-overlay">
-                                <h3>Estética Dental</h3>
+                            <div class="diferencial-item">
+                                <span class="diferencial-num">03</span>
+                                <div class="diferencial-body">
+                                    <h4>Ambiente que relaxa</h4>
+                                    <p>Cada espaço foi projetado para transformar sua visita em um momento de tranquilidade.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -172,131 +609,225 @@
             </div>
         </section>
 
-        <!-- SEÇÃO CORPO CLÍNICO -->
-        <section class="section-padding" id="corpo-clinico">
+        <!-- ESPECIALIDADES -->
+        <section class="section especialidades" id="especialidades">
             <div class="container">
-                <h2 class="section-title animate-on-scroll">Conheça Nossa Equipe</h2>
-                <p class="section-subtitle animate-on-scroll">Profissionais dedicados a oferecer um atendimento de excelência, combinando técnica e cuidado humano.</p>
-                <div class="corpo-clinico-grid">
-                    <!-- Card 1 -->
-                    <div class="doutor-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop" alt="Dr. João da Silva">
-                        <div class="doutor-info">
-                            <h4>Dr. João da Silva</h4>
-                            <span>CRO-PA 12345</span>
-                            <p>Especialista em Implantodontia</p>
-                        </div>
+                <div class="especialidades-header">
+                    <h2 class="section-title" data-reveal>
+                        Nossas <em>Especialidades</em>
+                    </h2>
+                </div>
+                <div class="especialidades-grid" data-reveal>
+                    <div class="esp-card">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=900&auto=format&fit=crop" alt="Exame Dentário">
+                        <div class="esp-overlay"><span class="esp-num">01</span><h3 class="esp-name">Exame Dentário</h3></div>
+                        <div class="esp-arrow"><i class="fas fa-arrow-up-right"></i></div>
                     </div>
-                    <!-- Card 2 -->
-                    <div class="doutor-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1580281658223-9b93f18ae9ae?q=80&w=800&auto=format&fit=crop" alt="Dra. Maria Oliveira">
-                        <div class="doutor-info">
-                            <h4>Dra. Maria Oliveira</h4>
-                            <span>CRO-PA 54321</span>
-                            <p>Especialista em Ortodontia</p>
-                        </div>
+                    <div class="esp-card">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&auto=format&fit=crop" alt="Clareamento Dentário">
+                        <div class="esp-overlay"><span class="esp-num">02</span><h3 class="esp-name">Clareamento</h3></div>
+                        <div class="esp-arrow"><i class="fas fa-arrow-up-right"></i></div>
                     </div>
-                    <!-- Card 3 -->
-                    <div class="doutor-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop" alt="Dra. Ana Costa">
-                        <div class="doutor-info">
-                            <h4>Dra. Ana Costa</h4>
-                            <span>CRO-PA 67890</span>
-                            <p>Especialista em Estética Dental</p>
-                        </div>
+                    <div class="esp-card">
+                        <img src="images/pexels-cottonbro-6529108.webp" alt="Aparelho dentário">
+                        <div class="esp-overlay"><span class="esp-num">03</span><h3 class="esp-name">Aparelho Dentário</h3></div>
+                        <div class="esp-arrow"><i class="fas fa-arrow-up-right"></i></div>
                     </div>
-                    <!-- Card 4 -->
-                    <div class="doutor-card animate-on-scroll">
-                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop" alt="Dr. Carlos Souza">
-                        <div class="doutor-info">
-                            <h4>Dr. Carlos Souza</h4>
-                            <span>CRO-PA 09876</span>
-                            <p>Especialista em Endodontia</p>
-                        </div>
+                    <div class="esp-card">
+                        <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=900&auto=format&fit=crop" alt="Implantes Dentários">
+                        <div class="esp-overlay"><span class="esp-num">04</span><h3 class="esp-name">Implantes Dentários</h3></div>
+                        <div class="esp-arrow"><i class="fas fa-arrow-up-right"></i></div>
+                    </div>
+                    <div class="esp-card">
+                        <img src="images/pexels-cedric-fauntleroy-4269684.webp" alt="Obturação dentária">
+                        <div class="esp-overlay"><span class="esp-num">05</span><h3 class="esp-name">Obturação</h3></div>
+                        <div class="esp-arrow"><i class="fas fa-arrow-up-right"></i></div>
+                    </div>
+                    <div class="esp-card">
+                        <img src="images/pexels-gustavo-fring-4971503.webp" alt="Estética Dental">
+                        <div class="esp-overlay"><span class="esp-num">06</span><h3 class="esp-name">Estética Dental</h3></div>
+                        <div class="esp-arrow"><i class="fas fa-arrow-up-right"></i></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO DEPOIMENTOS -->
-        <section class="section-padding" id="depoimentos">
+        <!-- EQUIPE -->
+        <section class="section equipe" id="equipe">
             <div class="container">
-                <h2 class="section-title animate-on-scroll">O que nossos pacientes dizem</h2>
-                <div class="swiper testimonial-slider animate-on-scroll">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="depoimento-card">
-                                <p>"Atendimento incrível e resultado impecável! A equipe toda é muito atenciosa. Recomendo de olhos fechados."</p>
-                                <span>- Ana C.</span>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="depoimento-card">
-                                <p>"Perdi o medo de dentista aqui. O Dr. João é muito cuidadoso e o ambiente transmite muita paz. Meu implante ficou perfeito."</p>
-                                <span>- Marcos P.</span>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="depoimento-card">
-                                <p>"Finalizei meu tratamento ortodôntico e estou muito feliz! A Dra. Maria é uma profissional excelente."</p>
-                                <span>- Juliana S.</span>
-                            </div>
-                        </div>
+                <div class="equipe-header">
+                    <h2 class="section-title" data-reveal>Conheça <em>nossa equipe</em></h2>
+                </div>
+                <div class="equipe-grid">
+                    <div class="medico-card" data-reveal>
+                        <div class="medico-photo"><img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop" alt="Dr. João da Silva"></div>
+                        <div class="medico-info"><h4>Dr. João da Silva</h4><span class="cro">CRO-PA 12345</span><p class="esp">Implantodontia</p></div>
                     </div>
-                    <div class="swiper-pagination"></div>
+                    <div class="medico-card" data-reveal data-reveal-delay="1">
+                        <div class="medico-photo"><img src="https://images.unsplash.com/photo-1580281658223-9b93f18ae9ae?q=80&w=800&auto=format&fit=crop" alt="Dra. Mario Oliveira"></div>
+                        <div class="medico-info"><h4>Dra. Maria Oliveira</h4><span class="cro">CRO-PA 54321</span><p class="esp">Ortodontia</p></div>
+                    </div>
+                    <div class="medico-card" data-reveal data-reveal-delay="2">
+                        <div class="medico-photo"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop" alt="Dra. Ana Costa"></div>
+                        <div class="medico-info"><h4>Dra. Ana Costa</h4><span class="cro">CRO-PA 67890</span><p class="esp">Estética Dental</p></div>
+                    </div>
+                    <div class="medico-card" data-reveal data-reveal-delay="3">
+                        <div class="medico-photo"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800&auto=format&fit=crop" alt="Dr. Carlos Souza"></div>
+                        <div class="medico-info"><h4>Dr. Carlos Souza</h4><span class="cro">CRO-PA 09876</span><p class="esp">Endodontia</p></div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- SEÇÃO CTA FINAL -->
-        <section class="section-padding cta-final" id="contato">
-            <div class="container animate-on-scroll">
-                <h2>Pronto para transformar seu sorriso?</h2>
-                <p>Nossa equipe está pronta para avaliar seu caso e indicar o melhor tratamento. O primeiro passo para o sorriso dos seus sonhos está a um clique de distância.</p>
-                <a href="https://wa.me/5591993477969?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o." target="_blank" class="btn-primary">
-                    AGENDAR AVALIAÇÃO PELO WHATSAPP
-                </a>
+        <!-- DEPOIMENTOS -->
+        <section class="section depoimentos" id="depoimentos">
+            <div class="container">
+                <div class="depoimentos-inner">
+                    <div class="depoimentos-left">
+                        <h2 class="section-title" data-reveal>O que nossos <em>pacientes</em> dizem</h2>
+                    </div>
+                    <div class="swiper testimonial-slider" data-reveal>
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="depoimento-card">
+                                    <div class="quote-mark">"</div>
+                                    <p>Atendimento incrível e resultado impecável! A equipe toda é muito atenciosa. Recomendo de olhos fechados para qualquer pessoa que busca qualidade.</p>
+                                    <div class="depoimento-author"><div class="author-dot"></div><span>Ana C.</span></div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="depoimento-card">
+                                    <div class="quote-mark">"</div>
+                                    <p>Perdi o medo de dentista aqui. O Dr. João é muito cuidadoso e o ambiente transmite paz. Meu implante ficou perfeito — melhor decisão que tomei.</p>
+                                    <div class="depoimento-author"><div class="author-dot"></div><span>Marcos P.</span></div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="depoimento-card">
+                                    <div class="quote-mark">"</div>
+                                    <p>Finalizei meu tratamento ortodôntico e estou muito feliz! A Dra. Maria é uma profissional excelente, paciente e dedicada a cada detalhe.</p>
+                                    <div class="depoimento-author"><div class="author-dot"></div><span>Juliana S.</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA FINAL -->
+        <section class="section-sm cta-section" id="contato">
+            <div class="container">
+                <div class="cta-inner">
+                    <div>
+                        <h2 data-reveal>Pronto para transformar<br><em>seu sorriso?</em></h2>
+                        <p data-reveal data-reveal-delay="1">Nossa equipe está pronta para avaliar seu caso e indicar o melhor tratamento. O primeiro passo está a um clique de distância.</p>
+                    </div>
+                    <div class="cta-actions" data-reveal data-reveal-delay="2">
+                        <div class="cta-phone"><i class="fab fa-whatsapp"></i> (91) 99347-7969</div>
+                        <a href="https://wa.me/5591993477969?text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+agendar+uma+avalia%C3%A7%C3%A3o." target="_blank" class="btn-primary full">
+                            <span>Agendar pelo WhatsApp</span><i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-        <div class="container footer-container">
-            <div class="footer-col">
-                <img src="images/logo-white.png" alt="Logo Odontologia" class="footer-logo">
-                <p>Uniq Odontologia Especializada.<br>Transformando sorrisos com conforto e segurança.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navegação</h4>
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#especialidades">Especialidades</a></li>
-                    <li><a href="#corpo-clinico">Corpo Clínico</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contato</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123, Paragominas-PA</p>
-                <p><i class="fab fa-whatsapp"></i> (91) 99347-7969</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo-text">UNIQ <span>·</span> Odonto</div>
+                    <p class="footer-tagline">Transformando sorrisos com conforto, tecnologia e cuidado humano em Paragominas, Pará.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://wa.me/5591993477969" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Navegação</h5>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#especialidades">Especialidades</a></li>
+                        <li><a href="#equipe">Corpo Clínico</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Contato</h5>
+                    <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Rua Exemplo, 123<br>Paragominas — PA</span></div>
+                    <div class="footer-contact-item"><i class="fab fa-whatsapp"></i><span>(91) 99347-7969</span></div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>
-                &copy; 2024 Uniq Odontologia. Todos os direitos reservados. Desenvolvido por
-                <a href="https://clickfacil.vercel.app" target="_blank" class="dev-logo-link" aria-label="Desenvolvido por Click Fácil">
-                    <img src="../../images/logo.webp" alt="Logo Click Fácil" class="dev-logo">
-                </a>
-            </p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 UNIQ Odontologia. Todos os direitos reservados.</p>
+                <p>Desenvolvido por <a href="https://clickfacil.vercel.app" target="_blank" style="color:var(--gold);opacity:0.7;transition:opacity 0.3s" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">Click Fácil</a></p>
+            </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.documentElement.classList.add('js-loaded');
+
+        const hamburger = document.getElementById('hamburger-menu');
+        const navWrapper = document.getElementById('nav-wrapper');
+        const navbar    = document.getElementById('navbar');
+
+        hamburger?.addEventListener('click', () => {
+            navWrapper.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            icon?.classList.toggle('fa-bars');
+            icon?.classList.toggle('fa-times');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navWrapper.classList.contains('active')) hamburger.click();
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') { e.preventDefault(); return; }
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                }
+            });
+        });
+
+        const reveals = document.querySelectorAll('[data-reveal]');
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        reveals.forEach(el => revealObs.observe(el));
+        setTimeout(() => { reveals.forEach(el => { if (!el.classList.contains('revealed')) el.classList.add('revealed'); }); }, 1800);
+
+        new Swiper('.testimonial-slider', {
+            loop: true,
+            autoplay: { delay: 5500, disableOnInteraction: false },
+            pagination: { el: '.swiper-pagination', clickable: true },
+            slidesPerView: 1,
+            spaceBetween: 24,
+        });
+    });
+    </script>
 </body>
 </html>
