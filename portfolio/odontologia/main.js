@@ -1,38 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Navbar scroll ---
+    document.documentElement.classList.add('js-on');
+
+    // ── Navbar scroll ──────────────────────────
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 40);
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
     }, { passive: true });
 
-    // --- Hamburger / Mobile Nav ---
-    const hamburger = document.getElementById('hamburger-menu');
-    const overlay = document.getElementById('mobile-nav-overlay');
-    const closeBtn = document.getElementById('mobile-nav-close');
-    const mobileLinks = document.querySelectorAll('.mobile-nav-link, .mobile-nav-cta');
-
-    function openMenu() {
-        overlay.classList.add('active');
-        hamburger.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-        overlay.classList.remove('active');
-        hamburger.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+    // ── Hamburger / mobile nav ─────────────────
+    const hamburger  = document.getElementById('hamburger-menu');
+    const navWrapper = document.getElementById('nav-wrapper');
 
     hamburger?.addEventListener('click', () => {
-        overlay.classList.contains('active') ? closeMenu() : openMenu();
+        navWrapper.classList.toggle('active');
+        const icon = hamburger.querySelector('i');
+        icon?.classList.toggle('fa-bars');
+        icon?.classList.toggle('fa-times');
     });
 
-    closeBtn?.addEventListener('click', closeMenu);
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navWrapper.classList.contains('active')) hamburger.click();
+        });
+    });
 
-    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-    // --- Smooth Scroll ---
+    // ── Smooth scroll ──────────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -40,37 +33,44 @@ document.addEventListener('DOMContentLoaded', () => {
             const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
-                window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                window.scrollTo({ top: target.offsetTop - 76, behavior: 'smooth' });
             }
         });
     });
 
-    // --- Fade-in on Scroll ---
-    const fadeEls = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
+    // ── Reveal genérico: [data-reveal] ─────────
+    const reveals = document.querySelectorAll('[data-reveal]');
+    const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('revealed');
+                revealObs.unobserve(e.target);
             }
         });
     }, { threshold: 0.1 });
 
-    fadeEls.forEach(el => observer.observe(el));
+    reveals.forEach(el => revealObs.observe(el));
+    setTimeout(() => reveals.forEach(el => el.classList.add('revealed')), 1800);
 
-    // Fallback
-    setTimeout(() => {
-        fadeEls.forEach(el => {
-            if (!el.classList.contains('visible')) {
-                el.classList.add('visible');
+    // ── Especialidades: stagger de entrada ─────
+    const espCards = document.querySelectorAll('.esp-card');
+    const espObs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                const idx = [...espCards].indexOf(e.target);
+                setTimeout(() => e.target.classList.add('in-view'), idx * 70);
+                espObs.unobserve(e.target);
             }
         });
-    }, 1800);
+    }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
 
-    // --- Swiper ---
+    espCards.forEach(c => espObs.observe(c));
+    setTimeout(() => espCards.forEach(c => c.classList.add('in-view')), 1800);
+
+    // ── Swiper (depoimentos) ───────────────────
     new Swiper('.testimonial-slider', {
         loop: true,
-        autoplay: { delay: 5000, disableOnInteraction: false },
+        autoplay: { delay: 5500, disableOnInteraction: false },
         pagination: { el: '.swiper-pagination', clickable: true },
         slidesPerView: 1,
         spaceBetween: 24,
