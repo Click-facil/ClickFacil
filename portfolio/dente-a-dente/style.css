@@ -315,16 +315,19 @@ a { text-decoration: none; }
     .btn-primary { width: 100%; max-width: 280px; }
 
     /* MANTENDO SUA IMAGEM EM 180% SEM SOBRAR FAIXA */
-    .hero-image-container {
+    /* Adicionado .hero-photo para compatibilidade com o projeto Odontologia */
+    .hero-image-container, .hero-photo {
         position: relative;
-        width: 260%; 
-        left: -40%; /* Mantém o centro da sua imagem */
+        width: 260%;
+        /* Ajustado para mover a imagem mais para a esquerda no mobile */
+        left: -60%;
         height: 50vh;
         margin-top: 40px;
         margin-bottom: -2px; /* Garante que não sobre fresta embaixo */
+        z-index: 1; /* Garante que a imagem fique atrás do texto */
     }
 
-    .hero-image-container img {
+    .hero-image-container img, .hero-photo img {
         width: 100%;
         height: 100%;
         object-fit: contain; /* Ou cover, dependendo de como você quer o corte */

@@ -254,13 +254,24 @@ ul { list-style: none; }
 @media (max-width: 768px) {
     .hero {
         min-height: 100dvh;
-        display: flex; flex-direction: column;
+        /* display: flex; flex-direction: column; <- Removido para permitir o posicionamento absoluto da imagem de fundo */
     }
-    .hero-photo { width: 100%; }
+    .hero-photo {
+        position: absolute;
+        top: 0;
+        width: 180%; /* Aumenta a largura da imagem para que possa ser deslocada */
+        height: 70vh; /* Define uma altura para a imagem no mobile */
+        left: -70%; /* Desloca a imagem para a esquerda */
+        z-index: 0; /* Garante que a imagem fique atrás do conteúdo */
+        opacity: 0.6; /* Suaviza a imagem para "jogá-la para trás" e melhorar o contraste */
+    }
+    .hero-photo img {
+        object-position: center; /* Centraliza o foco da imagem */
+    }
     .hero-photo::after {
         background: linear-gradient(to top,
             var(--deep) 0%, var(--deep) 32%,
-            rgba(7,22,40,.92) 55%, rgba(7,22,40,.5) 78%, rgba(7,22,40,.18) 100%
+            rgba(7,22,40,.92) 50%, rgba(7,22,40,.5) 78%, rgba(7,22,40,.18) 100%
         );
     }
     .hero-content {
