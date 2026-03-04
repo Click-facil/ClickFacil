@@ -267,16 +267,33 @@ img {
         min-height: 500px !important;
         padding: 0 !important;
         margin-top: -80px !important;
+        overflow: hidden !important;
     }
     
     .hero-video-bg {
         height: 200px !important;
-        margin-top: 80px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        position: relative !important;
+        display: block !important;
+    }
+    
+    .hero-overlay {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 200px !important;
     }
     
     .hero-content {
         margin-top: -50px !important;
         padding: 20px !important;
+        position: relative !important;
+        z-index: 10 !important;
+        transform: none !important;
     }
     
     .hero-text h1 {
