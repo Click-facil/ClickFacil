@@ -1,0 +1,354 @@
+/* ============================================
+   CLICK FÁCIL - MELHORIAS VISUAIS
+   Aplica melhorias sem conflitar com o style.css
+   ============================================ */
+
+/* ===== VARIÁVEIS APRIMORADAS ===== */
+:root {
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-glow: 0 0 40px rgba(0, 240, 255, 0.15);
+    --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== MELHORIAS GERAIS ===== */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* ===== HERO SECTION - MAIS IMPACTO ===== */
+.hero-text h1 {
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    animation: fadeSlideUp 0.8s ease-out;
+}
+
+.hero-text h2 {
+    animation: fadeSlideUp 0.8s ease-out 0.2s both;
+}
+
+.hero-text p {
+    animation: fadeSlideUp 0.8s ease-out 0.4s both;
+}
+
+.hero-buttons {
+    animation: fadeSlideUp 0.8s ease-out 0.6s both;
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== BOTÕES COM MAIS VIDA ===== */
+.saiba-mais,
+.whatsapp-button,
+.contact-button-big {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s var(--transition-smooth);
+}
+
+.saiba-mais::before,
+.whatsapp-button::before,
+.contact-button-big::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.saiba-mais:hover::before,
+.whatsapp-button:hover::before,
+.contact-button-big:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.saiba-mais:active,
+.whatsapp-button:active,
+.contact-button-big:active {
+    transform: scale(0.95);
+}
+
+/* ===== CARDS COM PROFUNDIDADE ===== */
+.bento-card,
+.blog-card,
+.project-card,
+.service-card {
+    transition: all 0.4s var(--transition-smooth);
+    will-change: transform;
+}
+
+.bento-card:hover,
+.blog-card:hover,
+.project-card:hover,
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-card), var(--shadow-glow);
+}
+
+/* ===== FAQ COM ANIMAÇÃO SUAVE ===== */
+.faq-item details {
+    transition: all 0.3s ease;
+}
+
+.faq-item details[open] {
+    background: rgba(0, 240, 255, 0.05);
+}
+
+.faq-item details summary {
+    cursor: pointer;
+    user-select: none;
+}
+
+.faq-item details summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-answer {
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== HEADER APRIMORADO ===== */
+.main-header {
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ===== SEÇÕES COM GRADIENTES SUTIS ===== */
+.services-section-animated {
+    background: 
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 240, 255, 0.08) 0%, transparent 70%),
+        var(--bg-dark-navy);
+}
+
+.review-section-wrapper {
+    background: 
+        radial-gradient(ellipse 60% 80% at 0% 50%, rgba(0, 240, 255, 0.05) 0%, transparent 60%),
+        rgba(8, 14, 28, 0.9);
+}
+
+.faq-section-blog {
+    background: 
+        radial-gradient(ellipse 80% 60% at 100% 50%, rgba(99, 102, 241, 0.05) 0%, transparent 60%),
+        rgba(8, 14, 28, 0.8);
+}
+
+.contact-section-final {
+    background: 
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(0, 240, 255, 0.1) 0%, transparent 60%),
+        rgba(8, 14, 28, 1);
+}
+
+/* ===== ÍCONES COM GLOW ===== */
+.bento-card i,
+.service-icon,
+.feature-icon i {
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.4));
+    transition: filter 0.3s ease;
+}
+
+.bento-card:hover i,
+.service-card:hover .service-icon,
+.feature-item:hover .feature-icon i {
+    filter: drop-shadow(0 0 20px rgba(0, 240, 255, 0.8));
+}
+
+/* ===== TEXTO COM GRADIENTE ANIMADO ===== */
+.text-gradient {
+    background: linear-gradient(90deg, #00f0ff, #0080ff, #00f0ff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% center;
+    }
+    50% {
+        background-position: 100% center;
+    }
+}
+
+/* ===== SCROLLBAR CUSTOMIZADA ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 240, 255, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 240, 255, 0.6);
+}
+
+/* ===== SELEÇÃO DE TEXTO ===== */
+::selection {
+    background: rgba(0, 240, 255, 0.3);
+    color: #ffffff;
+}
+
+/* ===== IMAGENS COM TRANSIÇÃO ===== */
+img {
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover img,
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ===== LINKS COM UNDERLINE ANIMADO ===== */
+.footer-column.links a {
+    position: relative;
+}
+
+.footer-column.links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-cyan);
+    transition: width 0.3s ease;
+}
+
+.footer-column.links a:hover::after {
+    width: 100%;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .bento-card:hover,
+    .blog-card:hover,
+    .project-card:hover {
+        transform: none;
+    }
+    
+    /* Correção Hero Mobile - Botões visíveis */
+    .hero-section {
+        height: auto !important;
+        min-height: 500px !important;
+        padding: 0 !important;
+        margin-top: -80px !important;
+    }
+    
+    .hero-video-bg {
+        height: 200px !important;
+        margin-top: 80px !important;
+    }
+    
+    .hero-content {
+        margin-top: -50px !important;
+        padding: 20px !important;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .hero-tag {
+        font-size: 0.7rem !important;
+        padding: 5px 12px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .hero-text h2 {
+        display: none !important;
+    }
+    
+    .hero-text p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 20px !important;
+    }
+    
+    .hero-buttons {
+        margin-top: 15px !important;
+    }
+}
+
+/* ===== LOADING STATE ===== */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-cyan);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* ===== FOCUS STATES PARA ACESSIBILIDADE ===== */
+a:focus-visible,
+button:focus-visible,
+details:focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* ===== PREFERS REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
