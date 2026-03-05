@@ -5,6 +5,10 @@ npm-debug.log*
 # Pasta de imagens otimizadas (gerada pelo script)
 images_optimized/
 
+# Arquivos de metadados do Next.js exportado (desnecessários)
+portfolio/agenciadigital/__next.*.txt
+portfolio/agenciadigital/_not-found/
+
 # Arquivos de sistema operacional
 .DS_Store
 Thumbs.db
