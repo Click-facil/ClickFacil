@@ -71,26 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ===== BARRA DE PROGRESSO DE SCROLL =====
-    const progressBar = document.createElement('div');
-    progressBar.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 3px;
-        background: linear-gradient(90deg, #00f0ff, #0080ff);
-        z-index: 9999;
-        transition: width 0.1s ease;
-        width: 0%;
-    `;
-    document.body.prepend(progressBar);
 
-    window.addEventListener('scroll', () => {
-        const winScroll = document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        progressBar.style.width = scrolled + '%';
-    }, { passive: true });
 
     // ===== EFEITO DE GLOW CURSOR (Desktop apenas) =====
     if (window.innerWidth > 768 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
