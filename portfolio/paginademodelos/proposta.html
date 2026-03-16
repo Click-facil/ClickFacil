@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clínica EquipeDente – Nova Presença Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5B0;
+    --dark: #0A0A0A;
+    --dark-2: #111111;
+    --dark-3: #1A1A1A;
+    --white: #F5F2EE;
+    --muted: #888880;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(201,169,110,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.2s forwards;
+  }
+
+  .badge::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 5vw, 72px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
+    max-width: 420px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.6s forwards;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.8s forwards;
+  }
+
+  .stat-item { display: flex; flex-direction: column; gap: 4px; }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+  .hero-right {
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 1.2s 0.3s forwards;
+  }
+
+  .hero-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    filter: grayscale(20%) contrast(1.05);
+  }
+
+  .hero-right::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--dark) 0%, transparent 30%),
+                linear-gradient(to top, var(--dark) 0%, transparent 20%);
+  }
+
+  /* ── PROBLEMA ── */
+  .section-problem {
+    padding: 120px 80px;
+    background: var(--dark-2);
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.4; }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-top: 60px;
+  }
+
+  .problem-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 300;
+    line-height: 1.15;
+  }
+
+  .problem-title em { font-style: italic; color: var(--gold); }
+
+  .problem-list { display: flex; flex-direction: column; gap: 24px; }
+
+  .problem-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px;
+    background: var(--dark-3);
+    border-left: 2px solid rgba(201,169,110,0.3);
+    transition: border-color 0.3s;
+  }
+
+  .problem-item:hover { border-color: var(--gold); }
+
+  .problem-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(201,169,110,0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .problem-text h4 { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+  .problem-text p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* ── COMPARAÇÃO ── */
+  .section-compare {
+    padding: 120px 80px;
+    background: var(--dark);
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 60px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .compare-col {
+    padding: 48px 40px;
+    position: relative;
+  }
+
+  .compare-col.before { background: var(--dark-2); }
+  .compare-col.after { background: var(--dark-3); border-left: 1px solid rgba(201,169,110,0.2); }
+
+  .compare-tag {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    margin-bottom: 32px;
+    display: inline-block;
+  }
+
+  .compare-tag.before-tag { background: rgba(255,255,255,0.05); color: var(--muted); }
+  .compare-tag.after-tag { background: rgba(201,169,110,0.15); color: var(--gold); }
+
+  .compare-list { display: flex; flex-direction: column; gap: 16px; }
+  .compare-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .compare-list li span.icon { flex-shrink: 0; margin-top: 2px; }
+  .before .compare-list li { color: var(--muted); }
+  .after .compare-list li { color: var(--white); }
+
+  /* ── SOLUÇÃO ── */
+  .section-solution {
+    padding: 120px 80px;
+    background: var(--dark-2);
+    text-align: center;
+  }
+
+  .solution-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 300;
+    line-height: 1.1;
+    max-width: 700px;
+    margin: 20px auto 60px;
+  }
+
+  .solution-title em { font-style: italic; color: var(--gold); }
+
+  .mockup-frame {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid rgba(201,169,110,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,169,110,0.1);
+    position: relative;
+  }
+
+  .mockup-bar {
+    background: #1E1E1E;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-r { background: #FF5F57; }
+  .dot-y { background: #FEBC2E; }
+  .dot-g { background: #28C840; }
+
+  .mockup-url {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: var(--muted);
+    margin-left: 8px;
+  }
+
+  .mockup-content {
+    background: linear-gradient(135deg, #0D1117 0%, #161B22 100%);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mock-hero {
+    padding: 60px 60px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: linear-gradient(135deg, #0D1117 0%, #0F1923 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mock-hero::before {
+    content: '';
+    position: absolute;
+    right: -20%;
+    top: -20%;
+    width: 60%;
+    height: 140%;
+    background: radial-gradient(ellipse, rgba(201,169,110,0.06) 0%, transparent 70%);
+  }
+
+  .mock-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .mock-logo-icon {
+    width: 32px;
+    height: 32px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .mock-logo-text { font-size: 13px; font-weight: 500; letter-spacing: 0.05em; }
+
+  .mock-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .mock-headline em { color: var(--gold); font-style: italic; }
+
+  .mock-sub {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .mock-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 12px 24px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 2px;
+  }
+
+  .mock-image-placeholder {
+    background: linear-gradient(135deg, rgba(201,169,110,0.1), rgba(201,169,110,0.03));
+    border: 1px solid rgba(201,169,110,0.15);
+    border-radius: 4px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 32px;
+    opacity: 0.6;
+  }
+
+  .mock-services {
+    padding: 40px 60px;
+    background: #0A0F15;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+
+  .mock-service-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px;
+    padding: 16px 12px;
+    text-align: center;
+  }
+
+  .mock-service-icon { font-size: 20px; margin-bottom: 8px; }
+  .mock-service-label { font-size: 10px; color: var(--muted); line-height: 1.4; }
+
+  /* ── ENTREGA ── */
+  .section-delivery {
+    padding: 120px 80px;
+    background: var(--dark);
+  }
+
+  .delivery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+
+  .delivery-item {
+    padding: 48px 36px;
+    background: var(--dark-2);
+    transition: background 0.3s;
+    position: relative;
+  }
+
+  .delivery-item:hover { background: var(--dark-3); }
+
+  .delivery-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: rgba(201,169,110,0.15);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .delivery-item h3 { font-size: 16px; font-weight: 500; margin-bottom: 12px; }
+  .delivery-item p { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+  /* ── CTA ── */
+  .section-cta {
+    padding: 120px 80px;
+    background: var(--dark-2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 60% at 50% 50%, rgba(201,169,110,0.07) 0%, transparent 70%);
+  }
+
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(40px, 5vw, 68px);
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .cta-title em { font-style: italic; color: var(--gold); }
+
+  .cta-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+    position: relative;
+  }
+
+  .cta-price {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+
+  .price-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+  .price-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .price-note { font-size: 12px; color: var(--muted); }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--gold);
+    color: var(--dark);
+    padding: 18px 40px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .cta-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 60px rgba(201,169,110,0.3);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 40px 80px;
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer p { font-size: 12px; color: var(--muted); }
+  footer a { color: var(--gold); text-decoration: none; font-size: 12px; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 80px 32px; }
+    .problem-grid, .compare-grid, .delivery-grid { grid-template-columns: 1fr; }
+    .section-problem, .section-compare, .section-solution, .section-delivery, .section-cta { padding: 80px 32px; }
+    footer { flex-direction: column; gap: 16px; text-align: center; padding: 32px; }
+    .mock-hero { grid-template-columns: 1fr; }
+    .mock-services { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="badge">Proposta exclusiva · Clínica EquipeDente</div>
+    <h1 class="hero-title">
+      21 anos de excelência.<br>
+      É hora de ter um site<br>
+      <em>à sua altura.</em>
+    </h1>
+    <p class="hero-subtitle">
+      Sua clínica tem 1.037 avaliações 5 estrelas, 10,5 mil seguidores e 21 anos de história. 
+      Seu site atual não conta nada disso.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-number">21+</span>
+        <span class="stat-label">Anos de história</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">1.037</span>
+        <span class="stat-label">Avaliações 5★</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">10,5k</span>
+        <span class="stat-label">Seguidores</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&auto=format&fit=crop&q=80" alt="Odontologia moderna">
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="section-problem">
+  <div class="section-label">O problema atual</div>
+  <div class="problem-grid">
+    <div class="reveal">
+      <h2 class="problem-title">
+        Seu site atual está<br>
+        <em>afastando pacientes</em><br>
+        antes de chegarem.
+      </h2>
+    </div>
+    <div class="problem-list reveal">
+      <div class="problem-item">
+        <div class="problem-icon">✗</div>
+        <div class="problem-text">
+          <h4>Design desatualizado</h4>
+          <p>Visual de 2003 passa insegurança antes mesmo do paciente ler uma palavra.</p>
+        </div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon">✗</div>
+        <div class="problem-text">
+          <h4>Sem captura de leads</h4>
+          <p>Quem visita seu site hoje não tem um caminho claro para agendar consulta.</p>
+        </div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon">✗</div>
+        <div class="problem-text">
+          <h4>Credibilidade invisível</h4>
+          <p>Suas 1.037 avaliações 5 estrelas e 21 anos de experiência? Não aparecem.</p>
+        </div>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon">✗</div>
+        <div class="problem-text">
+          <h4>Não funciona no celular</h4>
+          <p>Mais de 70% dos pacientes buscam dentista pelo celular. Seu site quebra.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARAÇÃO -->
+<section class="section-compare">
+  <div class="section-label">Antes e depois</div>
+  <h2 class="solution-title reveal" style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,52px);font-weight:300;line-height:1.15;margin-bottom:0">
+    A diferença é <em>imediata</em>
+  </h2>
+  <div class="compare-grid reveal">
+    <div class="compare-col before">
+      <span class="compare-tag before-tag">Site atual</span>
+      <ul class="compare-list">
+        <li><span class="icon">✗</span> Design desatualizado, sem identidade</li>
+        <li><span class="icon">✗</span> Não converte visitantes em pacientes</li>
+        <li><span class="icon">✗</span> Lento e quebrado no celular</li>
+        <li><span class="icon">✗</span> Sem depoimentos em destaque</li>
+        <li><span class="icon">✗</span> Sem botão direto para WhatsApp</li>
+        <li><span class="icon">✗</span> Não transmite os 21 anos de tradição</li>
+      </ul>
+    </div>
+    <div class="compare-col after">
+      <span class="compare-tag after-tag">Novo site</span>
+      <ul class="compare-list">
+        <li><span class="icon" style="color:var(--gold)">✓</span> Design premium que transmite confiança</li>
+        <li><span class="icon" style="color:var(--gold)">✓</span> CTA direto para agendamento via WhatsApp</li>
+        <li><span class="icon" style="color:var(--gold)">✓</span> 100% responsivo, perfeito no celular</li>
+        <li><span class="icon" style="color:var(--gold)">✓</span> Suas avaliações 5★ em destaque</li>
+        <li><span class="icon" style="color:var(--gold)">✓</span> Especialidades com fotos profissionais</li>
+        <li><span class="icon" style="color:var(--gold)">✓</span> Autoridade e história da clínica visíveis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÃO / MOCKUP -->
+<section class="section-solution">
+  <div class="section-label" style="justify-content:center">Como ficaria</div>
+  <h2 class="solution-title reveal">
+    Um preview de como sua<br>
+    nova presença <em>poderia ser</em>
+  </h2>
+
+  <div class="mockup-frame reveal">
+    <div class="mockup-bar">
+      <span class="dot dot-r"></span>
+      <span class="dot dot-y"></span>
+      <span class="dot dot-g"></span>
+      <span class="mockup-url">🔒 clinicaequipedente.com.br</span>
+    </div>
+    <div class="mockup-content">
+      <div class="mock-hero">
+        <div>
+          <div class="mock-logo">
+            <div class="mock-logo-icon">🦷</div>
+            <span class="mock-logo-text">Clínica EquipeDente</span>
+          </div>
+          <div class="mock-headline">
+            Transformamos sorrisos<br>há <em>21 anos</em> em Belém.
+          </div>
+          <div class="mock-sub">
+            Referência em Implantes, Invisalign e Próteses Fixas.<br>
+            Mais de 1.000 pacientes satisfeitos. Av. Gen. Deodoro, 1122.
+          </div>
+          <div class="mock-btn">
+            📱 Agendar pelo WhatsApp
+          </div>
+        </div>
+        <div class="mock-image-placeholder">🦷</div>
+      </div>
+      <div class="mock-services">
+        <div class="mock-service-card">
+          <div class="mock-service-icon">🦷</div>
+          <div class="mock-service-label">Implantes</div>
+        </div>
+        <div class="mock-service-card">
+          <div class="mock-service-icon">😁</div>
+          <div class="mock-service-label">Invisalign</div>
+        </div>
+        <div class="mock-service-card">
+          <div class="mock-service-icon">✨</div>
+          <div class="mock-service-label">Lentes de Contato</div>
+        </div>
+        <div class="mock-service-card">
+          <div class="mock-service-icon">⭐</div>
+          <div class="mock-service-label">Próteses Fixas</div>
+        </div>
+        <div class="mock-service-card">
+          <div class="mock-service-icon">🔬</div>
+          <div class="mock-service-label">Ortodontia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top:20px;font-size:13px;color:var(--muted)">
+    ↑ Esboço conceitual — o site final é desenvolvido com suas fotos, cores e identidade real.
+  </p>
+</section>
+
+<!-- ENTREGA -->
+<section class="section-delivery">
+  <div class="section-label">O que você recebe</div>
+  <div class="delivery-grid">
+    <div class="delivery-item reveal">
+      <div class="delivery-number">01</div>
+      <h3>Site completo e responsivo</h3>
+      <p>Design profissional, moderno, com todas as seções — hero, especialidades, equipe, depoimentos e CTA. Funciona perfeitamente em celular e computador.</p>
+    </div>
+    <div class="delivery-item reveal">
+      <div class="delivery-number">02</div>
+      <h3>Foco em agendamentos</h3>
+      <p>Botão de WhatsApp estrategicamente posicionado. Cada seção foi pensada para converter visitantes em pacientes que entram em contato.</p>
+    </div>
+    <div class="delivery-item reveal">
+      <div class="delivery-number">03</div>
+      <h3>Entrega em 3 dias úteis</h3>
+      <p>Processo rápido e direto. Você aprova o resultado antes de publicar. Após aprovação, o site vai ao ar imediatamente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-cta">
+  <div class="section-label" style="justify-content:center">Investimento</div>
+  <h2 class="cta-title reveal">
+    Pronto para ter um site<br>
+    <em>digno da sua clínica?</em>
+  </h2>
+  <p class="cta-sub reveal">
+    Um único investimento. Sem mensalidade, sem taxas ocultas. 
+    O site fica seu para sempre.
+  </p>
+  <div class="cta-price reveal">
+    <span class="price-label">Investimento único</span>
+    <span class="price-value">R$ 497</span>
+    <span class="price-note">Parcelável · Sem mensalidade · Site entregue em 3 dias</span>
+  </div>
+  <a href="https://wa.me/55?text=Olá!%20Vi%20a%20proposta%20da%20Click%20Fácil%20e%20tenho%20interesse%20no%20novo%20site%20da%20EquipeDente." class="cta-btn reveal">
+    💬 Quero meu novo site
+  </a>
+</section>
+
+<footer>
+  <p>Proposta preparada por <strong style="color:var(--white)">Click Fácil</strong> · clickfacil.com.br</p>
+  <a href="https://clickfacil.vercel.app">Ver portfólio completo →</a>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
