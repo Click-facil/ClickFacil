@@ -26,14 +26,131 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="../images/logo.webp">
+    <style>
+        /* Glow atrás do título */
+        .blog-title-glow {
+            position: relative;
+        }
+        .blog-title-glow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Botões de Compartilhar */
+        .share-buttons-floating {
+            position: absolute;
+            left: 20px;
+            top: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+        .share-buttons-floating a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(41, 171, 226, 0.1);
+            border: 1px solid rgba(41, 171, 226, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .share-buttons-floating a:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-dark-navy);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
+        }
+        
+        /* Blockquote Estilizado */
+        .blog-content blockquote {
+            margin: 30px 0;
+            padding: 20px 25px;
+            background: rgba(0, 240, 255, 0.05);
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text-lightest);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        /* Melhor espaçamento de parágrafos */
+        .blog-content p {
+            line-height: 2 !important;
+            margin-bottom: 25px !important;
+        }
+        
+        /* Remove o container do artigo */
+        .blog-post-container {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+        
+        /* Hover nos cards da sidebar */
+        .sidebar-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 5px 15px rgba(41, 171, 226, 0.2);
+        }
+        
+        /* Responsividade Mobile */
+        @media (max-width: 900px) {
+            .container > div {
+                grid-template-columns: 1fr !important;
+            }
+            .blog-sidebar {
+                position: static !important;
+                margin-top: 40px;
+            }
+            .share-buttons-floating {
+                display: none; /* Esconde botões flutuantes no mobile */
+            }
+            .blog-title-glow::before {
+                width: 300px;
+                height: 150px;
+            }
+        }
+    </style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283447901735985"
      crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Botões de Compartilhar Flutuantes -->
+    <div class="share-buttons-floating">
+        <a href="#" id="share-whatsapp" title="Compartilhar no WhatsApp" aria-label="Compartilhar no WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="#" id="share-twitter" title="Compartilhar no Twitter" aria-label="Compartilhar no Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" id="share-linkedin" title="Compartilhar no LinkedIn" aria-label="Compartilhar no LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" id="share-facebook" title="Compartilhar no Facebook" aria-label="Compartilhar no Facebook">
+            <i class="fab fa-facebook"></i>
+        </a>
+    </div>
+
     <header class="main-header">
         <div class="logo-slider">
             <a href="../index.html">
-                <img src="../images/logo.png" alt="Click Fácil" class="logo-img" />
+                <img src="../images/logo.webp" alt="Click Fácil" class="logo-img" />
             </a>
         </div>
         <nav class="main-nav" id="main-nav">
@@ -51,14 +168,22 @@
         </div>
     </header>
 
-    <main>
-        <section class="section">
-            <div class="container">
-                <article class="blog-post-container fade-in-section">
+    <!-- Hero Image -->
+    <div class="blog-hero-image" style="width: 100%; height: auto; overflow: visible; position: relative; background: var(--bg-dark-navy); display: flex; align-items: center; justify-content: center; padding: 0; margin: 0;">
+        <img src="../images/blog-5-motivos-site.webp" alt="5 Motivos para ter um Site Profissional" style="width: 100%; max-width: 1200px; height: auto; object-fit: contain; display: block;">
+    </div>
+
+    <main style="margin-top: 0; padding-top: 0;">
+        <section class="section" style="padding-top: 20px; margin-top: 0;">
+            <div class="container" style="max-width: 1400px;">
+                <!-- Layout com Sidebar -->
+                <div style="display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start;" class="blog-layout-grid">
                     
-                    <header style="text-align: center; margin-bottom: 40px;">
-                        <img src="../images/blog-5-motivos-site.webp" alt="5 Motivos para ter um Site Profissional" style="width: 100%; max-width: 1200px; height: auto; border-radius: 12px; margin-bottom: 30px;">
-                        <h1 class="section-title" style="margin-bottom: 10px; text-align: center;">5 Motivos Inegáveis para sua Empresa Ter um Site Profissional</h1>
+                    <!-- Conteúdo Principal -->
+                    <article class="blog-post-container fade-in-section" style="margin-top: 0;">
+                    
+                        <header style="text-align: center; margin-bottom: 40px; margin-top: 0; padding-top: 0;">
+                            <h1 class="section-title blog-title-glow" style="margin-bottom: 10px; text-align: center; margin-top: 0; padding-top: 0;">5 Motivos Inegáveis para sua Empresa Ter um Site Profissional</h1>
                         <div class="blog-meta">
                             <span><i class="fa-regular fa-calendar"></i> 02 de Dezembro de 2025</span>
                             <span><i class="fa-regular fa-folder"></i> Estratégia Digital</span>
@@ -68,9 +193,17 @@
                     <div class="blog-content">
                         <p><strong>Aqui na Click Fácil, a primeira coisa que explicamos para um novo cliente é que depender apenas de redes sociais é como construir sua loja em um terreno alugado.</strong> As regras podem mudar a qualquer momento, e você não tem o controle. Um site, por outro lado, é o seu território digital próprio.</p>
                         
-                        <p>Ele não é apenas um cartão de visitas online; é o alicerce da sua presença digital, um ativo que trabalha para você 24 horas por dia. Se você ainda tem dúvidas, aqui estão 5 motivos que vão te convencer a investir no seu próprio espaço na web.</p>
+                        <blockquote>
+                            "Um site não é apenas um cartão de visitas online; é o alicerce da sua presença digital, um ativo que trabalha para você 24 horas por dia."
+                        </blockquote>
+                        
+                        <p>Se você ainda tem dúvidas, aqui estão 5 motivos que vão te convencer a investir no seu próprio espaço na web.</p>
 
                         <h2>1. Credibilidade e Confiança Imediatas</h2>
+                        
+                        <!-- Imagem ilustrativa -->
+                        <img src="../images/bloginstagramcredibilidade.webp" alt="Credibilidade Profissional" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; margin: 30px auto; display: block;">
+                        
                         <p>Quando um cliente em potencial ouve falar da sua empresa, qual o primeiro passo dele? Pesquisar no Google. Se ele não encontra um site, ou encontra uma página amadora e lenta, a credibilidade da sua marca despenca. Um estudo mostra que 75% dos consumidores julgam a credibilidade de uma empresa com base no design de seu site<a href="#ref1"><sup>[1]</sup></a>.</p>
                         
                         <p>Pense na última vez que você procurou um serviço. Você confiaria em uma empresa sem site? Ou com um site que parece ter sido feito nos anos 2000? A resposta é não. Seu site é o cartão de visitas digital da sua empresa, e a primeira impressão conta muito.</p>
@@ -78,6 +211,10 @@
                         <p>Essa primeira impressão está diretamente ligada à <strong><a href="performance-vendas.html">performance e velocidade do seu site (leia mais sobre isso aqui)</a></strong>. Um site lento ou mal feito transmite a mensagem de que sua empresa não se importa com a experiência do cliente.</p>
 
                         <h2>2. Sua Empresa Aberta 24 Horas por Dia, 7 Dias por Semana</h2>
+                        
+                        <!-- Imagem ilustrativa no meio do conteúdo -->
+                        <img src="https://via.placeholder.com/800x400/020617/00f0ff?text=Site+24/7" alt="Site funcionando 24 horas" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; margin: 30px auto; display: block;">
+                        
                         <p>Seu escritório tem um horário de funcionamento. Sua equipe de vendas precisa descansar. <strong>Seu site não.</strong> Ele é o seu vendedor incansável, apresentando seus serviços, respondendo dúvidas e, o mais importante, capturando contatos e orçamentos mesmo enquanto você dorme.</p>
                         
                         <p>Imagine acordar e ver que 3 novos clientes preencheram o formulário de contato durante a madrugada. Ou que alguém do outro lado do país encontrou sua empresa às 2h da manhã e agendou uma reunião. Isso é o poder de ter um site trabalhando para você 24/7.</p>
@@ -85,6 +222,10 @@
                         <p>Enquanto seus concorrentes perdem oportunidades fora do horário comercial, seu site continua gerando leads, educando clientes e construindo relacionamentos. É como ter um funcionário que nunca tira férias, nunca fica doente e trabalha de graça.</p>
 
                         <h2>3. Controle Total da Sua Mensagem (Adeus, Algoritmo!)</h2>
+                        
+                        <!-- Imagem ilustrativa -->
+                        <img src="../images/blog-instagram-caiu.webp" alt="Dependência de Redes Sociais" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; margin: 30px auto; display: block;">
+                        
                         <p>Nas redes sociais, você luta contra o algoritmo e disputa a atenção do usuário com concorrentes e distrações. No seu site, <strong>a casa é sua</strong>. Você controla 100% da narrativa e guia o visitante pela jornada que você desenhou, aumentando drasticamente a chance de conversão.</p>
                         
                         <p>No Instagram, você compete com fotos de gatinhos, vídeos virais e anúncios de concorrentes. Seu alcance orgânico pode cair de 10.000 para 500 pessoas da noite para o dia por causa de uma mudança no algoritmo. No Facebook, suas postagens alcançam apenas 5-6% dos seus seguidores.</p>
@@ -94,6 +235,10 @@
                         <p>Como explicamos em nosso artigo sobre <strong><a href="instagram-caiu-e-agora.html">os riscos de depender só das redes sociais</a></strong>, construir seu negócio apenas em plataformas de terceiros é como construir uma casa em terreno alugado.</p>
 
                         <h2>4. Ser Encontrado por Quem Realmente Quer Comprar</h2>
+                        
+                        <!-- Imagem ilustrativa -->
+                        <img src="../images/blogsiteinvisivelnogoogle.webp" alt="SEO e Busca no Google" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; margin: 30px auto; display: block;">
+                        
                         <p>Redes sociais são sobre descoberta passiva; o Google é sobre intenção ativa. Quase 93% das experiências online começam com um mecanismo de busca<a href="#ref2"><sup>[2]</sup></a>. Com um site otimizado para SEO, sua empresa aparece para clientes que estão buscando ativamente uma solução, no momento exato em que eles precisam de você.</p>
                         
                         <p>Pense na diferença: no Instagram, você espera que alguém role o feed e, por acaso, se interesse pelo seu post. No Google, a pessoa está digitando "melhor [seu serviço] em [sua cidade]" - ela já quer comprar, só precisa escolher de quem.</p>
@@ -103,6 +248,10 @@
                         <p>E não se trata apenas de aparecer no Google. Um site profissional permite que você seja encontrado por palavras-chave específicas do seu nicho, atraindo clientes qualificados que têm muito mais chance de fechar negócio.</p>
 
                         <h2>5. Coleta e Análise de Dados para Decisões Inteligentes</h2>
+                        
+                        <!-- Imagem ilustrativa -->
+                        <img src="../images/blog-performance-vendas.webp" alt="Análise de Dados e Performance" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; margin: 30px auto; display: block;">
+                        
                         <p>Com um site e o Google Analytics, você obtém superpoderes: sabe de onde seus clientes vêm, quais páginas eles mais visitam e onde desistem do processo. Esses dados são ouro e permitem que você tome decisões baseadas em fatos, não em achismos.</p>
                         
                         <p>Nas redes sociais, você tem acesso limitado aos dados. Você sabe quantas curtidas teve, mas não sabe:</p>
@@ -146,9 +295,106 @@
                         </div>
                     </div>
                 </article>
+
+                <!-- Sidebar com Posts Relacionados -->
+                <aside class="blog-sidebar">
+                    <h3 style="font-size: 1.2rem; color: var(--text-lightest); margin-bottom: 20px; font-weight: 700;">Artigos Relacionados</h3>
+                    
+                    <!-- Card 1 -->
+                    <a href="performance-vendas.html" class="sidebar-card" style="display: block; background: rgba(41, 171, 226, 0.08); border: 1px solid rgba(41, 171, 226, 0.18); border-radius: 8px; overflow: hidden; margin-bottom: 20px; text-decoration: none; transition: all 0.3s;">
+                        <img src="../images/blog-performance-vendas.webp" alt="Performance e Vendas" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 0.95rem; color: var(--text-lightest); margin: 0 0 8px 0; font-weight: 600; line-height: 1.3;">Velocidade do Site Impacta nas Vendas</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin: 0; line-height: 1.4;">Sites lentos perdem 53% dos visitantes...</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 2 -->
+                    <a href="instagram-caiu-e-agora.html" class="sidebar-card" style="display: block; background: rgba(41, 171, 226, 0.08); border: 1px solid rgba(41, 171, 226, 0.18); border-radius: 8px; overflow: hidden; margin-bottom: 20px; text-decoration: none; transition: all 0.3s;">
+                        <img src="../images/blog-instagram-caiu.webp" alt="Instagram Caiu" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 0.95rem; color: var(--text-lightest); margin: 0 0 8px 0; font-weight: 600; line-height: 1.3;">Instagram Caiu, e Agora?</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin: 0; line-height: 1.4;">Por que depender só das redes sociais é arriscado...</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 3 -->
+                    <a href="landing-page-vs-site.html" class="sidebar-card" style="display: block; background: rgba(41, 171, 226, 0.08); border: 1px solid rgba(41, 171, 226, 0.18); border-radius: 8px; overflow: hidden; margin-bottom: 20px; text-decoration: none; transition: all 0.3s;">
+                        <img src="../images/blog-landing-vs-site.webp" alt="Landing Page vs Site" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 0.95rem; color: var(--text-lightest); margin: 0 0 8px 0; font-weight: 600; line-height: 1.3;">Landing Page ou Site Completo?</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin: 0; line-height: 1.4;">Descubra qual estratégia vai colocar mais dinheiro...</p>
+                        </div>
+                    </a>
+
+                    <!-- Card 4 -->
+                    <a href="wordpress-vs-site-codificado.html" class="sidebar-card" style="display: block; background: rgba(41, 171, 226, 0.08); border: 1px solid rgba(41, 171, 226, 0.18); border-radius: 8px; overflow: hidden; margin-bottom: 20px; text-decoration: none; transition: all 0.3s;">
+                        <img src="../images/blogwordpressvscodigo.webp" alt="WordPress vs Código" style="width: 100%; height: 150px; object-fit: cover;">
+                        <div style="padding: 15px;">
+                            <h4 style="font-size: 0.95rem; color: var(--text-lightest); margin: 0 0 8px 0; font-weight: 600; line-height: 1.3;">WordPress vs Site Codificado</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-light); margin: 0; line-height: 1.4;">Sites codificados são 5x mais rápidos...</p>
+                        </div>
+                    </a>
+
+                    <!-- Botão Ver Todos -->
+                    <a href="index.html" style="display: block; text-align: center; padding: 12px; background: transparent; border: 1px solid var(--accent-cyan); color: var(--accent-cyan); border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; margin-top: 20px;">Ver Todos os Artigos →</a>
+                </aside>
+
+                </div>
             </div>
         </section>
     </main>
+
+    <!-- Rodapé -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <img src="../images/logo.webp" alt="Click Fácil" class="footer-logo">
+                <p>Transformando ideias em soluções digitais que impulsionam negócios.</p>
+            </div>
+            <div class="footer-column links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="../index.html#servicos">Serviços</a></li>
+                    <li><a href="../index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html">Blog</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contato</h4>
+                <div class="social-links">
+                    <a href="https://wa.me/5591984520696" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/clickfacil" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:solucoesdigitais.clickfacil@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p style="margin-top: 20px;">solucoesdigitais.clickfacil@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Click Fácil. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <script src="../js/main.js"></script>
+    <script>
+        // Script para botões de compartilhamento
+        document.addEventListener('DOMContentLoaded', function() {
+            const pageUrl = encodeURIComponent(window.location.href);
+            const pageTitle = encodeURIComponent(document.title);
+            
+            // WhatsApp
+            document.getElementById('share-whatsapp').href = `https://wa.me/?text=${pageTitle}%20${pageUrl}`;
+            
+            // Twitter
+            document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+            
+            // LinkedIn
+            document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+            
+            // Facebook
+            document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+        });
+    </script>
 </body>
 </html>

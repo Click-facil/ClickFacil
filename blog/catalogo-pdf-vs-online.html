@@ -8,7 +8,6 @@
     
     <meta name="description" content="Ainda envia PDFs pesados para seus clientes? Descubra por que o Catálogo Online é mais rápido, fácil de atualizar e vende muito mais.">
     
-    <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://clickfacil.vercel.app/blog/catalogo-pdf-vs-online.html">
     <meta property="og:title" content="Pare de Enviar PDF: Seu Cliente Não Quer Baixar Arquivos">
@@ -21,8 +20,119 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="../images/logo.webp">
+    <style>
+        .blog-title-glow {
+            position: relative;
+        }
+        .blog-title-glow::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 200px;
+            background: radial-gradient(ellipse, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .share-buttons-floating {
+            position: absolute;
+            left: 20px;
+            top: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+        .share-buttons-floating a {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(41, 171, 226, 0.1);
+            border: 1px solid rgba(41, 171, 226, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .share-buttons-floating a:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-dark-navy);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
+        }
+        
+        .blog-content blockquote {
+            margin: 30px 0;
+            padding: 20px 25px;
+            background: rgba(0, 240, 255, 0.05);
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text-lightest);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .blog-content p {
+            line-height: 2 !important;
+            margin-bottom: 25px !important;
+        }
+        
+        .blog-post-container {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+        
+        .sidebar-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 5px 15px rgba(41, 171, 226, 0.2);
+        }
+        
+        @media (max-width: 900px) {
+            .container > div {
+                grid-template-columns: 1fr !important;
+            }
+            .blog-sidebar {
+                position: static !important;
+                margin-top: 40px;
+            }
+            .share-buttons-floating {
+                display: none;
+            }
+            .blog-title-glow::before {
+                width: 300px;
+                height: 150px;
+            }
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283447901735985"
+     crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="share-buttons-floating">
+        <a href="#" id="share-whatsapp" title="Compartilhar no WhatsApp" aria-label="Compartilhar no WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="#" id="share-twitter" title="Compartilhar no Twitter" aria-label="Compartilhar no Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" id="share-linkedin" title="Compartilhar no LinkedIn" aria-label="Compartilhar no LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="#" id="share-facebook" title="Compartilhar no Facebook" aria-label="Compartilhar no Facebook">
+            <i class="fab fa-facebook"></i>
+        </a>
+    </div>
+
     <header class="main-header">
         <div class="logo-slider">
             <a href="../index.html">
@@ -44,76 +154,172 @@
         </div>
     </header>
 
-    <main>
-        <section class="section">
-            <div class="container">
-                <article class="blog-post-container fade-in-section">
+    <div class="blog-hero-image" style="width: 100%; height: auto; overflow: visible; position: relative; background: var(--bg-dark-navy); display: flex; align-items: center; justify-content: center; padding: 0; margin: 0;">
+        <img src="../images/Contrast_PDF_vs_Mobile_E-commerce.webp" alt="Catálogo PDF vs Online" style="width: 100%; max-width: 1200px; height: auto; object-fit: contain; display: block;">
+    </div>
+
+    <main style="margin-top: 0; padding-top: 0;">
+        <section class="section" style="padding-top: 20px; margin-top: 0;">
+            <div class="container" style="max-width: 1400px;">
+                <div style="display: grid; grid-template-columns: 1fr 300px; gap: 40px; align-items: start;" class="blog-layout-grid">
                     
-                    <header style="text-align: center; margin-bottom: 40px;">
-                        <img src="../images/Contrast_PDF_vs_Mobile_E-commerce.webp" alt="Catálogo PDF vs Online" style="width: 100%; max-width: 1200px; height: auto; border-radius: 12px; margin-bottom: 30px;">
-                        <h1 class="section-title" style="margin-bottom: 10px; text-align: center;">Catálogo em PDF: Por que Você Está Perdendo Vendas no WhatsApp</h1>
-                        <div class="blog-meta">
-                            <span><i class="fa-regular fa-calendar"></i> 23 Dez 2024</span>
-                            <span><i class="fa-regular fa-folder"></i> Vendas Online</span>
-                        </div>
-                    </header>
+                    <article class="blog-post-container fade-in-section" style="margin-top: 0;">
+                    
+                        <header style="text-align: center; margin-bottom: 40px; margin-top: 0; padding-top: 0;">
+                            <h1 class="section-title blog-title-glow" style="margin-bottom: 10px; text-align: center; margin-top: 0; padding-top: 0;">Catálogo em PDF: Por que Você Está Perdendo Vendas no WhatsApp</h1>
+                            <div class="blog-meta" style="justify-content: center;">
+                                <span><i class="fa-regular fa-calendar"></i> 23 Dez 2024</span>
+                                <span><i class="fa-regular fa-folder"></i> Vendas Online</span>
+                            </div>
+                        </header>
 
-                    <div class="blog-content">
-                        <p><strong>"Me manda o catálogo?" — pede o cliente. Você envia um PDF de 15MB. O cliente está no 4G, o arquivo demora a baixar, ocupa espaço na memória dele e, quando abre, as letras ficam minúsculas na tela do celular. Resultado? Ele desiste de ver.</strong></p>
+                        <div class="blog-content">
+                            <p><strong>"Me manda o catálogo?" — pede o cliente. Você envia um PDF de 15MB. O cliente está no 4G, o arquivo demora a baixar, ocupa espaço na memória dele e, quando abre, as letras ficam minúsculas na tela do celular. Resultado? Ele desiste de ver.</strong></p>
+                            
+                            <p>O PDF foi uma ótima ferramenta nos anos 2000. Hoje, no mundo das vendas ágeis pelo WhatsApp, ele é uma âncora que segura seu faturamento. A solução moderna é o <strong>Catálogo Online (ou Cardápio Digital)</strong>.</p>
+
+                            <h2>1. Atualização em Tempo Real (Adeus, Preço Errado)</h2>
+                            
+                            <img src="../images/blog-performance-vendas.webp" alt="Atualização em Tempo Real" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; margin: 30px auto; display: block;">
+                            
+                            <p>Mudou o preço do produto? No PDF, você precisa editar o arquivo e reenviar para todo mundo (e torcer para o cliente não abrir a versão antiga). No Catálogo Online, você muda no sistema e atualiza para todos instantaneamente. É o fim da confusão de preços.</p>
+
+                            <h2>2. A Magia do "Clicar e Pedir"</h2>
+                            
+                            <img src="../images/blog-landing-vs-site.webp" alt="Experiência de Compra Online" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; margin: 30px auto; display: block;">
+                            
+                            <p>No PDF, o cliente tem que anotar os códigos num papel e te mandar: "Quero um X-Tudo sem cebola". No Catálogo Online, ele clica nos produtos, adiciona ao carrinho e o sistema te manda o pedido pronto no WhatsApp, somado e organizado. Isso agiliza seu atendimento e evita erros.</p>
+
+                            <h2>3. Leveza e Experiência</h2>
+                            <p>Um link de catálogo não ocupa espaço no celular do cliente. Ele abre na hora, com fotos em alta qualidade que carregam rápido e uma navegação fluida, igual a um aplicativo. É profissional e respeita o pacote de dados do seu consumidor.</p>
+
+                            <h2>4. Integração com Redes Sociais</h2>
+                            
+                            <img src="../images/bloginstagramcredibilidade.webp" alt="Integração com Redes Sociais" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; margin: 30px auto; display: block;">
+                            
+                            <p>Com um catálogo online, você pode compartilhar produtos específicos no Instagram Stories, criar links diretos para WhatsApp e até mesmo fazer campanhas de marketing digital direcionadas. O PDF não oferece essa flexibilidade.</p>
+
+                            <h2>5. Análise de Dados e Comportamento</h2>
+                            <p>Diferente do PDF, um catálogo online te mostra quais produtos os clientes mais visualizam, em que horários acessam mais, de onde vêm (Instagram, Google, WhatsApp) e quanto tempo passam navegando. Esses dados são ouro para otimizar suas vendas.</p>
+
+                            <h2>6. Facilidade de Compartilhamento</h2>
+                            <p>Compartilhar um link é muito mais fácil que enviar um arquivo. O cliente pode repassar para amigos com um simples "copia e cola", aumentando seu alcance orgânico. Já o PDF precisa ser baixado e reenviado, criando atrito no processo.</p>
+
+                            <h2>O Custo Real do PDF</h2>
+                            <p>Cada vez que você envia um PDF pesado, está:</p>
+                            <ul>
+                                <li>Gastando o pacote de dados do cliente</li>
+                                <li>Ocupando espaço no celular dele</li>
+                                <li>Criando uma experiência frustrante</li>
+                                <li>Perdendo a oportunidade de rastrear interesse</li>
+                                <li>Dificultando atualizações de preços</li>
+                            </ul>
+
+                            <h2>A Transição é Mais Simples do Que Parece</h2>
+                            <p>Muitos empresários acham que criar um catálogo online é complicado, mas hoje existem soluções simples e acessíveis. O investimento se paga rapidamente com o aumento na conversão de vendas e a redução no tempo de atendimento.</p>
+
+                            <p>Imagine não precisar mais ficar explicando preços por WhatsApp, não ter que refazer catálogos toda semana e ainda poder acompanhar quais produtos despertam mais interesse. Essa é a realidade de quem migrou do PDF para o digital.</p>
+
+                            <div class="contact-section-final" style="background: transparent; padding: 40px 0; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
+                                <h3>Cansado de Enviar Arquivos Pesados?</h3>
+                                <p>Vamos transformar seu PDF em um Site Catálogo interativo, onde seu cliente pede sozinho e você só se preocupa em entregar.</p>
+                                <a href="https://wa.me/5591984520696" target="_blank" class="saiba-mais" style="display: inline-block; width: auto; margin-top: 10px;">Quero um Catálogo Online</a>
+                            </div>
+
+                            <div class="references-section" style="margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+                                <h3 style="font-size: 1.2em; margin-bottom: 15px;">Referências</h3>
+                                <ol style="font-size: 0.9em; color: #ccc; list-style-position: inside; padding-left: 0;">
+                                    <li style="margin-bottom: 10px;">Gopage: "Por que o PDF ainda é usado x Catálogo Online" - 75% dos pequenos lojistas vendem pelo WhatsApp, e a agilidade do catálogo online é fator decisivo de conversão.</li>
+                                </ol>
+                                <p style="font-size: 0.8em; color: #777; margin-top: 20px; font-style: italic;">Este conteúdo foi produzido com auxílio de IA, revisado e ajustado pela equipe Click Fácil para oferecer informações precisas e relevantes sobre desenvolvimento web e estratégias digitais.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <aside class="blog-sidebar">
+                        <h3 style="font-size: 1.2rem; color: var(--text-lightest); margin-bottom: 20px; font-weight: 700;">Artigos Relacionados</h3>
                         
-                        <p>O PDF foi uma ótima ferramenta nos anos 2000. Hoje, no mundo das vendas ágeis pelo WhatsApp, ele é uma âncora que segura seu faturamento. A solução moderna é o <strong>Catálogo Online (ou Cardápio Digital)</strong>.</p>
+                        <a href="wordpress-vs-site-codificado.html" class="sidebar-card" style="display: block; background: rgba(41, 171, 226, 0.08); border: 1px solid rgba(41, 171, 226, 0.18); border-radius: 8px; overflow: hidden; margin-bottom: 20px; text-decoration: none; transition: all 0.3s;">
+                            <img src="../images/blogwordpressvscodigo.webp" alt="WordPress vs Código" style="width: 100%; height: 150px; object-fit: cover;">
+                            <div style="padding: 15px;">
+                                <h4 style="font-size: 0.95rem; color: var(--text-lightest); margin: 0 0 8px 0; font-weight: 600; line-height: 1.3;">WordPress vs Site Codificado</h4>
+                                <p style="font-size: 0.8rem; color: var(--text-light); margin: 0; line-height: 1.4;">Sites codificados são 5x mais rápidos...</p>
+                            </div>
+                        </a>
 
-                        <h2>1. Atualização em Tempo Real (Adeus, Preço Errado)</h2>
-                        <p>Mudou o preço do produto? No PDF, você precisa editar o arquivo e reenviar para todo mundo (e torcer para o cliente não abrir a versão antiga). No Catálogo Online, você muda no sistema e atualiza para todos instantaneamente. É o fim da confusão de preços.</p>
+                        <a href="site-invisivel-google.html" class="sidebar-card" style="display: block; background: rgba(41, 171, 226, 0.08); border: 1px solid rgba(41, 171, 226, 0.18); border-radius: 8px; overflow: hidden; margin-bottom: 20px; text-decoration: none; transition: all 0.3s;">
+                            <img src="../images/blogsiteinvisivelnogoogle.webp" alt="Site Invisível no Google" style="width: 100%; height: 150px; object-fit: cover;">
+                            <div style="padding: 15px;">
+                                <h4 style="font-size: 0.95rem; color: var(--text-lightest); margin: 0 0 8px 0; font-weight: 600; line-height: 1.3;">Seu Site Está Invisível no Google?</h4>
+                                <p style="font-size: 0.8rem; color: var(--text-light); margin: 0; line-height: 1.4;">4 erros que impedem seu site de aparecer...</p>
+                            </div>
+                        </a>
 
-                        <h2>2. A Magia do "Clicar e Pedir"</h2>
-                        <p>No PDF, o cliente tem que anotar os códigos num papel e te mandar: "Quero um X-Tudo sem cebola". No Catálogo Online, ele clica nos produtos, adiciona ao carrinho e o sistema te manda o pedido pronto no WhatsApp, somado e organizado. Isso agiliza seu atendimento e evita erros.</p>
+                        <a href="5-motivos-site-profissional.html" class="sidebar-card" style="display: block; background: rgba(41, 171, 226, 0.08); border: 1px solid rgba(41, 171, 226, 0.18); border-radius: 8px; overflow: hidden; margin-bottom: 20px; text-decoration: none; transition: all 0.3s;">
+                            <img src="../images/blog-5-motivos-site.webp" alt="5 Motivos Site" style="width: 100%; height: 150px; object-fit: cover;">
+                            <div style="padding: 15px;">
+                                <h4 style="font-size: 0.95rem; color: var(--text-lightest); margin: 0 0 8px 0; font-weight: 600; line-height: 1.3;">5 Motivos para ter um Site Profissional</h4>
+                                <p style="font-size: 0.8rem; color: var(--text-light); margin: 0; line-height: 1.4;">Depender só do Instagram é um risco...</p>
+                            </div>
+                        </a>
 
-                        <h2>3. Leveza e Experiência</h2>
-                        <p>Um link de catálogo não ocupa espaço no celular do cliente. Ele abre na hora, com fotos em alta qualidade que carregam rápido e uma navegação fluida, igual a um aplicativo. É profissional e respeita o pacote de dados do seu consumidor.</p>
+                        <a href="instagram-caiu-e-agora.html" class="sidebar-card" style="display: block; background: rgba(41, 171, 226, 0.08); border: 1px solid rgba(41, 171, 226, 0.18); border-radius: 8px; overflow: hidden; margin-bottom: 20px; text-decoration: none; transition: all 0.3s;">
+                            <img src="../images/blog-instagram-caiu.webp" alt="Instagram Caiu" style="width: 100%; height: 150px; object-fit: cover;">
+                            <div style="padding: 15px;">
+                                <h4 style="font-size: 0.95rem; color: var(--text-lightest); margin: 0 0 8px 0; font-weight: 600; line-height: 1.3;">Instagram Caiu, e Agora?</h4>
+                                <p style="font-size: 0.8rem; color: var(--text-light); margin: 0; line-height: 1.4;">Por que depender só das redes sociais é arriscado...</p>
+                            </div>
+                        </a>
 
-                        <h2>4. Integração com Redes Sociais</h2>
-                        <p>Com um catálogo online, você pode compartilhar produtos específicos no Instagram Stories, criar links diretos para WhatsApp e até mesmo fazer campanhas de marketing digital direcionadas. O PDF não oferece essa flexibilidade.</p>
+                        <a href="index.html" style="display: block; text-align: center; padding: 12px; background: transparent; border: 1px solid var(--accent-cyan); color: var(--accent-cyan); border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; margin-top: 20px;">Ver Todos os Artigos →</a>
+                    </aside>
 
-                        <h2>5. Análise de Dados e Comportamento</h2>
-                        <p>Diferente do PDF, um catálogo online te mostra quais produtos os clientes mais visualizam, em que horários acessam mais, de onde vêm (Instagram, Google, WhatsApp) e quanto tempo passam navegando. Esses dados são ouro para otimizar suas vendas.</p>
-
-                        <h2>6. Facilidade de Compartilhamento</h2>
-                        <p>Compartilhar um link é muito mais fácil que enviar um arquivo. O cliente pode repassar para amigos com um simples "copia e cola", aumentando seu alcance orgânico. Já o PDF precisa ser baixado e reenviado, criando atrito no processo.</p>
-
-                        <h2>O Custo Real do PDF</h2>
-                        <p>Cada vez que você envia um PDF pesado, está:</p>
-                        <ul>
-                            <li>Gastando o pacote de dados do cliente</li>
-                            <li>Ocupando espaço no celular dele</li>
-                            <li>Criando uma experiência frustrante</li>
-                            <li>Perdendo a oportunidade de rastrear interesse</li>
-                            <li>Dificultando atualizações de preços</li>
-                        </ul>
-
-                        <h2>A Transição é Mais Simples do Que Parece</h2>
-                        <p>Muitos empresários acham que criar um catálogo online é complicado, mas hoje existem soluções simples e acessíveis. O investimento se paga rapidamente com o aumento na conversão de vendas e a redução no tempo de atendimento.</p>
-
-                        <p>Imagine não precisar mais ficar explicando preços por WhatsApp, não ter que refazer catálogos toda semana e ainda poder acompanhar quais produtos despertam mais interesse. Essa é a realidade de quem migrou do PDF para o digital.</p>
-
-                        <div class="contact-section-final" style="background: transparent; padding: 40px 0; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1);">
-                            <h3>Cansado de Enviar Arquivos Pesados?</h3>
-                            <p>Vamos transformar seu PDF em um Site Catálogo interativo, onde seu cliente pede sozinho e você só se preocupa em entregar.</p>
-                            <a href="https://wa.me/5591984520696" target="_blank" class="saiba-mais" style="display: inline-block; width: auto; margin-top: 10px;">Quero um Catálogo Online</a>
-                        </div>
-
-                        <div class="references-section" style="margin-top: 60px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-                            <h3 style="font-size: 1.2em; margin-bottom: 15px;">Referências</h3>
-                            <ol style="font-size: 0.9em; color: #ccc; list-style-position: inside; padding-left: 0;">
-                                <li style="margin-bottom: 10px;">Gopage: "Por que o PDF ainda é usado x Catálogo Online" - 75% dos pequenos lojistas vendem pelo WhatsApp, e a agilidade do catálogo online é fator decisivo de conversão.</li>
-                            </ol>
-                            <p style="font-size: 0.8em; color: #777; margin-top: 20px; font-style: italic;">Este conteúdo foi produzido com auxílio de IA, revisado e ajustado pela equipe Click Fácil para oferecer informações precisas e relevantes sobre desenvolvimento web e estratégias digitais.</p>
-                        </div>
-                    </div>
-                </article>
+                </div>
             </div>
         </section>
     </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <img src="../images/logo.webp" alt="Click Fácil" class="footer-logo">
+                <p>Transformando ideias em soluções digitais que impulsionam negócios.</p>
+            </div>
+            <div class="footer-column links">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="../index.html#servicos">Serviços</a></li>
+                    <li><a href="../index.html#sobre">Sobre</a></li>
+                    <li><a href="index.html">Blog</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Contato</h4>
+                <div class="social-links">
+                    <a href="https://wa.me/5591984520696" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://instagram.com/clickfacil" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:solucoesdigitais.clickfacil@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p style="margin-top: 20px;">solucoesdigitais.clickfacil@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Click Fácil. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pageUrl = encodeURIComponent(window.location.href);
+            const pageTitle = encodeURIComponent(document.title);
+            
+            document.getElementById('share-whatsapp').href = `https://wa.me/?text=${pageTitle}%20${pageUrl}`;
+            document.getElementById('share-twitter').href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+            document.getElementById('share-linkedin').href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+            document.getElementById('share-facebook').href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+        });
+    </script>
 </body>
 </html>
