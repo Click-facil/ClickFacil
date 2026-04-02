@@ -8,7 +8,7 @@ ffmpeg.setFfmpegPath(ffmpegPath);
 
 // --- Configurações ---
 const INPUT_DIR = 'videos_optimized'; // Pasta com seus vídeos pesados de IA ou banco
-const OUTPUT_DIR = 'portfolio/energiasolar/images'; // Pasta de destino no seu projeto
+const OUTPUT_DIR = 'images'; // Pasta de destino no seu projeto
 const MAX_WIDTH = 1280; // 720p é excelente para fundo de card, evita lentidão
 const BITRATE = '1500k'; // Controla o peso final do arquivo
 

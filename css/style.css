@@ -1730,7 +1730,7 @@ section {
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Espaça o conteúdo */
+    justify-content: space-between;
     
     /* A ANIMAÇÃO */
     transition: all 0.3s ease;
@@ -1866,21 +1866,18 @@ section {
 }
 
 .marquee-track {
-    display: flex;
-    /* Largura = (Largura do item) * (Número TOTAL de itens) */
-    /* (200px) * (10 logos) = 2000px */
-    width: calc(200px * 10); 
-    animation: marquee-scroll 30s linear infinite;
+    display: flex !important;
+    width: calc(200px * 10) !important;
+    animation: marquee-scroll 30s linear infinite !important;
     will-change: transform;
 }
 
 /* Animação da esteira */
 @keyframes marquee-scroll {
-    from {
+    0% {
         transform: translateX(0);
     }
-    to {
-        /* Move 50% para a esquerda (o tamanho exato da primeira cópia) */
+    100% {
         transform: translateX(-50%);
     }
 }
@@ -1896,20 +1893,21 @@ section {
     width: 100%;
     height: 70px; /* Altura fixa para alinhar todas as logos */
     object-fit: contain;
-    filter: grayscale(1) opacity(0.7); /* Efeito profissional: cinza e opaco */
+    filter: opacity(0.85); /* Levemente transparente */
     transition: all 0.3s ease;
+}
+
+/* Logo Emmer menor */
+.logo-item a[href*="emmer82"] img {
+    height: 32px;
+    max-width: 90px;
 }
 
 /* Efeito de hover */
 .logo-item a:hover img,
 .logo-marquee-container:hover .logo-item img {
-    filter: grayscale(0) opacity(1); /* Tira o filtro no hover */
+    filter: opacity(1); /* Opacidade total no hover */
     transform: scale(1.1);
-}
-
-/* Pausa a animação no hover */
-.logo-marquee-container:hover .marquee-track {
-    animation-play-state: paused;
 }
 
 
@@ -1919,11 +1917,69 @@ section {
 
 /* Remove a margem da seção antiga para colar no vídeo */
 .services-section-animated {
-    margin-top: -80px; /* Remove a margem de compensação */
-    padding-top: 100px; /* Aumenta o padding do topo */
+    margin-top: -80px;
+    padding-top: 100px;
     padding-bottom: 100px;
-    text-align: center; /* Centraliza o botão 'saiba-mais' */
+    text-align: center;
     background: radial-gradient(ellipse at top center, rgba(0, 240, 255, 0.15) 0%, transparent 70%), var(--bg-dark-navy) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Imagem de fundo na seção de serviços */
+.services-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/img-fundo.webp');
+    background-size: cover;
+    background-position: 70% center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    opacity: 0.2;
+    transform: scale(1.1);
+}
+
+/* Overlay sutil */
+.services-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, rgba(2, 6, 23, 0.5) 100%);
+    z-index: 1;
+}
+
+/* Responsividade da imagem de fundo */
+@media (max-width: 900px) {
+    .services-image-bg {
+        background-position: 60% center;
+        transform: scale(1.2);
+        opacity: 0.15;
+    }
+}
+
+@media (max-width: 767px) {
+    .services-image-bg {
+        background-image: url('../images/fundo-vertical-celular.webp'); /* Imagem vertical para mobile */
+        background-position: center center;
+        background-size: cover;
+        transform: none; /* Remove completamente o zoom */
+        opacity: 0.2; /* Aumenta um pouco a opacidade para ficar mais visível */
+    }
+    
+    .services-image-overlay {
+        background: radial-gradient(circle at center, transparent 20%, rgba(2, 6, 23, 0.7) 100%);
+    }
+}
+
+/* Garante que o conteúdo fique acima */
+.bento-container-wide {
+    position: relative;
+    z-index: 2;
 }
 
 /* Container mais largo, como pedido */
@@ -1974,20 +2030,23 @@ section {
     
     /* O card grande passa a ocupar a largura toda */
     .bento-card.large-v {
-        grid-row: span 1; /* Reseta o span vertical */
-        grid-column: span 2; /* Faz o primeiro item ocupar a largura toda */
+        grid-row: span 1;
+        grid-column: span 2;
     }
 }
 
 /* Para Celulares */
 @media (max-width: 767px) {
     .bento-grid {
-        grid-template-columns: 1fr; /* Empilha tudo */
+        grid-template-columns: 1fr;
     }
     
-    /* Reseta o span do card grande */
     .bento-card.large-v {
         grid-column: span 1; 
+    }
+    
+    .bento-card > div:last-child {
+        padding: 20px;
     }
 }
 
@@ -2935,19 +2994,18 @@ summary h4 {
 }
 
 .print-marquee-track {
-    display: flex;
-    /* (Largura do card: 360px + 25px de gap) * (8 cards totais) */
-    width: calc(385px * 8); 
-    animation: marquee-scroll-prints 40s linear infinite;
+    display: flex !important;
+    width: calc(385px * 8) !important;
+    animation: marquee-scroll-prints 40s linear infinite !important;
     will-change: transform;
 }
 
 @keyframes marquee-scroll-prints {
-    from {
+    0% {
         transform: translateX(0);
     }
-    to {
-        transform: translateX(-50%); /* Loop infinito */
+    100% {
+        transform: translateX(-50%);
     }
 }
 
@@ -2959,35 +3017,62 @@ summary h4 {
     height: auto;
 }
 
-/* Pausa a animação no hover */
-.print-marquee-container:hover .print-marquee-track {
-    animation-play-state: paused;
-}
-
 /* =============================================
    NOVA SEÇÃO DE CONTATO (FINAL CTA)
    ============================================= */
 
 .contact-section-final {
-    /* SEM CONTAINER: Preenche a largura total */
     width: 100%;
-    padding: 120px 25px; /* Espaçamento interno amplo */
-    background: #08162a;
+    padding: 120px 25px;
+    position: relative;
     text-align: center;
-    overflow: hidden; /* Para as animações */
+    overflow: hidden;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Imagem de fundo */
+.contact-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/img-fundo.webp');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    opacity: 0.8;
+}
+
+/* Overlay escuro sobre a imagem */
+.contact-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(2, 6, 23, 0.7) 0%, rgba(2, 6, 23, 0.9) 100%);
+    z-index: 1;
 }
 
 .contact-final-content {
-    max-width: 700px; /* Limita a largura do texto para legibilidade */
+    max-width: 700px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .contact-final-content h2 {
-    font-size: clamp(2.2rem, 5vw, 3.2rem); /* Tipografia grande e responsiva */
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
     font-weight: 800;
     color: var(--text-lightest);
     line-height: 1.2;
     margin-bottom: 20px;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
 }
 
 .contact-final-content p {
@@ -2996,6 +3081,7 @@ summary h4 {
     max-width: 500px;
     margin: 0 auto 40px auto;
     line-height: 1.7;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 /* Container dos botões */
