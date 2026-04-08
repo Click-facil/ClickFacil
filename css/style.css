@@ -1720,20 +1720,93 @@ section {
 }
 
 .bento-card {
-    /* Reutiliza seu estilo de card transparente */
     background: rgba(41, 171, 226, 0.08); 
     border: 2px solid rgba(41, 171, 226, 0.18); 
     border-radius: 12px;
     box-shadow: 0 0 24px 0 rgba(41, 171, 226, 0.18);
     
-    padding: 25px;
+    padding: 0;
     text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow: hidden;
     
-    /* A ANIMAÇÃO */
     transition: all 0.3s ease;
+}
+
+/* Card com imagem */
+.bento-card-with-image {
+    padding: 0;
+}
+
+.bento-card-image {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bento-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.5s ease;
+}
+
+/* Zoom especial para imagens menores */
+.bento-card-zoom-image .bento-card-image img {
+    transform: scale(2.5) translateX(18%);
+    object-position: center 15%;
+    transform-origin: center top;
+}
+
+.bento-card-zoom-image:hover .bento-card-image img {
+    transform: scale(2.6) translateX(-15%);
+    object-position: center 15%;
+    transform-origin: center top;
+}
+
+.bento-card-with-image:hover .bento-card-image img {
+    transform: scale(1.05);
+}
+
+.bento-card-with-image:hover .bento-card-content h4 {
+    color: var(--accent-cyan);
+}
+
+.bento-card-content {
+    padding: 20px 25px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bento-card-content h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-lightest);
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+    margin: 0;
+    text-transform: none;
+}
+
+.bento-card-content p {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: rgba(148, 163, 184, 0.95);
+    line-height: 1.6;
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+
+/* Cards sem imagem mantêm padding normal */
+.bento-card:not(.bento-card-with-image) {
+    padding: 25px;
 }
 
 .bento-card, 
@@ -2047,6 +2120,14 @@ section {
     
     .bento-card > div:last-child {
         padding: 20px;
+    }
+    
+    .bento-card-image {
+        height: 280px;
+    }
+    
+    .bento-card-content {
+        padding: 15px 20px 20px 20px;
     }
 }
 
