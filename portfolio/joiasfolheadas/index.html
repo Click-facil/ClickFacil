@@ -431,7 +431,7 @@ img { display: block; max-width: 100%; }
   color: var(--text);
   line-height: 1.15;
 }
-.section-title em { font-style: italic; color: var(--gold); }
+.section-title em { font-style: italic; color: var(--gold); font-family: var(--ff-serif); }
 .section-desc {
   margin-top: .75rem;
   font-size: .82rem;
@@ -527,12 +527,15 @@ img { display: block; max-width: 100%; }
   gap: 1rem;
 }
 @media(max-width:768px){ 
-  .product-filters { flex-direction: column; align-items: flex-start; }
+  .product-filters { flex-direction: column; align-items: center; justify-content: center; }
 }
 .filter-tabs {
   display: flex;
   gap: .5rem;
   flex-wrap: wrap;
+}
+@media(max-width:768px){ 
+  .filter-tabs { justify-content: center; max-width: 100%; }
 }
 .filter-tab {
   padding: .45rem 1.2rem;
@@ -1790,30 +1793,30 @@ footer {
     <h2 class="section-title">Siga <em>@bebellajoias_</em></h2>
   </div>
   <div class="instagram-grid">
-    <div class="ig-item">
+    <a href="https://www.instagram.com/bebellajoias_/" target="_blank" class="ig-item">
       <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80&fit=crop')"></div>
       <div class="ig-item-overlay"><span>📷</span></div>
-    </div>
-    <div class="ig-item">
+    </a>
+    <a href="https://www.instagram.com/bebellajoias_/" target="_blank" class="ig-item">
       <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400&q=80&fit=crop')"></div>
       <div class="ig-item-overlay"><span>📷</span></div>
-    </div>
-    <div class="ig-item">
+    </a>
+    <a href="https://www.instagram.com/bebellajoias_/" target="_blank" class="ig-item">
       <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80&fit=crop')"></div>
       <div class="ig-item-overlay"><span>📷</span></div>
-    </div>
-    <div class="ig-item">
+    </a>
+    <a href="https://www.instagram.com/bebellajoias_/" target="_blank" class="ig-item">
       <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1635797255620-89cf0139bbbc?w=400&q=80&fit=crop')"></div>
       <div class="ig-item-overlay"><span>📷</span></div>
-    </div>
-    <div class="ig-item">
+    </a>
+    <a href="https://www.instagram.com/bebellajoias_/" target="_blank" class="ig-item">
       <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1573408301185-9519f94bf1e6?w=400&q=80&fit=crop')"></div>
       <div class="ig-item-overlay"><span>📷</span></div>
-    </div>
-    <div class="ig-item">
+    </a>
+    <a href="https://www.instagram.com/bebellajoias_/" target="_blank" class="ig-item">
       <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=400&q=80&fit=crop')"></div>
       <div class="ig-item-overlay"><span>📷</span></div>
-    </div>
+    </a>
   </div>
 </section>
 
