@@ -92,8 +92,14 @@ img { display: block; max-width: 100%; }
   color: var(--text);
   letter-spacing: .04em;
   line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.nav-logo span { color: var(--gold); font-style: italic; }
+.nav-logo span { 
+  color: var(--gold); 
+  font-style: normal;
+  font-family: 'Playfair Display', Georgia, serif;
+}
 .nav-logo small {
   display: block;
   font-family: var(--ff-sans);
@@ -1079,7 +1085,7 @@ footer {
   color: #fff;
   margin-bottom: .4rem;
 }
-.footer-brand-logo span { color: #c9a96e; font-style: italic; }
+.footer-brand-logo span { color: #c9a96e; font-style: normal; }
 .footer-tagline {
   font-size: .65rem;
   letter-spacing: .25em;
@@ -1827,7 +1833,6 @@ footer {
   <div class="section">
     <div class="contact-grid">
       <div class="contact-info reveal">
-        <div class="section-tag">Fale Conosco</div>
         <h2 class="section-title">Sua joia <em>especial</em><br>a um clique</h2>
         <p class="contact-desc">
           Atendemos de segunda a sábado das 8h às 19h. Enviamos para todo o Brasil
