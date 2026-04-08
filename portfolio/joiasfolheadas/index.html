@@ -1,0 +1,2068 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bebella Joias Folheadas – Paragominas, PA</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 14px; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: #1a1a1a;
+  background: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; }
+
+:root {
+  --gold:      #c9a96e;
+  --gold-dark: #a88a5a;
+  --gold-pale: #faf8f5;
+  --text:      #1a1a1a;
+  --muted:     #6b7280;
+  --light:     #fafafa;
+  --border:    #e5e7eb;
+  --white:     #ffffff;
+  --ff-serif:  'Playfair Display', Georgia, serif;
+  --ff-sans:   'Inter', sans-serif;
+}
+
+/* ============================================================
+   TOPBAR
+============================================================ */
+.topbar {
+  background: #1a1a1a;
+  color: #aaa;
+  font-size: .7rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  padding: .5rem 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topbar a { color: #aaa; transition: color .2s; }
+.topbar a:hover { color: #fff; }
+.topbar-right { display: flex; gap: 1.5rem; align-items: center; }
+.topbar-right a { display: flex; align-items: center; gap: .4rem; }
+@media(max-width:768px){ 
+  .topbar-left { display: none; }
+  .topbar { font-size: .6rem; padding: .4rem 3vw; }
+  .topbar-right { gap: .8rem; }
+  .topbar-right a span { display: none; }
+}
+
+/* ============================================================
+   MAIN NAV
+============================================================ */
+.main-nav {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+}
+.nav-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+@media(max-width:768px){ 
+  .nav-inner { height: 60px; padding: 0 3vw; }
+}
+.nav-logo {
+  font-family: var(--ff-serif);
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: .04em;
+  line-height: 1;
+}
+.nav-logo span { color: var(--gold); font-style: italic; }
+.nav-logo small {
+  display: block;
+  font-family: var(--ff-sans);
+  font-size: .55rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: .25rem;
+}
+@media(max-width:768px){ 
+  .nav-logo { font-size: 1.3rem; }
+  .nav-logo small { font-size: .45rem; letter-spacing: .2em; }
+}
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+.nav-menu a {
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--text);
+  font-weight: 500;
+  padding: .4rem 0;
+  border-bottom: 2px solid transparent;
+  transition: all .25s;
+}
+.nav-menu a:hover, .nav-menu a.active { color: var(--gold); border-color: var(--gold); }
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+@media(max-width:768px){ 
+  .nav-icons { gap: .6rem; }
+  .nav-icon-btn span { display: none; }
+}
+.nav-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: .7rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  transition: color .2s;
+}
+.nav-icon-btn:hover { color: var(--gold); }
+.nav-icon-btn svg { width: 18px; height: 18px; }
+.nav-cart-badge {
+  background: var(--gold);
+  color: #fff;
+  border-radius: 50%;
+  width: 16px; height: 16px;
+  font-size: .6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: .2rem;
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: .4rem;
+}
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all .3s; }
+@media(max-width:900px){
+  .nav-menu { display: none; }
+  .hamburger { display: flex; }
+}
+
+/* ============================================================
+   HERO SLIDER (FULLSCREEN)
+============================================================ */
+.hero {
+  position: relative;
+  height: 88vh;
+  min-height: 520px;
+  overflow: hidden;
+}
+@media(max-width:768px){ 
+  .hero { height: 70vh; min-height: 450px; }
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+}
+/* CSS-only background images via gradient when img doesn't load */
+.hero-slide-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 30%;
+}
+.slide-1 { background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=1800&q=85&fit=crop'); }
+.slide-2 { background-image: url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1800&q=85&fit=crop'); }
+.slide-3 { background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1800&q=85&fit=crop'); }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,.55) 0%, rgba(0,0,0,.3) 50%, rgba(0,0,0,.08) 100%);
+}
+.hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 8vw 8vh;
+  z-index: 2;
+}
+.hero-text { max-width: 700px; text-align: center; }
+@media(max-width:768px){ 
+  .hero-content { padding: 0 5vw 5vh; }
+}
+.hero-tag {
+  display: inline-block;
+  font-size: .65rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--gold);
+  padding: .35rem 1rem;
+  margin-bottom: 1.5rem;
+}
+@media(max-width:768px){ 
+  .hero-tag { font-size: .55rem; padding: .3rem .8rem; margin-bottom: 1rem; }
+}
+.hero-title {
+  font-family: var(--ff-serif);
+  font-size: clamp(2.4rem, 5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 1.25rem;
+}
+.hero-title strong { font-weight: 600; display: block; }
+.hero-title em { font-style: italic; color: #f5d9b0; }
+.hero-subtitle {
+  font-size: .85rem;
+  color: rgba(255,255,255,.8);
+  line-height: 1.75;
+  margin: 0 auto 2.5rem;
+  max-width: 42ch;
+}
+@media(max-width:768px){ 
+  .hero-subtitle { font-size: .75rem; margin-bottom: 1.5rem; }
+}
+.hero-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .9rem 2.2rem;
+  background: var(--gold);
+  color: #fff;
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: var(--ff-sans);
+  transition: all .3s;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+@media(max-width:768px){ 
+  .btn-gold { padding: .75rem 1.5rem; font-size: .6rem; }
+}
+.btn-gold:hover { background: var(--gold-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,169,110,.3); }
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .85rem 2rem;
+  border: 1px solid rgba(255,255,255,.6);
+  color: #fff;
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-family: var(--ff-sans);
+  transition: all .3s;
+}
+@media(max-width:768px){ 
+  .btn-outline-white { padding: .7rem 1.3rem; font-size: .6rem; }
+}
+.btn-outline-white:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+
+/* slider controls */
+.hero-arrows {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 8vw;
+  display: flex;
+  gap: 1rem;
+  z-index: 3;
+}
+@media(max-width:768px){ 
+  .hero-arrows { display: none; }
+}
+.hero-arrow {
+  width: 40px; height: 40px;
+  border: 1px solid rgba(255,255,255,.5);
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .25s;
+  font-size: 1rem;
+}
+.hero-arrow:hover { background: var(--gold); border-color: var(--gold); }
+.hero-dots {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: .6rem;
+  z-index: 3;
+}
+@media(max-width:768px){ 
+  .hero-dots { bottom: 0.8rem; }
+}
+.hero-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.4);
+  cursor: pointer;
+  transition: background .3s, transform .3s;
+  border: none;
+}
+.hero-dot.active { background: var(--gold); transform: scale(1.3); }
+
+/* ============================================================
+   TRUST BAR
+============================================================ */
+.trust-bar {
+  background: var(--light);
+  border-bottom: 1px solid var(--border);
+  padding: 1.1rem 4vw;
+}
+.trust-bar-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  justify-content: center;
+}
+.trust-icon { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trust-icon svg { stroke: var(--gold); }
+.trust-text strong {
+  display: block;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--text);
+  font-weight: 600;
+}
+.trust-text span {
+  font-size: .65rem;
+  color: var(--muted);
+}
+@media(max-width:768px){ .trust-bar-inner { grid-template-columns: 1fr 1fr; gap: 1rem; } }
+@media(max-width:480px){ .trust-bar-inner { grid-template-columns: 1fr 1fr; gap: 0.8rem; } }
+
+/* ============================================================
+   SECTION WRAPPER
+============================================================ */
+.section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 5rem 4vw;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.section-tag {
+  font-size: .65rem;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+}
+.section-tag::before, .section-tag::after {
+  content: '';
+  display: block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--gold);
+}
+.section-title {
+  font-family: var(--ff-serif);
+  font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.15;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.section-desc {
+  margin-top: .75rem;
+  font-size: .82rem;
+  color: var(--muted);
+  max-width: 50ch;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+.section-divider {
+  width: 3rem;
+  height: 1px;
+  background: var(--gold);
+  margin: 1.25rem auto 0;
+}
+
+/* ============================================================
+   CATEGORIES STRIP
+============================================================ */
+.categories-section { background: #fff; border-bottom: 1px solid var(--border); }
+.categories-scroll {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2rem 4vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  justify-items: center;
+}
+@media(max-width:900px){ .categories-scroll { grid-template-columns: repeat(3, 1fr); } }
+@media(max-width:600px){ .categories-scroll { grid-template-columns: repeat(2, 1fr); } }
+.cat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: transform .25s;
+  width: 100%;
+}
+.cat-item:hover { transform: translateY(-3px); }
+.cat-circle {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: var(--light);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  transition: all .25s;
+  overflow: hidden;
+}
+@media(max-width:768px){ 
+  .cat-circle { width: 100px; height: 100px; }
+}
+@media(max-width:480px){ 
+  .cat-circle { width: 120px; height: 120px; }
+}
+.cat-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cat-item:hover .cat-circle,
+.cat-item.active .cat-circle {
+  border-color: var(--gold);
+  background: var(--gold-pale);
+}
+.cat-label {
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  text-align: center;
+}
+@media(max-width:768px){ 
+  .cat-label { font-size: .62rem; }
+}
+.cat-item.active .cat-label { color: var(--gold); }
+
+/* ============================================================
+   PRODUCT GRID
+============================================================ */
+.products-section { background: var(--light); }
+.product-filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+@media(max-width:768px){ 
+  .product-filters { flex-direction: column; align-items: flex-start; }
+}
+.filter-tabs {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.filter-tab {
+  padding: .45rem 1.2rem;
+  font-size: .65rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .25s;
+  font-family: var(--ff-sans);
+}
+.filter-tab:hover, .filter-tab.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+@media(max-width:1100px){ .products-grid { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:768px){ .products-grid { grid-template-columns: repeat(2,1fr); gap: 1rem; } }
+@media(max-width:420px){ .products-grid { grid-template-columns: 1fr; } }
+
+.product-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.product-card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,.08);
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+.product-img {
+  aspect-ratio: 1/1;
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+.product-img-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  inset: 0;
+  transition: transform .5s;
+}
+.product-card:hover .product-img-bg { transform: scale(1.05); }
+.product-emoji {
+  font-size: 5rem;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 12px rgba(154,123,79,.25));
+  transition: transform .4s;
+}
+.product-card:hover .product-emoji { transform: scale(1.06); }
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(154,123,79,.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .3s;
+  z-index: 2;
+}
+.product-card:hover .product-overlay { opacity: 1; }
+.overlay-actions {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  align-items: center;
+  transform: translateY(10px);
+  transition: transform .3s .05s;
+}
+.product-card:hover .overlay-actions { transform: translateY(0); }
+.overlay-btn {
+  background: #fff;
+  color: var(--gold);
+  font-size: .65rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .6rem 1.5rem;
+  font-weight: 600;
+  font-family: var(--ff-sans);
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  min-width: 140px;
+  transition: background .2s;
+}
+@media(max-width:768px){ 
+  .overlay-btn { font-size: .6rem; padding: .5rem 1.2rem; min-width: 120px; }
+}
+.overlay-btn:hover { background: var(--gold-pale); }
+.overlay-btn.secondary { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.7); }
+.overlay-btn.secondary:hover { background: rgba(255,255,255,.15); }
+
+/* badges */
+.product-badge {
+  position: absolute;
+  top: .75rem;
+  left: .75rem;
+  z-index: 3;
+  font-size: .58rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .4rem .8rem;
+  font-weight: 600;
+  font-family: var(--ff-sans);
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+}
+.badge-new { background: rgba(201,169,110,.95); color: #fff; }
+.badge-hot { background: rgba(225,29,72,.95); color: #fff; }
+.badge-sale { background: rgba(22,163,74,.95); color: #fff; }
+
+.wishlist-btn {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  z-index: 3;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.95);
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all .2s;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.wishlist-btn:hover { background: #fff; transform: scale(1.1); }
+.wishlist-btn svg { width: 18px; height: 18px; stroke: var(--text); transition: all .2s; }
+.wishlist-btn.active svg { fill: #e11d48; stroke: #e11d48; }
+
+.product-info {
+  padding: 1.1rem 1.2rem 1.4rem;
+  border-top: 1px solid var(--border);
+}
+@media(max-width:768px){ 
+  .product-info { padding: .9rem 1rem 1.1rem; }
+}
+.product-cat {
+  font-size: .58rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .4rem;
+}
+.product-name {
+  font-family: var(--ff-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: .4rem;
+  line-height: 1.3;
+}
+@media(max-width:768px){ 
+  .product-name { font-size: .95rem; }
+}
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+.price-current {
+  font-family: var(--ff-serif);
+  font-size: 1.1rem;
+  color: var(--gold);
+  font-weight: 600;
+}
+.price-old {
+  font-size: .78rem;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+.product-stars {
+  font-size: .7rem;
+  color: #f59e0b;
+  margin-top: .3rem;
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+}
+.product-stars span { color: var(--muted); font-size: .65rem; }
+
+/* view all btn */
+.view-all-wrap {
+  text-align: center;
+  margin-top: 3rem;
+}
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .9rem 2.5rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-family: var(--ff-sans);
+  font-weight: 600;
+  transition: all .3s;
+}
+.btn-outline-gold:hover { background: var(--gold); color: #fff; }
+
+/* ============================================================
+   BANNER MIDDLE
+============================================================ */
+.mid-banner {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  background:
+    url('https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=1800&q=80&fit=crop')
+    center / cover no-repeat;
+}
+@media(max-width:768px){ 
+  .mid-banner { height: 320px; }
+}
+.mid-banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mid-banner-text { text-align: center; color: #fff; padding: 1rem; }
+.mid-banner-text .section-tag { color: rgba(255,255,255,.7); }
+.mid-banner-text .section-tag::before,
+.mid-banner-text .section-tag::after { background: rgba(255,255,255,.4); }
+.mid-banner-title {
+  font-family: var(--ff-serif);
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  margin: .75rem 0 1.5rem;
+  color: #fff;
+}
+.mid-banner-title em { font-style: italic; color: #f5d9b0; }
+
+/* ============================================================
+   FEATURES / WHY CHOOSE US
+============================================================ */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+@media(max-width:768px){ .features-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+.feature-item { text-align: center; padding: 2.5rem 2rem; background: #fff; border: 1px solid var(--border); border-radius: 16px; transition: all .3s; }
+.feature-item:hover { box-shadow: 0 12px 32px rgba(0,0,0,.06); transform: translateY(-4px); border-color: var(--gold); }
+.feature-icon { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
+.feature-icon svg { stroke: var(--gold); }
+.feature-title {
+  font-family: var(--ff-serif);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: .6rem;
+}
+.feature-desc { font-size: .78rem; color: var(--muted); line-height: 1.75; }
+
+/* ============================================================
+   TESTIMONIALS
+============================================================ */
+.testimonials-section { background: var(--light); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+@media(max-width:900px){ .testimonials-grid { grid-template-columns: 1fr 1fr; } }
+@media(max-width:600px){ .testimonials-grid { grid-template-columns: 1fr; } }
+
+.testimonial-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  position: relative;
+  transition: all .3s;
+}
+.testimonial-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,.06); transform: translateY(-4px); }
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 1rem; left: 1.5rem;
+  font-family: var(--ff-serif);
+  font-size: 4rem;
+  color: var(--gold);
+  opacity: .25;
+  line-height: 1;
+}
+.testimonial-stars { color: #f59e0b; font-size: .85rem; margin-bottom: .75rem; }
+.testimonial-text {
+  font-size: .82rem;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.author-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--gold-pale);
+  border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.author-name {
+  font-size: .72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--text);
+}
+.author-city { font-size: .65rem; color: var(--muted); }
+
+/* ============================================================
+   CONTACT / CTA SECTION
+============================================================ */
+.contact-section { background: #fff; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+@media(max-width:900px){ 
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+.contact-info .section-title { text-align: left; }
+.contact-info .section-tag { justify-content: flex-start; }
+.contact-info .section-tag::before { display: none; }
+.contact-desc {
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.85;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+.contact-list { display: flex; flex-direction: column; gap: 1.25rem; }
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.contact-row:last-child { border-bottom: none; }
+.contact-icon-box {
+  width: 48px; height: 48px; min-width: 48px;
+  background: var(--gold-pale);
+  border: none;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.contact-icon-box svg { width: 22px; height: 22px; stroke: var(--gold); stroke-width: 2; }
+.contact-row-label {
+  font-size: .6rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .25rem;
+  font-weight: 600;
+}
+.contact-row-value {
+  font-size: .82rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+@media(max-width:768px){ 
+  .contact-row-value { font-size: .75rem; }
+}
+
+/* form */
+.contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+.form-row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media(max-width:500px){ .form-row-grid { grid-template-columns: 1fr; } }
+.form-group { display: flex; flex-direction: column; gap: .4rem; }
+.form-label {
+  font-size: .62rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--text);
+  font-weight: 600;
+}
+.form-control {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .9rem 1.1rem;
+  font-family: var(--ff-sans);
+  font-size: .82rem;
+  color: var(--text);
+  outline: none;
+  transition: all .25s;
+  background: #fff;
+  width: 100%;
+}
+@media(max-width:768px){ 
+  .form-control { padding: .75rem .9rem; font-size: .78rem; }
+}
+.form-control:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,.1); }
+textarea.form-control { resize: vertical; min-height: 110px; }
+select.form-control { appearance: none; cursor: pointer; }
+.form-submit {
+  padding: 1rem;
+  width: 100%;
+  background: var(--gold);
+  color: #fff;
+  font-size: .7rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: var(--ff-sans);
+  border: none;
+  cursor: pointer;
+  transition: background .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  border-radius: 8px;
+}
+@media(max-width:768px){ 
+  .form-submit { padding: .85rem; font-size: .65rem; }
+}
+.form-submit:hover { background: var(--gold-dark); }
+.form-note {
+  font-size: .68rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   INSTAGRAM STRIP
+============================================================ */
+.instagram-section { background: var(--light); padding: 4rem 0; }
+.instagram-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0 4vw;
+}
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+@media(max-width:900px){ .instagram-grid { grid-template-columns: repeat(3,1fr); } }
+@media(max-width:500px){ .instagram-grid { grid-template-columns: repeat(2,1fr); } }
+
+.ig-item {
+  aspect-ratio: 1/1;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.ig-item-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .4s;
+}
+.ig-item:hover .ig-item-bg { transform: scale(1.08); }
+.ig-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(154,123,79,.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.ig-item:hover .ig-item-overlay { opacity: 1; }
+.ig-item-overlay span { color: #fff; font-size: 1.5rem; }
+
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+  background: #1a1a1a;
+  color: #aaa;
+}
+.footer-top {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 4rem 4vw;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+@media(max-width:900px){ 
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; padding: 3rem 4vw; }
+}
+@media(max-width:550px){ 
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 4vw; }
+}
+
+.footer-brand-logo {
+  font-family: var(--ff-serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: .4rem;
+}
+.footer-brand-logo span { color: #c9a96e; font-style: italic; }
+.footer-tagline {
+  font-size: .65rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 1.2rem;
+}
+.footer-about {
+  font-size: .78rem;
+  line-height: 1.8;
+  color: #888;
+  margin-bottom: 1.5rem;
+}
+.footer-social { display: flex; gap: .75rem; }
+.social-btn {
+  width: 36px; height: 36px;
+  border: 1px solid #333;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all .25s;
+  color: #888;
+  text-decoration: none;
+}
+.social-btn:hover { border-color: #c9a96e; color: #c9a96e; }
+
+.footer-col-title {
+  font-size: .68rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid #333;
+}
+.footer-links { display: flex; flex-direction: column; gap: .6rem; }
+.footer-links a {
+  font-size: .75rem;
+  color: #888;
+  transition: color .2s;
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+}
+.footer-links a:hover { color: #c9a96e; }
+.footer-links a::before { content: '›'; color: #555; font-size: .9rem; }
+
+.footer-bottom {
+  border-top: 1px solid #2a2a2a;
+  padding: 1.25rem 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+@media(max-width:768px){ 
+  .footer-bottom { flex-direction: column; text-align: center; padding: 1rem 4vw; }
+}
+.footer-copy { font-size: .68rem; color: #555; }
+.footer-payment { display: flex; gap: .5rem; }
+.payment-icon {
+  background: #2a2a2a;
+  border: 1px solid #333;
+  padding: .25rem .6rem;
+  font-size: .6rem;
+  color: #888;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   ANIMATIONS
+============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ============================================================
+   MOBILE NAV DRAWER
+============================================================ */
+.mobile-nav {
+  position: fixed;
+  top: 0; left: -100%;
+  width: 280px;
+  height: 100vh;
+  background: #fff;
+  z-index: 9999;
+  border-right: 1px solid var(--border);
+  transition: left .35s ease;
+  padding: 2rem 1.5rem;
+  overflow-y: auto;
+}
+.mobile-nav.open { left: 0; }
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  z-index: 9998;
+  display: none;
+}
+.mobile-nav-overlay.open { display: block; }
+.mobile-nav-close {
+  position: absolute;
+  top: 1rem; right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: var(--text);
+}
+.mobile-nav-logo {
+  font-family: var(--ff-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.mobile-nav-logo span { color: var(--gold); font-style: italic; }
+.mobile-nav-links { display: flex; flex-direction: column; gap: .2rem; }
+.mobile-nav-links a {
+  font-size: .78rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--text);
+  padding: .75rem 0;
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+  transition: color .2s;
+}
+.mobile-nav-links a:hover { color: var(--gold); }
+
+/* scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #f0ece6; }
+::-webkit-scrollbar-thumb { background: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav-overlay" id="navOverlay" onclick="closeMobileNav()"></div>
+<nav class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()">✕</button>
+  <div class="mobile-nav-logo">Bebella <span>Joias</span></div>
+  <div class="mobile-nav-links">
+    <a href="#hero">Início</a>
+    <a href="#produtos">Coleções</a>
+    <a href="#categorias">Categorias</a>
+    <a href="#sobre">Sobre Nós</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Contato</a>
+    <a href="https://wa.me/5591992076290" target="_blank">💬 WhatsApp</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════
+     TOPBAR
+════════════════════════════════════════════════ -->
+<div class="topbar">
+  <div class="topbar-left">
+    Frete grátis em compras acima de R$ 199 &nbsp;·&nbsp; Seg–Sáb 8h às 19h
+  </div>
+  <div class="topbar-right">
+    <a href="tel:+5591992076290">📞 <span>(91) 99207-6290</span></a>
+    <a href="https://wa.me/5591992076290" target="_blank">💬 <span>WhatsApp</span></a>
+    <a href="#contato">📍 <span>Paragominas, PA</span></a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MAIN NAV
+════════════════════════════════════════════════ -->
+<header class="main-nav">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      Bebella <span>Joias</span>
+      <small>Joias Folheadas · Paragominas</small>
+    </a>
+
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#hero" class="active">Início</a></li>
+        <li><a href="#produtos">Coleções</a></li>
+        <li><a href="#categorias">Categorias</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#depoimentos">Clientes</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-icons">
+      <button class="nav-icon-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      </button>
+      <a href="https://www.instagram.com/bebellajoias_" target="_blank" class="nav-icon-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <button class="nav-icon-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+      <button class="nav-icon-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="nav-cart-badge">0</span>
+      </button>
+      <button class="hamburger" onclick="openMobileNav()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════
+     HERO SLIDER
+════════════════════════════════════════════════ -->
+<section id="hero" class="hero">
+  <!-- Slides -->
+  <div class="hero-slide active">
+    <div class="hero-slide-bg slide-1"></div>
+  </div>
+  <div class="hero-slide">
+    <div class="hero-slide-bg slide-2"></div>
+  </div>
+  <div class="hero-slide">
+    <div class="hero-slide-bg slide-3"></div>
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-tag">Coleção 2026</div>
+      <h1 class="hero-title">
+        Design Exclusivo
+        <strong>Você Nasceu</strong>
+        <em>Para Ser Bella</em>
+      </h1>
+      <div class="hero-cta">
+        <a href="#produtos" class="btn-gold">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Ver Coleções
+        </a>
+        <a href="https://wa.me/5591992076290" target="_blank" class="btn-outline-white">
+          💬 WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arrows -->
+  <div class="hero-arrows">
+    <button class="hero-arrow" onclick="prevSlide()">&#8592;</button>
+    <button class="hero-arrow" onclick="nextSlide()">&#8594;</button>
+  </div>
+
+  <!-- Dots -->
+  <div class="hero-dots">
+    <button class="hero-dot active" onclick="goToSlide(0)"></button>
+    <button class="hero-dot" onclick="goToSlide(1)"></button>
+    <button class="hero-dot" onclick="goToSlide(2)"></button>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TRUST BAR
+════════════════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item reveal">
+      <div class="trust-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8l4.5-4.5M22 12l-4.5 4.5M16 16l4.5 4.5"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>Entrega para todo Brasil</strong>
+        <span>Embalagem premium inclusa</span>
+      </div>
+    </div>
+    <div class="trust-item reveal" style="transition-delay:.1s">
+      <div class="trust-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>Parcele em até 12x</strong>
+        <span>Sem juros no cartão</span>
+      </div>
+    </div>
+    <div class="trust-item reveal" style="transition-delay:.2s">
+      <div class="trust-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>Folheado 18k Garantido</strong>
+        <span>Qualidade certificada</span>
+      </div>
+    </div>
+    <div class="trust-item reveal" style="transition-delay:.3s">
+      <div class="trust-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="trust-text">
+        <strong>Atendimento Rápido</strong>
+        <span>Seg–Sáb das 8h às 19h</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     CATEGORIES
+════════════════════════════════════════════════ -->
+<section id="categorias" class="categories-section">
+  <div class="categories-scroll">
+    <div class="cat-item active reveal" onclick="filterProducts('todos')">
+      <div class="cat-circle">
+        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=200&h=200&fit=crop&q=80" alt="Todos">
+      </div>
+      <span class="cat-label">Todos</span>
+    </div>
+    <div class="cat-item reveal" style="transition-delay:.05s" onclick="filterProducts('colares')">
+      <div class="cat-circle">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=200&h=200&fit=crop&q=80" alt="Colares">
+      </div>
+      <span class="cat-label">Colares</span>
+    </div>
+    <div class="cat-item reveal" style="transition-delay:.1s" onclick="filterProducts('aneis')">
+      <div class="cat-circle">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=200&h=200&fit=crop&q=80" alt="Anéis">
+      </div>
+      <span class="cat-label">Anéis</span>
+    </div>
+    <div class="cat-item reveal" style="transition-delay:.15s" onclick="filterProducts('berloques')">
+      <div class="cat-circle">
+        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=200&h=200&fit=crop&q=80" alt="Berloques">
+      </div>
+      <span class="cat-label">Berloques</span>
+    </div>
+    <div class="cat-item reveal" style="transition-delay:.2s" onclick="filterProducts('conjuntos')">
+      <div class="cat-circle">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop&q=80" alt="Conjuntos">
+      </div>
+      <span class="cat-label">Conjuntos</span>
+    </div>
+    <div class="cat-item reveal" style="transition-delay:.25s" onclick="filterProducts('prata')">
+      <div class="cat-circle">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=200&h=200&fit=crop&q=80" alt="Prata 925">
+      </div>
+      <span class="cat-label">Prata 925</span>
+    </div>
+    <div class="cat-item reveal" style="transition-delay:.3s" onclick="filterProducts('pedras')">
+      <div class="cat-circle">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=200&h=200&fit=crop&q=80&sat=-100" alt="Pedras Naturais">
+      </div>
+      <span class="cat-label">Pedras Nat.</span>
+    </div>
+    <div class="cat-item reveal" style="transition-delay:.35s" onclick="filterProducts('rommanel')">
+      <div class="cat-circle">
+        <img src="https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=200&h=200&fit=crop&q=80" alt="Rommanel">
+      </div>
+      <span class="cat-label">Rommanel</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- -->
+<!-- ═══════════════════════════════════════════════
+     PRODUTOS
+════════════════════════════════════════════════ -->
+<section id="produtos" class="products-section">
+  <div class="section">
+    <div class="section-header reveal">
+      <h2 class="section-title">Coleções em <em>Destaque</em></h2>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="product-filters reveal">
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="setFilter(this,'todos')">Todos</button>
+        <button class="filter-tab" onclick="setFilter(this,'novidades')">Novidades</button>
+        <button class="filter-tab" onclick="setFilter(this,'mais-vendidos')">Mais Vendidos</button>
+        <button class="filter-tab" onclick="setFilter(this,'promocoes')">Promoções</button>
+      </div>
+      <span style="font-size:.68rem;color:var(--muted);letter-spacing:.1em">12 peças encontradas</span>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+
+      <!-- Card 1 -->
+      <div class="product-card reveal" data-cat="colares">
+        <div class="product-badge badge-new">Novo</div>
+        <button class="wishlist-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <div class="product-img">
+          <div class="product-img-bg" style="background-image:url('https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80&fit=crop')"></div>
+          <div class="product-overlay">
+            <div class="overlay-actions">
+              <button class="overlay-btn" onclick="whatsapp('Colar Elos Dourado')">Comprar Agora</button>
+              <button class="overlay-btn secondary">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Colares</p>
+          <p class="product-name">Colar Elos Dourado 18k</p>
+          <div class="product-price">
+            <span class="price-current">R$ 89,90</span>
+          </div>
+          <div class="product-stars">★★★★★ <span>(48)</span></div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card reveal" style="transition-delay:.05s" data-cat="pedras">
+        <div class="product-badge badge-hot">Hot</div>
+        <button class="wishlist-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <div class="product-img">
+          <div class="product-img-bg" style="background-image:url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80&fit=crop&crop=center')"></div>
+          <div class="product-overlay">
+            <div class="overlay-actions">
+              <button class="overlay-btn" onclick="whatsapp('Colar Pedra Ametista')">Comprar Agora</button>
+              <button class="overlay-btn secondary">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Pedras Naturais</p>
+          <p class="product-name">Colar com Pedra Ametista</p>
+          <div class="product-price">
+            <span class="price-current">R$ 99,90</span>
+          </div>
+          <div class="product-stars">★★★★★ <span>(62)</span></div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card reveal" style="transition-delay:.1s" data-cat="aneis">
+        <button class="wishlist-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <div class="product-img">
+          <div class="product-img-bg" style="background-image:url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80&fit=crop')"></div>
+          <div class="product-overlay">
+            <div class="overlay-actions">
+              <button class="overlay-btn" onclick="whatsapp('Anel Solitário Prata 925')">Comprar Agora</button>
+              <button class="overlay-btn secondary">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Prata 925</p>
+          <p class="product-name">Anel Solitário Prata 925</p>
+          <div class="product-price">
+            <span class="price-current">R$ 129,90</span>
+          </div>
+          <div class="product-stars">★★★★☆ <span>(35)</span></div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="product-card reveal" style="transition-delay:.15s" data-cat="conjuntos">
+        <div class="product-badge badge-new">Novo</div>
+        <button class="wishlist-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <div class="product-img">
+          <div class="product-img-bg" style="background-image:url('https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&q=80&fit=crop')"></div>
+          <div class="product-overlay">
+            <div class="overlay-actions">
+              <button class="overlay-btn" onclick="whatsapp('Kit Colar e Brinco Dourado')">Comprar Agora</button>
+              <button class="overlay-btn secondary">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Conjuntos</p>
+          <p class="product-name">Kit Colar + Brinco Dourado</p>
+          <div class="product-price">
+            <span class="price-current">R$ 149,90</span>
+            <span class="price-old">R$ 179,90</span>
+          </div>
+          <div class="product-stars">★★★★★ <span>(91)</span></div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="product-card reveal" style="transition-delay:.2s" data-cat="berloques">
+        <div class="product-badge badge-sale">-30%</div>
+        <button class="wishlist-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <div class="product-img">
+          <div class="product-img-bg" style="background-image:url('https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600&q=80&fit=crop')"></div>
+          <div class="product-overlay">
+            <div class="overlay-actions">
+              <button class="overlay-btn" onclick="whatsapp('Berloque Coração Folheado')">Comprar Agora</button>
+              <button class="overlay-btn secondary">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Berloques</p>
+          <p class="product-name">Berloque Coração Folheado</p>
+          <div class="product-price">
+            <span class="price-current">R$ 34,90</span>
+            <span class="price-old">R$ 49,90</span>
+          </div>
+          <div class="product-stars">★★★★★ <span>(77)</span></div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="product-card reveal" style="transition-delay:.25s" data-cat="rommanel">
+        <div class="product-badge badge-hot">Rommanel</div>
+        <button class="wishlist-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <div class="product-img">
+          <div class="product-img-bg" style="background-image:url('https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=600&q=80&fit=crop')"></div>
+          <div class="product-overlay">
+            <div class="overlay-actions">
+              <button class="overlay-btn" onclick="whatsapp('Colar Rommanel Exclusivo')">Comprar Agora</button>
+              <button class="overlay-btn secondary">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Rommanel</p>
+          <p class="product-name">Colar Rommanel Exclusivo</p>
+          <div class="product-price">
+            <span class="price-current">R$ 189,90</span>
+          </div>
+          <div class="product-stars">★★★★★ <span>(54)</span></div>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="product-card reveal" style="transition-delay:.3s" data-cat="aneis">
+        <button class="wishlist-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <div class="product-img">
+          <div class="product-img-bg" style="background-image:url('https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&q=80&fit=crop')"></div>
+          <div class="product-overlay">
+            <div class="overlay-actions">
+              <button class="overlay-btn" onclick="whatsapp('Anel Zircônia Folheado')">Comprar Agora</button>
+              <button class="overlay-btn secondary">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Anéis</p>
+          <p class="product-name">Anel Zircônia Folheado</p>
+          <div class="product-price">
+            <span class="price-current">R$ 69,90</span>
+          </div>
+          <div class="product-stars">★★★★☆ <span>(29)</span></div>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="product-card reveal" style="transition-delay:.35s" data-cat="colares">
+        <div class="product-badge badge-new">Novo</div>
+        <button class="wishlist-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <div class="product-img">
+          <div class="product-img-bg" style="background-image:url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80&fit=crop')"></div>
+          <div class="product-overlay">
+            <div class="overlay-actions">
+              <button class="overlay-btn" onclick="whatsapp('Choker Dourado Minimalista')">Comprar Agora</button>
+              <button class="overlay-btn secondary">Ver Detalhes</button>
+            </div>
+          </div>
+        </div>
+        <div class="product-info">
+          <p class="product-cat">Colares & Chokers</p>
+          <p class="product-name">Choker Dourado Minimalista</p>
+          <div class="product-price">
+            <span class="price-current">R$ 74,90</span>
+          </div>
+          <div class="product-stars">★★★★★ <span>(43)</span></div>
+        </div>
+      </div>
+
+    </div><!-- /products-grid -->
+
+    <div class="view-all-wrap reveal">
+      <a href="https://wa.me/5591992076290?text=Quero+ver+mais+peças" target="_blank" class="btn-outline-gold">
+        Ver todas as peças →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     MID BANNER
+════════════════════════════════════════════════ -->
+<div class="mid-banner">
+  <div class="mid-banner-overlay">
+    <div class="mid-banner-text reveal">
+      <div class="section-tag">Qualidade Premium</div>
+      <h2 class="mid-banner-title">
+        Cada peça conta<br>
+        <em>a sua história</em>
+      </h2>
+      <a href="#contato" class="btn-gold" style="display:inline-flex">
+        Pedir pelo WhatsApp →
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     FEATURES
+════════════════════════════════════════════════ -->
+<section id="sobre">
+  <div class="section">
+    <div class="section-header reveal">
+      <h2 class="section-title">Nossa <em>Diferença</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item reveal">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+        </div>
+        <h3 class="feature-title">Qualidade Garantida</h3>
+        <p class="feature-desc">Todas as nossas peças são folheadas a ouro 18k com processo de qualidade rigoroso. Durabilidade e brilho que se mantêm por muito tempo.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:.1s">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0z"/></svg>
+        </div>
+        <h3 class="feature-title">Seleção Exclusiva</h3>
+        <p class="feature-desc">Curadoria especial de peças das melhores marcas, incluindo Rommanel, Prata 925 e pedras naturais importadas. Estilo para todas as ocasiões.</p>
+      </div>
+      <div class="feature-item reveal" style="transition-delay:.2s">
+        <div class="feature-icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <h3 class="feature-title">Atendimento Especial</h3>
+        <p class="feature-desc">Mais de 4.700 clientes satisfeitas em Paragominas e toda a região. Atendimento personalizado via WhatsApp para encontrar a peça perfeita para você.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════════ -->
+<section id="depoimentos" class="testimonials-section">
+  <div class="section">
+    <div class="section-header reveal">
+      <h2 class="section-title">O que dizem <em>sobre nós</em></h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Amei meu colar! A qualidade é incrível, chegou rápido e na embalagem lindíssima. Já indiquei para todas as amigas!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👩</div>
+          <div>
+            <p class="author-name">Ana Paula M.</p>
+            <p class="author-city">Paragominas, PA</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" style="transition-delay:.1s">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Comprei um conjunto para presentear minha mãe e ela ficou apaixonada. O atendimento da Bebella é diferenciado, muito atencioso!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👱‍♀️</div>
+          <div>
+            <p class="author-name">Carla S.</p>
+            <p class="author-city">Dom Eliseu, PA</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal" style="transition-delay:.2s">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Já comprei várias vezes e sempre fico satisfeita. As joias folheadas duram muito e ficam lindas. Preço justo e entrega rápida!</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">🧕</div>
+          <div>
+            <p class="author-name">Fernanda R.</p>
+            <p class="author-city">Goianésia, PA</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     INSTAGRAM
+════════════════════════════════════════════════ -->
+<section class="instagram-section">
+  <div class="instagram-header reveal">
+    <div class="section-tag">Instagram</div>
+    <h2 class="section-title">Siga <em>@bebellajoias_</em></h2>
+  </div>
+  <div class="instagram-grid">
+    <div class="ig-item">
+      <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80&fit=crop')"></div>
+      <div class="ig-item-overlay"><span>📷</span></div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400&q=80&fit=crop')"></div>
+      <div class="ig-item-overlay"><span>📷</span></div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80&fit=crop')"></div>
+      <div class="ig-item-overlay"><span>📷</span></div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1635797255620-89cf0139bbbc?w=400&q=80&fit=crop')"></div>
+      <div class="ig-item-overlay"><span>📷</span></div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1573408301185-9519f94bf1e6?w=400&q=80&fit=crop')"></div>
+      <div class="ig-item-overlay"><span>📷</span></div>
+    </div>
+    <div class="ig-item">
+      <div class="ig-item-bg" style="background-image:url('https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=400&q=80&fit=crop')"></div>
+      <div class="ig-item-overlay"><span>📷</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONTATO
+════════════════════════════════════════════════ -->
+<section id="contato" class="contact-section">
+  <div class="section">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="section-tag">Fale Conosco</div>
+        <h2 class="section-title">Sua joia <em>especial</em><br>a um clique</h2>
+        <p class="contact-desc">
+          Atendemos de segunda a sábado das 8h às 19h. Enviamos para todo o Brasil
+          com embalagem premium e nota fiscal. Parcelamos em até 12x sem juros.
+        </p>
+        <div class="contact-list">
+          <div class="contact-row">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p class="contact-row-label">Loja Física</p>
+              <p class="contact-row-value">Praça Célio Miranda, 230 — Centro<br>Paragominas – PA, 68625230</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <p class="contact-row-label">WhatsApp & Telefone</p>
+              <p class="contact-row-value">(91) 99207-6290</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <p class="contact-row-label">Horário de Atendimento</p>
+              <p class="contact-row-value">Segunda a Sábado: 8h às 19h</p>
+            </div>
+          </div>
+          <div class="contact-row">
+            <div class="contact-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <p class="contact-row-label">Instagram</p>
+              <p class="contact-row-value">@bebellajoias_</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.15s">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row-grid">
+            <div class="form-group">
+              <label class="form-label">Nome *</label>
+              <input type="text" class="form-control" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">WhatsApp *</label>
+              <input type="tel" class="form-control" placeholder="(91) 99999-9999" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Interesse</label>
+            <select class="form-control">
+              <option value="">Selecione uma categoria...</option>
+              <option>Colares & Chokers</option>
+              <option>Anéis</option>
+              <option>Berloques</option>
+              <option>Conjuntos</option>
+              <option>Prata 925</option>
+              <option>Pedras Naturais</option>
+              <option>Rommanel</option>
+              <option>Presentear alguém especial</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensagem</label>
+            <textarea class="form-control" placeholder="Conte o que você está buscando..."></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+            Enviar Mensagem
+          </button>
+          <p class="form-note">
+            Ou chame diretamente: <strong>(91) 99207-6290</strong> · Resposta em até 1h
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-logo">Bebella <span>Joias</span></div>
+      <p class="footer-tagline">Joias Folheadas · Paragominas, PA</p>
+      <p class="footer-about">
+        Somos uma loja especializada em joias folheadas a ouro 18k, com mais de 4.700 clientes felizes.
+        Qualidade, elegância e atendimento diferenciado desde o início.
+      </p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/bebellajoias_" target="_blank" class="social-btn" title="Instagram">📷</a>
+        <a href="https://wa.me/5591992076290" target="_blank" class="social-btn" title="WhatsApp">💬</a>
+        <a href="tel:+5591992076290" class="social-btn" title="Telefone">📞</a>
+      </div>
+    </div>
+
+    <div>
+      <p class="footer-col-title">Coleções</p>
+      <div class="footer-links">
+        <a href="#produtos">Colares & Chokers</a>
+        <a href="#produtos">Anéis</a>
+        <a href="#produtos">Berloques</a>
+        <a href="#produtos">Conjuntos</a>
+        <a href="#produtos">Prata 925</a>
+        <a href="#produtos">Pedras Naturais</a>
+        <a href="#produtos">Rommanel</a>
+      </div>
+    </div>
+
+    <div>
+      <p class="footer-col-title">Informações</p>
+      <div class="footer-links">
+        <a href="#sobre">Sobre a Bebella</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+        <a href="#contato">Trocas & Devoluções</a>
+        <a href="#contato">Política de Entrega</a>
+      </div>
+    </div>
+
+    <div>
+      <p class="footer-col-title">Contato</p>
+      <div class="footer-links" style="gap:.9rem">
+        <div style="color:#888;font-size:.75rem;line-height:1.7">
+          📍 Praça Célio Miranda, 230<br>Centro – Paragominas, PA
+        </div>
+        <div style="color:#888;font-size:.75rem">📱 (91) 99207-6290</div>
+        <div style="color:#888;font-size:.75rem">🕐 Seg–Sáb: 8h às 19h</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-top:1px solid #2a2a2a; padding: 0 4vw;">
+    <div class="footer-bottom" style="max-width:1300px;margin:0 auto;">
+      <p class="footer-copy">© 2026 Bebella Joias Folheadas · Paragominas, PA · Todos os direitos reservados</p>
+      <div class="footer-payment">
+        <span class="payment-icon">Pix</span>
+        <span class="payment-icon">Cartão</span>
+        <span class="payment-icon">Boleto</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════ -->
+<script>
+// ── SLIDER ──────────────────────────────────────
+let currentSlide = 0;
+let autoSlide;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dot');
+
+function goToSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  dots[currentSlide].classList.remove('active');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+  dots[currentSlide].classList.add('active');
+}
+function nextSlide() { goToSlide(currentSlide + 1); resetAuto(); }
+function prevSlide() { goToSlide(currentSlide - 1); resetAuto(); }
+function resetAuto() { clearInterval(autoSlide); autoSlide = setInterval(() => goToSlide(currentSlide + 1), 5000); }
+autoSlide = setInterval(() => goToSlide(currentSlide + 1), 5000);
+
+// ── MOBILE NAV ───────────────────────────────────
+function openMobileNav() {
+  document.getElementById('mobileNav').classList.add('open');
+  document.getElementById('navOverlay').classList.add('open');
+}
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.getElementById('navOverlay').classList.remove('open');
+}
+
+// ── FILTER TABS ──────────────────────────────────
+function setFilter(btn, filter) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// ── CATEGORY FILTER ──────────────────────────────
+function filterProducts(cat) {
+  document.querySelectorAll('.cat-item').forEach(c => c.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+}
+
+// ── REVEAL ON SCROLL ─────────────────────────────
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── WISHLIST TOGGLE ──────────────────────────────
+document.querySelectorAll('.wishlist-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    btn.classList.toggle('active');
+  });
+});
+
+// ── WHATSAPP ────────────────────────────────────
+function whatsapp(product) {
+  const msg = encodeURIComponent(`Olá! Tenho interesse em: ${product}. Poderia me dar mais informações?`);
+  window.open(`https://wa.me/5591992076290?text=${msg}`, '_blank');
+}
+
+// ── FORM SUBMIT ──────────────────────────────────
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submitBtn');
+  btn.innerHTML = '✓ Mensagem enviada! Em breve entraremos em contato.';
+  btn.style.background = '#16a34a';
+  setTimeout(() => {
+    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg> Enviar Mensagem`;
+    btn.style.background = '';
+  }, 4000);
+}
+
+// ── SMOOTH NAV ───────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); closeMobileNav(); }
+  });
+});
+</script>
+</body>
+</html>
