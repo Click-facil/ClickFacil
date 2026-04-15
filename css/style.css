@@ -1720,17 +1720,17 @@ section {
 }
 
 .bento-card {
-    background: rgba(41, 171, 226, 0.08); 
-    border: 2px solid rgba(41, 171, 226, 0.18); 
+    background: transparent;
+    border: none;
     border-radius: 12px;
-    box-shadow: 0 0 24px 0 rgba(41, 171, 226, 0.18);
+    box-shadow: none;
     
     padding: 0;
     text-decoration: none;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow: hidden;
+    overflow: visible;
     
     transition: all 0.3s ease;
 }
@@ -1742,34 +1742,44 @@ section {
 
 .bento-card-image {
     width: 100%;
-    height: 350px;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
     position: relative;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(0, 240, 255, 0.3),
+                0 0 80px rgba(0, 240, 255, 0.15);
+    transition: all 0.3s ease;
 }
 
 .bento-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
+    object-position: center;
     transition: transform 0.5s ease;
 }
 
 /* Zoom especial para imagens menores */
 .bento-card-zoom-image .bento-card-image img {
-    transform: scale(2.5) translateX(18%);
-    object-position: center 15%;
-    transform-origin: center top;
+    transform: scale(1);
+    object-position: center;
+    transform-origin: center;
 }
 
 .bento-card-zoom-image:hover .bento-card-image img {
-    transform: scale(2.6) translateX(-15%);
-    object-position: center 15%;
-    transform-origin: center top;
+    transform: scale(1.05);
+    object-position: center;
+    transform-origin: center;
 }
 
 .bento-card-with-image:hover .bento-card-image img {
     transform: scale(1.05);
+}
+
+.bento-card:hover .bento-card-image {
+    box-shadow: 0 0 60px rgba(0, 240, 255, 0.5),
+                0 0 100px rgba(0, 240, 255, 0.25);
+    transform: translateY(-5px);
 }
 
 .bento-card-with-image:hover .bento-card-content h4 {
@@ -1777,10 +1787,11 @@ section {
 }
 
 .bento-card-content {
-    padding: 20px 25px 25px 25px;
+    padding: 20px 10px 25px 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    background: transparent;
 }
 
 .bento-card-content h4 {
