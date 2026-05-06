@@ -1,756 +1,485 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO Meta Tags -->
-    <title>Click Fácil | Criação de Sites, Lojas Virtuais e SEO para Negócios</title>
-    <meta name="description" content="Especialistas em desenvolvimento web. Criamos sites institucionais, landing pages de alta conversão, lojas virtuais (Nuvemshop) e otimizamos seu negócio para o Google com SEO.">
-    <meta name="keywords" content="criação de sites, desenvolvimento de sites, landing pages, loja virtual, nuvemshop, seo, consultoria de seo, google meu negócio, web design">
-    <meta name="google-site-verification" content="8lFDF2oZAZm_Ak4-VqxmJfyP0Qzapi1mWPLeU7oT6Ow" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://clickfacil.vercel.app/"> <!-- Trocar pela URL real do site -->
-    <meta property="og:title" content="Click Fácil | Criação de Sites, Landing Pages e SEO para Negócios">
-    <meta property="og:description" content="Especialistas em desenvolvimento web: sites, landing pages, lojas virtuais e otimização para o Google (SEO).">
-    <meta property="og:image" content="images/logo.webp"> <!-- Trocar pela URL real da imagem -->
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="images/logo.webp">
-    <link rel="shortcut icon" href="images/logo.webp" type="image/webp">
-    <link rel="apple-touch-icon" href="images/logo.webp">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/enhancements.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- 1. Adicionado CSS do Swiper.js -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2283447901735985"
-     crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Fácil - Soluções Digitais</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
-<body>
-    <header class="main-header">
-        <div class="logo-slider">
-            <a href="index.html">
-                <!-- Removido o vídeo pequeno do cabeçalho: usar a logo estática -->
-                <img src="images/logo.webp" alt="Click Fácil" class="logo-img" />
-            </a>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --cf-blue:#0ea5e9;--cf-cyan:#06b6d4;--cf-dark:#0a0f1e;--cf-darker:#060b16;
+    --cf-card:#0f172a;--cf-border:#1e3a5f;--cf-text:#e2e8f0;--cf-muted:#94a3b8;
+    --cf-grad:linear-gradient(135deg,#0ea5e9,#06b6d4);
+    --cf-glow:0 0 40px rgba(14,165,233,0.15);
+  }
+  body{font-family:'Inter',sans-serif;background:var(--cf-dark);color:var(--cf-text);line-height:1.6;overflow-x:hidden;}
+  .cf-wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  /* NAV */
+  nav{background:rgba(10,15,30,0.95);border-bottom:1px solid var(--cf-border);padding:16px 0;position:sticky;top:0;z-index:100;}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .logo{height:48px;}
+  .logo img{height:100%;width:auto;}
+  .nav-links{display:flex;gap:28px;list-style:none;}
+  .nav-links a{color:var(--cf-muted);text-decoration:none;font-size:14px;font-weight:400;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--cf-blue);}
+  .btn-nav{background:var(--cf-grad);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;}
+
+  /* HERO */
+  .hero{padding:96px 0 80px;text-align:center;position:relative;overflow:hidden;}
+  .hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(6,182,212,0.08) 0%,transparent 70%);pointer-events:none;}
+  .hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.15;z-index:-1;}
+  .hero-video-desktop{display:block;}
+  .hero-video-mobile{display:none;}
+  .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.3);border-radius:999px;padding:6px 16px;font-size:13px;color:var(--cf-cyan);margin-bottom:32px;}
+  .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--cf-cyan);}
+  .hero h1{font-size:clamp(32px,5vw,60px);font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:24px;}
+  .hero h1 .hl{background:var(--cf-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--cf-muted);max-width:600px;margin:0 auto 40px;font-weight:400;line-height:1.7;}
+  .btn-primary{background:var(--cf-grad);color:#fff;border:none;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;letter-spacing:-0.2px;position:relative;overflow:hidden;box-shadow:0 4px 12px rgba(14,165,233,0.2),0 2px 4px rgba(0,0,0,0.1),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.3s cubic-bezier(0.23,1,0.32,1);outline:none;}
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.1);box-shadow:0 12px 24px rgba(14,165,233,0.3),0 4px 8px rgba(0,0,0,0.2);}
+  .btn-primary:active{transform:translateY(0);box-shadow:0 2px 4px rgba(14,165,233,0.2);}
+  .btn-primary:focus{box-shadow:0 0 0 2px var(--cf-dark),0 0 0 4px var(--cf-blue);}
+  .btn-primary::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.15) 0%,transparent 70%);opacity:0;transition:opacity 0.3s;}
+  .btn-primary:hover::after{opacity:1;}
+  .btn-secondary{background:transparent;color:var(--cf-blue);border:1px solid var(--cf-blue);padding:16px 36px;border-radius:10px;font-size:16px;font-weight:500;cursor:pointer;margin-left:12px;}
+  .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+  .hero-stats{display:flex;gap:40px;justify-content:center;margin-top:64px;flex-wrap:wrap;}
+  .stat{text-align:center;}
+  .stat-num{font-size:32px;font-weight:800;background:var(--cf-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .stat-label{font-size:13px;color:var(--cf-muted);}
+
+  /* SECTION BASE */
+  .section{padding:80px 0;}
+  .bg-alt{background:var(--cf-darker);}
+  .section-badge{font-size:12px;font-weight:600;color:var(--cf-cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+  .section-title{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;}
+  .section-sub{font-size:16px;color:var(--cf-muted);max-width:560px;line-height:1.7;}
+
+  /* SOBRE */
+  .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .sobre-section{position:relative;overflow:hidden;}
+  .sobre-section::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/sessaosobre.webp');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.15;z-index:0;pointer-events:none;}
+  .sobre-section .cf-wrap{position:relative;z-index:1;}
+  .sobre-visual{background:var(--cf-card);border:1px solid var(--cf-border);border-radius:16px;padding:60px 40px;height:480px;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;position:relative;display:flex;flex-direction:column;gap:16px;}
+  .sobre-visual::before,.sobre-visual::after{content:'';position:absolute;left:0;right:0;height:80px;pointer-events:none;z-index:10;}
+  .sobre-visual::before{top:0;background:linear-gradient(180deg,var(--cf-card) 0%,var(--cf-card) 20%,transparent 100%);}
+  .sobre-visual::after{bottom:0;background:linear-gradient(0deg,var(--cf-card) 0%,var(--cf-card) 20%,transparent 100%);}
+  .sobre-visual::-webkit-scrollbar{width:4px;}
+  .sobre-visual::-webkit-scrollbar-track{background:transparent;}
+  .sobre-visual::-webkit-scrollbar-thumb{background:rgba(14,165,233,0.3);border-radius:10px;}
+  .sobre-item{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:200px;padding:32px 24px;margin:0;background:rgba(14,165,233,0.03);border:1px solid rgba(14,165,233,0.08);border-radius:12px;scroll-snap-align:center;transition:all 0.5s cubic-bezier(0.4,0,0.2,1);opacity:0.25;transform:scale(0.85);filter:blur(1px);position:relative;z-index:15;}
+  .sobre-item.active{opacity:1;transform:scale(1);background:rgba(14,165,233,0.12);border:1px solid rgba(14,165,233,0.3);filter:blur(0);box-shadow:0 8px 32px rgba(14,165,233,0.15);z-index:15;}
+  .sobre-icon{font-size:42px;margin-bottom:20px;transition:all 0.5s cubic-bezier(0.4,0,0.2,1);filter:grayscale(1);line-height:1;position:relative;z-index:20;}
+  .sobre-item.active .sobre-icon{font-size:52px;filter:grayscale(0);margin-bottom:24px;}
+  .sobre-item-text{font-size:17px;font-weight:600;margin-bottom:12px;transition:all 0.5s cubic-bezier(0.4,0,0.2,1);line-height:1.3;position:relative;z-index:20;}
+  .sobre-item.active .sobre-item-text{font-size:19px;}
+  .sobre-item-sub{font-size:13px;color:var(--cf-muted);line-height:1.6;transition:all 0.5s cubic-bezier(0.4,0,0.2,1);opacity:0;max-height:0;overflow:visible;position:relative;z-index:20;}
+  .sobre-item.active .sobre-item-sub{opacity:1;max-height:200px;}
+
+  /* SERVIÇOS */
+  .servicos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
+  .card-servico{background:var(--cf-card);border:1px solid var(--cf-border);border-radius:16px;padding:32px;transition:border-color 0.3s;}
+  .card-servico:hover{border-color:var(--cf-blue);}
+  .card-icon{width:52px;height:52px;background:linear-gradient(135deg,rgba(14,165,233,0.15),rgba(6,182,212,0.15));border:1px solid rgba(14,165,233,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px;}
+  .card-servico h3{font-size:18px;font-weight:700;margin-bottom:10px;}
+  .card-servico p{font-size:14px;color:var(--cf-muted);margin-bottom:16px;line-height:1.7;}
+  .card-tag{display:inline-block;font-size:12px;color:var(--cf-cyan);background:rgba(6,182,212,0.1);border:1px solid rgba(6,182,212,0.2);border-radius:999px;padding:4px 12px;}
+
+  /* BENEFÍCIOS */
+  .bg-alt{background:var(--cf-darker);}
+  .beneficios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:48px;}
+  .card-beneficio{text-align:center;padding:32px 24px;}
+  .beneficio-num{font-size:40px;font-weight:900;background:var(--cf-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;}
+  .card-beneficio h3{font-size:16px;font-weight:700;margin-bottom:8px;}
+  .card-beneficio p{font-size:14px;color:var(--cf-muted);}
+
+  /* DEPOIMENTOS */
+  .depos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
+  .card-depo{background:var(--cf-card);border:1px solid var(--cf-border);border-radius:16px;padding:28px;display:flex;flex-direction:column;min-height:320px;}
+  .depo-stars{color:#f59e0b;font-size:14px;margin-bottom:14px;}
+  .depo-text{font-size:15px;color:var(--cf-muted);margin-bottom:20px;line-height:1.7;font-style:italic;}
+  .depo-author{display:flex;align-items:center;gap:12px;}
+  .depo-avatar{width:40px;height:40px;border-radius:50%;background:var(--cf-grad);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;object-fit:cover;}
+  .depo-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
+  .depo-name{font-size:14px;font-weight:600;}
+  .depo-role{font-size:12px;color:var(--cf-muted);}
+
+  /* OBJEÇÕES */
+  .objecoes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:48px;}
+  .card-objecao{background:var(--cf-card);border:1px solid var(--cf-border);border-radius:12px;padding:24px;}
+  .objecao-q{font-size:15px;font-weight:600;color:var(--cf-blue);margin-bottom:10px;}
+  .objecao-a{font-size:14px;color:var(--cf-muted);line-height:1.7;}
+
+  /* CTA SECTION */
+  .cta-wrap{position:relative;overflow:hidden;}
+  .cta-wrap-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.12;z-index:0;pointer-events:none;}
+  .cta-wrap>.cf-wrap{position:relative;z-index:1;}
+  .cta-section{background:linear-gradient(135deg,rgba(14,165,233,0.1),rgba(6,182,212,0.05));border:1px solid rgba(14,165,233,0.2);border-radius:24px;padding:64px 48px;text-align:center;margin:80px 0;}
+  .cta-section h2{font-size:clamp(26px,4vw,40px);font-weight:800;margin-bottom:16px;}
+  .cta-section p{font-size:18px;color:var(--cf-muted);margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;}
+  .form-row{display:flex;gap:12px;max-width:480px;margin:0 auto;flex-wrap:wrap;}
+  .form-input{flex:1;min-width:200px;background:rgba(255,255,255,0.05);border:1px solid var(--cf-border);border-radius:10px;padding:14px 18px;color:var(--cf-text);font-size:15px;font-family:'Inter',sans-serif;}
+  .form-input::placeholder{color:var(--cf-muted);}
+  .form-input:focus{outline:none;border-color:var(--cf-blue);}
+  .cta-note{font-size:13px;color:var(--cf-muted);margin-top:16px;}
+
+  /* FAQ */
+  .faq-list{margin-top:48px;display:flex;flex-direction:column;gap:12px;}
+  .faq-item{background:var(--cf-card);border:1px solid var(--cf-border);border-radius:12px;padding:24px;cursor:pointer;}
+  .faq-q{font-size:15px;font-weight:600;display:flex;justify-content:space-between;align-items:center;}
+  .faq-a{font-size:14px;color:var(--cf-muted);line-height:1.7;margin-top:12px;display:none;}
+  .faq-item.open .faq-a{display:block;}
+  .faq-icon{color:var(--cf-blue);font-size:18px;font-weight:300;flex-shrink:0;}
+
+  /* FOOTER */
+  footer{background:var(--cf-darker);border-top:1px solid var(--cf-border);padding:48px 0 32px;}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;margin-bottom:40px;}
+  .footer-brand{margin-bottom:16px;}
+  .footer-brand img{height:48px;width:auto;}
+  .footer-desc{font-size:14px;color:var(--cf-muted);line-height:1.7;max-width:400px;}
+  .footer-col h4{font-size:14px;font-weight:600;margin-bottom:16px;color:var(--cf-text);}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .footer-col ul li a{font-size:14px;color:var(--cf-muted);text-decoration:none;transition:color 0.2s;}
+  .footer-col ul li a:hover{color:var(--cf-blue);}
+  .footer-bottom{border-top:1px solid var(--cf-border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  .footer-copy{font-size:13px;color:var(--cf-muted);}
+  .footer-tagline{font-size:13px;color:var(--cf-cyan);}
+
+  @media(max-width:768px){
+    .sobre-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;gap:32px;}
+    .nav-links{display:none;}
+    .hero{min-height:100vh;}
+    .hero-video-desktop{display:none;}
+    .hero-video-mobile{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
+    .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:400px;margin-left:auto;margin-right:auto;}
+    .sobre-section::before{background-image:url('images/sessaosobrecelular.webp');}
+  }
+</style>
+
+<nav>
+  <div class="cf-wrap nav-inner">
+    <div class="logo"><img src="images/logo.webp" alt="Click Fácil"></div>
+    <ul class="nav-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#resultados">Resultados</a></li>
+    </ul>
+    <button class="btn-nav">Quero meu site</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <video class="hero-video hero-video-desktop" autoplay muted loop playsinline>
+    <source src="images/animacao-logo.webm" type="video/webm">
+  </video>
+  <video class="hero-video hero-video-mobile" autoplay muted loop playsinline>
+    <source src="images/animacao_hero_mobile.webm" type="video/webm">
+  </video>
+  <div class="cf-wrap">
+    <div class="badge"><span class="badge-dot"></span>Desenvolvimento Web Profissional</div>
+    <h1>Seu negócio merece uma<br><span class="hl">presença digital à altura.</span></h1>
+    <p class="hero-sub">Sites que não só parecem profissionais. Eles vendem, convencem e geram autoridade. Do primeiro clique à conversão.</p>
+    <div class="hero-btns">
+      <button class="btn-primary">Quero meu site agora</button>
+      <button class="btn-secondary">Ver portfólio</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">150+</div><div class="stat-label">Projetos entregues</div></div>
+      <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Clientes satisfeitos</div></div>
+      <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Tempo médio de resposta</div></div>
+      <div class="stat"><div class="stat-num">3x</div><div class="stat-label">Mais leads em média</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt sobre-section" id="sobre">
+  <div class="cf-wrap">
+    <div class="sobre-grid">
+      <div>
+        <div class="section-badge">Sobre a Click Fácil</div>
+        <h2 class="section-title">Não somos mais uma agência. Somos seu parceiro de crescimento digital.</h2>
+        <p class="section-sub">A Click Fácil nasceu da convicção de que todo negócio, do infoprodutor ao empreendedor local, merece uma presença digital que gera respeito e resultados. Nossa equipe combina visão estratégica com execução impecável, entregando sites que posicionam marcas acima da concorrência.</p>
+        <br>
+        <p class="section-sub">Cada projeto é tratado como único. Nenhum template sem alma. Nenhum atalho que comprometa sua imagem.</p>
+      </div>
+      <div class="sobre-visual" id="sobreVisual">
+        <div class="sobre-item active">
+          <div class="sobre-icon">✦</div>
+          <div class="sobre-item-text">Atenção cirúrgica aos detalhes</div>
         </div>
-        <nav class="main-nav" id="main-nav">
-            <a href="#sobre">Sobre</a>
-            <a href="catalagodeservicos.html">Serviços</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contato">Contato</a>
-            <a href="blog/index.html">Blog</a>
-        </nav>
-        <!-- Container para agrupar os botões de ação no cabeçalho (mobile) -->
-        <div class="header-actions">
-            <button class="search-toggle-btn" id="search-toggle" aria-label="Abrir pesquisa">
-                <i class="fas fa-search"></i>
-            </button>
-            <button class="hamburger" id="hamburger-menu">
-                <i class="fas fa-bars"></i>
-            </button>
+        <div class="sobre-item">
+          <div class="sobre-icon">⚡</div>
+          <div class="sobre-item-text">Mentalidade inovadora</div>
         </div>
-    </header>
-    <main>
-        <!-- HERO SECTION ATUALIZADA -->
-<section id="sobre" class="hero-section fade-in-section">
-    <video playsinline autoplay muted loop class="hero-video-bg" poster="images/frame-inicial.webp">
-        <source src="images/animacao-logo.webm" type="video/webm">
-    </video>
-    <div class="hero-overlay"></div>
+        <div class="sobre-item">
+          <div class="sobre-icon">◈</div>
+          <div class="sobre-item-text">Foco em conversão real</div>
+        </div>
+        <div class="sobre-item">
+          <div class="sobre-icon">∞</div>
+          <div class="sobre-item-text">Suporte contínuo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicos">
+  <div class="cf-wrap">
+    <h2 class="section-title">Soluções web para quem quer<br>resultados de verdade.</h2>
+    <div class="servicos-grid">
+      <div class="card-servico">
+        <div class="card-icon">◎</div>
+        <h3>Landing Pages de Alta Conversão</h3>
+        <p>Páginas desenhadas para transformar visitantes em leads e clientes. Copy estratégico, design persuasivo e velocidade de carregamento que não perde nenhuma oportunidade.</p>
+        <span class="card-tag">Infoprodutores</span>
+      </div>
+      <div class="card-servico">
+        <div class="card-icon">◈</div>
+        <h3>Sites Institucionais Premium</h3>
+        <p>Sua empresa merece uma vitrine digital que transmita credibilidade imediata. Desenvolvemos sites completos que posicionam sua marca como referência no mercado.</p>
+        <span class="card-tag">Empresas</span>
+      </div>
+      <div class="card-servico">
+        <div class="card-icon">⚡</div>
+        <h3>Páginas para Lançamentos</h3>
+        <p>Estrutura técnica e visual preparada para o pico de tráfego dos seus lançamentos. Páginas de captura, vendas e obrigado integradas e otimizadas.</p>
+        <span class="card-tag">Estratégico</span>
+      </div>
+      <div class="card-servico">
+        <div class="card-icon">✦</div>
+        <h3>Redesign e Otimização</h3>
+        <p>Seu site existe mas não converte? Auditamos, identificamos os gargalos e reconstruímos sua presença digital com foco em performance e autoridade.</p>
+        <span class="card-tag">Resultados</span>
+      </div>
+      <div class="card-servico">
+        <div class="card-icon">⚙</div>
+        <h3>Sistemas e Micro-SaaS Sob Medida</h3>
+        <p>Desenvolvimento de ferramentas inteligentes e funcionais para automatizar processos e otimizar seu fluxo de trabalho.</p>
+        <span class="card-tag">SaaS</span>
+      </div>
+      <div class="card-servico">
+        <div class="card-icon">◆</div>
+        <h3>Design de Conversão e Social Brand</h3>
+        <p>Focada na criação e refatoração estética de perfis e criação de anúncios (criativos) que convertem, unindo design e estratégia.</p>
+        <span class="card-tag">Identidade</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt">
+  <div class="cf-wrap" style="text-align:center;">
+    <h2 class="section-title">O que um site profissional<br>realmente gera para o seu negócio.</h2>
+    <div class="beneficios-grid">
+      <div class="card-beneficio">
+        <div class="beneficio-num" data-target="3" data-suffix="x">0x</div>
+        <h3>Mais credibilidade percebida</h3>
+        <p>Visitantes decidem em 7 segundos se confiam em você. Um site ruim custa mais caro do que não ter nenhum.</p>
+      </div>
+      <div class="card-beneficio">
+        <div class="beneficio-num" data-target="247" data-suffix="%">0%</div>
+        <h3>Mais leads qualificados</h3>
+        <p>Sites otimizados para conversão capturam contatos que antes você perdia para a concorrência.</p>
+      </div>
+      <div class="card-beneficio">
+        <div class="beneficio-num" data-target="60" data-suffix="%">0%</div>
+        <h3>Redução no custo de aquisição</h3>
+        <p>Presença digital forte reduz dependência de anúncios pagos e aumenta o alcance orgânico.</p>
+      </div>
+      <div class="card-beneficio">
+        <div class="beneficio-num">∞</div>
+        <h3>Autoridade que escala</h3>
+        <p>Diferente das redes sociais, seu site é seu. Trabalha por você enquanto você dorme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="resultados">
+  <div class="cf-wrap">
+    <h2 class="section-title">Quem já deu o clique certo.</h2>
+    <div class="depos-grid">
+      <div class="card-depo">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Trabalho maravilhoso que superou minhas expectativas. A landing page será uma ferramenta essencial para alavancar as vendas. A organização dos produtos ficou excelente, dividida por categoria num ambiente bonito e atrativo. Pode ter certeza que vou divulgar seu trabalho!"</p>
+        <div class="depo-author">
+          <div class="depo-avatar"><img src="images/unnamed(2).webp" alt="Régia"></div>
+          <div><div class="depo-name">Régia</div><div class="depo-role">Empreendedora — E-commerce</div></div>
+        </div>
+      </div>
+      <div class="card-depo">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Atendimento top demais! Tudo resolvido rápido e com atenção. Gostei muito da experiência com a Click Fácil, vou continuar usando e indicando."</p>
+        <div class="depo-author">
+          <div class="depo-avatar"><img src="images/unnamed(1).webp" alt="Zah"></div>
+          <div><div class="depo-name">Zah</div><div class="depo-role">Cliente</div></div>
+        </div>
+      </div>
+      <div class="card-depo">
+        <div class="depo-stars">★★★★★</div>
+        <p class="depo-text">"Excelente profissional. Resolve tudo com rapidez e eficiência. Desde o primeiro contato percebi o comprometimento e a atenção aos detalhes. O resultado final superou minhas expectativas e o suporte durante todo o processo foi impecável."</p>
+        <div class="depo-author">
+          <div class="depo-avatar"><img src="images/unnamed.webp" alt="Eduardo"></div>
+          <div><div class="depo-name">Eduardo</div><div class="depo-role">Cliente</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-alt">
+  <div class="cf-wrap">
+    <h2 class="section-title">Respondemos às suas dúvidas antes<br>que você precise perguntar.</h2>
+    <div class="objecoes-grid">
+      <div class="card-objecao">
+        <div class="objecao-q">"Preciso de site se já tenho Instagram?"</div>
+        <div class="objecao-a">Instagram aluga o seu espaço. Site é propriedade sua. Algoritmo muda, conta cai, mas seu site continua gerando autoridade. As redes sociais devem direcionar para o seu site — não substituí-lo.</div>
+      </div>
+      <div class="card-objecao">
+        <div class="objecao-q">"Quanto tempo vai demorar?"</div>
+        <div class="objecao-a">A maioria dos projetos é entregue em 7 a 21 dias úteis, dependendo da complexidade. Trabalhamos com cronograma definido, sem enrolação nem desaparecimento.</div>
+      </div>
+      <div class="card-objecao">
+        <div class="objecao-q">"Consigo fazer de graça no Wix ou similar?"</div>
+        <div class="objecao-a">Consigo. Da mesma forma que você pode cortar seu próprio cabelo. Mas quando a percepção do cliente vale negócios reais, a ferramenta certa faz toda diferença.</div>
+      </div>
+      <div class="card-objecao">
+        <div class="objecao-q">"E se eu não gostar do resultado?"</div>
+        <div class="objecao-a">Trabalhamos com processo colaborativo: aprovações em etapas, feedback real e revisões incluídas. Você acompanha cada fase e só aprovamos o que você validar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-wrap">
+  <video class="cta-wrap-video" autoplay muted loop playsinline>
+    <source src="images/animacao_ponteiro_2.webm" type="video/webm">
+  </video>
+  <div class="cf-wrap">
+    <div class="cta-section">
+      <div class="section-badge">Dê o primeiro passo</div>
+      <h2>Pronto para existir de verdade<br>no mundo digital?</h2>
+      <p>Deixe seu contato e um especialista da Click Fácil entra em contato em até 24 horas para entender o seu negócio.</p>
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Seu nome" />
+        <input class="form-input" type="email" placeholder="Seu melhor e-mail" />
+      </div>
+      <br>
+      <div class="form-row" style="justify-content:center;">
+        <button class="btn-primary" style="padding:16px 48px;">Quero meu diagnóstico gratuito</button>
+      </div>
+      <p class="cta-note">Sem compromisso. Sem spam. Apenas uma conversa honesta sobre o seu negócio.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="cf-wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="images/logo.webp" alt="Click Fácil"></div>
+        <p class="footer-desc">Desenvolvimento web profissional para empresas e infoprodutores que levam a sério sua presença digital. Cada site é estratégia, não só design.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#resultados">Portfólio</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Click Fácil. Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FAQ
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.faq-icon').textContent='+';
+    });
+    if(!isOpen){
+      item.classList.add('open');
+      item.querySelector('.faq-icon').textContent='−';
+    }
+  });
+});
+
+// Sobre Visual - Scroll Interativo
+const sobreVisual=document.getElementById('sobreVisual');
+if(sobreVisual){
+  const items=sobreVisual.querySelectorAll('.sobre-item');
+  let isScrolling;
+  
+  const updateActive=()=>{
+    const containerRect=sobreVisual.getBoundingClientRect();
+    const containerCenter=containerRect.top+containerRect.height/2;
+    let closestItem=null;
+    let closestDistance=Infinity;
     
-    <div class="hero-content container">
-        <div class="hero-text">
-            
-            <span class="hero-tag">Desenvolvimento Web Profissional</span>
-            
-            <h1>Seu negócio merece uma<br><span class="text-gradient">presença digital à altura</span></h1>
-            
-            <p class="hero-subtext">
-                Sites que vendem, convencem e geram autoridade. 
-                Do primeiro clique à conversão.
-            </p>
-            
-            <div class="hero-buttons">
-                <a href="https://wa.me/5591984520696" target="_blank" class="saiba-mais whatsapp-button">
-                    <i class="fab fa-whatsapp"></i> Quero meu site agora
-                </a>
-                <a href="catalagodeservicos.html" class="btn-outline">
-                    Ver Portfólio
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SESSÃO DE SERVIÇOS COM TÍTULO -->
-<section id="servicos" class="services-section-animated">
-    <!-- Imagem de fundo -->
-    <div class="services-image-bg"></div>
-    <div class="services-image-overlay"></div>
+    items.forEach(item=>{
+      const itemRect=item.getBoundingClientRect();
+      const itemCenter=itemRect.top+itemRect.height/2;
+      const distance=Math.abs(containerCenter-itemCenter);
+      
+      if(distance<closestDistance){
+        closestDistance=distance;
+        closestItem=item;
+      }
+    });
     
-    <div class="bento-container-wide">
-        
-        <!-- NOVO TÍTULO DA SESSÃO -->
-        <div class="section-header-center">
-            <h2>O Ecossistema da sua Escala Digital</h2>
-            <p>Não criamos apenas páginas. Construímos ativos digitais focados em dominar o seu mercado.</p>
-        </div>
-        
-        <div class="bento-grid">
-            <!-- SEUS CARDS MANTIDOS AQUI -->
-            <a href="catalagodeservicos.html" class="bento-card large-v bento-card-animated bento-card-with-image">
-                <div class="bento-card-image">
-                    <img src="images/img55.webp" alt="Exemplo de Site Institucional" loading="lazy">
-                </div>
-                <div class="bento-card-content">
-                    <h4>Autoridade Digital Institucional</h4>
-                    <p>O cartão de visita digital da sua empresa. Um site responsivo que gera credibilidade e funciona 24h por dia.</p>
-                </div>
-            </a>
+    if(closestItem){
+      items.forEach(i=>i.classList.remove('active'));
+      closestItem.classList.add('active');
+    }
+  };
+  
+  sobreVisual.addEventListener('scroll',()=>{
+    clearTimeout(isScrolling);
+    isScrolling=setTimeout(updateActive,50);
+  });
+  
+  updateActive();
+}
 
-            <a href="catalagodeservicos.html" class="bento-card bento-card-animated bento-card-with-image">
-                <div class="bento-card-image">
-                    <img src="images/img44.webp" alt="Exemplo de Landing Page" loading="lazy">
-                </div>
-                <div class="bento-card-content">
-                    <h4>Páginas de Alta Conversão (LPs)</h4>
-                    <p>Páginas de venda focadas em conversão máxima para seus anúncios.</p>
-                </div>
-            </a>
+// Counter Animation
+const animateCounter=(el,target,suffix='')=>{
+  let current=0;
+  const increment=target/60;
+  const timer=setInterval(()=>{
+    current+=increment;
+    if(current>=target){
+      el.textContent=target+suffix;
+      clearInterval(timer);
+    }else{
+      el.textContent=Math.floor(current)+suffix;
+    }
+  },30);
+};
 
-            <a href="catalagodeservicos.html" class="bento-card bento-card-animated bento-card-with-image">
-                <div class="bento-card-image">
-                    <img src="images/img66.webp" alt="Exemplo de E-commerce" loading="lazy">
-                </div>
-                <div class="bento-card-content">
-                    <h4>E-commerce de Alta Performance</h4>
-                    <p>Configuração completa de Nuvemshop ou Kiwify para você vender online.</p>
-                </div>
-            </a>
+const observerOptions={threshold:0.5};
+const counterObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting&&!entry.target.classList.contains('counted')){
+      entry.target.classList.add('counted');
+      const target=parseInt(entry.target.dataset.target);
+      const suffix=entry.target.dataset.suffix||'';
+      animateCounter(entry.target,target,suffix);
+    }
+  });
+},observerOptions);
 
-            <a href="catalagodeservicos.html" class="bento-card bento-card-animated bento-card-with-image bento-card-zoom-image">
-                <div class="bento-card-image">
-                    <img src="images/img33.webp" alt="Exemplo Google Meu Negócio" loading="lazy">
-                </div>
-                <div class="bento-card-content">
-                    <h4>Posicionamento Local Dominante</h4>
-                    <p>Colocamos sua empresa no mapa para clientes da sua região.</p>
-                </div>
-            </a>
-
-            <a href="catalagodeservicos.html" class="bento-card bento-card-animated bento-card-with-image">
-                <div class="bento-card-image">
-                    <img src="images/img18.webp"e alt="Estratégias de SEO" loading="lazy">
-                </div>
-                <div class="bento-card-content">
-                    <h4>Estratégias de SEO</h4>
-                    <p>Otimização para aparecer na primeira página do Google organicamente.</p>
-                </div>
-            </a>
-        </div>
-        
-        <a href="catalagodeservicos.html" class="link-arrow">
-            Ver catálogo completo <i class="fas fa-arrow-right"></i>
-        </a>
-    </div>
-</section>
-
-
-
-<section class="portfolio-section" id="projetos">
-    <div class="container">
-        <div class="section-header-center">
-            <h2 class="section-title">Projetos em Destaque</h2>
-            <p class="section-subtitle">
-                Veja na prática a qualidade visual e a estrutura das Landing Pages e Sites que desenvolvemos.
-            </p>
-        </div>
-
-        <div class="portfolio-grid">
-            
-            <!-- PROJETO 1 -->
-            <a href="https://clickfacil.vercel.app/portfolio/academia/" target="_blank" rel="noopener noreferrer" class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/mockup1.webp" alt="Titanium Gym" loading="lazy">
-                    <div class="project-overlay">
-                        <span class="view-btn">Ver Detalhes</span>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Titanium Gym</h3>
-                    <div class="project-tags">
-                        <span>Landing Page</span>
-                        <span>Fitness</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- PROJETO 2 -->
-            <a href="https://clickfacil.vercel.app/portfolio/energiasolar/" target="_blank" rel="noopener noreferrer" class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/mockup2.webp" alt="Solar Energia" loading="lazy">
-                    <div class="project-overlay">
-                        <span class="view-btn">Ver Detalhes</span>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Solar Energia</h3>
-                    <div class="project-tags">
-                        <span>Landing Page</span>
-                        <span>Sustentabilidade</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- PROJETO 3 -->
-            <a href="https://undernight.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/mockup3.webp" alt="Artist Music" loading="lazy">
-                    <div class="project-overlay">
-                        <span class="view-btn">Ver Detalhes</span>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Artist Music</h3>
-                    <div class="project-tags">
-                        <span>Portfólio Digital</span>
-                        <span>Branding</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- PROJETO 4 -->
-            <a href="https://www.suportesmartparagominas.com.br/" target="_blank" rel="noopener noreferrer" class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/mockup4.webp"
-                     " alt="Suporte Smart" loading="lazy">
-                    <div class="project-overlay">
-                        <span class="view-btn">Ver Detalhes</span>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Suporte Smart</h3>
-                    <div class="project-tags">
-                        <span>E-commerce</span>
-                        <span>Vendas</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- PROJETO 5 -->
-            <a href="https://clickfacil.vercel.app/portfolio/magna-construcoes/" target="_blank" rel="noopener noreferrer" class="project-card">
-                <div class="project-image-wrapper">
-                    <img src="images/mockup5.webp" alt="Magma Construções" loading="lazy">
-                    <div class="project-overlay">
-                        <span class="view-btn">Ver Detalhes</span>
-                    </div>
-                </div>
-                <div class="project-info">
-                    <h3>Magma Construções</h3>
-                    <div class="project-tags">
-                        <span>Captura de Leads</span>
-                        <span>Engenharia</span>
-                    </div>
-                </div>
-            </a>
-            <!-- CARD 6: CONVITE (Para fechar o grid) -->
-            <a href="https://wa.me/5591984520696" target="_blank" rel="noopener noreferrer" class="project-card">
-                <div class="project-image-wrapper" style="background: rgba(41, 171, 226, 0.05); align-items: center; justify-content: center;">
-                    <!-- Ícone de Plus ou Foguete -->
-                    <i class="fas fa-rocket" style="font-size: 4rem; color: var(--accent-cyan); opacity: 0.5; transition: all 0.3s ease;"></i>
-                     <div class="project-overlay">
-                        <span class="view-btn">Começar Agora</span>
-                    </div>
-                </div>
-                <div class="project-info" style="text-align: center;">
-                    <h3 style="margin-bottom: 5px;">Seu Projeto Aqui</h3>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin:0;">Vamos construir seu case de sucesso?</p>
-                </div>
-            </a>
-
-        </div>
-    </div>
-</section>
-
-       <!-- ============================================= 
-               NOVA SEÇÃO DE PROVA SOCIAL (CLIENTES)
-           ============================================= -->
-           
-<section id="client-logos" class="client-logo-section fade-in-section">
-    <!-- O container não é usado aqui para a esteira ir de ponta a ponta -->
-    <h2 class="section-title">Impulsionando Negócios</h2>
-
-<div class="logo-marquee-container">
-        <div class="marquee-track">
-            <!-- 1ª Cópia dos Logos -->
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.webp" alt="Logo Regia Beauty">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
-                    <img src="images/logosuportesmart.webp" alt="Logo Suporte Smart Paragominas">
-                </a>
-            </div>
-            <!-- Adicionei placeholders para a esteira parecer mais cheia. Substitua quando tiver mais clientes -->
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.webp" alt="Logo Regia Beauty">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
-                    <img src="images/logosuportesmart.webp" alt="Logo Suporte Smart Paragominas">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.webp" alt="Logo Regia Beauty">
-                </a>
-            </div>
-
-            <!-- 2ª Cópia (Duplicata para o efeito de loop infinito) -->
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.webp" alt="Logo Regia Beauty">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
-                    <img src="images/logosuportesmart.webp" alt="Logo Suporte Smart Paragominas">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.webp" alt="Logo Regia Beauty">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://suportesmartparagominas.com.br" target="_blank" rel="noopener noreferrer" title="Visitar Suporte Smart Paragominas">
-                    <img src="images/logosuportesmart.webp" alt="Logo Suporte Smart Paragominas">
-                </a>
-            </div>
-            <div class="logo-item">
-                <a href="https://regiabeauty.vercel.app" target="_blank" rel="noopener noreferrer" title="Visitar Regia Beauty">
-                    <img src="images/logoregiabeauty.webp" alt="Logo Regia Beauty">
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-       <!-- =============================================
-     NOVA SEÇÃO DE AVALIAÇÕES (ESTILO FLOWBITE)
-     ============================================= -->
-<section id="avaliacoes-clientes" class="review-section-wrapper">
-    <!-- Container interno com largura máxima -->
-    <div class="review-section-container">
-        
-        <!-- Grid de 2 Colunas -->
-        <div class="review-grid">
-            
-            <!-- Coluna Esquerda: Sumário e Histograma -->
-            <div class="review-summary">
-                <h2 class="section-title">Feedbacks</h2>
-                <div class="rating-overall">
-                    <span class="rating-number">5.0</span>
-                    <div class="google-stars">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p class="review-count">Baseado em avaliações no Google</p>
-                </div>
-                
-                <!-- Histograma (Barras) -->
-                <div class="review-summary-histogram">
-                    <!-- 5 Estrelas -->
-                    <div class="rating-bar-row">
-                        <span>5<i class="fas fa-star"></i></span>
-                        <div class="rating-bar"><div class="rating-bar-filled" style="width: 100%;"></div></div>
-                        <span class="rating-count">10</span>
-                    </div>
-                    <!-- 4 Estrelas -->
-                    <div class="rating-bar-row">
-                        <span>4<i class="fas fa-star"></i></span>
-                        <div class="rating-bar"><div class="rating-bar-filled" style="width: 0%;"></div></div>
-                        <span class="rating-count">0</span>
-                    </div>
-                    <!-- 3 Estrelas -->
-                    <div class="rating-bar-row">
-                        <span>3<i class="fas fa-star"></i></span>
-                        <div class="rating-bar"><div class="rating-bar-filled" style="width: 0%;"></div></div>
-                        <span class="rating-count">0</span>
-                    </div>
-                    <!-- 2 Estrelas -->
-                    <div class="rating-bar-row">
-                        <span>2<i class="fas fa-star"></i></span>
-                        <div class="rating-bar"><div class="rating-bar-filled" style="width: 0%;"></div></div>
-                        <span class="rating-count">0</span>
-                    </div>
-                    <!-- 1 Estrela -->
-                    <div class="rating-bar-row">
-                        <span>1<i class="fas fa-star"></i></span>
-                        <div class="rating-bar"><div class="rating-bar-filled" style="width: 0%;"></div></div>
-                        <span class="rating-count">0</span>
-                    </div>
-                </div>
-                
-                <!-- Botão de Ação -->
-                <a href="https://g.page/r/CbU84RDuJtcfEAE/review" target="_blank" class="saiba-mais review-button">
-                    <i class="fas fa-pencil-alt"></i> Deixe sua avaliação
-                </a>
-            </div>
-            
-            <!-- Coluna Direita: Lista de Comentários -->
-            <div class="review-list">
-                
-                <!-- REVIEW REAL 1 (Copie e cole do seu Google) -->
-                <div class="review-item fade-in-section">
-                    <div class="review-item-header">
-                        <img src="images/unnamed.webp" alt="Avatar do cliente" class="review-avatar">
-                        <div class="review-author">
-                            <h4>Eduardo</h4>
-                            <div class="google-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Excelente profissional. Resolve tudo com rapidez e eficiência."</p>
-                </div>
-
-                <!-- REVIEW REAL 2 (Copie e cole do seu Google) -->
-                <div class="review-item fade-in-section">
-                    <div class="review-item-header">
-                        <img src="images/unnamed(1).webp" alt="Avatar do cliente" class="review-avatar">
-                        <div class="review-author">
-                            <h4>Zah</h4>
-                            <div class="google-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Atendimento top demais! Tudo resolvido rápido e com atenção. Gostei muito da experiência com a Click Fácil, vou continuar usando e indicando."</p>
-                </div>
-                
-                <!-- REVIEW REAL 3 (Copie e cole do seu Google) -->
-                <div class="review-item fade-in-section">
-                    <div class="review-item-header">
-                        <img src="images/unnamed(2).webp" alt="Avatar do cliente" class="review-avatar">
-                        <div class="review-author">
-                            <h4>Régia</h4>
-                            <div class="google-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Excelente!! Pedi para organizar minha loja virtual e foi feito de maneira rápida e eficaz. Ajustes foram feitos de acordo com meu olhar e finalizada com sucecesso. Muito bom o atendimento. Recomendo."</p>
-                </div>
-
-                 <!-- REVIEW REAL 4 (Copie e cole do seu Google) -->
-                <div class="review-item fade-in-section">
-                    <div class="review-item-header">
-                        <img src="images/unnamed(3).webp" alt="Avatar do cliente" class="review-avatar">
-                        <div class="review-author">
-                            <h4>Lady</h4>
-                            <div class="google-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        </div>
-                    </div>
-                    <p class="review-text">"Serviço top. Bem atual."</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- =============================================
-     SEÇÃO DE PROVA SOCIAL (WHATSAPP MARQUEE)
-     ============================================= -->
-<section class="print-marquee-section">
-    <h3 class="marquee-title">O que dizem nossos clientes</h3>
-    <div class="print-marquee-container">
-        <div class="print-marquee-track">
-            <!-- 1ª Cópia dos Prints -->
-            <div class="comentario card">
-                <p class="Cliente">— Pedro</p>
-                <p class="servico-avaliado">Serviço: Planilha de Controle</p>
-                <img src="images/feedback1.webp" alt="Depoimento do cliente Pedro" class="testimonial-print">
-            </div>
-            <div class="comentario card">
-                <p class="Cliente">— Mariana</p>
-                <p class="servico-avaliado">Serviço: Suporte Remoto</p>
-                <img src="images/feedback2.webp" alt="Depoimento da cliente Mariana" class="testimonial-print">
-            </div>
-            <div class="comentario card">
-                <p class="Cliente">— Régia</p>
-                <p class="servico-avaliado">Serviço: Landing Page</p>
-                <img src="images/feedback3.webp" alt="Depoimento da cliente Régia" class="testimonial-print">
-            </div>
-            <div class="comentario card">
-                <p class="Cliente">— Eduardo</p>
-                <p class="servico-avaliado">Serviço: Redesign de Loja Virtual</p>
-                <img src="images/feedback4.webp" alt="Depoimento do cliente Eduardo" class="testimonial-print">
-            </div>
-
-            <!-- 2ª Cópia (Duplicata para o loop) -->
-            <div class="comentario card">
-                <p class="Cliente">— Pedro</p>
-                <p class="servico-avaliado">Serviço: Planilha de Controle</p>
-                <img src="images/feedback1.webp" alt="Depoimento do cliente Pedro" class="testimonial-print">
-            </div>
-            <div class="comentario card">
-                <p class="Cliente">— Mariana</p>
-                <p class="servico-avaliado">Serviço: Suporte Remoto</p>
-                <img src="images/feedback2.webp" alt="Depoimento da cliente Mariana" class="testimonial-print">
-            </div>
-            <div class="comentario card">
-                <p class="Cliente">— Régia</p>
-                <p class="servico-avaliado">Serviço: Landing Page</p>
-                <img src="images/feedback3.webp" alt="Depoimento da cliente Régia" class="testimonial-print">
-            </div>
-            <div class="comentario card">
-                <p class="Cliente">— Eduardo</p>
-                <p class="servico-avaliado">Serviço: Redesign de Loja Virtual</p>
-                <img src="images/feedback4.webp" alt="Depoimento do cliente Eduardo" class="testimonial-print">
-            </div>
-        </div>
-    </div>
-</section>
-
-      <section id="faq" class="faq-section-blog">
-    <div class="faq-blog-container">
-        
-        <div class="faq-header">
-            <h2 class="section-title">Perguntas Frequentes (FAQ)</h2>
-            <p class="section-subtitle">Tudo o que você precisa saber antes de começar seu projeto.</p>
-        </div>
-
-        <div class="faq-grid">
-            
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        <i class="fas fa-clipboard-list"></i>
-                        <h4>Qual é o primeiro passo para começar? <i class="fas fa-chevron-down faq-arrow"></i></h4>
-                    </summary>
-                    <p class="faq-answer">Tudo começa com uma conversa! Você clica no botão de "Consultoria Gratuita", me conta sua ideia pelo WhatsApp e, a partir daí, eu entendo suas metas para definir o melhor plano de ação para o seu projeto.</p>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        <i class="fas fa-palette"></i>
-                        <h4>E se eu não gostar do design? <i class="fas fa-chevron-down faq-arrow"></i></h4>
-                    </summary>
-                    <p class="faq-answer">Nossa prioridade é sua satisfação. O processo de design é colaborativo. Faremos os ajustes necessários com base no seu feedback até que o resultado final esteja perfeito para você e alinhado com a identidade da sua marca.</p>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        <i class="fas fa-clock"></i>
-                        <h4>Em quanto tempo meu site fica pronto? <i class="fas fa-chevron-down faq-arrow"></i></h4>
-                    </summary>
-                    <p class="faq-answer">O tempo varia com a complexidade. Uma Landing Page simples pode levar de 3 a 5 dias. Um site institucional completo, cerca de 10 a 15 dias. O prazo exato é sempre combinado com você antes de iniciarmos.</p>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        <i class="fas fa-credit-card"></i>
-                        <h4>Como funciona o pagamento? <i class="fas fa-chevron-down faq-arrow"></i></h4>
-                    </summary>
-                    <p class="faq-answer">Para projetos de desenvolvimento (sites, landing pages), trabalhamos com um sinal de 50% para iniciar o projeto e os 50% restantes na entrega final, quando você aprovar tudo. O pagamento pode ser feito via PIX.</p>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        <i class="fas fa-code"></i>
-                        <h4>Como vocês criam os sites? <i class="fas fa-chevron-down faq-arrow"></i></h4>
-                    </summary>
-                    <p class="faq-answer">Desenvolvemos com HTML5, CSS3 e JavaScript puro - tecnologias nativas da web que garantem sites rápidos, seguros e compatíveis com todos os navegadores. Não usamos WordPress ou construtores pesados. Cada linha de código é otimizada para performance máxima.</p>
-                </details>
-            </div>
-
-            <div class="faq-item">
-                <details>
-                    <summary>
-                        <i class="fas fa-search-dollar"></i>
-                        <h4>O que é SEO e por que eu preciso disso? <i class="fas fa-chevron-down faq-arrow"></i></h4>
-                    </summary>
-                    <p class="faq-answer">SEO (Otimização para Mecanismos de Busca) é o conjunto de técnicas que faz seu site aparecer no Google "de graça". Nós já criamos seu site com o SEO básico para garantir que o Google consiga te encontrar e indexar.</p>
-                </details>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- SEÇÃO DE BLOG (Cards em Grid) -->
-<section id="blog" class="blog-section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Últimas do Blog</h2>
-            <p class="section-subtitle">Dicas e estratégias para profissionalizar o seu negócio digital.</p>
-        </div>
-
-        <div class="blog-grid">
-
-            <!-- Artigo Novo: O Perigo dos Sites Gratuitos -->
-            <article class="blog-card">
-                <div class="blog-image">
-                    <a href="blog/o-perigo-dos-sites-gratuitos.html">
-                        <img src="images/operigodossitesgratuitos.webp" alt="O Perigo dos Sites Gratuitos">
-                    </a>
-                    <span class="blog-category">Estratégia e Negócios</span>
-                </div>
-                <div class="blog-content">
-                    <h3 class="blog-title">
-                        <a href="blog/o-perigo-dos-sites-gratuitos.html">O Barato que Sai Caro: Por que Sites "Grátis" Prejudicam sua Empresa</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                       Pensando em usar um construtor de sites gratuito? Entenda por que a economia inicial pode custar a autoridade e as vendas do seu negócio a longo prazo.
-                    </p>
-                    <a href="blog/o-perigo-dos-sites-gratuitos.html" class="read-more">Ler Artigo <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-
-            <!-- Artigo Novo: Lading Page de Alta Conversão -->
-            <article class="blog-card">
-                <div class="blog-image">
-                    <a href="blog/landing-page-alta-conversao-ia.html">
-                        <img src="images/landing-page-alta-conversao-ia.webp" alt="Landing Page de Alta Conversão">
-                    </a>
-                    <span class="blog-category">Desenvolvimento</span>
-                </div>
-                <div class="blog-content">
-                    <h3 class="blog-title">
-                        <a href="blog/landing-page-alta-conversao-ia.html">5 Motivos: Por que uma Landing Page de Alta Conversão vende mais?</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                      Você já entrou em um site tão confuso que desistiu de comprar em menos de 10 segundos? Ou, ao contrário, entrou em uma página tão bem feita que sentiu que ela lia sua mente e acabou comprando?
-                    </p>
-                    <a href="blog/landing-page-alta-conversao-ia.html" class="read-more">Ler Artigo <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <!-- Artigo Novo: Pixel do Facebook -->
-            <article class="blog-card">
-                <div class="blog-image">
-                    <a href="blog/pixel-facebook-codigo-puro.html">
-                        <img src="images/pixel-facebook-codigo-puro.webp" alt="O Segredo do Pixel">
-                    </a>
-                    <span class="blog-category">Redes Sociais</span>
-                </div>
-                <div class="blog-content">
-                    <h3 class="blog-title">
-                        <a href="blog/pixel-facebook-codigo-puro.html">Pixel do Facebook: Por que Sites de Código Puro rastreiam melhor?</a>
-                    </h3>
-                    <p class="blog-excerpt">
-                       Você sobe uma campanha no Facebook Ads, o gerenciador diz que teve 50 cliques, mas no seu site só apareceram 30 visitas. Para onde foram essas 20 pessoas?
-                    </p>
-                    <a href="blog/pixel-facebook-codigo-puro.html" class="read-more">Ler Artigo <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-        </div>
-        <div class="blog-footer">
-            <a href="blog/index.html" class="btn-secondary">Ver todos os blogs</a>
-        </div>
-    </div>
-</section>
-
-       <!-- =============================================
-     NOVA SEÇÃO DE CONTATO (FINAL CTA)
-     ============================================= -->
-        <section id="contato" class="contact-section-final">
-    <!-- Vídeo de fundo -->
-    <video playsinline autoplay muted loop class="contact-video-bg">
-        <source src="images/animacao_ponteiro_2.webm" type="video/webm">
-    </video>
-    <div class="contact-video-overlay"></div>
-    
-    <!-- Este container interno controla a largura do TEXTO, mas a seção é full-width -->
-            <div class="contact-final-content">
-        
-        <!-- 1. Título (O Gancho) -->
-        <h2 class="contact-animate-title">Pronto para sair do amadorismo digital?</h2>
-        
-        
-        <!-- 3. Botão de Ação Principal -->
-        <div class="contact-buttons-container">
-            <a href="https://wa.me/5591984520696" target="_blank" class="contact-button-big contact-animate-button">
-                <i class="fab fa-whatsapp"></i>
-                Quero elevar o meu negócio na internet
-            </a>
-        </div>
-        
-    </div>
-</section>
-    
-    <footer class="main-footer">
-        <div class="footer-content container">
-            <div class="footer-column about">
-                <img src="images/logo.webp" alt="Logo Click Fácil" class="footer-logo">
-            </div>
-            <div class="footer-column links">
-                <h4>Navegação</h4>
-                <ul>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="catalagodeservicos.html">Serviços</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-            </div>
-            <div class="footer-column social">
-                <h4>Siga-nos</h4>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=61569041737983" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/clickfacil.tech/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://vm.tiktok.com/ZMHcWPuXB8ofU-6ERe1/" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                </div>
-                <h4><i class="fas fa-shield-alt"></i> Ambiente Seguro</h4>
-                <p>Seus dados estão protegidos. Realizamos todas as operações com máxima segurança e privacidade.</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; <span>2026</span> Click Fácil - Todos os direitos reservados.
-        </div>
-    </footer>
-
-    <!-- Overlay de Busca -->
-    <div class="search-overlay" id="search-overlay">
-        <div class="search-overlay-content">
-            <button class="search-close-btn" id="search-close" aria-label="Fechar pesquisa">&times;</button>
-            <div class="search-input-wrapper">
-                <i class="fas fa-search"></i>
-                <input type="search" id="global-search-input" placeholder="O que você procura? (Ex: site, planilha, otimização...)" autocomplete="off">
-            </div>
-            <div class="search-results-container" id="search-results">
-                <!-- Os resultados da pesquisa aparecerão aqui -->
-            </div>
-        </div>
-    </div>
-    
-    <!-- Botão Voltar ao Topo -->
-    <button id="back-to-top-btn" title="Voltar ao Topo">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Biblioteca para busca inteligente (fuzzy search) -->
-    <!-- 3. Adicionado JS do Swiper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
-    <script src="js/main.js"></script>
-    <script src="js/enhancements.js"></script>
-</body>
-</html>
+document.querySelectorAll('.beneficio-num[data-target]').forEach(el=>counterObserver.observe(el));
+</script>
