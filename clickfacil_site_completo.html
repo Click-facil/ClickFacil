@@ -1,4 +1,10 @@
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click Fácil - Soluções Digitais</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -14,8 +20,8 @@
   /* NAV */
   nav{background:rgba(10,15,30,0.95);border-bottom:1px solid var(--cf-border);padding:16px 0;position:sticky;top:0;z-index:100;}
   .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
-  .logo{font-size:22px;font-weight:800;background:var(--cf-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.5px;}
-  .logo span{font-weight:300;-webkit-text-fill-color:#94a3b8;}
+  .logo{height:48px;}
+  .logo img{height:100%;width:auto;}
   .nav-links{display:flex;gap:28px;list-style:none;}
   .nav-links a{color:var(--cf-muted);text-decoration:none;font-size:14px;font-weight:400;transition:color 0.2s;}
   .nav-links a:hover{color:var(--cf-blue);}
@@ -24,12 +30,20 @@
   /* HERO */
   .hero{padding:96px 0 80px;text-align:center;position:relative;overflow:hidden;}
   .hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(6,182,212,0.08) 0%,transparent 70%);pointer-events:none;}
+  .hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.15;z-index:-1;}
+  .hero-video-desktop{display:block;}
+  .hero-video-mobile{display:none;}
   .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.3);border-radius:999px;padding:6px 16px;font-size:13px;color:var(--cf-cyan);margin-bottom:32px;}
   .badge-dot{width:6px;height:6px;border-radius:50%;background:var(--cf-cyan);}
   .hero h1{font-size:clamp(32px,5vw,60px);font-weight:900;line-height:1.1;letter-spacing:-1.5px;margin-bottom:24px;}
   .hero h1 .hl{background:var(--cf-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
   .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--cf-muted);max-width:600px;margin:0 auto 40px;font-weight:400;line-height:1.7;}
-  .btn-primary{background:var(--cf-grad);color:#fff;border:none;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;letter-spacing:0.2px;}
+  .btn-primary{background:var(--cf-grad);color:#fff;border:none;padding:16px 36px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;letter-spacing:-0.2px;position:relative;overflow:hidden;box-shadow:0 4px 12px rgba(14,165,233,0.2),0 2px 4px rgba(0,0,0,0.1),inset 0 1px 0 rgba(255,255,255,0.2);transition:all 0.3s cubic-bezier(0.23,1,0.32,1);outline:none;}
+  .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.1);box-shadow:0 12px 24px rgba(14,165,233,0.3),0 4px 8px rgba(0,0,0,0.2);}
+  .btn-primary:active{transform:translateY(0);box-shadow:0 2px 4px rgba(14,165,233,0.2);}
+  .btn-primary:focus{box-shadow:0 0 0 2px var(--cf-dark),0 0 0 4px var(--cf-blue);}
+  .btn-primary::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.15) 0%,transparent 70%);opacity:0;transition:opacity 0.3s;}
+  .btn-primary:hover::after{opacity:1;}
   .btn-secondary{background:transparent;color:var(--cf-blue);border:1px solid var(--cf-blue);padding:16px 36px;border-radius:10px;font-size:16px;font-weight:500;cursor:pointer;margin-left:12px;}
   .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
   .hero-stats{display:flex;gap:40px;justify-content:center;margin-top:64px;flex-wrap:wrap;}
@@ -39,17 +53,31 @@
 
   /* SECTION BASE */
   .section{padding:80px 0;}
+  .bg-alt{background:var(--cf-darker);}
   .section-badge{font-size:12px;font-weight:600;color:var(--cf-cyan);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
   .section-title{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-0.5px;margin-bottom:16px;}
   .section-sub{font-size:16px;color:var(--cf-muted);max-width:560px;line-height:1.7;}
 
   /* SOBRE */
   .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-  .sobre-visual{background:var(--cf-card);border:1px solid var(--cf-border);border-radius:16px;padding:40px;display:flex;flex-direction:column;gap:16px;}
-  .sobre-item{display:flex;align-items:center;gap:14px;padding:14px;background:rgba(14,165,233,0.05);border:1px solid rgba(14,165,233,0.1);border-radius:10px;}
-  .sobre-icon{width:40px;height:40px;background:var(--cf-grad);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
-  .sobre-item-text{font-size:14px;font-weight:500;}
-  .sobre-item-sub{font-size:12px;color:var(--cf-muted);}
+  .sobre-section{position:relative;overflow:hidden;}
+  .sobre-section::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background-image:url('images/sessaosobre.webp');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.15;z-index:0;pointer-events:none;}
+  .sobre-section .cf-wrap{position:relative;z-index:1;}
+  .sobre-visual{background:var(--cf-card);border:1px solid var(--cf-border);border-radius:16px;padding:60px 40px;height:480px;overflow-y:auto;overflow-x:hidden;scroll-snap-type:y mandatory;position:relative;display:flex;flex-direction:column;gap:16px;}
+  .sobre-visual::before,.sobre-visual::after{content:'';position:absolute;left:0;right:0;height:80px;pointer-events:none;z-index:10;}
+  .sobre-visual::before{top:0;background:linear-gradient(180deg,var(--cf-card) 0%,var(--cf-card) 20%,transparent 100%);}
+  .sobre-visual::after{bottom:0;background:linear-gradient(0deg,var(--cf-card) 0%,var(--cf-card) 20%,transparent 100%);}
+  .sobre-visual::-webkit-scrollbar{width:4px;}
+  .sobre-visual::-webkit-scrollbar-track{background:transparent;}
+  .sobre-visual::-webkit-scrollbar-thumb{background:rgba(14,165,233,0.3);border-radius:10px;}
+  .sobre-item{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:200px;padding:32px 24px;margin:0;background:rgba(14,165,233,0.03);border:1px solid rgba(14,165,233,0.08);border-radius:12px;scroll-snap-align:center;transition:all 0.5s cubic-bezier(0.4,0,0.2,1);opacity:0.25;transform:scale(0.85);filter:blur(1px);position:relative;z-index:15;}
+  .sobre-item.active{opacity:1;transform:scale(1);background:rgba(14,165,233,0.12);border:1px solid rgba(14,165,233,0.3);filter:blur(0);box-shadow:0 8px 32px rgba(14,165,233,0.15);z-index:15;}
+  .sobre-icon{font-size:42px;margin-bottom:20px;transition:all 0.5s cubic-bezier(0.4,0,0.2,1);filter:grayscale(1);line-height:1;position:relative;z-index:20;}
+  .sobre-item.active .sobre-icon{font-size:52px;filter:grayscale(0);margin-bottom:24px;}
+  .sobre-item-text{font-size:17px;font-weight:600;margin-bottom:12px;transition:all 0.5s cubic-bezier(0.4,0,0.2,1);line-height:1.3;position:relative;z-index:20;}
+  .sobre-item.active .sobre-item-text{font-size:19px;}
+  .sobre-item-sub{font-size:13px;color:var(--cf-muted);line-height:1.6;transition:all 0.5s cubic-bezier(0.4,0,0.2,1);opacity:0;max-height:0;overflow:visible;position:relative;z-index:20;}
+  .sobre-item.active .sobre-item-sub{opacity:1;max-height:200px;}
 
   /* SERVIÇOS */
   .servicos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
@@ -70,11 +98,12 @@
 
   /* DEPOIMENTOS */
   .depos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
-  .card-depo{background:var(--cf-card);border:1px solid var(--cf-border);border-radius:16px;padding:28px;}
+  .card-depo{background:var(--cf-card);border:1px solid var(--cf-border);border-radius:16px;padding:28px;display:flex;flex-direction:column;min-height:320px;}
   .depo-stars{color:#f59e0b;font-size:14px;margin-bottom:14px;}
   .depo-text{font-size:15px;color:var(--cf-muted);margin-bottom:20px;line-height:1.7;font-style:italic;}
   .depo-author{display:flex;align-items:center;gap:12px;}
-  .depo-avatar{width:40px;height:40px;border-radius:50%;background:var(--cf-grad);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;}
+  .depo-avatar{width:40px;height:40px;border-radius:50%;background:var(--cf-grad);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;object-fit:cover;}
+  .depo-avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;}
   .depo-name{font-size:14px;font-weight:600;}
   .depo-role{font-size:12px;color:var(--cf-muted);}
 
@@ -85,6 +114,9 @@
   .objecao-a{font-size:14px;color:var(--cf-muted);line-height:1.7;}
 
   /* CTA SECTION */
+  .cta-wrap{position:relative;overflow:hidden;}
+  .cta-wrap-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.12;z-index:0;pointer-events:none;}
+  .cta-wrap>.cf-wrap{position:relative;z-index:1;}
   .cta-section{background:linear-gradient(135deg,rgba(14,165,233,0.1),rgba(6,182,212,0.05));border:1px solid rgba(14,165,233,0.2);border-radius:24px;padding:64px 48px;text-align:center;margin:80px 0;}
   .cta-section h2{font-size:clamp(26px,4vw,40px);font-weight:800;margin-bottom:16px;}
   .cta-section p{font-size:18px;color:var(--cf-muted);margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;}
@@ -104,41 +136,53 @@
 
   /* FOOTER */
   footer{background:var(--cf-darker);border-top:1px solid var(--cf-border);padding:48px 0 32px;}
-  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px;}
-  .footer-brand{font-size:20px;font-weight:800;background:var(--cf-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px;}
-  .footer-desc{font-size:14px;color:var(--cf-muted);line-height:1.7;}
+  .footer-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;margin-bottom:40px;}
+  .footer-brand{margin-bottom:16px;}
+  .footer-brand img{height:48px;width:auto;}
+  .footer-desc{font-size:14px;color:var(--cf-muted);line-height:1.7;max-width:400px;}
   .footer-col h4{font-size:14px;font-weight:600;margin-bottom:16px;color:var(--cf-text);}
   .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-  .footer-col ul li a{font-size:14px;color:var(--cf-muted);text-decoration:none;}
+  .footer-col ul li a{font-size:14px;color:var(--cf-muted);text-decoration:none;transition:color 0.2s;}
+  .footer-col ul li a:hover{color:var(--cf-blue);}
   .footer-bottom{border-top:1px solid var(--cf-border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
   .footer-copy{font-size:13px;color:var(--cf-muted);}
   .footer-tagline{font-size:13px;color:var(--cf-cyan);}
 
   @media(max-width:768px){
     .sobre-grid{grid-template-columns:1fr;}
-    .footer-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;gap:32px;}
     .nav-links{display:none;}
+    .hero{min-height:100vh;}
+    .hero-video-desktop{display:none;}
+    .hero-video-mobile{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
+    .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:400px;margin-left:auto;margin-right:auto;}
+    .sobre-section::before{background-image:url('images/sessaosobrecelular.webp');}
   }
 </style>
 
 <nav>
   <div class="cf-wrap nav-inner">
-    <div class="logo">Click<span>Fácil</span></div>
+    <div class="logo"><img src="images/logo.webp" alt="Click Fácil"></div>
     <ul class="nav-links">
-      <li><a href="#">Serviços</a></li>
-      <li><a href="#">Sobre</a></li>
-      <li><a href="#">Resultados</a></li>
-      <li><a href="#">FAQ</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#resultados">Resultados</a></li>
     </ul>
     <button class="btn-nav">Quero meu site</button>
   </div>
 </nav>
 
 <section class="hero">
+  <video class="hero-video hero-video-desktop" autoplay muted loop playsinline>
+    <source src="images/animacao-logo.webm" type="video/webm">
+  </video>
+  <video class="hero-video hero-video-mobile" autoplay muted loop playsinline>
+    <source src="images/animacao_hero_mobile.webm" type="video/webm">
+  </video>
   <div class="cf-wrap">
     <div class="badge"><span class="badge-dot"></span>Desenvolvimento Web Profissional</div>
     <h1>Seu negócio merece uma<br><span class="hl">presença digital à altura.</span></h1>
-    <p class="hero-sub">Sites que não só parecem profissionais — eles vendem, convencem e geram autoridade. Do primeiro clique à conversão.</p>
+    <p class="hero-sub">Sites que não só parecem profissionais. Eles vendem, convencem e geram autoridade. Do primeiro clique à conversão.</p>
     <div class="hero-btns">
       <button class="btn-primary">Quero meu site agora</button>
       <button class="btn-secondary">Ver portfólio</button>
@@ -152,41 +196,40 @@
   </div>
 </section>
 
-<section class="section bg-alt">
+<section class="section bg-alt sobre-section" id="sobre">
   <div class="cf-wrap">
     <div class="sobre-grid">
       <div>
         <div class="section-badge">Sobre a Click Fácil</div>
         <h2 class="section-title">Não somos mais uma agência. Somos seu parceiro de crescimento digital.</h2>
-        <p class="section-sub">A Click Fácil nasceu da convicção de que todo negócio — do infoprodutor ao empreendedor local — merece uma presença digital que gera respeito e resultados. Nossa equipe combina visão estratégica com execução impecável, entregando sites que posicionam marcas acima da concorrência.</p>
+        <p class="section-sub">A Click Fácil nasceu da convicção de que todo negócio, do infoprodutor ao empreendedor local, merece uma presença digital que gera respeito e resultados. Nossa equipe combina visão estratégica com execução impecável, entregando sites que posicionam marcas acima da concorrência.</p>
         <br>
         <p class="section-sub">Cada projeto é tratado como único. Nenhum template sem alma. Nenhum atalho que comprometa sua imagem.</p>
       </div>
-      <div class="sobre-visual">
-        <div class="sobre-item">
+      <div class="sobre-visual" id="sobreVisual">
+        <div class="sobre-item active">
           <div class="sobre-icon">✦</div>
-          <div><div class="sobre-item-text">Atenção cirúrgica aos detalhes</div><div class="sobre-item-sub">Cada pixel tem propósito</div></div>
+          <div class="sobre-item-text">Atenção cirúrgica aos detalhes</div>
         </div>
         <div class="sobre-item">
           <div class="sobre-icon">⚡</div>
-          <div><div class="sobre-item-text">Mentalidade inovadora</div><div class="sobre-item-sub">Sempre um passo à frente do mercado</div></div>
+          <div class="sobre-item-text">Mentalidade inovadora</div>
         </div>
         <div class="sobre-item">
           <div class="sobre-icon">◈</div>
-          <div><div class="sobre-item-text">Foco em conversão real</div><div class="sobre-item-sub">Sites que trabalham por você 24/7</div></div>
+          <div class="sobre-item-text">Foco em conversão real</div>
         </div>
         <div class="sobre-item">
           <div class="sobre-icon">∞</div>
-          <div><div class="sobre-item-text">Suporte contínuo</div><div class="sobre-item-sub">Não somimos depois da entrega</div></div>
+          <div class="sobre-item-text">Suporte contínuo</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="servicos">
   <div class="cf-wrap">
-    <div class="section-badge">O que entregamos</div>
     <h2 class="section-title">Soluções web para quem quer<br>resultados de verdade.</h2>
     <div class="servicos-grid">
       <div class="card-servico">
@@ -203,7 +246,7 @@
       </div>
       <div class="card-servico">
         <div class="card-icon">⚡</div>
-        <h3>Sites para Lançamentos</h3>
+        <h3>Páginas para Lançamentos</h3>
         <p>Estrutura técnica e visual preparada para o pico de tráfego dos seus lançamentos. Páginas de captura, vendas e obrigado integradas e otimizadas.</p>
         <span class="card-tag">Estratégico</span>
       </div>
@@ -213,27 +256,38 @@
         <p>Seu site existe mas não converte? Auditamos, identificamos os gargalos e reconstruímos sua presença digital com foco em performance e autoridade.</p>
         <span class="card-tag">Resultados</span>
       </div>
+      <div class="card-servico">
+        <div class="card-icon">⚙</div>
+        <h3>Sistemas e Micro-SaaS Sob Medida</h3>
+        <p>Desenvolvimento de ferramentas inteligentes e funcionais para automatizar processos e otimizar seu fluxo de trabalho.</p>
+        <span class="card-tag">SaaS</span>
+      </div>
+      <div class="card-servico">
+        <div class="card-icon">◆</div>
+        <h3>Design de Conversão e Social Brand</h3>
+        <p>Focada na criação e refatoração estética de perfis e criação de anúncios (criativos) que convertem, unindo design e estratégia.</p>
+        <span class="card-tag">Identidade</span>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section bg-alt">
   <div class="cf-wrap" style="text-align:center;">
-    <div class="section-badge">Por que isso importa</div>
     <h2 class="section-title">O que um site profissional<br>realmente gera para o seu negócio.</h2>
     <div class="beneficios-grid">
       <div class="card-beneficio">
-        <div class="beneficio-num">3x</div>
+        <div class="beneficio-num" data-target="3" data-suffix="x">0x</div>
         <h3>Mais credibilidade percebida</h3>
         <p>Visitantes decidem em 7 segundos se confiam em você. Um site ruim custa mais caro do que não ter nenhum.</p>
       </div>
       <div class="card-beneficio">
-        <div class="beneficio-num">247%</div>
+        <div class="beneficio-num" data-target="247" data-suffix="%">0%</div>
         <h3>Mais leads qualificados</h3>
         <p>Sites otimizados para conversão capturam contatos que antes você perdia para a concorrência.</p>
       </div>
       <div class="card-beneficio">
-        <div class="beneficio-num">60%</div>
+        <div class="beneficio-num" data-target="60" data-suffix="%">0%</div>
         <h3>Redução no custo de aquisição</h3>
         <p>Presença digital forte reduz dependência de anúncios pagos e aumenta o alcance orgânico.</p>
       </div>
@@ -246,33 +300,32 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="resultados">
   <div class="cf-wrap">
-    <div class="section-badge">Prova social</div>
     <h2 class="section-title">Quem já deu o clique certo.</h2>
     <div class="depos-grid">
       <div class="card-depo">
         <div class="depo-stars">★★★★★</div>
-        <p class="depo-text">"Antes do site eu era mais um infoprodutor nas redes. Depois do trabalho da Click Fácil, minha taxa de conversão triplicou e as pessoas me percebem como autoridade de verdade."</p>
+        <p class="depo-text">"Trabalho maravilhoso que superou minhas expectativas. A landing page será uma ferramenta essencial para alavancar as vendas. A organização dos produtos ficou excelente, dividida por categoria num ambiente bonito e atrativo. Pode ter certeza que vou divulgar seu trabalho!"</p>
         <div class="depo-author">
-          <div class="depo-avatar">RM</div>
-          <div><div class="depo-name">Rafael Mendes</div><div class="depo-role">Infoprodutor — Marketing Digital</div></div>
+          <div class="depo-avatar"><img src="images/unnamed(2).webp" alt="Régia"></div>
+          <div><div class="depo-name">Régia</div><div class="depo-role">Empreendedora — E-commerce</div></div>
         </div>
       </div>
       <div class="card-depo">
         <div class="depo-stars">★★★★★</div>
-        <p class="depo-text">"Nossa empresa existia há 8 anos sem site. Em 30 dias com a Click Fácil, começamos a receber leads qualificados que nunca chegariam por indicação. Resultado imediato."</p>
+        <p class="depo-text">"Atendimento top demais! Tudo resolvido rápido e com atenção. Gostei muito da experiência com a Click Fácil, vou continuar usando e indicando."</p>
         <div class="depo-author">
-          <div class="depo-avatar">CA</div>
-          <div><div class="depo-name">Carla Almeida</div><div class="depo-role">Diretora — Construtora Almeida</div></div>
+          <div class="depo-avatar"><img src="images/unnamed(1).webp" alt="Zah"></div>
+          <div><div class="depo-name">Zah</div><div class="depo-role">Cliente</div></div>
         </div>
       </div>
       <div class="card-depo">
         <div class="depo-stars">★★★★★</div>
-        <p class="depo-text">"O processo foi transparente, rápido e o resultado foi além do que eu esperava. Eles realmente se importam com cada detalhe. Meu site parece que custou muito mais do que paguei."</p>
+        <p class="depo-text">"Excelente profissional. Resolve tudo com rapidez e eficiência. Desde o primeiro contato percebi o comprometimento e a atenção aos detalhes. O resultado final superou minhas expectativas e o suporte durante todo o processo foi impecável."</p>
         <div class="depo-author">
-          <div class="depo-avatar">LP</div>
-          <div><div class="depo-name">Lucas Pereira</div><div class="depo-role">Coach Executivo</div></div>
+          <div class="depo-avatar"><img src="images/unnamed.webp" alt="Eduardo"></div>
+          <div><div class="depo-name">Eduardo</div><div class="depo-role">Cliente</div></div>
         </div>
       </div>
     </div>
@@ -281,7 +334,6 @@
 
 <section class="section bg-alt">
   <div class="cf-wrap">
-    <div class="section-badge">Sem desculpas</div>
     <h2 class="section-title">Respondemos às suas dúvidas antes<br>que você precise perguntar.</h2>
     <div class="objecoes-grid">
       <div class="card-objecao">
@@ -304,86 +356,53 @@
   </div>
 </section>
 
-<div class="cf-wrap">
-  <div class="cta-section">
-    <div class="section-badge">Dê o primeiro passo</div>
-    <h2>Pronto para existir de verdade<br>no mundo digital?</h2>
-    <p>Deixe seu contato e um especialista da Click Fácil entra em contato em até 24 horas para entender o seu negócio.</p>
-    <div class="form-row">
-      <input class="form-input" type="text" placeholder="Seu nome" />
-      <input class="form-input" type="email" placeholder="Seu melhor e-mail" />
+<div class="cta-wrap">
+  <video class="cta-wrap-video" autoplay muted loop playsinline>
+    <source src="images/animacao_ponteiro_2.webm" type="video/webm">
+  </video>
+  <div class="cf-wrap">
+    <div class="cta-section">
+      <div class="section-badge">Dê o primeiro passo</div>
+      <h2>Pronto para existir de verdade<br>no mundo digital?</h2>
+      <p>Deixe seu contato e um especialista da Click Fácil entra em contato em até 24 horas para entender o seu negócio.</p>
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Seu nome" />
+        <input class="form-input" type="email" placeholder="Seu melhor e-mail" />
+      </div>
+      <br>
+      <div class="form-row" style="justify-content:center;">
+        <button class="btn-primary" style="padding:16px 48px;">Quero meu diagnóstico gratuito</button>
+      </div>
+      <p class="cta-note">Sem compromisso. Sem spam. Apenas uma conversa honesta sobre o seu negócio.</p>
     </div>
-    <br>
-    <div class="form-row" style="justify-content:center;">
-      <button class="btn-primary" style="padding:16px 48px;">Quero meu diagnóstico gratuito</button>
-    </div>
-    <p class="cta-note">Sem compromisso. Sem spam. Apenas uma conversa honesta sobre o seu negócio.</p>
   </div>
 </div>
-
-<section class="section">
-  <div class="cf-wrap">
-    <div class="section-badge">Dúvidas frequentes</div>
-    <h2 class="section-title">FAQ</h2>
-    <div class="faq-list" id="faq">
-      <div class="faq-item">
-        <div class="faq-q">Quais tecnologias vocês utilizam? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Trabalhamos com as tecnologias mais modernas do mercado: React, Next.js, WordPress headless, e plataformas como Webflow e Framer quando o projeto pede. A escolha é sempre estratégica, nunca por modismo.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Vocês cuidam do domínio e da hospedagem? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Sim. Orientamos a aquisição do domínio ideal para o seu negócio e configuramos toda a infraestrutura de hospedagem com foco em velocidade e segurança. Você não precisa entender de tecnologia.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">O site vai aparecer no Google? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Todo site que entregamos é desenvolvido com boas práticas de SEO técnico desde o início: estrutura semântica correta, velocidade de carregamento otimizada e configurações básicas para indexação. Para estratégias avançadas de SEO, temos um serviço dedicado.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Preciso saber programar para editar o site depois? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Não. Construímos com painel de edição visual quando o projeto permite, e sempre entregamos um treinamento de uso. Você consegue atualizar textos, imagens e informações sem depender de ninguém.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Vocês atendem fora do Brasil? <span class="faq-icon">+</span></div>
-        <div class="faq-a">Sim. Atendemos clientes em todo o Brasil e no exterior. Todo o processo de briefing, aprovações e entrega é feito de forma 100% remota e eficiente.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <footer>
   <div class="cf-wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">ClickFácil</div>
+        <div class="footer-brand"><img src="images/logo.webp" alt="Click Fácil"></div>
         <p class="footer-desc">Desenvolvimento web profissional para empresas e infoprodutores que levam a sério sua presença digital. Cada site é estratégia, não só design.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Serviços</h4>
-        <ul>
-          <li><a href="#">Landing Pages</a></li>
-          <li><a href="#">Sites Institucionais</a></li>
-          <li><a href="#">Sites para Lançamento</a></li>
-          <li><a href="#">Redesign</a></li>
-        </ul>
       </div>
       <div class="footer-col">
         <h4>Empresa</h4>
         <ul>
-          <li><a href="#">Sobre nós</a></li>
-          <li><a href="#">Portfólio</a></li>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#resultados">Portfólio</a></li>
           <li><a href="#">Contato</a></li>
           <li><a href="#">Política de Privacidade</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2025 Click Fácil. Todos os direitos reservados.</span>
-      <span class="footer-tagline">Sites que trabalham por você.</span>
+      <span class="footer-copy">© 2026 Click Fácil. Todos os direitos reservados.</span>
     </div>
   </div>
 </footer>
 
 <script>
+// FAQ
 document.querySelectorAll('.faq-item').forEach(item=>{
   item.addEventListener('click',()=>{
     const isOpen=item.classList.contains('open');
@@ -397,4 +416,70 @@ document.querySelectorAll('.faq-item').forEach(item=>{
     }
   });
 });
+
+// Sobre Visual - Scroll Interativo
+const sobreVisual=document.getElementById('sobreVisual');
+if(sobreVisual){
+  const items=sobreVisual.querySelectorAll('.sobre-item');
+  let isScrolling;
+  
+  const updateActive=()=>{
+    const containerRect=sobreVisual.getBoundingClientRect();
+    const containerCenter=containerRect.top+containerRect.height/2;
+    let closestItem=null;
+    let closestDistance=Infinity;
+    
+    items.forEach(item=>{
+      const itemRect=item.getBoundingClientRect();
+      const itemCenter=itemRect.top+itemRect.height/2;
+      const distance=Math.abs(containerCenter-itemCenter);
+      
+      if(distance<closestDistance){
+        closestDistance=distance;
+        closestItem=item;
+      }
+    });
+    
+    if(closestItem){
+      items.forEach(i=>i.classList.remove('active'));
+      closestItem.classList.add('active');
+    }
+  };
+  
+  sobreVisual.addEventListener('scroll',()=>{
+    clearTimeout(isScrolling);
+    isScrolling=setTimeout(updateActive,50);
+  });
+  
+  updateActive();
+}
+
+// Counter Animation
+const animateCounter=(el,target,suffix='')=>{
+  let current=0;
+  const increment=target/60;
+  const timer=setInterval(()=>{
+    current+=increment;
+    if(current>=target){
+      el.textContent=target+suffix;
+      clearInterval(timer);
+    }else{
+      el.textContent=Math.floor(current)+suffix;
+    }
+  },30);
+};
+
+const observerOptions={threshold:0.5};
+const counterObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting&&!entry.target.classList.contains('counted')){
+      entry.target.classList.add('counted');
+      const target=parseInt(entry.target.dataset.target);
+      const suffix=entry.target.dataset.suffix||'';
+      animateCounter(entry.target,target,suffix);
+    }
+  });
+},observerOptions);
+
+document.querySelectorAll('.beneficio-num[data-target]').forEach(el=>counterObserver.observe(el));
 </script>
