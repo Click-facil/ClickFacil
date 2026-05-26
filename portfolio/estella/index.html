@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estella | Guia de Estilo Masculino Elevado</title>
+    
+    <!-- Tailwind CSS para estilização rápida e moderna -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS para animações de scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0a0a',
+                            light: '#f5f5f0',
+                            accent: '#9b1b30', /* Vermelho escuro/vinho inspirado nas fotos */
+                            accentHover: '#7a1525',
+                            card: '#141414',
+                            border: '#2a2a2a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #f5f5f0;
+            overflow-x: hidden;
+        }
+        
+        /* Efeito de brilho sutil para os botões */
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(155, 27, 48, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(155, 27, 48, 0.7);
+            transform: translateY(-2px);
+        }
+
+        /* Gradiente de fundo sutil */
+        .bg-gradient-radial {
+            background: radial-gradient(circle at top right, #1a1a1a 0%, #0a0a0a 60%);
+        }
+
+        /* Imagem com sobreposição escura */
+        .img-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, #0a0a0a 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-white">
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-radial pt-20 pb-16">
+        <div class="absolute inset-0 z-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?q=80&w=2000&auto=format&fit=crop" alt="Background Texture" class="w-full h-full object-cover" onerror="this.style.display='none'">
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center max-w-4xl">
+            <div data-aos="fade-down" data-aos-duration="1000" class="mb-6 inline-block">
+                <span class="px-4 py-1.5 rounded-full border border-brand-accent/50 text-brand-accent text-xs font-semibold uppercase tracking-widest bg-brand-accent/10">
+                    Estilo Masculino Elevado
+                </span>
+            </div>
+            
+            <h1 data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="text-4xl md:text-6xl font-serif font-semibold leading-tight mb-6">
+                Construa uma presença que fala <br class="hidden md:block">
+                <span class="text-brand-accent italic">antes mesmo de você abrir a boca.</span>
+            </h1>
+            
+            <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto font-light">
+                Eu te ensino a se vestir com confiança, presença e autoridade. O guia definitivo para homens que desejam ser notados e respeitados em qualquer ambiente.
+            </p>
+            
+            <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                <a href="#oferta" class="inline-flex items-center justify-center px-8 py-4 text-base font-semibold text-white bg-brand-accent rounded-lg btn-glow w-full sm:w-auto">
+                    Quero elevar meu estilo
+                    <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                </a>
+                <p class="mt-4 text-xs text-gray-500 font-medium">Acesso imediato ao material completo.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Problem Section -->
+    <section class="py-24 bg-brand-card border-y border-brand-border">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right" class="space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-serif font-semibold leading-snug">
+                        A sua imagem é o seu maior ativo. Você está cuidando dele?
+                    </h2>
+                    <p class="text-gray-400 leading-relaxed font-light">
+                        A maioria dos homens subestima o poder de um visual alinhado. Eles entram em salas de reunião, encontros ou eventos e são facilmente esquecidos ou ignorados.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed font-light">
+                        Roupas que não vestem bem, combinações confusas e falta de intencionalidade sabotam a sua autoridade. Você pode ser o homem mais inteligente da sala, mas se a sua imagem não transmitir isso, você perde oportunidades.
+                    </p>
+                </div>
+                
+                <div data-aos="fade-left" class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <img src="images/1.webp" alt="Detalhe roupa" class="w-full h-48 object-cover rounded-lg shadow-xl" onerror="this.style.display='none'">
+                        <img src="images/2.webp" alt="Acessórios" class="w-full h-64 object-cover rounded-lg shadow-xl" onerror="this.style.display='none'">
+                    </div>
+                    <div class="space-y-4 pt-8">
+                        <img src="images/3.webp" alt="Homem elegante" class="w-full h-64 object-cover rounded-lg shadow-xl" onerror="this.style.display='none'">
+                        <img src="images/4.webp" alt="Detalhe tecido" class="w-full h-48 object-cover rounded-lg shadow-xl" onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution / Product Section -->
+    <section class="py-24 bg-brand-dark">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-serif font-semibold mb-4">O Código do Estilo Masculino</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto font-light">
+                    Não se trata de comprar roupas caras ou seguir tendências passageiras. Trata-se de dominar os princípios atemporais que funcionam para o seu corpo e a sua rotina.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div data-aos="fade-up" data-aos-delay="100" class="bg-brand-card p-8 rounded-xl border border-brand-border hover:border-brand-accent/50 transition-colors duration-300">
+                    <div class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-6 text-brand-accent">
+                        <i data-lucide="layers" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Guarda-Roupa Inteligente</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Aprenda a construir uma base sólida com peças essenciais e versáteis que combinam entre si, economizando tempo e dinheiro.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div data-aos="fade-up" data-aos-delay="200" class="bg-brand-card p-8 rounded-xl border border-brand-border hover:border-brand-accent/50 transition-colors duration-300">
+                    <div class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-6 text-brand-accent">
+                        <i data-lucide="scissors" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">O Caimento Perfeito</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Descubra o segredo número um dos homens elegantes. Como escolher o tamanho certo e quando usar os ajustes a seu favor.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div data-aos="fade-up" data-aos-delay="300" class="bg-brand-card p-8 rounded-xl border border-brand-border hover:border-brand-accent/50 transition-colors duration-300">
+                    <div class="w-12 h-12 bg-brand-accent/10 rounded-lg flex items-center justify-center mb-6 text-brand-accent">
+                        <i data-lucide="eye" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Psicologia das Cores</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Entenda o que cada cor comunica e como utilizá-las de forma estratégica para transmitir confiança, seriedade ou acessibilidade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Author Section -->
+    <section class="py-24 bg-brand-card border-y border-brand-border">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div data-aos="fade-right" class="w-full md:w-5/12">
+                    <div class="relative img-overlay rounded-2xl overflow-hidden border border-brand-border">
+                        <!-- Placeholder elegante simulando a Estella -->
+                        <img src="images/estella.webp" alt="Estella" class="w-full h-[500px] object-cover" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'100%25\' height=\'100%25\' viewBox=\'0 0 800 500\'%3E%3Crect fill=\'%23141414\' width=\'800\' height=\'500\'/%3E%3Ctext fill=\'%23333\' font-family=\'sans-serif\' font-size=\'30\' dy=\'10.5\' font-weight=\'bold\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\'%3EFoto Estella%3C/text%3E%3C/svg%3E'">
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left" class="w-full md:w-7/12 space-y-6">
+                    <span class="text-brand-accent font-medium tracking-wider uppercase text-sm">A sua mentora</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-semibold">Prazer, Estella.</h2>
+                    <p class="text-gray-300 leading-relaxed font-light text-lg">
+                        Sou apaixonada por transformar a maneira como os homens são vistos e respeitados através da moda. Com mais de 16 mil seguidores acompanhando meu trabalho diariamente, dedico meu tempo a traduzir o universo do estilo em algo prático e direto.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed font-light">
+                        Eu criei este guia porque cansei de ver homens com grande potencial sendo desvalorizados simplesmente porque não sabiam se vestir para a ocasião. Meu método elimina a confusão mental na hora de abrir o armário e te entrega o caminho mais curto para um visual impecável.
+                    </p>
+                    
+                    <div class="pt-6">
+                        <div class="flex items-center gap-4 border-t border-brand-border pt-6">
+                            <div class="flex flex-col">
+                                <span class="text-2xl font-semibold text-white">16.2k+</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider">Seguidores fiéis</span>
+                            </div>
+                            <div class="w-px h-10 bg-brand-border"></div>
+                            <div class="flex flex-col">
+                                <span class="text-2xl font-semibold text-white">100%</span>
+                                <span class="text-xs text-gray-500 uppercase tracking-wider">Foco na Prática</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist / Benefits Section -->
+    <section class="py-24 bg-brand-dark">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-serif font-semibold text-center mb-16">
+                O que acontece quando você aplica o método?
+            </h2>
+            
+            <div class="space-y-6">
+                <div data-aos="fade-up" data-aos-delay="100" class="flex items-start gap-4 p-6 bg-brand-card rounded-xl border border-brand-border">
+                    <div class="mt-1 bg-brand-accent/20 p-1.5 rounded-full text-brand-accent shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium mb-1">Presença Magnética</h4>
+                        <p class="text-gray-400 text-sm">Você passa a ser notado positivamente assim que entra em qualquer ambiente, sem precisar fazer esforço ou tentar chamar atenção artificialmente.</p>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="200" class="flex items-start gap-4 p-6 bg-brand-card rounded-xl border border-brand-border">
+                    <div class="mt-1 bg-brand-accent/20 p-1.5 rounded-full text-brand-accent shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium mb-1">Respeito Profissional</h4>
+                        <p class="text-gray-400 text-sm">Sua imagem passa a condizer com a sua competência. Clientes, chefes e parceiros de negócios te levam mais a sério imediatamente.</p>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="300" class="flex items-start gap-4 p-6 bg-brand-card rounded-xl border border-brand-border">
+                    <div class="mt-1 bg-brand-accent/20 p-1.5 rounded-full text-brand-accent shrink-0">
+                        <i data-lucide="check" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-medium mb-1">Confiança Inabalável</h4>
+                        <p class="text-gray-400 text-sm">Ao olhar no espelho e saber que você está em sua melhor versão, sua postura muda. A insegurança dá lugar a uma certeza silenciosa.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing / CTA Section -->
+    <section id="oferta" class="py-24 bg-brand-card border-t border-brand-border relative overflow-hidden">
+        <!-- Elemento decorativo -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-96 bg-brand-accent opacity-10 blur-[100px] rounded-full pointer-events-none"></div>
+
+        <div class="container mx-auto px-6 max-w-3xl text-center relative z-10">
+            <div data-aos="zoom-in" class="bg-brand-dark p-8 md:p-12 rounded-2xl border border-brand-border shadow-2xl">
+                <div class="w-16 h-16 bg-brand-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 text-brand-accent">
+                    <i data-lucide="book-open" class="w-8 h-8"></i>
+                </div>
+                
+                <h2 class="text-3xl font-serif font-semibold mb-4">O Guia de Estilo Definitivo</h2>
+                <p class="text-gray-400 mb-8 font-light">
+                    O material completo e direto ao ponto para você transformar sua imagem hoje mesmo. Acesso imediato ao formato digital.
+                </p>
+                
+                <div class="mb-8">
+                    <span class="text-sm text-gray-500 line-through mr-2">De R$ 197,00</span>
+                    <div class="flex items-end justify-center gap-1 text-brand-accent">
+                        <span class="text-2xl font-medium mb-1">Por apenas R$</span>
+                        <span class="text-5xl font-bold">x</span>
+                        <span class="text-xl font-medium mb-1">,00</span>
+                    </div>
+                </div>
+                
+                <a href="#" class="block w-full py-5 text-lg font-semibold text-white bg-brand-accent hover:bg-brand-accentHover transition-colors rounded-xl btn-glow uppercase tracking-wide">
+                    Garantir meu acesso agora
+                </a>
+                
+                <div class="mt-6 flex items-center justify-center gap-2 text-sm text-gray-400">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-green-500"></i>
+                    <span>Compra 100% segura e garantida.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-brand-border py-8 text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-gray-500 text-sm">
+                &copy; 2026 Estella Men Style. Todos os direitos reservados.<br>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Inicialização de Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializa as animações
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-in-out-cubic',
+        });
+
+        // Inicializa os ícones
+        lucide.createIcons();
+    </script>
+</body>
+</html>

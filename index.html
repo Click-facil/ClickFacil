@@ -96,6 +96,25 @@
   .card-beneficio h3{font-size:16px;font-weight:700;margin-bottom:8px;}
   .card-beneficio p{font-size:14px;color:var(--cf-muted);}
 
+  /* PORTFOLIO/CASES */
+  .portfolio-section{position:relative;overflow:hidden;}
+  .portfolio-bg{position:absolute;top:50%;right:-10%;transform:translateY(-50%);width:500px;height:auto;opacity:0.08;z-index:0;pointer-events:none;}
+  .portfolio-section .cf-wrap{position:relative;z-index:1;text-align:center;}
+  .before-after-container{max-width:900px;margin:64px auto 0;position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--cf-border);box-shadow:0 12px 48px rgba(0,0,0,0.4);}
+  .before-after-wrapper{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;cursor:ew-resize;user-select:none;touch-action:none;}
+  .before-after-image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
+  .after-image{clip-path:inset(0 0 0 50%);transition:clip-path 0.05s ease-out;}
+  .slider-line{position:absolute;top:0;bottom:0;left:50%;width:3px;background:var(--cf-grad);transform:translateX(-50%);pointer-events:none;z-index:10;transition:left 0.05s ease-out;}
+  .slider-line::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;background:var(--cf-grad);border-radius:50%;box-shadow:0 4px 20px rgba(14,165,233,0.5),0 0 0 5px var(--cf-dark);transition:transform 0.2s;}
+  .slider-line::after{content:'⟷';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:24px;font-weight:700;color:#fff;z-index:1;}
+  .before-after-wrapper:active .slider-line::before{transform:translate(-50%,-50%) scale(1.1);}
+  .before-label,.after-label{position:absolute;top:24px;padding:8px 20px;background:rgba(10,15,30,0.95);border:1px solid var(--cf-border);border-radius:8px;font-size:14px;font-weight:600;color:var(--cf-text);z-index:5;backdrop-filter:blur(8px);}
+  .before-label{left:24px;}
+  .after-label{right:24px;}
+  .drag-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);padding:10px 24px;background:rgba(14,165,233,0.15);border:1px solid rgba(14,165,233,0.3);border-radius:999px;font-size:13px;color:var(--cf-cyan);z-index:5;animation:pulse 2s infinite;pointer-events:none;transition:opacity 0.3s;}
+  .drag-hint.hidden{opacity:0;}
+  @keyframes pulse{0%,100%{opacity:1;transform:translateX(-50%) scale(1);}50%{opacity:0.6;transform:translateX(-50%) scale(1.05);}}
+
   /* DEPOIMENTOS */
   .depos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:48px;}
   .card-depo{background:var(--cf-card);border:1px solid var(--cf-border);border-radius:16px;padding:28px;display:flex;flex-direction:column;min-height:320px;}
@@ -157,6 +176,12 @@
     .hero-video-mobile{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
     .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:400px;margin-left:auto;margin-right:auto;}
     .sobre-section::before{background-image:url('images/sessaosobrecelular.webp');}
+    .portfolio-bg{display:none;}
+    .before-after-container{margin-top:48px;border-radius:12px;}
+    .before-label,.after-label{top:16px;font-size:12px;padding:6px 16px;}
+    .before-label{left:16px;}
+    .after-label{right:16px;}
+    .drag-hint{bottom:16px;font-size:12px;padding:8px 20px;}
   }
 </style>
 
@@ -166,7 +191,7 @@
     <ul class="nav-links">
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#portfolio">Portfólio</a></li>
     </ul>
     <a href="https://wa.me/5591984520696?text=Olá!%20Vim%20do%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços" style="text-decoration:none;"><button class="btn-nav">Quero meu site</button></a>
   </div>
@@ -185,14 +210,7 @@
     <p class="hero-sub">Sites que não só parecem profissionais. Eles vendem, convencem e geram autoridade. Do primeiro clique à conversão.</p>
     <div class="hero-btns">
       <a href="https://wa.me/5591984520696?text=Olá!%20Vim%20do%20site%20e%20quero%20meu%20site%20agora" style="text-decoration:none;"><button class="btn-primary">Quero meu site agora</button></a>
-      <button class="btn-secondary">Ver portfólio</button>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">150+</div><div class="stat-label">Projetos entregues</div></div>
-      <div class="stat"><div class="stat-num">98%</div><div class="stat-label">Clientes satisfeitos</div></div>
-      <div class="stat"><div class="stat-num">48h</div><div class="stat-label">Tempo médio de resposta</div></div>
-      <div class="stat"><div class="stat-num">3x</div><div class="stat-label">Mais leads em média</div></div>
-    </div>
+      <a href="#portfolio" style="text-decoration:none;"><button class="btn-secondary">Ver portfólio</button></a>
   </div>
 </section>
 
@@ -295,6 +313,23 @@
         <div class="beneficio-num">∞</div>
         <h3>Autoridade que escala</h3>
         <p>Diferente das redes sociais, seu site é seu. Trabalha por você enquanto você dorme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section portfolio-section" id="portfolio">
+  <div class="cf-wrap">
+    <div class="section-badge">Projetos que falam por si</div>
+    <h2 class="section-title">A diferença entre existir<br>e se destacar online.</h2>
+    <div class="before-after-container">
+      <div class="before-after-wrapper" id="beforeAfter">
+        <img src="images/piece_0_1.webp" alt="Antes" class="before-after-image before-image">
+        <img src="images/piece_0_2.webp" alt="Depois" class="before-after-image after-image">
+        <div class="slider-line" id="sliderLine"></div>
+        <div class="before-label">ANTES</div>
+        <div class="after-label">DEPOIS</div>
+        <div class="drag-hint" id="dragHint">← Arraste ou clique →</div>
       </div>
     </div>
   </div>
@@ -482,4 +517,65 @@ const counterObserver=new IntersectionObserver((entries)=>{
 },observerOptions);
 
 document.querySelectorAll('.beneficio-num[data-target]').forEach(el=>counterObserver.observe(el));
+
+// Before/After Slider Interativo
+const beforeAfterWrapper=document.getElementById('beforeAfter');
+if(beforeAfterWrapper){
+  const sliderLine=document.getElementById('sliderLine');
+  const afterImage=beforeAfterWrapper.querySelector('.after-image');
+  const dragHint=document.getElementById('dragHint');
+  let isDragging=false;
+  let hasInteracted=false;
+
+  const updateSlider=(clientX)=>{
+    const rect=beforeAfterWrapper.getBoundingClientRect();
+    const x=Math.max(0,Math.min(clientX-rect.left,rect.width));
+    const percentage=(x/rect.width)*100;
+    setSliderPosition(percentage);
+    if(!hasInteracted&&dragHint){
+      dragHint.classList.add('hidden');
+      hasInteracted=true;
+    }
+  };
+
+  const setSliderPosition=(percentage)=>{
+    sliderLine.style.left=`${percentage}%`;
+    afterImage.style.clipPath=`inset(0 0 0 ${percentage}%)`;
+  };
+
+  const handleStart=()=>{
+    isDragging=true;
+    beforeAfterWrapper.style.cursor='grabbing';
+  };
+
+  const handleEnd=()=>{
+    isDragging=false;
+    beforeAfterWrapper.style.cursor='ew-resize';
+  };
+
+  const handleMove=(e)=>{
+    if(!isDragging)return;
+    e.preventDefault();
+    const clientX=e.type.includes('touch')?e.touches[0].clientX:e.clientX;
+    updateSlider(clientX);
+  };
+
+  const handleClick=(e)=>{
+    const clientX=e.type.includes('touch')?e.changedTouches[0].clientX:e.clientX;
+    updateSlider(clientX);
+  };
+
+  setSliderPosition(100);
+
+  beforeAfterWrapper.addEventListener('mousedown',handleStart);
+  document.addEventListener('mouseup',handleEnd);
+  document.addEventListener('mousemove',handleMove);
+  beforeAfterWrapper.addEventListener('click',handleClick);
+  beforeAfterWrapper.addEventListener('touchstart',(e)=>{
+    handleStart();
+    e.preventDefault();
+  },{passive:false});
+  document.addEventListener('touchend',handleEnd);
+  document.addEventListener('touchmove',handleMove,{passive:false});
+}
 </script>
