@@ -123,7 +123,25 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            overflow: hidden;
+            overflow: visible;
+        }
+
+        /* Avatares nos chat-bubbles: manter tamanho e evitar corte da parte superior */
+        .chat-bubble-white img,
+        .chat-bubble-red img,
+        .chat-bubble-green img {
+            width: 1.5rem;
+            height: 1.5rem;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            align-self: center;
+            vertical-align: middle;
+        }
+
+        /* Mockup PK: evitar corte superior — mostrar topo da imagem */
+        .w-20.h-20 .w-full img {
+            object-position: top center;
         }
 
         /* Balões de Chat */
