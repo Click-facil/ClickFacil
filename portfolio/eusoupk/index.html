@@ -44,10 +44,14 @@
     </script>
 
     <style>
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             background-color: #0B0D1B;
             color: #ffffff;
-            overflow-x: hidden;
         }
 
         /* Fundo Estrelado Animado */
@@ -119,9 +123,17 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
+            overflow: hidden;
         }
 
         /* Balões de Chat */
+
+        /* Garantir que imagens e vídeos não excedam a largura do viewport */
+        img, video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
         .chat-bubble-red {
             background: linear-gradient(135deg, #E53935 0%, #B71C1C 100%);
             border: 2px solid #FFCDD2;
