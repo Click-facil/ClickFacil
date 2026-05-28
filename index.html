@@ -401,12 +401,12 @@
       <h2>Pronto para existir de verdade<br>no mundo digital?</h2>
       <p>Deixe seu contato e um especialista da Click Fácil entra em contato em até 24 horas para entender o seu negócio.</p>
       <div class="form-row">
-        <input class="form-input" type="text" placeholder="Seu nome" />
-        <input class="form-input" type="email" placeholder="Seu melhor e-mail" />
+        <input class="form-input" type="text" id="ctaName" placeholder="Seu nome" required />
+        <input class="form-input" type="email" id="ctaEmail" placeholder="Seu melhor e-mail" required />
       </div>
       <br>
       <div class="form-row" style="justify-content:center;">
-        <a href="https://wa.me/5591984520696?text=Olá!%20Vim%20do%20site%20e%20quero%20meu%20diagnóstico%20gratuito" style="text-decoration:none;"><button class="btn-primary" style="padding:16px 48px;">Quero meu diagnóstico gratuito</button></a>
+        <button class="btn-primary" id="ctaButton" style="padding:16px 48px;">Quero meu diagnóstico gratuito</button>
       </div>
       <p class="cta-note">Sem compromisso. Sem spam. Apenas uma conversa honesta sobre o seu negócio.</p>
     </div>
@@ -577,5 +577,61 @@ if(beforeAfterWrapper){
   },{passive:false});
   document.addEventListener('touchend',handleEnd);
   document.addEventListener('touchmove',handleMove,{passive:false});
+}
+
+// Formulário CTA - Envio para Google Sheets
+const ctaButton=document.getElementById('ctaButton');
+if(ctaButton){
+  ctaButton.addEventListener('click',async()=>{
+    const name=document.getElementById('ctaName').value.trim();
+    const email=document.getElementById('ctaEmail').value.trim();
+    
+    if(!name){
+      alert('Por favor, preencha seu nome.');
+      document.getElementById('ctaName').focus();
+      return;
+    }
+    
+    if(!email){
+      alert('Por favor, preencha seu e-mail.');
+      document.getElementById('ctaEmail').focus();
+      return;
+    }
+    
+    const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(!emailRegex.test(email)){
+      alert('Por favor, insira um e-mail válido.');
+      document.getElementById('ctaEmail').focus();
+      return;
+    }
+    
+    try{
+      ctaButton.textContent='Enviando...';
+      ctaButton.disabled=true;
+      
+      // Enviar para Google Sheets via Google Apps Script
+      // IMPORTANTE: Substitua 'YOUR_SCRIPT_URL' pela URL do seu script
+      const response=await fetch('https://script.google.com/macros/s/AKfycbysKZLiok4hpJGQOajw-eJLCnv3ABi0Ima-riZPIN4UAOt27BL4-Wahxer-4dfcxkA87A/exec',{
+        method:'POST',
+        mode:'no-cors',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          name:name,
+          email:email,
+          timestamp:new Date().toLocaleString('pt-BR')
+        })
+      });
+      
+      alert('Obrigado! Entraremos em contato em até 24 horas.');
+      document.getElementById('ctaName').value='';
+      document.getElementById('ctaEmail').value='';
+    }catch(error){
+      alert('Ops! Tente novamente ou entre em contato pelo WhatsApp.');
+      console.error(error);
+    }finally{
+      ctaButton.textContent='Quero meu diagnóstico gratuito';
+      ctaButton.disabled=false;
+    }
+  });
 }
 </script>
