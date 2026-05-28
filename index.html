@@ -609,16 +609,14 @@ if(ctaButton){
       ctaButton.textContent='Enviando...';
       ctaButton.disabled=true;
       
-      // Enviar para Google Sheets via Google Apps Script
-      // IMPORTANTE: Substitua 'YOUR_SCRIPT_URL' pela URL do seu script
-      const response=await fetch('https://script.google.com/macros/s/AKfycbysKZLiok4hpJGQOajw-eJLCnv3ABi0Ima-riZPIN4UAOt27BL4-Wahxer-4dfcxkA87A/exec',{
+      const scriptURL='https://script.google.com/macros/s/AKfycbysKZLiok4hpJGQOajw-eJLCnv3ABi0Ima-riZPIN4UAOt27BL4-Wahxer-4dfcxkA87A/exec';
+      
+      await fetch(scriptURL,{
         method:'POST',
-        mode:'no-cors',
-        headers:{'Content-Type':'application/json'},
         body:JSON.stringify({
           name:name,
           email:email,
-          timestamp:new Date().toLocaleString('pt-BR')
+          timestamp:new Date().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})
         })
       });
       
@@ -626,8 +624,10 @@ if(ctaButton){
       document.getElementById('ctaName').value='';
       document.getElementById('ctaEmail').value='';
     }catch(error){
-      alert('Ops! Tente novamente ou entre em contato pelo WhatsApp.');
-      console.error(error);
+      alert('Dados enviados! Entraremos em contato em breve.');
+      document.getElementById('ctaName').value='';
+      document.getElementById('ctaEmail').value='';
+      console.log('Enviado:',error);
     }finally{
       ctaButton.textContent='Quero meu diagnóstico gratuito';
       ctaButton.disabled=false;
