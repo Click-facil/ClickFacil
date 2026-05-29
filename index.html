@@ -582,7 +582,7 @@ if(beforeAfterWrapper){
 // Formulário CTA - Envio para Google Sheets
 const ctaButton=document.getElementById('ctaButton');
 if(ctaButton){
-  ctaButton.addEventListener('click',async()=>{
+  ctaButton.addEventListener('click',()=>{
     const name=document.getElementById('ctaName').value.trim();
     const email=document.getElementById('ctaEmail').value.trim();
     
@@ -609,10 +609,11 @@ if(ctaButton){
       ctaButton.textContent='Enviando...';
       ctaButton.disabled=true;
       
-      const scriptURL='https://script.google.com/macros/s/AKfycbysKZLiok4hpJGQOajw-eJLCnv3ABi0Ima-riZPIN4UAOt27BL4-Wahxer-4dfcxkA87A/exec';
+      const scriptURL='https://script.google.com/macros/s/AKfycbyquu-tI-EOKsVsGZmh258syl8pKh4CDKBobj6wkGrTAMw3QI-cewDHXbcAxR-WHBLfKw/exec';
       
-      await fetch(scriptURL,{
+      fetch(scriptURL,{
         method:'POST',
+        mode:'no-cors',
         body:JSON.stringify({
           name:name,
           email:email,
@@ -620,15 +621,17 @@ if(ctaButton){
         })
       });
       
-      alert('Obrigado! Entraremos em contato em até 24 horas.');
-      document.getElementById('ctaName').value='';
-      document.getElementById('ctaEmail').value='';
+      setTimeout(()=>{
+        alert('Obrigado! Entraremos em contato em até 24 horas.');
+        document.getElementById('ctaName').value='';
+        document.getElementById('ctaEmail').value='';
+        ctaButton.textContent='Quero meu diagnóstico gratuito';
+        ctaButton.disabled=false;
+      },1000);
     }catch(error){
       alert('Dados enviados! Entraremos em contato em breve.');
       document.getElementById('ctaName').value='';
       document.getElementById('ctaEmail').value='';
-      console.log('Enviado:',error);
-    }finally{
       ctaButton.textContent='Quero meu diagnóstico gratuito';
       ctaButton.disabled=false;
     }
