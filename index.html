@@ -29,19 +29,14 @@
 
     /* HERO */
     .hero{padding:0;text-align:center;position:relative;overflow:hidden;min-height:200vh;}
-    .hero-video-fullscreen{position:fixed;top:0;left:0;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;z-index:1;background:var(--cf-dark);transition:opacity 0.6s ease,visibility 0.6s ease;}
+    .hero-video-fullscreen{position:fixed;top:0;left:0;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;z-index:1000;background:var(--cf-dark);transition:opacity 0.6s ease,visibility 0.6s ease;}
     .hero-video-fullscreen.hidden{opacity:0;visibility:hidden;pointer-events:none;}
     .hero-video-fullscreen video{width:100%;height:100%;object-fit:cover;}
     .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:10;animation:bounce 2s infinite;}
     .scroll-indicator-arrow{width:30px;height:30px;border-left:3px solid var(--cf-cyan);border-bottom:3px solid var(--cf-cyan);transform:rotate(-45deg);}
     @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(10px);}}
-    
-    .hero-content-wrapper{padding:100vh 0 80px;position:relative;z-index:2;}
-    .hero-animated-bg{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:0;pointer-events:none;background-color:var(--cf-darker);overflow:hidden;}
-    .gradient-ascend{position:absolute;bottom:-30%;left:50%;transform:translateX(-50%);width:120vw;height:120vh;background:radial-gradient(ellipse at center, rgba(14, 165, 233, 0.35) 0%, rgba(6, 182, 212, 0.1) 45%, transparent 70%);animation:ascendPulse 8s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);filter:blur(40px);z-index:1;}
-    @keyframes ascendPulse { 0% { transform:translateX(-50%) translateY(10%) scale(1); opacity:0.7; } 100% { transform:translateX(-50%) translateY(-20%) scale(1.1); opacity:1; } }
-    .noise-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");z-index:2;pointer-events:none;mix-blend-mode:overlay;}
-    
+    .hero-content-wrapper{padding:100vh 0 80px;position:relative;z-index:1;}
+    .hero::before{content:'';position:absolute;top:100vh;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(6,182,212,0.08) 0%,transparent 70%);pointer-events:none;}
     .hero-video{display:none;}
     .hero-video-desktop{display:block;}
     .hero-video-mobile{display:none;}
@@ -258,7 +253,7 @@
       .nav-links{display:none;}
       .hero{min-height:100vh;}
       .hero-video-desktop{display:none;}
-      .hero-video-mobile{display:block;width:90%;height:100%;object-fit:contain;object-position:center;margin:0 auto;}
+      .hero-video-mobile{display:block;width:100%;height:100%;object-fit:cover;object-position:center;}
       .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:400px;margin-left:auto;margin-right:auto;}
       .sobre-section::before{background-image:url('images/sessaosobrecelular.webp');}
       .portfolio-bg{display:none;}
@@ -289,12 +284,6 @@
 </nav>
 
 <section class="hero">
-  <!-- Background Animado CSS Elegante (Substitui o Canvas) -->
-  <div class="hero-animated-bg" id="heroAnimatedBg">
-    <div class="gradient-ascend"></div>
-    <div class="noise-overlay"></div>
-  </div>
-  
   <!-- Vídeo Fullscreen Inicial -->
   <div class="hero-video-fullscreen" id="heroFullscreen">
     <video class="hero-video-desktop" autoplay muted loop playsinline>
@@ -536,11 +525,11 @@
 </div>
 
 <script>
-// Hero Fullscreen - Esconde ao rolar revelando o background estático animado atrás
+// Hero Fullscreen - Esconde ao rolar
 const heroFullscreen = document.getElementById('heroFullscreen');
 if(heroFullscreen){
   window.addEventListener('scroll', () => {
-    if(window.scrollY > 50){ // Reduzido para 50px para sumir mais rápido e evitar "buracos" no celular
+    if(window.scrollY > 100){
       heroFullscreen.classList.add('hidden');
     } else {
       heroFullscreen.classList.remove('hidden');
