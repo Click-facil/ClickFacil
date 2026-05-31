@@ -28,14 +28,21 @@
     .btn-nav{background:var(--cf-grad);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;}
 
     /* HERO */
-    .hero{padding:0;text-align:center;position:relative;overflow:hidden;min-height:200vh;}
+    .hero{padding:0;text-align:center;position:relative;overflow:hidden;min-height:140vh;}
     .hero-video-fullscreen{position:fixed;top:0;left:0;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;z-index:1000;background:var(--cf-dark);transition:opacity 0.6s ease,visibility 0.6s ease;}
     .hero-video-fullscreen.hidden{opacity:0;visibility:hidden;pointer-events:none;}
     .hero-video-fullscreen video{width:100%;height:100%;object-fit:cover;}
     .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:10;animation:bounce 2s infinite;}
     .scroll-indicator-arrow{width:30px;height:30px;border-left:3px solid var(--cf-cyan);border-bottom:3px solid var(--cf-cyan);transform:rotate(-45deg);}
     @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(10px);}}
-    .hero-content-wrapper{padding:100vh 0 80px;position:relative;z-index:1;}
+    .hero-content-wrapper{padding:70vh 0 60px;position:relative;z-index:1;}
+
+    /* MODIFICADO: Fundo agora absoluto (preso ao hero) e com Grid Tech */
+    .hero-animated-bg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;transition:opacity 0.8s ease;background-color:var(--cf-darker);overflow:hidden;}
+    .hero-animated-bg.active{opacity:1;}
+    .hero-animated-bg canvas{position:absolute;top:0;left:0;width:100%;height:100%;display:block;z-index:1;}
+    .tech-grid-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-image:linear-gradient(rgba(14,165,233,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(14,165,233,0.07) 1px,transparent 1px);background-size:60px 60px;z-index:2;pointer-events:none;}
+
     .hero::before{content:'';position:absolute;top:100vh;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(6,182,212,0.08) 0%,transparent 70%);pointer-events:none;}
     .hero-video{display:none;}
     .hero-video-desktop{display:block;}
@@ -284,6 +291,12 @@
 </nav>
 
 <section class="hero">
+  <!-- Background Animado Plasma Energético -->
+  <div class="hero-animated-bg active" id="heroAnimatedBg">
+    <canvas id="techCanvas"></canvas>
+    <div class="tech-grid-overlay"></div>
+  </div>
+  
   <!-- Vídeo Fullscreen Inicial -->
   <div class="hero-video-fullscreen" id="heroFullscreen">
     <video class="hero-video-desktop" autoplay muted loop playsinline>
@@ -525,6 +538,94 @@
 </div>
 
 <script>
+// ===== DIGITAL NETWORK PARTICLES ANIMATION =====
+const canvas = document.getElementById('techCanvas');
+if(canvas){
+  const ctx = canvas.getContext('2d', { alpha: false });
+  let width, height, particles;
+  let animationId;
+  
+  // Configuração das partículas
+  const particleCount = window.innerWidth < 768 ? 40 : 80;
+  const connectionDistance = 150;
+  
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.radius = Math.random() * 2 + 1;
+    }
+    
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      
+      if (this.x < 0 || this.x > width) this.vx *= -1;
+      if (this.y < 0 || this.y > height) this.vy *= -1;
+    }
+    
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(6, 182, 212, 0.8)';
+      ctx.fill();
+    }
+  }
+  
+  function init() {
+    const heroSection = document.querySelector('.hero');
+    width = canvas.width = heroSection.offsetWidth;
+    height = canvas.height = heroSection.offsetHeight;
+    particles = [];
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+  }
+  
+  function animate() {
+    ctx.fillStyle = '#060b16';
+    ctx.fillRect(0, 0, width, height);
+    
+    for (let i = 0; i < particles.length; i++) {
+      particles[i].update();
+      particles[i].draw();
+      
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < connectionDistance) {
+          const opacity = 1 - (distance / connectionDistance);
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(14, 165, 233, ${opacity * 0.5})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      }
+    }
+    animationId = requestAnimationFrame(animate);
+  }
+  
+  window.addEventListener('resize', () => {
+    if(animationId) {
+      init();
+    }
+  });
+  
+  const heroAnimatedBg = document.getElementById('heroAnimatedBg');
+  if (heroAnimatedBg) {
+    heroAnimatedBg.classList.add('active');
+  }
+
+  init();
+  animate();
+}
+
 // Hero Fullscreen - Esconde ao rolar
 const heroFullscreen = document.getElementById('heroFullscreen');
 if(heroFullscreen){
