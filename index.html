@@ -28,9 +28,20 @@
     .btn-nav{background:var(--cf-grad);color:#fff;border:none;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;}
 
     /* HERO */
-    .hero{padding:96px 0 80px;text-align:center;position:relative;overflow:hidden;}
-    .hero::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(6,182,212,0.08) 0%,transparent 70%);pointer-events:none;}
-    .hero-video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0.15;z-index:-1;}
+    .hero{padding:0;text-align:center;position:relative;overflow:hidden;min-height:200vh;}
+    .hero-video-fullscreen{position:fixed;top:0;left:0;width:100%;height:100vh;display:flex;align-items:center;justify-content:center;z-index:1000;background:var(--cf-dark);transition:opacity 0.6s ease,visibility 0.6s ease;}
+    .hero-video-fullscreen.hidden{opacity:0;visibility:hidden;pointer-events:none;}
+    .hero-video-fullscreen video{width:100%;height:100%;object-fit:cover;}
+    .scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);z-index:10;animation:bounce 2s infinite;}
+    .scroll-indicator-arrow{width:30px;height:30px;border-left:3px solid var(--cf-cyan);border-bottom:3px solid var(--cf-cyan);transform:rotate(-45deg);}
+    @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(10px);}}
+    .hero-content-wrapper{padding:100vh 0 80px;position:relative;z-index:1;}
+    .hero-animated-bg{position:fixed;top:0;left:0;width:100%;height:100vh;z-index:0;pointer-events:none;opacity:0;transition:opacity 0.8s ease;}
+    .hero-animated-bg.active{opacity:1;}
+    .hero-animated-bg canvas{width:100%;height:100%;display:block;}
+    .hero-backdrop-blur{position:absolute;top:0;left:0;width:100%;height:100%;backdrop-filter:blur(80px);-webkit-backdrop-filter:blur(80px);opacity:0.6;}
+    .hero::before{content:'';position:absolute;top:100vh;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(6,182,212,0.08) 0%,transparent 70%);pointer-events:none;}
+    .hero-video{display:none;}
     .hero-video-desktop{display:block;}
     .hero-video-mobile{display:none;}
     .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(14,165,233,0.1);border:1px solid rgba(14,165,233,0.3);border-radius:999px;padding:6px 16px;font-size:13px;color:var(--cf-cyan);margin-bottom:32px;}
@@ -239,6 +250,8 @@
 
     /* MEDIA QUERIES */
     @media(max-width:768px){
+      .hero-video-desktop{display:none;}
+      .hero-video-mobile{display:block;}
       .sobre-grid{grid-template-columns:1fr;}
       .footer-grid{grid-template-columns:1fr;gap:32px;}
       .nav-links{display:none;}
@@ -275,18 +288,34 @@
 </nav>
 
 <section class="hero">
-  <video class="hero-video hero-video-desktop" autoplay muted loop playsinline>
-    <source src="images/animacao-logo.webm" type="video/webm">
-  </video>
-  <video class="hero-video hero-video-mobile" autoplay muted loop playsinline>
-    <source src="images/animacao_hero_mobile.webm" type="video/webm">
-  </video>
-  <div class="cf-wrap">
-    <div class="badge"><span class="badge-dot"></span>Desenvolvimento Web Profissional</div>
-    <h1>Seu negócio merece uma<br><span class="hl">presença digital à altura.</span></h1>
-    <div class="hero-btns">
-      <a href="https://wa.me/5591984520696?text=Olá!%20Vim%20do%20site%20e%20quero%20meu%20site%20agora" style="text-decoration:none;"><button class="btn-primary">Quero meu site agora</button></a>
-      <a href="#portfolio" style="text-decoration:none;"><button class="btn-secondary">Ver portfólio</button></a>
+  <!-- Background Animado (Canvas) -->
+  <div class="hero-animated-bg" id="heroAnimatedBg">
+    <canvas id="fluidCanvas"></canvas>
+    <div class="hero-backdrop-blur"></div>
+  </div>
+  
+  <!-- Vídeo Fullscreen Inicial -->
+  <div class="hero-video-fullscreen" id="heroFullscreen">
+    <video class="hero-video-desktop" autoplay muted loop playsinline>
+      <source src="images/animacao-logo.webm" type="video/webm">
+    </video>
+    <video class="hero-video-mobile" autoplay muted loop playsinline>
+      <source src="images/animacao_hero_mobile.webm" type="video/webm">
+    </video>
+    <div class="scroll-indicator">
+      <div class="scroll-indicator-arrow"></div>
+    </div>
+  </div>
+  
+  <!-- Conteúdo do Hero (aparece após scroll) -->
+  <div class="hero-content-wrapper">
+    <div class="cf-wrap">
+      <div class="badge"><span class="badge-dot"></span>Desenvolvimento Web Profissional</div>
+      <h1>Seu negócio merece uma<br><span class="hl">presença digital à altura.</span></h1>
+      <div class="hero-btns">
+        <a href="https://wa.me/5591984520696?text=Olá!%20Vim%20do%20site%20e%20quero%20meu%20site%20agora" style="text-decoration:none;"><button class="btn-primary">Quero meu site agora</button></a>
+        <a href="#portfolio" style="text-decoration:none;"><button class="btn-secondary">Ver portfólio</button></a>
+      </div>
     </div>
   </div>
 </section>
@@ -506,6 +535,142 @@
 </div>
 
 <script>
+// ===== FLUID PLASMA WAVE ANIMATION =====
+const canvas = document.getElementById('fluidCanvas');
+const heroAnimatedBg = document.getElementById('heroAnimatedBg');
+if(canvas && heroAnimatedBg){
+  const ctx = canvas.getContext('2d', { alpha: false });
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+  let time = 0;
+  let animationId = null;
+  
+  // Resize handler
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+  
+  // Draw plasma with visible movement
+  function drawPlasma() {
+    // Dark base
+    ctx.fillStyle = '#0a0f1e';
+    ctx.fillRect(0, 0, width, height);
+    
+    // HORIZONTAL WAVES (left to right)
+    for(let i = 0; i < 5; i++) {
+      const yPos = (height / 6) * (i + 1);
+      const offset = Math.sin(time * 0.5 + i * 0.8) * width * 0.3;
+      
+      const gradient = ctx.createLinearGradient(
+        offset - 200, yPos - 80,
+        offset + 200, yPos + 80
+      );
+      
+      gradient.addColorStop(0, 'rgba(6, 182, 212, 0)');
+      gradient.addColorStop(0.3, 'rgba(6, 182, 212, 0.15)');
+      gradient.addColorStop(0.5, 'rgba(14, 165, 233, 0.25)');
+      gradient.addColorStop(0.7, 'rgba(6, 182, 212, 0.15)');
+      gradient.addColorStop(1, 'rgba(6, 182, 212, 0)');
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+    }
+    
+    // VERTICAL WAVES (top to bottom)
+    for(let i = 0; i < 4; i++) {
+      const xPos = (width / 5) * (i + 1);
+      const offset = Math.cos(time * 0.4 + i * 1.2) * height * 0.25;
+      
+      const gradient = ctx.createLinearGradient(
+        xPos - 100, offset - 150,
+        xPos + 100, offset + 150
+      );
+      
+      gradient.addColorStop(0, 'rgba(14, 165, 233, 0)');
+      gradient.addColorStop(0.3, 'rgba(14, 165, 233, 0.12)');
+      gradient.addColorStop(0.5, 'rgba(6, 182, 212, 0.2)');
+      gradient.addColorStop(0.7, 'rgba(14, 165, 233, 0.12)');
+      gradient.addColorStop(1, 'rgba(14, 165, 233, 0)');
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+    }
+    
+    // DIAGONAL WAVES (corner to corner)
+    for(let i = 0; i < 3; i++) {
+      const offset1 = Math.sin(time * 0.3 + i) * 300;
+      const offset2 = Math.cos(time * 0.35 + i) * 300;
+      
+      const gradient = ctx.createLinearGradient(
+        offset1, offset2,
+        width - offset1, height - offset2
+      );
+      
+      gradient.addColorStop(0, 'rgba(6, 182, 212, 0)');
+      gradient.addColorStop(0.25, 'rgba(6, 182, 212, 0.08)');
+      gradient.addColorStop(0.5, 'rgba(14, 165, 233, 0.15)');
+      gradient.addColorStop(0.75, 'rgba(6, 182, 212, 0.08)');
+      gradient.addColorStop(1, 'rgba(6, 182, 212, 0)');
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+    }
+    
+    // RADIAL PULSES (breathing effect)
+    for(let i = 0; i < 2; i++) {
+      const centerX = width * (0.3 + i * 0.4);
+      const centerY = height * 0.5;
+      const radius = 300 + Math.sin(time * 0.6 + i * Math.PI) * 150;
+      
+      const gradient = ctx.createRadialGradient(
+        centerX, centerY, 0,
+        centerX, centerY, radius
+      );
+      
+      gradient.addColorStop(0, 'rgba(14, 165, 233, 0.2)');
+      gradient.addColorStop(0.5, 'rgba(6, 182, 212, 0.1)');
+      gradient.addColorStop(1, 'rgba(6, 182, 212, 0)');
+      
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+    }
+    
+    time += 0.03;
+    animationId = requestAnimationFrame(drawPlasma);
+  }
+  
+  // Start animation
+  drawPlasma();
+  
+  // Stop animation when not visible (performance)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !animationId) {
+        drawPlasma();
+      } else if(!entry.isIntersecting && animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    });
+  });
+  observer.observe(canvas);
+}
+
+// Hero Fullscreen - Esconde ao rolar e ativa background animado
+const heroFullscreen = document.getElementById('heroFullscreen');
+if(heroFullscreen && heroAnimatedBg){
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 100){
+      heroFullscreen.classList.add('hidden');
+      heroAnimatedBg.classList.add('active');
+    } else {
+      heroFullscreen.classList.remove('hidden');
+      heroAnimatedBg.classList.remove('active');
+    }
+  });
+}
+
 // FAQ
 document.querySelectorAll('.faq-item').forEach(item=>{
   item.addEventListener('click',()=>{
