@@ -2625,6 +2625,7 @@ img, .servico-imagem, .catalogo-imagem, .modelo-imagem {
     .hero-buttons {
         flex-direction: column; /* Empilha os botões verticalmente no mobile */
         align-items: center; /* Centraliza os botões */
+        gap: 20px; /* Aumenta o espaçamento entre os botões no mobile */
     }
     .hero-buttons .saiba-mais {
         width: 100%; /* Largura total para os botões no mobile */

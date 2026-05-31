@@ -44,8 +44,14 @@
     .btn-primary:focus{box-shadow:0 0 0 2px var(--cf-dark),0 0 0 4px var(--cf-blue);}
     .btn-primary::after{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.15) 0%,transparent 70%);opacity:0;transition:opacity 0.3s;}
     .btn-primary:hover::after{opacity:1;}
-    .btn-secondary{background:transparent;color:var(--cf-blue);border:1px solid var(--cf-blue);padding:16px 36px;border-radius:10px;font-size:16px;font-weight:500;cursor:pointer;margin-left:12px;}
+    .btn-secondary{background:transparent;color:var(--cf-blue);border:1px solid var(--cf-blue);padding:16px 36px;border-radius:10px;font-size:16px;font-weight:500;cursor:pointer;}
     .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+    .hero-btns a{text-decoration:none;}
+    .hero-btns button{width:220px;white-space:nowrap;}
+    @media (max-width:767px){
+      .hero-btns{gap:20px;flex-direction:column;align-items:center;}
+      .hero-btns button{width:220px;white-space:nowrap;}
+    }
     .hero-stats{display:flex;gap:40px;justify-content:center;margin-top:64px;flex-wrap:wrap;}
     .stat{text-align:center;}
     .stat-num{font-size:32px;font-weight:800;background:var(--cf-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
@@ -278,6 +284,7 @@
   <div class="cf-wrap">
     <div class="badge"><span class="badge-dot"></span>Desenvolvimento Web Profissional</div>
     <h1>Seu negócio merece uma<br><span class="hl">presença digital à altura.</span></h1>
+    <div class="hero-btns">
       <a href="https://wa.me/5591984520696?text=Olá!%20Vim%20do%20site%20e%20quero%20meu%20site%20agora" style="text-decoration:none;"><button class="btn-primary">Quero meu site agora</button></a>
       <a href="#portfolio" style="text-decoration:none;"><button class="btn-secondary">Ver portfólio</button></a>
     </div>
