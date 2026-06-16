@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Implantes Paragominas | Transformando Vidas Através do Sorriso</title>
+    <link rel="icon" href="images/logo_implantes_paragominas.ico" type="image/x-icon">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,7 +12,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -32,6 +33,7 @@
                     },
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
+                        display: ['Playfair Display', 'serif'],
                     }
                 }
             }
@@ -39,10 +41,53 @@
     </script>
 
     <style>
+        html, body {
+            overflow-x: hidden;
+        }
         body { 
             font-family: 'Montserrat', sans-serif; 
             scroll-behavior: smooth; 
             background-color: #F4F7F9;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+        }
+
+        /* Tipografia Premium para Títulos */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 6vw, 3.5rem);
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 700;
+        }
+
+        /* Efeito gradient nos títulos principais */
+        .hero-title {
+            background: linear-gradient(135deg, #0A2540 0%, #00A8CC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Melhor espaçamento entre parágrafos */
+        p {
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
         }
         
         /* Fundo do Hero com Overlay Profissional */
@@ -53,8 +98,42 @@
 
         /* Fundo da Seção de Autoridade */
         .doctor-bg {
-            background: linear-gradient(to right, rgba(244, 247, 249, 1) 0%, rgba(244, 247, 249, 0.6) 60%, rgba(244, 247, 249, 0.3) 100%), 
-                        url('images/dr_italo.webp') right/cover no-repeat;
+            background-image: linear-gradient(to right, rgba(244, 247, 249, 1) 0%, rgba(244, 247, 249, 0.6) 60%, rgba(244, 247, 249, 0.3) 100%), url('images/dr_italo.webp');
+            background-repeat: no-repeat, no-repeat;
+            background-size: cover, cover;
+            /* camada do gradiente ocupa todo o bloco; foto posicionada mais à direita e mais baixa por padrão (desktop) */
+            background-position: center center, 100% 25%;
+        }
+
+        /* Ajustes responsivos: no celular aproximar a imagem mais para a esquerda e ajustar vertical */
+        @media (max-width: 767px) {
+            .doctor-bg {
+                background-position: center center, 20% 50%;
+            }
+        }
+
+        /* Ajustes de header mobile para evitar overflow causado pelo botão do WhatsApp */
+        @media (max-width: 767px) {
+            header {
+                left: 0;
+                right: 0;
+                overflow-x: hidden;
+            }
+            header > div {
+                min-width: 0;
+            }
+            .whatsapp-link {
+                min-width: 0;
+                max-width: calc(100vw - 3rem);
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+                white-space: nowrap;
+                flex-shrink: 1;
+                overflow: hidden;
+            }
+            .whatsapp-link span {
+                display: none;
+            }
         }
 
         /* Estilização do FAQ (Accordion) */
@@ -64,28 +143,54 @@
         details > summary::-webkit-details-marker {
             display: none;
         }
+
+        /* Efeito glow leve para o botão do hero */
+        .hero-cta-btn {
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 18px 45px rgba(0, 168, 204, 0.18);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+        }
+        .hero-cta-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.35), transparent 40%);
+            opacity: 0.45;
+            pointer-events: none;
+            transform: translate3d(-10%, -10%, 0) scale(0.8);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .hero-cta-btn:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 24px 60px rgba(0, 168, 204, 0.28);
+            background-color: #00b2c4;
+        }
+        .hero-cta-btn:hover::after {
+            opacity: 0.55;
+            transform: translate3d(-5%, -5%, 0) scale(1);
+        }
     </style>
 </head>
 <body class="text-gray-800 antialiased overflow-x-hidden">
 
-    <!-- HEADER FLUTUANTE -->
-    <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-gray-100">
+    <!-- HEADER NO TOPO -->
+    <header class="w-full bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-2">
-                <div class="w-10 h-10 bg-brand-cyan rounded-lg flex items-center justify-center text-white font-bold text-xl">IP</div>
-                <div class="text-brand-navy font-bold text-lg sm:text-xl tracking-tight leading-none">
-                    Implantes<br><span class="text-brand-cyan text-xs sm:text-sm font-semibold">Paragominas</span>
-                </div>
+            <div class="flex items-center gap-3">
+                <img src="images/logosemfundo_implantes.webp" alt="Implantes Paragominas" class="w-12 h-12 object-contain" />
+
             </div>
             <nav class="hidden md:flex gap-8 font-medium text-sm text-gray-600">
                 <a href="#tratamentos" class="hover:text-brand-cyan transition-colors">Tratamentos</a>
                 <a href="#clinica" class="hover:text-brand-cyan transition-colors">A Clínica</a>
                 <a href="#depoimentos" class="hover:text-brand-cyan transition-colors">Depoimentos</a>
             </nav>
-            <a href="https://api.whatsapp.com/send?phone=5591992003100" target="_blank" class="bg-brand-navy text-white px-4 sm:px-6 py-2.5 rounded-full font-semibold text-xs sm:text-sm hover:bg-blue-900 transition-all shadow-lg shadow-blue-900/20 flex items-center gap-2">
+            <a href="https://api.whatsapp.com/send?phone=5591992003100" target="_blank" class="whatsapp-link bg-brand-navy text-white px-3 sm:px-6 py-2.5 rounded-full font-semibold text-xs sm:text-sm hover:bg-blue-900 transition-all shadow-lg shadow-blue-900/20 flex items-center gap-2 min-w-0">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766 0 1.011.263 1.998.763 2.868l-.816 2.98 3.048-.801a5.74 5.74 0 002.773.712h.001c3.181 0 5.767-2.586 5.768-5.766-.001-3.181-2.587-5.759-5.769-5.759m0-1.745c4.143 0 7.514 3.371 7.515 7.504 0 4.133-3.372 7.504-7.515 7.504h-.002a7.48 7.48 0 01-3.82-.1043l-4.254 1.117 1.137-4.145a7.48 7.48 0 01-1.066-3.826c.001-4.133 3.372-7.504 7.515-7.504z"/></svg>
-                <span class="hidden sm:inline">Agendar Avaliação</span>
-                <span class="sm:hidden">Agendar</span>
+                <span class="hidden md:inline">Agendar Avaliação</span>
+                <span class="md:hidden">Agendar</span>
             </a>
         </div>
     </header>
@@ -110,23 +215,12 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 mb-8 sm:mb-0">
-                    <a href="https://api.whatsapp.com/send?phone=5591992003100" target="_blank" class="flex items-center justify-center gap-2 bg-brand-cyan text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-cyan-600 hover:scale-105 transition-all shadow-xl shadow-cyan-600/30">
+                    <a href="https://api.whatsapp.com/send?phone=5591992003100" target="_blank" class="hero-cta-btn flex items-center justify-center gap-2 bg-brand-cyan text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-cyan-600 hover:scale-105 transition-all shadow-xl shadow-cyan-600/30">
                         Quero voltar a sorrir
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
                 </div>
 
-                <!-- Trust Indicators -->
-                <div class="mt-12 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 sm:gap-6 text-white/80 text-sm font-medium">
-                    <div class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-brand-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        Avaliação Personalizada
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <svg class="w-5 h-5 text-brand-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-                        Materiais Importados
-                    </div>
-                </div>
 
             </div>
         </div>
@@ -158,8 +252,8 @@
     <section class="py-12 sm:py-24 bg-brand-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
-                <div class="w-full md:w-1/2" data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mulher sorrindo confiante" class="rounded-2xl shadow-2xl">
+                <div class="w-full md:w-1/2 flex items-center justify-center" data-aos="fade-right">
+                    <img src="images/sessao_dentes.webp" alt="Mulher sorrindo confiante" class="w-full h-64 md:h-96 lg:h-[520px] object-cover rounded-2xl shadow-2xl">
                 </div>
                 <div class="w-full md:w-1/2" data-aos="fade-left">
                     <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6 leading-tight">
@@ -378,9 +472,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
                 <div>
-                    <div class="text-white font-bold text-2xl tracking-tight leading-none mb-4">
-                        Implantes<br><span class="text-brand-cyan text-sm font-semibold">Paragominas</span>
-                    </div>
+                    <img src="images/logosemfundo_implantes.webp" alt="logo sem fundo implantes Paragominas">
                     <p class="text-gray-400 text-sm leading-relaxed">
                         Transformando vidas através do sorriso. Há mais de 12 anos entregando excelência em reabilitação oral e estética.
                     </p>
