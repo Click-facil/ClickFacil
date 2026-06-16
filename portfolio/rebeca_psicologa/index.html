@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rebeca Assis | Psicóloga Clínica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        psi: {
+                            sand: '#D4C4B7',
+                            sandlight: '#F5EBE3',
+                            brown: '#8C7B6B',
+                            dark: '#3A3532',
+                            bg: '#FAFAFA'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Lato', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Lato', sans-serif; background-color: #FAFAFA; color: #3A3532; }
+        .blob-shape {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        @keyframes morph {
+            0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+            67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- Header Elegante -->
+    <header class="absolute w-full top-0 z-50 py-6">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <div class="font-serif text-2xl text-psi-dark tracking-wide">Rebeca Assis</div>
+            <div class="text-sm text-psi-brown hidden md:block">CRP 03/34749</div>
+        </div>
+    </header>
+
+    <!-- Hero Section Minimalista -->
+    <section class="min-h-screen relative flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Elementos Abstratos -->
+        <div class="absolute top-20 right-[-10%] w-96 h-96 bg-psi-sandlight blob-shape opacity-70 mix-blend-multiply z-0"></div>
+        <div class="absolute bottom-10 left-[-5%] w-80 h-80 bg-[#e8dbd0] blob-shape opacity-60 mix-blend-multiply z-0" style="animation-delay: 2s;"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="fade-up" data-aos-duration="1200">
+            <h1 class="font-serif text-5xl md:text-7xl text-psi-dark mb-6 leading-tight">
+                O cuidado que a sua <br/>
+                <span class="italic text-psi-brown">mente precisa.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                Um espaço de escuta acolhedora focado na sua saúde emocional, controle da ansiedade e ressignificação de relações.
+            </p>
+            <a href="#" class="inline-block bg-psi-dark text-white px-10 py-4 rounded-full font-medium tracking-wide hover:bg-psi-brown transition-colors shadow-lg">
+                Agendar Minha Sessão
+            </a>
+        </div>
+    </section>
+
+    <!-- Áreas de Atuação (Fluido e visual) -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-serif text-3xl md:text-4xl text-psi-dark mb-4">Como posso ajudar?</h2>
+                <div class="w-16 h-px bg-psi-brown mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Servico 1 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-32 h-32 mx-auto bg-psi-sandlight rounded-full flex items-center justify-center mb-6 group-hover:bg-psi-sand transition-colors duration-500">
+                        <svg class="w-10 h-10 text-psi-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-psi-dark mb-3">Terapia Clínica</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Acompanhamento para lidar com ansiedade, depressão e gestão emocional do dia a dia.</p>
+                </div>
+
+                <!-- Servico 2 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-32 h-32 mx-auto bg-psi-sandlight rounded-full flex items-center justify-center mb-6 group-hover:bg-psi-sand transition-colors duration-500">
+                        <svg class="w-10 h-10 text-psi-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-psi-dark mb-3">Terapia Online</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Conforto e flexibilidade para o seu processo terapêutico, onde quer que você esteja.</p>
+                </div>
+
+                <!-- Servico 3 -->
+                <div class="text-center group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-32 h-32 mx-auto bg-psi-sandlight rounded-full flex items-center justify-center mb-6 group-hover:bg-psi-sand transition-colors duration-500">
+                        <svg class="w-10 h-10 text-psi-brown" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                    </div>
+                    <h3 class="font-serif text-xl text-psi-dark mb-3">Avaliação Neuropsicológica</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Investigação detalhada das funções cognitivas, atenção e emoção para um diagnóstico preciso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Suave -->
+    <footer class="bg-psi-bg py-12 border-t border-gray-100 text-center">
+        <p class="font-serif text-xl text-psi-dark mb-2">Rebeca Assis</p>
+        <p class="text-sm text-gray-400 mb-6">Psicóloga Clínica | CRP 03/34749</p>
+        <div class="flex justify-center gap-6 text-sm text-psi-brown">
+            <a href="#" class="hover:text-psi-dark transition-colors">Instagram</a>
+            <a href="#" class="hover:text-psi-dark transition-colors">WhatsApp</a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true, duration: 1000, easing: 'ease-out-box' });</script>
+</body>
+</html>

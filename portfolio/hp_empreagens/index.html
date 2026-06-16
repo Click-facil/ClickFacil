@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HP Embreagens | Peças e Serviços</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hp: {
+                            red: '#DC2626',
+                            reddark: '#991B1B',
+                            dark: '#111827',
+                            gray: '#374151'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #0f1115; color: #f3f4f6; }
+        .clip-diagonal { clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+        .industrial-bg {
+            background: linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.95)), url('https://images.unsplash.com/photo-1503376713246-8182cb0be452?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-hp-red selection:text-white">
+
+    <!-- Header -->
+    <header class="fixed w-full bg-hp-dark/95 border-b border-gray-800 backdrop-blur-md z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-hp-red text-white font-black text-2xl italic px-3 py-1 skew-x-[-10deg]">HP</div>
+                <div class="font-bold text-xl tracking-wider uppercase text-white">Embreagens</div>
+            </div>
+            <a href="#produtos" class="hidden md:block text-sm font-bold uppercase tracking-wider hover:text-hp-red transition-colors">Produtos</a>
+            <a href="https://wa.me/5591988951966" class="bg-hp-red text-white px-6 py-2 rounded font-bold uppercase text-sm hover:bg-hp-reddark transition-colors">
+                Fale Conosco
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="industrial-bg min-h-screen flex items-center pt-20 clip-diagonal pb-20">
+        <div class="max-w-7xl mx-auto px-4 w-full">
+            <div class="max-w-3xl" data-aos="fade-up" data-aos-duration="1000">
+                <div class="inline-block bg-hp-red/20 border border-hp-red text-hp-red px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+                    Peças e Serviços Automotivos
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-6 uppercase leading-none tracking-tight">
+                    A Solução Definitiva em <span class="text-hp-red">Embreagens</span>
+                </h1>
+                <p class="text-xl text-gray-400 mb-10 max-w-2xl">
+                    Somos especialistas em embreagens remanufaturadas para toda linha de veículos. Qualidade certificada pelos padrões LAD, LUK, SACHS e EATON.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#produtos" class="bg-hp-red text-white px-8 py-4 text-center font-bold uppercase tracking-wider rounded hover:bg-red-700 transition-colors">
+                        Ver Linha de Produtos
+                    </a>
+                    <a href="#" class="border border-gray-600 text-white px-8 py-4 text-center font-bold uppercase tracking-wider rounded hover:bg-gray-800 transition-colors">
+                        Suporte Técnico
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section id="produtos" class="py-20">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-black uppercase mb-4">Nossa <span class="text-hp-red">Especialidade</span></h2>
+                <p class="text-gray-400">Atendemos as necessidades mais pesadas do mercado.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="group relative overflow-hidden rounded-xl bg-gray-900 border border-gray-800" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-hp-red/10 group-hover:bg-hp-red/20 transition-colors z-0"></div>
+                    <div class="p-8 relative z-10 h-full flex flex-col justify-end min-h-[300px]">
+                        <div class="text-hp-red text-4xl mb-4">🚜</div>
+                        <h3 class="text-2xl font-bold uppercase mb-2">Máquinas Agrícolas</h3>
+                        <p class="text-gray-400 text-sm">Resistência extrema para o trabalho pesado no campo com tratores e implementos.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative overflow-hidden rounded-xl bg-gray-900 border border-gray-800" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-hp-red/10 group-hover:bg-hp-red/20 transition-colors z-0"></div>
+                    <div class="p-8 relative z-10 h-full flex flex-col justify-end min-h-[300px]">
+                        <div class="text-hp-red text-4xl mb-4">🚛</div>
+                        <h3 class="text-2xl font-bold uppercase mb-2">Caminhões pesados</h3>
+                        <p class="text-gray-400 text-sm">Remanufatura de precisão para frotas que não podem parar na estrada.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative overflow-hidden rounded-xl bg-gray-900 border border-gray-800" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-hp-red/10 group-hover:bg-hp-red/20 transition-colors z-0"></div>
+                    <div class="p-8 relative z-10 h-full flex flex-col justify-end min-h-[300px]">
+                        <div class="text-hp-red text-4xl mb-4">🚗</div>
+                        <h3 class="text-2xl font-bold uppercase mb-2">Linha Leve</h3>
+                        <p class="text-gray-400 text-sm">Soluções seguras e econômicas para o dia a dia na cidade e veículos utilitários.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="py-12 bg-hp-red">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+            <div>
+                <h3 class="text-2xl font-black uppercase text-white mb-2">Qualidade Comprovada</h3>
+                <p class="text-red-200 text-sm">Especificações baseadas nas maiores referências do mercado</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8 font-black text-2xl md:text-4xl text-white opacity-80">
+                <span>LUK</span>
+                <span>SACHS</span>
+                <span>EATON</span>
+                <span>LAD</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0a0c10] py-12 border-t border-gray-900 text-center px-4">
+        <p class="text-gray-500 text-sm mb-2">© 2026 HP Embreagens. Direção: Patryck Lourenço.</p>
+        <p class="text-gray-600 text-xs">Telefones: (91) 98895-1966 | 98297-1522</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true, duration: 800 });</script>
+</body>
+</html>

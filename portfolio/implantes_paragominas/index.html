@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implantes Paragominas | Transformando Vidas Através do Sorriso</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Configuração de Cores Premium (Odontologia) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0A2540',    /* Azul Escuro Premium */
+                            blue: '#005b96',    /* Azul Odonto */
+                            cyan: '#00A8CC',    /* Ciano para destaques */
+                            light: '#F4F7F9',   /* Fundo Cinza Claro */
+                            gold: '#C5A880'     /* Dourado para detalhes de luxo */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            scroll-behavior: smooth; 
+            background-color: #F4F7F9;
+        }
+        
+        /* Fundo do Hero com Overlay Profissional */
+        .hero-bg {
+            background: linear-gradient(to right, rgba(10, 37, 64, 0.95) 0%, rgba(10, 37, 64, 0.8) 50%, rgba(10, 37, 64, 0.2) 100%), 
+                        url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        /* Fundo da Seção de Autoridade */
+        .doctor-bg {
+            background: linear-gradient(to right, rgba(244, 247, 249, 1) 0%, rgba(244, 247, 249, 0.6) 60%, rgba(244, 247, 249, 0.3) 100%), 
+                        url('images/dr_italo.webp') right/cover no-repeat;
+        }
+
+        /* Estilização do FAQ (Accordion) */
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased overflow-x-hidden">
+
+    <!-- HEADER FLUTUANTE -->
+    <header class="fixed w-full bg-white/95 backdrop-blur-md shadow-sm z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-brand-cyan rounded-lg flex items-center justify-center text-white font-bold text-xl">IP</div>
+                <div class="text-brand-navy font-bold text-lg sm:text-xl tracking-tight leading-none">
+                    Implantes<br><span class="text-brand-cyan text-xs sm:text-sm font-semibold">Paragominas</span>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-8 font-medium text-sm text-gray-600">
+                <a href="#tratamentos" class="hover:text-brand-cyan transition-colors">Tratamentos</a>
+                <a href="#clinica" class="hover:text-brand-cyan transition-colors">A Clínica</a>
+                <a href="#depoimentos" class="hover:text-brand-cyan transition-colors">Depoimentos</a>
+            </nav>
+            <a href="https://api.whatsapp.com/send?phone=5591992003100" target="_blank" class="bg-brand-navy text-white px-4 sm:px-6 py-2.5 rounded-full font-semibold text-xs sm:text-sm hover:bg-blue-900 transition-all shadow-lg shadow-blue-900/20 flex items-center gap-2">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766 0 1.011.263 1.998.763 2.868l-.816 2.98 3.048-.801a5.74 5.74 0 002.773.712h.001c3.181 0 5.767-2.586 5.768-5.766-.001-3.181-2.587-5.759-5.769-5.759m0-1.745c4.143 0 7.514 3.371 7.515 7.504 0 4.133-3.372 7.504-7.515 7.504h-.002a7.48 7.48 0 01-3.82-.1043l-4.254 1.117 1.137-4.145a7.48 7.48 0 01-1.066-3.826c.001-4.133 3.372-7.504 7.515-7.504z"/></svg>
+                <span class="hidden sm:inline">Agendar Avaliação</span>
+                <span class="sm:hidden">Agendar</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (ALINHADO À ESQUERDA) -->
+    <section class="hero-bg min-h-screen flex items-center pt-24 pb-8 sm:pt-20 sm:pb-0 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <!-- Container do texto restrito à metade esquerda da tela no desktop -->
+            <div class="max-w-2xl text-center sm:text-left mx-auto sm:mx-0" data-aos="fade-right" data-aos-duration="1000">
+                
+                <div class="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 border border-white/20 text-brand-cyan font-semibold text-xs sm:text-sm mb-4 sm:mb-6 backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+                    Clínica Especializada em Implantes
+                </div>
+                
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6 leading-tight tracking-tight">
+                    Recupere a <span class="text-brand-cyan">segurança</span> para sorrir e mastigar.
+                </h1>
+                
+                <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-10 font-light leading-relaxed max-w-xl mx-auto sm:mx-0">
+                    Com mais de 12 anos de experiência, utilizamos tecnologia de ponta para devolver a sua autoestima com implantes dentários definitivos, seguros e de aspecto natural.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 mb-8 sm:mb-0">
+                    <a href="https://api.whatsapp.com/send?phone=5591992003100" target="_blank" class="flex items-center justify-center gap-2 bg-brand-cyan text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-cyan-600 hover:scale-105 transition-all shadow-xl shadow-cyan-600/30">
+                        Quero voltar a sorrir
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="mt-12 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 sm:gap-6 text-white/80 text-sm font-medium">
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        Avaliação Personalizada
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-cyan" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                        Materiais Importados
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NÚMEROS E AUTORIDADE (Social Proof Rápida) -->
+    <section class="bg-white py-8 sm:py-12 border-b border-gray-100 relative z-20 -mt-6 sm:-mt-8 mx-4 md:mx-auto max-w-6xl rounded-2xl shadow-xl">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center md:divide-x divide-gray-100 px-2 sm:px-0">
+            <div data-aos="fade-up" data-aos-delay="0">
+                <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-navy mb-1">+12</div>
+                <div class="text-xs sm:text-sm text-gray-500 font-medium">Anos de Experiência</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-cyan mb-1">+5000</div>
+                <div class="text-xs sm:text-sm text-gray-500 font-medium">Sorrisos Transformados</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200">
+                <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-navy mb-1">100%</div>
+                <div class="text-xs sm:text-sm text-gray-500 font-medium">Foco no Paciente</div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-cyan mb-1">3D</div>
+                <div class="text-xs sm:text-sm text-gray-500 font-medium">Tecnologia Digital</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMPATIA E IDENTIFICAÇÃO DA DOR -->
+    <section class="py-12 sm:py-24 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                <div class="w-full md:w-1/2" data-aos="fade-right">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mulher sorrindo confiante" class="rounded-2xl shadow-2xl">
+                </div>
+                <div class="w-full md:w-1/2" data-aos="fade-left">
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-6 leading-tight">
+                        A falta de um dente afeta muito mais do que a sua estética.
+                    </h2>
+                    <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                        Nós sabemos o quanto é desconfortável evitar certas comidas em um jantar de família, colocar a mão na frente da boca para sorrir em fotos ou viver com o receio de uma prótese móvel falhar em público.
+                    </p>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        O implante dentário não é apenas um pino de titânio. É a devolução da sua <strong>liberdade, confiança e qualidade de vida</strong>. É acordar todos os dias sabendo que seu sorriso está firme e impecável.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3 text-brand-navy font-semibold">
+                            <div class="w-6 h-6 rounded-full bg-brand-cyan/20 flex items-center justify-center text-brand-cyan">✓</div>
+                            Mastigação firme e segura para qualquer alimento.
+                        </li>
+                        <li class="flex items-center gap-3 text-brand-navy font-semibold">
+                            <div class="w-6 h-6 rounded-full bg-brand-cyan/20 flex items-center justify-center text-brand-cyan">✓</div>
+                            Estética natural idêntica aos seus dentes originais.
+                        </li>
+                        <li class="flex items-center gap-3 text-brand-navy font-semibold">
+                            <div class="w-6 h-6 rounded-full bg-brand-cyan/20 flex items-center justify-center text-brand-cyan">✓</div>
+                            Fim das próteses móveis e colas desconfortáveis.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRATAMENTOS E SOLUÇÕES -->
+    <section id="tratamentos" class="py-12 sm:py-24 bg-gradient-to-br from-blue-50 via-cyan-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Odontologia de Alta Performance</h2>
+                <p class="text-gray-600 text-lg">Tratamentos personalizados executados com maestria técnica e materiais de padrão internacional.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white/70 backdrop-blur-sm p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-white/50 hover:border-brand-cyan/30 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Implantes Unitários e Múltiplos</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Substituição de um ou mais dentes perdidos com pinos de titânio de rápida cicatrização, preservando a estrutura óssea do seu rosto.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white/70 backdrop-blur-sm p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-white/50 hover:border-brand-cyan/30 group relative overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute top-0 right-0 bg-brand-gold text-white text-xs font-bold px-3 py-1 rounded-bl-lg">MAIS PROCURADO</div>
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Protocolo Fixo (Carga Imediata)</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        A solução definitiva para quem usa dentadura. Uma prótese completa fixa sobre 4 a 6 implantes. Sorriso novo e fixo em poucos dias.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white/70 backdrop-blur-sm p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border border-white/50 hover:border-brand-cyan/30 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-brand-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-brand-navy mb-3">Estética e Lentes de Contato</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Harmonização do seu sorriso através de lentes em porcelana ultrafinas. Corrigimos cor, formato e alinhamento com desgaste mínimo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE O DR ITALO (AUTORIDADE) -->
+    <section id="clinica" class="doctor-bg py-12 sm:py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl" data-aos="fade-right">
+                <div class="text-brand-cyan font-bold tracking-widest uppercase text-sm mb-2">O Especialista</div>
+                <h2 class="text-3xl md:text-5xl font-bold text-brand-navy mb-6">Dr. Italo</h2>
+                <h3 class="text-xl text-gray-700 mb-6 font-medium">Cirurgião Dentista Especialista em Implantodontia</h3>
+                
+                <p class="text-gray-600 text-lg mb-6 leading-relaxed">
+                    Comandando a Implantes Paragominas, o Dr. Italo dedicou mais de uma década ao estudo e prática da reabilitação oral avançada. Nosso objetivo nunca foi apenas colocar dentes, mas sim entender a história de cada paciente e devolver a vontade de sorrir para a vida.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-6 mb-10">
+                    <div class="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-white">
+                        <div class="text-2xl font-bold text-brand-navy">Exatidão</div>
+                        <div class="text-sm text-gray-600 mt-1">Planejamento 100% digital pré-cirúrgico.</div>
+                    </div>
+                    <div class="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-white">
+                        <div class="text-2xl font-bold text-brand-navy">Conforto</div>
+                        <div class="text-sm text-gray-600 mt-1">Técnicas minimamente invasivas e sedação.</div>
+                    </div>
+                </div>
+
+                <a href="https://api.whatsapp.com/send?phone=5591992003100" target="_blank" class="inline-block bg-brand-navy text-white px-8 py-4 rounded-full font-bold hover:bg-blue-900 transition-colors">
+                    Conhecer a Clínica
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="py-12 sm:py-24 bg-gradient-to-br from-blue-50 via-cyan-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8 sm:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Vidas Transformadas</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Não ouça apenas o que nós dizemos. Veja o que nossos pacientes sentem após recuperar o sorriso.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Depoimento 1 -->
+                <div class="bg-white/70 backdrop-blur-sm p-8 rounded-2xl relative border border-white/50" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-brand-cyan text-4xl font-serif absolute top-4 right-6 opacity-30">"</div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gray-300 rounded-full bg-[url('https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80')] bg-cover"></div>
+                        <div>
+                            <div class="font-bold text-brand-navy">Maria Silva</div>
+                            <div class="text-sm text-brand-gold font-bold">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">Foi a melhor decisão que tomei. Sofri anos com uma prótese que machucava. O Dr. Italo me passou muita segurança desde a primeira consulta. O procedimento foi tranquilo e hoje como até maçã sem medo!</p>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="bg-white/70 backdrop-blur-sm p-8 rounded-2xl relative border border-white/50" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-brand-cyan text-4xl font-serif absolute top-4 right-6 opacity-30">"</div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gray-300 rounded-full bg-[url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80')] bg-cover"></div>
+                        <div>
+                            <div class="font-bold text-brand-navy">João Paulo</div>
+                            <div class="text-sm text-brand-gold font-bold">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">Profissionalismo nota 10. A clínica é impecável e a tecnologia que eles usam deixa tudo mais fácil. Fiz um protocolo superior e parecem meus dentes naturais. Recomendo de olhos fechados.</p>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="bg-white/70 backdrop-blur-sm p-8 rounded-2xl relative border border-white/50" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-brand-cyan text-4xl font-serif absolute top-4 right-6 opacity-30">"</div>
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gray-300 rounded-full bg-[url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80')] bg-cover"></div>
+                        <div>
+                            <div class="font-bold text-brand-navy">Ana Lúcia</div>
+                            <div class="text-sm text-brand-gold font-bold">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">Eu tinha muito medo de dentista, mas a equipe foi tão acolhedora que o medo sumiu. Meu implante ficou perfeito, ninguém diz que não é meu dente de verdade. Gratidão eterna a toda equipe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-12 sm:py-24 bg-gradient-to-br from-blue-50 via-cyan-50 to-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-8 sm:mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-navy mb-4">Dúvidas Frequentes</h2>
+                <p class="text-gray-600">Esclareça suas principais dúvidas sobre o procedimento de implantes.</p>
+            </div>
+
+            <div class="space-y-4" data-aos="fade-up">
+                <details class="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm cursor-pointer group border border-white/50">
+                    <summary class="font-bold text-brand-navy text-lg flex justify-between items-center outline-none">
+                        Colocar implante dói?
+                        <span class="text-brand-cyan text-2xl group-open:rotate-45 transition-transform">+</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed">
+                        Não. O procedimento é realizado com anestesia local, garantindo que você não sinta dor durante a cirurgia. O pós-operatório é super tranquilo e receitamos todas as medicações necessárias para o seu conforto em casa.
+                    </p>
+                </details>
+
+                <details class="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm cursor-pointer group border border-white/50">
+                    <summary class="font-bold text-brand-navy text-lg flex justify-between items-center outline-none">
+                        Qualquer pessoa pode fazer implante?
+                        <span class="text-brand-cyan text-2xl group-open:rotate-45 transition-transform">+</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed">
+                        A grande maioria das pessoas pode realizar o tratamento. Na sua primeira avaliação, fazemos exames de imagem e uma avaliação de saúde geral para garantir que você tem a estrutura óssea adequada. Caso não tenha, existem técnicas de enxerto ósseo para resolver.
+                    </p>
+                </details>
+
+                <details class="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-sm cursor-pointer group border border-white/50">
+                    <summary class="font-bold text-brand-navy text-lg flex justify-between items-center outline-none">
+                        Quanto tempo demora o tratamento?
+                        <span class="text-brand-cyan text-2xl group-open:rotate-45 transition-transform">+</span>
+                    </summary>
+                    <p class="text-gray-600 mt-4 leading-relaxed">
+                        O tempo varia muito de acordo com cada caso e a qualidade do seu osso. Em alguns casos de Carga Imediata, você sai com dentes fixos em poucos dias. Em casos convencionais, o osso leva de 3 a 6 meses para cicatrizar ao redor do pino antes de colocarmos a coroa definitiva.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-12 sm:py-24 bg-brand-navy relative overflow-hidden">
+        <div class="absolute inset-0 bg-brand-cyan opacity-10 mix-blend-overlay"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10" data-aos="zoom-in">
+            <h2 class="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-4 sm:mb-6">Seu novo sorriso começa com uma mensagem.</h2>
+            <p class="text-blue-100 text-base sm:text-lg mb-6 sm:mb-10">Dê o primeiro passo para resgatar sua autoestima. Nossa equipe está pronta para tirar todas as suas dúvidas no WhatsApp.</p>
+            <a href="https://api.whatsapp.com/send?phone=5591992003100" target="_blank" class="inline-flex items-center gap-3 bg-green-500 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-lg sm:text-xl hover:bg-green-600 hover:scale-105 transition-all shadow-2xl shadow-green-500/30">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766 0 1.011.263 1.998.763 2.868l-.816 2.98 3.048-.801a5.74 5.74 0 002.773.712h.001c3.181 0 5.767-2.586 5.768-5.766-.001-3.181-2.587-5.759-5.769-5.759m0-1.745c4.143 0 7.514 3.371 7.515 7.504 0 4.133-3.372 7.504-7.515 7.504h-.002a7.48 7.48 0 01-3.82-.1043l-4.254 1.117 1.137-4.145a7.48 7.48 0 01-1.066-3.826c.001-4.133 3.372-7.504 7.515-7.504z"/></svg>
+                Falar com a Equipe
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#051320] pt-12 sm:pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
+                <div>
+                    <div class="text-white font-bold text-2xl tracking-tight leading-none mb-4">
+                        Implantes<br><span class="text-brand-cyan text-sm font-semibold">Paragominas</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Transformando vidas através do sorriso. Há mais de 12 anos entregando excelência em reabilitação oral e estética.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>WhatsApp: (91) 99200-3100</li>
+                        <li>Paragominas - PA</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Horário de Atendimento</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li>Segunda a Sexta: 08h às 18h</li>
+                        <li>Sábado: 08h às 12h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-center text-gray-500 text-xs">
+                <p>© 2026 Implantes Paragominas. Todos os direitos reservados. RT: Dr. Italo.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true, duration: 800, offset: 50 });</script>
+</body>
+</html>

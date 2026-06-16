@@ -125,15 +125,42 @@
     .portfolio-bg{position:absolute;top:50%;right:-10%;transform:translateY(-50%);width:500px;height:auto;opacity:0.08;z-index:0;pointer-events:none;}
     .portfolio-section .cf-wrap{position:relative;z-index:1;text-align:center;}
     
+    .before-after-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:24px;
+      margin-top:64px;
+      align-items:start;
+    }
+    
     .before-after-container{
-      max-width:900px;
-      margin:64px auto 0;
       position:relative;
       overflow:hidden;
       border-radius:20px;
       border:1px solid var(--cf-border);
       box-shadow:0 12px 48px rgba(0,0,0,0.4);
       background: var(--cf-darker);
+    }
+
+    .screenshot-stack{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      padding:24px;
+    }
+
+    .screenshot-frame{
+      overflow:hidden;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,0.08);
+      background: var(--cf-dark);
+    }
+
+    .screenshot-frame img{
+      width:100%;
+      display:block;
+      height:auto;
+      object-fit:cover;
     }
     
     .before-after-wrapper{
@@ -184,9 +211,9 @@
     .slider-line::after{content:'⟷';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:24px;font-weight:700;color:#fff;z-index:1;}
     .before-after-wrapper:active .slider-line::before{transform:translate(-50%,-50%) scale(1.1);}
     
-    .before-label,.after-label{position:absolute;top:24px;padding:8px 20px;background:rgba(10,15,30,0.95);border:1px solid var(--cf-border);border-radius:8px;font-size:14px;font-weight:600;color:var(--cf-text);z-index:15;backdrop-filter:blur(8px);}
+    .before-label,.after-label{position:absolute;top:24px;padding:8px 20px;background:rgba(10,15,30,0.95);border:1px solid var(--cf-border);border-radius:8px;font-size:14px;font-weight:600;color:var(--cf-text);z-index:15;backdrop-filter:blur(8px);transition:opacity 0.3s;}
     .before-label{left:24px;}
-    .after-label{right:24px;}
+    .after-label{right:24px;opacity:0;}
     
     .drag-hint{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);padding:10px 24px;background:rgba(14,165,233,0.15);border:1px solid rgba(14,165,233,0.3);border-radius:999px;font-size:13px;color:var(--cf-cyan);z-index:15;animation:pulse 2s infinite;pointer-events:none;transition:opacity 0.3s;}
     .drag-hint.hidden{opacity:0;}
@@ -269,8 +296,10 @@
       .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:400px;margin-left:auto;margin-right:auto;}
       .sobre-section::before{background-image:url('images/sessaosobrecelular.webp');}
       .portfolio-bg{display:none;}
+      .before-after-grid{grid-template-columns:1fr;}
       .before-after-container{margin-top:48px;border-radius:12px;}
       .before-after-wrapper { aspect-ratio: 1/1; }
+      .screenshot-stack{padding:0 18px 18px;}
       .before-label,.after-label{top:16px;font-size:12px;padding:6px 16px;}
       .before-label{left:16px;}
       .after-label{right:16px;}
@@ -423,14 +452,26 @@
   <div class="cf-wrap">
     <div class="section-badge">Projetos que falam por si</div>
     <h2 class="section-title">A diferença entre existir<br>e se destacar online.</h2>
-    <div class="before-after-container">
-      <div class="before-after-wrapper" id="beforeAfter">
-        <img src="images/piece_0_1.webp" alt="Antes" class="before-after-image before-image" onerror="this.src='https://placehold.co/800x500/eee/333?text=Antes'">
-        <img src="images/piece_0_2.webp" alt="Depois" class="before-after-image after-image" onerror="this.src='https://placehold.co/800x500/333/eee?text=Depois'">
-        <div class="slider-line" id="sliderLine"></div>
-        <div class="before-label">ANTES</div>
-        <div class="after-label">DEPOIS</div>
-        <div class="drag-hint" id="dragHint">← Arraste ou clique →</div>
+    <div class="before-after-grid">
+      <div class="before-after-container reveal">
+        <div class="before-after-wrapper" id="beforeAfter">
+          <img src="images/piece_0_1.webp" alt="Antes" class="before-after-image before-image" onerror="this.src='https://placehold.co/800x500/eee/333?text=Antes'">
+          <img src="images/piece_0_2.webp" alt="Depois" class="before-after-image after-image" onerror="this.src='https://placehold.co/800x500/333/eee?text=Depois'">
+          <div class="slider-line" id="sliderLine"></div>
+          <div class="before-label">ANTES</div>
+          <div class="after-label">DEPOIS</div>
+          <div class="drag-hint" id="dragHint">← Arraste ou clique →</div>
+        </div>
+      </div>
+      <div class="before-after-container reveal">
+        <div class="before-after-wrapper" id="beforeAfter2">
+          <img src="images/antes_regiabeauty.webp" alt="Antes" class="before-after-image before-image" onerror="this.src='https://placehold.co/800x500/eee/333?text=Antes'">
+          <img src="images/depois_regiabeauty.webp" alt="Depois" class="before-after-image after-image" onerror="this.src='https://placehold.co/800x500/333/eee?text=Depois'">
+          <div class="slider-line" id="sliderLine2"></div>
+          <div class="before-label">ANTES</div>
+          <div class="after-label">DEPOIS</div>
+          <div class="drag-hint" id="dragHint2">← Arraste ou clique →</div>
+        </div>
       </div>
     </div>
   </div>
@@ -738,14 +779,27 @@ const counterObserver=new IntersectionObserver((entries)=>{
 document.querySelectorAll('.beneficio-num[data-target]').forEach(el=>counterObserver.observe(el));
 
 // Before/After Slider Interativo - Ajustado para imagens com fundo transparente
-const beforeAfterWrapper=document.getElementById('beforeAfter');
-if(beforeAfterWrapper){
-  const sliderLine=document.getElementById('sliderLine');
+const initBeforeAfterSlider=(wrapperId,lineId,hintId)=>{
+  const beforeAfterWrapper=document.getElementById(wrapperId);
+  if(!beforeAfterWrapper) return;
+
+  const sliderLine=document.getElementById(lineId);
   const afterImage=beforeAfterWrapper.querySelector('.after-image');
-  const beforeImage=beforeAfterWrapper.querySelector('.before-image'); // Adicionado
-  const dragHint=document.getElementById('dragHint');
+  const beforeImage=beforeAfterWrapper.querySelector('.before-image');
+  const dragHint=hintId?document.getElementById(hintId):null;
+  const beforeLabel=beforeAfterWrapper.querySelector('.before-label');
+  const afterLabel=beforeAfterWrapper.querySelector('.after-label');
   let isDragging=false;
   let hasInteracted=false;
+
+  const setSliderPosition=(percentage)=>{
+    sliderLine.style.left=`${percentage}%`;
+    afterImage.style.clipPath=`inset(0 0 0 ${percentage}%)`;
+    beforeImage.style.clipPath=`inset(0 ${100 - percentage}% 0 0)`;
+    
+    if(beforeLabel) beforeLabel.style.opacity = percentage > 15 ? '1' : '0';
+    if(afterLabel) afterLabel.style.opacity = percentage < 85 ? '1' : '0';
+  };
 
   const updateSlider=(clientX)=>{
     const rect=beforeAfterWrapper.getBoundingClientRect();
@@ -753,24 +807,11 @@ if(beforeAfterWrapper){
     x = Math.max(0, Math.min(x, rect.width));
     const percentage=(x/rect.width)*100;
     setSliderPosition(percentage);
-    
+
     if(!hasInteracted&&dragHint){
       dragHint.classList.add('hidden');
       hasInteracted=true;
     }
-  };
-
-  const setSliderPosition=(percentage)=>{
-    sliderLine.style.left=`${percentage}%`;
-    
-    // Corta o lado ESQUERDO da imagem 'Depois' (que fica na direita)
-    afterImage.style.clipPath=`inset(0 0 0 ${percentage}%)`;
-    
-    // A GRANDE MUDANÇA: 
-    // Corta o lado DIREITO da imagem 'Antes' (que fica na esquerda)
-    // Se o slider está em 30%, cortamos os 70% da direita da imagem de baixo.
-    // Assim, partes transparentes não deixam a outra imagem aparecer por trás!
-    beforeImage.style.clipPath=`inset(0 ${100 - percentage}% 0 0)`;
   };
 
   const handleStart=()=>{
@@ -795,21 +836,23 @@ if(beforeAfterWrapper){
     updateSlider(clientX);
   };
 
-  // Inicia 100% visível o Antes
   setSliderPosition(100);
 
   beforeAfterWrapper.addEventListener('mousedown',handleStart);
   document.addEventListener('mouseup',handleEnd);
   document.addEventListener('mousemove',handleMove);
   beforeAfterWrapper.addEventListener('click',handleClick);
-  
-  beforeAfterWrapper.addEventListener('touchstart',(e)=>{
+
+  beforeAfterWrapper.addEventListener('touchstart',()=>{
     handleStart();
   },{passive:true});
-  
+
   document.addEventListener('touchend',handleEnd);
   document.addEventListener('touchmove',handleMove,{passive:false});
-}
+};
+
+initBeforeAfterSlider('beforeAfter','sliderLine','dragHint');
+initBeforeAfterSlider('beforeAfter2','sliderLine2','dragHint2');
 
 // Formulário CTA - Envio para Google Sheets
 const ctaButton=document.getElementById('ctaButton');

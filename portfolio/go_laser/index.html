@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Laser Paragominas | Depilação a Laser</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        laser: {
+                            purple: '#8B5CF6',
+                            pink: '#EC4899',
+                            dark: '#0F172A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; background-color: #FAFAFA; }
+        .gradient-text {
+            background: linear-gradient(to right, #8B5CF6, #EC4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #8B5CF6, #EC4899);
+        }
+        .float-anim {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="text-gray-800 overflow-x-hidden">
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden bg-white">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
+            <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-laser-pink rounded-full mix-blend-multiply filter blur-[128px] opacity-40 float-anim"></div>
+            <div class="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-laser-purple rounded-full mix-blend-multiply filter blur-[128px] opacity-40 float-anim" style="animation-delay: 2s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10 w-full flex flex-col md:flex-row items-center gap-12">
+            <div class="w-full md:w-1/2 text-center md:text-left pt-20 md:pt-0" data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 text-laser-purple font-semibold text-sm mb-6">
+                    <span>✨</span> Tecnologia Hakon 4D
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight text-laser-dark">
+                    Livre-se dos pelos com a <span class="gradient-text">Go Laser</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-8">
+                    Clínica especializada em Depilação a Laser em Paragominas. Sessões rápidas e extremamente confortáveis com nossa ponteira exclusiva que resfria a -12ºC.
+                </p>
+                <div class="p-6 bg-white rounded-2xl shadow-xl border border-gray-100 inline-block text-left mb-8">
+                    <p class="font-bold text-laser-dark mb-2 text-lg">🎁 Presente especial para você</p>
+                    <p class="text-gray-500 mb-4">Clique no botão abaixo e garanta suas sessões cortesia.</p>
+                    <a href="#cadastro" class="block w-full text-center gradient-bg text-white px-8 py-4 rounded-xl font-bold text-lg hover:shadow-lg hover:shadow-purple-500/30 transition-all transform hover:-translate-y-1">
+                        Resgatar 6 Sessões Grátis
+                    </a>
+                </div>
+            </div>
+            
+            <div class="w-full md:w-1/2 relative" data-aos="fade-left">
+                <!-- Placeholder for high quality aesthetic image -->
+                <div class="aspect-[4/5] bg-gray-200 rounded-[40px] overflow-hidden shadow-2xl relative">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pele lisa e macia" class="w-full h-full object-cover">
+                    <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full gradient-bg flex items-center justify-center text-white text-xl">❄️</div>
+                        <div>
+                            <p class="font-bold text-laser-dark">Ponteira -12ºC</p>
+                            <p class="text-sm text-gray-600">Máximo conforto na aplicação</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-5xl font-bold text-laser-dark mb-4">Por que escolher a Go Laser?</h2>
+                <p class="text-gray-600 text-lg">Esqueça a dor da cera e as lâminas. O futuro da depilação chegou.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold text-laser-dark mb-2">Sessões Rápidas</h3>
+                    <p class="text-gray-600">A tecnologia Hakon 4D permite cobrir áreas maiores em menos tempo. Otimize sua rotina.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl mb-4">🧊</div>
+                    <h3 class="text-xl font-bold text-laser-dark mb-2">Zero Sofrimento</h3>
+                    <p class="text-gray-600">Nossa ponteira atinge -12ºC protegendo sua pele e tornando o tratamento extremamente confortável.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold text-laser-dark mb-2">Resultado Efetivo</h3>
+                    <p class="text-gray-600">Adequado para todos os tipos de pele. Destrói o folículo piloso garantindo pele lisa por muito mais tempo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Footer -->
+    <section id="cadastro" class="py-24 relative bg-laser-dark overflow-hidden">
+        <div class="absolute inset-0 gradient-bg opacity-20"></div>
+        <div class="max-w-3xl mx-auto px-4 relative z-10 text-center" data-aos="zoom-in">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Comece sua transformação hoje</h2>
+            <p class="text-gray-300 text-lg mb-10">Estamos na Travessa Estado de Sergipe, 111 - Centro, Paragominas. Fale com nossa equipe e agende sua cortesia.</p>
+            <a href="#" class="inline-flex items-center gap-2 bg-white text-laser-purple px-10 py-5 rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-2xl">
+                Agendar via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ once: true, duration: 800 });</script>
+</body>
+</html>
